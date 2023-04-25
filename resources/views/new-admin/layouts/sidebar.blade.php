@@ -16,7 +16,7 @@
             <ul class="navbar-nav">
                 <li class="nav-item">
                     <a href="{{ route('admin-dashboard') }}"
-                        class="nav-link text-white {{ (request()->is('admin/dashboard*')) ? 'active bg-primary' : '' }}">
+                        class="nav-link text-white {{ (request()->is('admin/dashboard*')) ? 'active bg-gradient-info' : '' }}">
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="fas fa-circle opacity-10"></i>
                         </div>
@@ -31,7 +31,7 @@
 
                 <li class="nav-item">
                     <a href="{{ route('product-category.index') }}"
-                        class="nav-link text-white {{ (request()->is('admin/product-category')) ? 'active bg-primary' : '' }}">
+                        class="nav-link text-white {{ (request()->is('admin/product-category')) ? 'active bg-gradient-info' : '' }}">
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="fas fa-circle opacity-10"></i>
                         </div>
@@ -40,7 +40,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="{{ route('admin-product') }}"
-                        class="nav-link text-white {{ (request()->is('admin/product')) ? 'active bg-primary' : '' }}">
+                        class="nav-link text-white {{ (request()->is('admin/product')) ? 'active bg-gradient-info' : '' }}">
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="fas fa-circle opacity-10"></i>
                         </div>
@@ -56,7 +56,7 @@
 
                 <li class="nav-item">
                     <a href="{{ route('blog.index') }}"
-                        class="nav-link text-white {{ (request()->is('admin/blog')) ? 'active bg-primary' : '' }}">
+                        class="nav-link text-white {{ (request()->is('admin/blog')) ? 'active bg-gradient-info' : '' }}">
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="fas fa-circle opacity-10"></i>
                         </div>
@@ -65,7 +65,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="{{ route('client.index') }}"
-                        class="nav-link text-white {{ (request()->is('admin/client')) ? 'active bg-primary' : '' }}">
+                        class="nav-link text-white {{ (request()->is('admin/client')) ? 'active bg-gradient-info' : '' }}">
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="fas fa-circle opacity-10"></i>
                         </div>
@@ -74,7 +74,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="{{ route('facility.index') }}"
-                        class="nav-link text-white {{ (request()->is('admin/facility')) ? 'active bg-primary' : '' }}">
+                        class="nav-link text-white {{ (request()->is('admin/facility')) ? 'active bg-gradient-info' : '' }}">
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="fas fa-circle opacity-10"></i>
                         </div>
@@ -83,7 +83,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="{{ route('machine.index') }}"
-                        class="nav-link text-white {{ (request()->is('admin/machine')) ? 'active bg-primary' : '' }}">
+                        class="nav-link text-white {{ (request()->is('admin/machine')) ? 'active bg-gradient-info' : '' }}">
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="fas fa-circle opacity-10"></i>
                         </div>
@@ -100,7 +100,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="{{ route('installation.index') }}"
-                        class="nav-link text-white {{ (request()->is('admin/installation')) ? 'active bg-primary' : '' }}">
+                        class="nav-link text-white {{ (request()->is('admin/installation')) ? 'active bg-gradient-info' : '' }}">
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="fas fa-circle opacity-10"></i>
                         </div>
@@ -109,7 +109,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="/admin/profile"
-                        class="nav-link text-white {{ (request()->is('admin/profile')) ? 'active bg-primary' : '' }}">
+                        class="nav-link text-white {{ (request()->is('admin/profile')) ? 'active bg-gradient-info' : '' }}">
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="fas fa-circle opacity-10"></i>
                         </div>
@@ -118,7 +118,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="{{ route('slider.index') }}"
-                        class="nav-link text-white {{ (request()->is('admin/slider')) ? 'active bg-primary' : '' }}">
+                        class="nav-link text-white {{ (request()->is('admin/slider')) ? 'active bg-gradient-info' : '' }}">
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="fas fa-circle opacity-10"></i>
                         </div>
@@ -147,7 +147,7 @@
 
                 <li class="nav-item">
                     <a href="{{ route('user.index') }}"
-                        class="nav-link text-white {{ (request()->is('admin/user')) ? 'active bg-primary' : '' }}">
+                        class="nav-link text-white {{ (request()->is('admin/user')) ? 'active bg-gradient-info' : '' }}">
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="fas fa-circle opacity-10"></i>
                         </div>
@@ -156,7 +156,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="{{ route('paymentConfirmation.index') }}"
-                        class="nav-link text-white {{ (request()->is('admin/paymentConfirmation')) ? 'active bg-primary' : '' }}">
+                        class="nav-link text-white {{ (request()->is('admin/paymentConfirmation')) ? 'active bg-gradient-info' : '' }}">
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="fas fa-circle opacity-10"></i>
                         </div>
@@ -165,7 +165,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="{{ route('transaction.index') }}"
-                        class="nav-link text-white {{ (request()->is('admin/transaction')) ? 'active bg-primary' : '' }}">
+                        class="nav-link text-white {{ (request()->is('admin/transaction')) ? 'active bg-gradient-info' : '' }}">
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="fas fa-circle opacity-10"></i>
                         </div>
