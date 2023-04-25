@@ -1,45 +1,3 @@
-<!--
-=========================================================
-* Material Dashboard 2 - v3.0.5
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/material-dashboard
-* Copyright 2023 Creative Tim (https://www.creative-tim.com)
-* Licensed under MIT (https://www.creative-tim.com/license)
-* Coded by Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
--->
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
-    <link rel="icon" type="image/png" href="../assets/img/favicon.png">
-    <title>
-        Material Dashboard 2 by Creative Tim
-    </title>
-    <!--     Fonts and icons     -->
-    <link rel="stylesheet" type="text/css"
-        href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
-    <!-- Nucleo Icons -->
-    <link href="../assets/css/nucleo-icons.css" rel="stylesheet" />
-    <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
-    <!-- Font Awesome Icons -->
-    <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
-    <!-- Material Icons -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
-    <!-- CSS Files -->
-    <link id="pagestyle" href="../assets/css/material-dashboard.css?v=3.0.5" rel="stylesheet" />
-    <!-- Nepcha Analytics (nepcha.com) -->
-    <!-- Nepcha is a easy-to-use web analytics. No cookies and fully compliant with GDPR, CCPA and PECR. -->
-    <script defer data-site="YOUR_DOMAIN_HERE" src="https://api.nepcha.com/js/nepcha-analytics.js"></script>
-</head>
-
 <body class="g-sidenav-show  bg-gray-200">
     <aside
         class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3   bg-gradient-dark"
@@ -57,7 +15,8 @@
         <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a href="{{ route('admin-dashboard') }}" class="nav-link text-white active bg-gradient-primary">
+                    <a href="{{ route('admin-dashboard') }}"
+                        class="nav-link text-white {{ (request()->is('admin/dashboard*')) ? 'active bg-primary' : '' }}">
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="fas fa-circle opacity-10"></i>
                         </div>
@@ -65,17 +24,27 @@
                     </a>
                 </li>
 
-                {{-- COMPONENT PAGE --}}
+                {{-- CV PAGE --}}
                 <li class="nav-item mt-3">
-                    <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">COMPONENT PAGE
-                    </h6>
+                    <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">E-COMMERCE</h6>
                 </li>
+
                 <li class="nav-item">
-                    <a class="nav-link text-white " href="../pages/profile.html">
+                    <a href="{{ route('product-category.index') }}"
+                        class="nav-link text-white {{ (request()->is('admin/product-category')) ? 'active bg-primary' : '' }}">
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="fas fa-circle opacity-10"></i>
                         </div>
-                        <span class="nav-link-text ms-1">Profile</span>
+                        <span class="nav-link-text ms-1">Kategori Produk</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('admin-product') }}"
+                        class="nav-link text-white {{ (request()->is('admin/product')) ? 'active bg-primary' : '' }}">
+                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="fas fa-circle opacity-10"></i>
+                        </div>
+                        <span class="nav-link-text ms-1">Produk</span>
                     </a>
                 </li>
 
@@ -84,42 +53,123 @@
                     <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">CV PAGE
                     </h6>
                 </li>
+
                 <li class="nav-item">
-                    <a class="nav-link text-white " href="../pages/profile.html">
+                    <a href="{{ route('blog.index') }}"
+                        class="nav-link text-white {{ (request()->is('admin/blog')) ? 'active bg-primary' : '' }}">
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="material-icons opacity-10">person</i>
+                            <i class="fas fa-circle opacity-10"></i>
                         </div>
-                        <span class="nav-link-text ms-1">Profile</span>
+                        <span class="nav-link-text ms-1">Blog</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('client.index') }}"
+                        class="nav-link text-white {{ (request()->is('admin/client')) ? 'active bg-primary' : '' }}">
+                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="fas fa-circle opacity-10"></i>
+                        </div>
+                        <span class="nav-link-text ms-1">Client</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('facility.index') }}"
+                        class="nav-link text-white {{ (request()->is('admin/facility')) ? 'active bg-primary' : '' }}">
+                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="fas fa-circle opacity-10"></i>
+                        </div>
+                        <span class="nav-link-text ms-1">Fasilitas</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('machine.index') }}"
+                        class="nav-link text-white {{ (request()->is('admin/machine')) ? 'active bg-primary' : '' }}">
+                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="fas fa-circle opacity-10"></i>
+                        </div>
+                        <span class="nav-link-text ms-1">Mesin</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/admin/facilityandmachine" class="nav-link text-white">
+                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="fas fa-circle opacity-10"></i>
+                        </div>
+                        <span class="nav-link-text ms-1">Fasilitas & Mesin</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('installation.index') }}"
+                        class="nav-link text-white {{ (request()->is('admin/installation')) ? 'active bg-primary' : '' }}">
+                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="fas fa-circle opacity-10"></i>
+                        </div>
+                        <span class="nav-link-text ms-1">Pemasangan</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/admin/profile"
+                        class="nav-link text-white {{ (request()->is('admin/profile')) ? 'active bg-primary' : '' }}">
+                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="fas fa-circle opacity-10"></i>
+                        </div>
+                        <span class="nav-link-text ms-1">Profil Perusahan</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('slider.index') }}"
+                        class="nav-link text-white {{ (request()->is('admin/slider')) ? 'active bg-primary' : '' }}">
+                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="fas fa-circle opacity-10"></i>
+                        </div>
+                        <span class="nav-link-text ms-1">Slider</span>
                     </a>
                 </li>
 
-                {{-- CADANGAN --}}
+                {{-- COMPONENT PAGE --}}
                 <li class="nav-item mt-3">
-                    <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Account pages
+                    <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">LAINNYA</h6>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white " href="/admin/homecontent">
+                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="fas fa-circle opacity-10"></i>
+                        </div>
+                        <span class="nav-link-text ms-1">User Home Page</span>
+                    </a>
+                </li>
+
+                {{-- MANAGEMENT PAGE --}}
+                <li class="nav-item mt-3">
+                    <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">MANAGEMENT USER
                     </h6>
                 </li>
+
                 <li class="nav-item">
-                    <a class="nav-link text-white " href="../pages/profile.html">
+                    <a href="{{ route('user.index') }}"
+                        class="nav-link text-white {{ (request()->is('admin/user')) ? 'active bg-primary' : '' }}">
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="fas fa-circle"></i>
+                            <i class="fas fa-circle opacity-10"></i>
                         </div>
-                        <span class="nav-link-text ms-1">Profile</span>
+                        <span class="nav-link-text ms-1">User</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white " href="../pages/sign-in.html">
+                    <a href="{{ route('paymentConfirmation.index') }}"
+                        class="nav-link text-white {{ (request()->is('admin/paymentConfirmation')) ? 'active bg-primary' : '' }}">
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="material-icons opacity-10">login</i>
+                            <i class="fas fa-circle opacity-10"></i>
                         </div>
-                        <span class="nav-link-text ms-1">Sign In</span>
+                        <span class="nav-link-text ms-1">Konfirmasi Pembayaran</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white " href="../pages/sign-up.html">
+                    <a href="{{ route('transaction.index') }}"
+                        class="nav-link text-white {{ (request()->is('admin/transaction')) ? 'active bg-primary' : '' }}">
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="material-icons opacity-10">assignment</i>
+                            <i class="fas fa-circle opacity-10"></i>
                         </div>
-                        <span class="nav-link-text ms-1">Sign Up</span>
+                        <span class="nav-link-text ms-1">Transaksi Customer</span>
                     </a>
                 </li>
             </ul>

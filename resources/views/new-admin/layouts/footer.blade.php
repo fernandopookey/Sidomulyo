@@ -127,23 +127,28 @@
 <script src="{{ asset('new-admin/js/chartjs.min.js') }}" defer></script>
 <script src="{{ asset('new-admin/js/material-dashboard.min.js?v=3.0.5') }}" defer></script>
 
-<!--   Core JS Files   -->
-{{-- <script src={{ asset('new-admin/js/core/popper.min.js') }}></script> --}}
-{{-- <script src={{ asset('new-admin/js/core/bootstrap.min.js') }}></script> --}}
-{{-- <script src="../assets/js/core/bootstrap.min.js"></script> --}}
+{{-- <script src="/new-admin/js/popper.min.js" defer></script>
+<script src="/new-admin/js/bootstrap.min.js" defer></script>
+<script src="/new-admin/js/perfect-scrollbar.min.js" defer></script>
+<script src="/new-admin/js/chartjs.min.js" defer></script>
+<script src="/new-admin/js/material-dashboard.min.js?v=3.0.5" defer></script> --}}
 
-{{-- <script src={{ asset('new-admin/js/core/perfect-scrollbar.min.js') }}></script> --}}
-{{-- <script src="../assets/js/plugins/perfect-scrollbar.min.js"></script> --}}
 
-{{-- <script src={{ asset('new-admin/js/core/smooth-scrollbar.min.js') }}></script> --}}
-{{-- <script src="../assets/js/plugins/smooth-scrollbar.min.js"></script> --}}
 
-{{-- <script src={{ asset('new-admin/js/core/chartjs.min.js') }}></script> --}}
-{{-- <script src="../assets/js/plugins/chartjs.min.js"></script> --}}
-
-{{-- <script src="../assets/js/material-dashboard.min.js?v=3.0.5"></script> --}}
-{{-- <script src={{ asset('new-admin/js/core/material-dashboard.min.js') }}></script> --}}
+<!-- Github buttons -->
 <script async defer src="https://buttons.github.io/buttons.js"></script>
+<!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
+{{-- <script src="/new-admin/js/material-dashboard.min.js?v=3.0.5"></script> --}}
+
+<script>
+  var win = navigator.platform.indexOf('Win') > -1;
+    if (win && document.querySelector('#sidenav-scrollbar')) {
+      var options = {
+        damping: '0.5'
+      }
+      Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
+    }
+</script>
 
 <script>
   var ctx = document.getElementById("chart-bars").getContext("2d");
@@ -392,19 +397,25 @@
       },
     });
 </script>
+
+@stack('prepend-script')
+
+<script src="/vendor/jquery/jquery.min.js"></script>
+<script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.datatables.net/v/dt/dt-1.13.3/datatables.min.js"></script>
+<script></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
-  var win = navigator.platform.indexOf('Win') > -1;
-    if (win && document.querySelector('#sidenav-scrollbar')) {
-      var options = {
-        damping: '0.5'
-      }
-      Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
-    }
+  AOS.init();
 </script>
-<!-- Github buttons -->
-<script async defer src="https://buttons.github.io/buttons.js"></script>
-<!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
-<script src="../assets/js/material-dashboard.min.js?v=3.0.5"></script>
+<script>
+  $('#menu-toggled').click(function (e) {
+  e.preventDefault();
+  $('#wrapper').toggleClass('toggled');
+  })
+</script>
+@stack('addon-script')
+
 </body>
 
 </html>

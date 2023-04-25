@@ -295,8 +295,7 @@
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="{{ route('logout') }}" class="nav-link" onclick="event.preventDefault();
-                                                document.getElementById('logout-form').submit();"
-                                class="dropdown-item">
+                                document.getElementById('logout-form').submit();" class="dropdown-item">
                                 <i class="nav-icon fas fa-sign-out-alt"></i>
                                 <p>Logout</p>
                             </a>
