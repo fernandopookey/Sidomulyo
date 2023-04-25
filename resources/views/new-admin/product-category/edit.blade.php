@@ -9,12 +9,10 @@
                         @csrf
                         <div class="row">
                             <div class="col-md-12 mb-3">
-                                <div class="ms-md-auto pe-md-3 d-flex align-items-center">
-                                    <div class="input-group input-group-outline">
-                                        <label class="form-label">Nama Produk</label>
-                                        <input type="text" name="name" class="form-control"
-                                            value="{{ $product_category->name }}" autocomplete="off">
-                                    </div>
+                                <div class="input-group input-group-static mb-4">
+                                    <label>Kategori Produk</label>
+                                    <input type="text" name="name" class="form-control"
+                                        value="{{ $product_category->name }}" autocomplete="off">
                                 </div>
                             </div>
                             <div class="col-md-12">
