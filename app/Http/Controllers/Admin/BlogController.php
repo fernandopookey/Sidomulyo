@@ -50,7 +50,7 @@ class BlogController extends Controller
             })->rawColumns(['action', 'photos'])->make();
         }
 
-        return view('admin.layouts.wrapper', $data);
+        return view('new-admin.layouts.wrapper', $data);
     }
 
     public function create()
