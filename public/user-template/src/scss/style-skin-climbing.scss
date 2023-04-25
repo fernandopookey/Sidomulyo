@@ -1,0 +1,1031 @@
+/*---------------------------------------*/
+/*--------   Table of contents   --------*/
+/*---------------------------------------*/
+/*
+1. External module
+	1.1 Bootstrap
+	1.2 Slick carousel
+	1.3 Slider Revolution
+	1.4 Perfect Scrollbar
+	1.5 Magnific popup
+2. Fonts
+	2.1 Font Family
+	2.2 Fonts Icons
+3. Variables
+4. Typography
+5. Header
+6. Footer
+7. Product item
+8. Product Single
+9. Product listing
+10. Loader
+11. Promo
+12. Tabs
+13 Pages
+14. Slider Revolution and Slick
+15. Modal
+16. Blog
+17. Instagram
+18. Content layout
+19. Foorm layout
+20. Portfolio pages
+21. Breadcrumb
+22. Back to top
+23. Tooltip
+24. Demo Switch
+25. AddThis Dashboard
+---------------------------------------*/
+
+
+/*---------------------------------------*/
+/*--------   1. External module  --------*/
+/*---------------------------------------*/
+/*-------  1.1 Bootstrap  --------*/
+@import "../external/bootstrap/scss/bootstrap.scss";
+/*-------  1.2 Slick carousel  --------*/
+@import "../../node_modules/slick-carousel/slick/slick.scss";
+/*-------  1.3 Perfect Scrollbar  --------*/
+@import "../external/perfect-scrollbar/perfect-scrollbar.scss";
+/*-------  1.4 Magnific popup  --------*/
+@import "../external/magnific-popup/magnific-popup.scss";
+/*---------------------------------------*/
+/*--------         2. Fonts      --------*/
+/*---------------------------------------*/
+/*-------  2.1 Font Family  --------*/
+@import "../fonts/font-family.scss";
+/*-------  2.2 Fonts Icons  --------*/
+@import "../font-icons/style.scss";
+/*---------------------------------------*/
+/*----       3. Variables              --*/
+/*---------------------------------------*/
+/*
+	Theme variables
+*/
+/* font */
+$default_font:								'Neue Einstellung', sans-serif;
+
+/* default */
+$default_bg_color:							#ffffff;
+$default_text_color:						#777777;
+
+$default_color:								#FF7A00;
+$default_color2:							#00384E;
+$default_color3:							#D0D0D0;
+$default_color4:							#EBEBEB;
+$default_color5:							#f8f8f8;
+$default_title_color:						$default_color2;
+$default_title_hover:						$default_color;
+
+$link_color_base:							$default_text_color;
+$simple_links_hover_speed:					0.2s;
+$border:									#ebebeb;
+$speed:										$simple_links_hover_speed;
+
+/* Colors */
+$base-color: 								$default_color;
+$base-dark-color:							$default_color2;
+$white-color:								#ffffff;
+$pt-light-green-color:						#08da97;
+$color-bg-01:								#add8e6;
+$color-bg-02:								#fe9001;
+$color-bg-03:								#808080;
+$color-bg-04:								#f06292;
+$color-bg-05:								#9675ce;
+$color-bg-06:								#64b5f6;
+$color-bg-07:								#caf1f6;
+$color-bg-08:								#80c783;
+$color-bg-09:								#dde776;
+$color-bg-10:								#000000;
+$color-bg-11:								#DD9964;
+$color-bg-12:								#17A4A6;
+$color-bg-13:								#4C4C4C;
+$color-bg-14:								#F4F4F5;
+$color-bg-15:								#FFC8B2;
+$color-bg-16:								#B8B8B8;
+/*
+	Rating
+*/
+$rating_star:								#FFBA0A;
+$rating_star_empty:							$default_color4;
+/*
+	Pagination
+*/
+$pagination_link:							#333333;
+$pagination_link_border:					#EBEBEB;
+$pagination_link_border_hover:				#333333;
+$pagination_btn_link:						#333333;
+$pagination_btn_link_hover:					$default_color;
+/*
+	label
+*/
+$label_new_text:							#ffffff;
+$label_new_bg:								#327FD9;
+$label_sale_text:							#ffffff;
+$label_sale_bg:								#E12C43;
+$label_our_fatured_text:					#ffffff;
+$label_our_fatured_bg:						#ffba0a;
+$label_out_stock_text:						#ffffff;
+$label_out_stock_bg:						#333333;
+$label_in_stock_text:						#ffffff;
+$label_in_stock_bg:							#48CAB2;
+$label_out_stock_bg:						#333333;
+$label_out_text:							#ffffff;
+/*
+	Back to top
+*/
+$backToTop_desctope_bg:						$default_color2;
+$backToTop_desctope_bg_hover:				$default_color;
+$backToTop_desctope_text:					#ffffff;
+$backToTop_desctope_text_hover:				#ffffff;
+$backToTop_mobile_bg:						$default_color2;
+$backToTop_mobile_bg_hover:					$backToTop_mobile_bg;
+$backToTop_mobile_text:						#ffffff;
+$backToTop_mobile_text_hover:				$backToTop_mobile_text;
+/*
+	Breadcrumb
+*/
+$breadcrumb_bg:								$default_color5;
+$breadcrumb_text:							$default_text_color;
+$breadcrumb_link:							$breadcrumb_text;
+$breadcrumb_link_hover:						$default_color;
+/*
+	Button
+*/
+$btn_colorbg:								$default_color;
+$btn_colortext:								#ffffff;
+$btn_colorbg_hover:							$default_color * 0.85;
+$btn_colortext_hover:						#ffffff;
+/*
+	Modal
+*/
+$modal_bg:									#ffffff;
+$modal_backdrop:							#000000;
+/*
+	Blog
+*/
+$blog_post_separaotr:						$border;
+$blog_post_title:							$default_title_color;
+$blog_post_title_hover:						$default_title_hover;
+$blog_post_meta_text:						$default_text_color;
+$blog_post_meta_link:						$default_title_color;
+$blog_post_comments_link:					$default_text_color;
+$blog_post_comments_link_hover:				$default_color;
+$blog_aside_separaotr:						$border;
+$blog_aside_title:							$default_color2;
+$blog_single_title:							$default_title_color;
+$blog_single_autor_text:					$default_text_color;
+$blog_single_autor_select_text:				$default_color2;
+$blog_single_autor_link:					$default_color2;
+$blog_single_subtitle:						$default_title_color;
+$blog_single_meta_text:						$default_color2;
+$blog_single_meta_link:						$default_text_color;
+$blog_single_meta_link_hover:				$default_color2;
+$blog_single_meta_link_border:				$border;
+$blog_single_meta_link_border_hover:		$default_color2;
+$blog_comments_avatar_bg:					$default_color5;
+$blog_comments_select_text:					$default_color2;
+$blog_reviewsbox_bg:						$default_color5;
+$blog_reviewsbox_title:						$default_title_color;
+$blog_reviewsbox_text:						$default_text_color;
+/*
+	Portfolio
+*/
+$portfolio_popup_bg:						rgba(0, 0, 0, 0.7);
+$portfolio_popup_text:						#ffffff;
+$portfolio_popup_title:						#ffffff;
+$portfolio_popup_title_hover:				$default_color;
+$portfolio_popup_btnzomm:					#ffffff;
+$portfolio_popup_btnzomm_hover:				$default_color;
+/*
+	Form default
+*/
+$form_placeholder:							#777777;
+$form_bg:									#ffffff;
+$form_bg_focus:								#ffffff;
+$form_border:								$border;
+$form_border_focus:							transparent;
+$form_text:									#777777;
+$form_label_text:							#777777;
+/* checkbox */
+$checkbox_label:							#777777;
+$checkbox_bg:								transparent;
+$checkbox_bg_active:						transparent;
+$checkbox_border:							#EBEBEB;
+$checkbox_border_hover:						$default_color2;
+$checkbox_border_active:					$border;
+$checkbox_border_active_hover:				$default_color2;
+$checkbox_icon_active:						#333333;
+$checkbox_label_hover:						$default_text_color;
+/* radio_text */
+$radio_text: 								$default_text_color;
+$radio_text_hover:							$default_color;
+$radio_bg: 									transparent;
+$radio_bg_active: 							$default_color2;
+$radio_bg_border:							$border;
+$errors_bg:									#f8353e;
+$errors_text:								#ffffff;
+$errors_icon:								$errors_text;
+/*
+	Tooltip
+*/
+$tooltip_bg:								#333333;
+$tooltip_text:								#ffffff;
+/*
+	Typography
+*/
+$list_dot_bullet_sub:						#191918;
+
+/*---------------------------------------*/
+/*--------   4. Typography       --------*/
+/*---------------------------------------*/
+@import "_typography.scss";
+/*---------------------------------------*/
+/*--------     5. Header         --------*/
+/*---------------------------------------*/
+@import "header/_header.scss";
+@import "header/_header_desktop.scss";
+@import "header/_header_mobile.scss";
+@import "header/_header_desktop_layout.scss";
+@import "header/_header_desktop_menu.scss";
+@import "header/_header_mobile_menu.scss";
+@import "header/_header_stuck.scss";
+@import "header/_menu_categories.scss";
+@import "header/_header_stuck.scss";
+@import "header/_header_top_panel.scss";
+/*---------------------------------------*/
+/*--------     6. Footer         --------*/
+/*---------------------------------------*/
+@import "footer/_footer.scss";
+/*---------------------------------------*/
+/*--------    7. Product item    --------*/
+/*---------------------------------------*/
+@import "product_item/_product_item.scss";
+@import "product_item/_options-swatch.scss";
+@import "product_item/_product_layout_vertical.scss";
+/*---------------------------------------*/
+/*------     8. Product Single    -------*/
+/*---------------------------------------*/
+@import "product_single/_product_single.scss";
+@import "product_single/_product_single_fixed_item.scss";
+/*------     9. Product listing   -------*/
+/*---------------------------------------*/
+@import "product_listing/_aside-col.scss";
+@import "product_listing/_listing_product.scss";
+/*---------------------------------------*/
+/*--------     11. Promo         --------*/
+/*---------------------------------------*/
+@import "promo/_promo.scss";
+@import "promo/_promo_card.scss";
+@import "promo/_promo_card_02.scss";
+@import "promo/_promo_fullwidth.scss";
+@import "promo/_promo_parallax.scss";
+@import "promo/_promofixed.scss";
+@import "promo/_promo_external.scss";
+@import "promo/_promo_snapppt.scss";
+@import "promo/_promo3.scss";
+/*---------------------------------------*/
+/*--------     12. Tabs         --------*/
+/*---------------------------------------*/
+@import "tabs/_custom_tab.scss";
+@import "tabs/_tabs-default.scss";
+@import "tabs/_masonry-filter-btn.scss";
+/*---------------------------------------*/
+/*--------     13 Pages         --------*/
+/*---------------------------------------*/
+@import "pages/_compare.scss";
+@import "pages/_empty.scss";
+@import "pages/_lookbook.scss";
+@import "pages/_maintence.scss";
+@import "pages/_shopcart_page.scss";
+@import "pages/_about_page.scss";
+@import "pages/_contact_page.scss";
+@import "pages/_account_page.scss";
+@import "pages/_demo_typography.scss";
+/*---------------------------------------*/
+/*----14. Slick   -*_/
+/*---------------------------------------*/
+@import "slider/_slider_slick.scss";
+@import "slider/_slider_slick_main.scss";
+/*---------------------------------------*/
+/*--------     15. Modal         --------*/
+/*---------------------------------------*/
+@import "modal/_modal.scss";
+@import "modal/_modal_addtocart.scss";
+@import "modal/_modal_discount.scss";
+@import "modal/_modal_get_access.scss";
+@import "modal/_modal_quickview.scss";
+@import "modal/_modal_shipping.scss";
+@import "modal/_modal_sizeguide.scss";
+@import "modal/_modal_verify.scss";
+@import "modal/_modal_video.scss";
+/*--------------------------------------*/
+/*--------     16. Blog         --------*/
+/*--------------------------------------*/
+@import "blog/_blog_aside.scss";
+@import "blog/_blog_list.scss";
+@import "blog/_blog_masonry.scss";
+@import "blog/_blog_post.scss";
+@import "blog/_blog-single-post.scss";
+@import "blog/_reviewsbox.scss";
+/*---------------------------------------*/
+/*--------     17. Instagram     --------*/
+/*---------------------------------------*/
+@import "instagram/_instafeed.scss";
+/*---------------------------------------*/
+/*--------    18. Content layout  ------*/
+/*--------------------------------------*/
+@import "content_layout/_carusel_brands.scss";
+@import "content_layout/_categories_col.scss";
+@import "content_layout/_list_layout-01.scss";
+@import "content_layout/_pagination.scss";
+@import "content_layout/_box_layout-01.scss";
+@import "content_layout/_rating_stars.scss";
+@import "content_layout/_services_block.scss";
+/*---------------------------------------*/
+/*--------     19. Foorm layout   ------*/
+/*---------------------------------------*/
+@import "form/_form_default.scss";
+@import "form/_form_account.scss";
+/*---------------------------------------*/
+/*--------     20. Portfolio pages  ------*/
+/*---------------------------------------*/
+@import "portfolio/_portfolio.scss";
+/*---------------------------------------*/
+/*--------     21. Breadcrumb    ------*/
+/*---------------------------------------*/
+@import "breadcrumb/_breadcrumb.scss";
+/*---------------------------------------*/
+/*--------     22. Back to top    ------*/
+/*---------------------------------------*/
+@import "back_to_top/_back_to_top.scss";
+/*---------------------------------------*/
+/*--------       23. Tooltip      ------*/
+/*---------------------------------------*/
+@import "tooltip/_tooltip.scss";
+/*---------------------------------------*/
+/*--------  25. AddThis Dashboard   ------*/
+/*---------------------------------------*/
+@import "add_this_services/_add_this_services.scss";
+
+
+
+.pt-desktop-header .pt-logo.pt-logo-alignment a{
+	padding-top: 0;
+	padding-bottom: 0px;
+}
+
+.pt-mobile-header .pt-logo-container{
+	height: inherit;
+	min-height: 50px;
+}
+.pt-mobile-header .pt-logo-container .pt-logo img{
+	max-height: inherit;
+}
+@media (max-width: 1024px){
+	.pt-mobile-header .pt-header-row>:not(.pt-logo-container) {
+	    position: absolute;
+	    top: inherit;
+	    z-index: 2;
+	}
+}
+@media (max-width: 1024px){
+	.pt-mobile-header .pt-logo{
+		padding-left: 0px;
+		padding-right: 0px;
+	}
+}
+
+header .pt-logo img{
+	max-height: inherit;
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+@media (max-width: 1024px){
+	.pt-stuck-nav .pt-header-row>:not(.pt-logo-container) {
+	    position: absolute;
+	    top: inherit;
+	}
+}
+
+.pt-mobile-header .pt-logo-container .pt-logo img{
+	max-height: 30px;
+}
+
+/*
+	Skin Furniture
+*/
+
+/*
+	Typography
+*/
+body{
+	color: #00384e;
+}
+.btn{
+	background: #333333;
+	color: #ffffff;
+	font-weight: normal;
+	&:hover{
+		background: #ffffff;
+		color: #333333;
+	}
+}
+.pt-base-dark-color{
+	color: #00384E;
+}
+.loader{
+	color: #FF7A00;
+}
+/*
+	Header
+*/
+.pt-box-info{
+	color: #00384E;
+	.js-header-slider{
+		li{
+			color: #FF7A00;
+			strong{
+				color: #FF7A00;
+			}
+			a.pt-link-underline{
+				color: #00384E;
+				&:before{
+					background: #00384E;
+				}
+			}
+		}
+	}
+}
+.submenu{
+	&:not(.list-icon){
+		li{
+			a{
+				color: #00384E;
+				&:before{
+					background: #00384E;
+				}
+				&:hover{
+					color: #00384E;
+				}
+			}
+		}
+	}
+}
+header{
+	.pt-logo{
+		img{
+			max-height:47px;
+		}
+	}
+	.pt-dropdown-obj{
+		.pt-dropdown-toggle{
+			color: #00384E;
+			&:hover {
+				color: #FF7A00;
+			}
+		}
+		&.active{
+			.pt-dropdown-toggle{
+				color: #FF7A00;
+			}
+		}
+	}
+	.pt-cart .pt-cart-layout .pt-cart-content .pt-cart-list .pt-item .pt-item-descriptions .pt-price{
+		color: #FF7A00;
+	}
+	.pt-cart .pt-cart-layout .pt-cart-content .pt-cart-list .pt-item a:not([class]) .pt-title{
+		&:hover{
+			color: #FF7A00;
+		}
+	}
+	.pt-cart .pt-cart-layout .pt-cart-content .pt-cart-list .pt-item-close .pt-btn-close:hover{
+		color: #00384E;
+	}
+	.pt-desktop-header{
+		.pt-logo{
+			img{
+				margin-top: 16px;
+				margin-bottom: 10px;
+			}
+		}
+		.pt-search-02{
+			position: relative;
+			.search-form{
+				.pt-search-input{
+					background-color: #F2F5F6;
+					border-color: #F2F5F6;
+					&::-webkit-input-placeholder{
+						color: #00384E;
+					}
+					&::-webkit-input-placeholder{
+						color: #00384E;
+					}
+					&::-webkit-input-placeholder{
+						color: #00384E;
+					}
+					&::-webkit-input-placeholder{
+						color: #00384E;
+					}
+					&:focus{
+						box-shadow: 0px 2px 12px rgba(51, 51, 51, 0.08);
+						background: #F8F8F8;
+						border-color: #F8F8F8;
+						&::-webkit-input-placeholder{
+							color: transparent;
+						}
+						&::-webkit-input-placeholder{
+							color: transparent;
+						}
+						&::-webkit-input-placeholder{
+							color: transparent;
+						}
+						&::-webkit-input-placeholder{
+							color: transparent;
+						}
+					}
+				}
+			}
+			.search-form{
+				.pt-btn-search{
+					color: #00384E;
+					&:hover{
+						color: #FF7A00;
+					}
+				}
+			}
+			&:not([class^="pt-hover-"]){
+				width: 470px;
+			}
+		}
+	}
+	.pt-btn-custom{
+		color: #FF7A00;
+		.pt-text:before{
+			background-color: #FF7A00;
+		}
+	}
+	.pt-account{
+		ul{
+			li{
+				a{
+					&:hover{
+						color: #FF7A00;
+					}
+				}
+			}
+		}
+	}
+	.pt-search{
+		.pt-dropdown-menu{
+			.pt-btn-search{
+				color: #00384E;
+				&:hover{
+					color: #FF7A00;
+					svg{
+						color: #FF7A00;
+					}
+				}
+			}
+		}
+	}
+}
+.pt-menu-toggle{
+	color: #00384E;
+	&:hover{
+		color: #FF7A00;
+	}
+}
+.pt-stuck-nav{
+	header{
+		.pt-logo{
+			img{
+				@media (min-width: 1025px){
+					max-height: 38px;
+				}
+				@media (max-width: 1024px){
+					max-height: 30px;
+				}
+			}
+		}
+	}
+}
+@media (max-width: 1024px){
+	header .pt-logo img{
+		max-height: 30px;
+	}
+}
+
+.pt-menu-categories{
+	.pt-dropdown-toggle{
+		background-color: #FF7A00;
+	}
+}
+.menu-bg{
+	.pt-desctop-menu{
+		nav{
+			> ul{
+				> li.dropdown{
+					&:not(.selected){
+						> a{
+							&:not(:hover){
+								color: #ffffff;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+.pt-desctop-menu{
+	&:not([class^="pt-hover-"]){
+		li.dropdown{
+			> a{
+				span:before{
+					background-color: #ffffff;
+				}
+				&:hover{
+					color: #FF7A00;
+				}
+			}
+			&.selected > a{
+				color: #FF7A00;
+			}
+		}
+	}
+}
+.pt-desktop-header{
+	.pt-blackout-col{
+		&::before{
+			background-color:#00384E;
+		}
+	}
+}
+.headnav-box.headnav-box-indent{
+	padding-left: 0px;
+}
+
+.pt-menu-categories{
+	.pt-dropdown-menu{
+		nav{
+			> ul{
+				> li{
+					> a{
+						padding: 10px 14px 10px 15px;
+						color: #00384E;
+						&:hover{
+							color: #FF7A00;
+						}
+					}
+					&.pt-submenu{
+						> a::before{
+							color: #00384E;
+						}
+					}
+				}
+				.pt-title-submenu{
+					&:hover{
+						color: #FF7A00;
+					}
+				}
+				.pt-megamenu-submenu{
+					> li{
+						> a{
+							color: #FF7A00;
+							&:hover{
+								color: #00384E;
+							}
+						}
+						ul{
+							li{
+								a{
+									color: #FF7A00;
+									&:hover{
+										color: #00384E;
+									}
+								}
+							}
+						}
+					}
+					li a:not(:only-child):before{
+						color: #00384E;
+					}
+				}
+			}
+		}
+	}
+}
+
+
+/*
+	slider revolution
+*/
+.mainSliderSlick{
+	.slick-dots{
+		li{
+			&.slick-active,
+			&:hover{
+				button{
+					background-color: #FF7A00;
+				}
+			}
+		}
+	}
+}
+
+/*
+	Section Layout
+*/
+.pt-items-categories{
+	&:before{
+		display: none;
+	}
+	.pt-title-block img + .pt-title{
+		color: #00384E;
+		font-weight: 800;
+		@media (min-width: 1025px){
+			font-size: 24px;
+			line-height: 35px;
+		}
+	}
+	.pt-title-block{
+		.pt-title:before{
+			display: none;
+		}
+		@media (max-width: 1024px){
+			br{
+				display: none;
+			}
+		}
+	}
+	.pt-description{
+		ul{
+			li{
+				a{
+					color: #FF7A00;
+					span:before{
+						background-color: #FF7A00;
+					}
+				}
+			}
+		}
+	}
+	.pt-btn{
+		font-weight: normal;
+		color: #00384E;
+		margin-top: 3px;
+		line-height: 17px;
+		&:hover{
+			color: #00384E;
+		}
+		span:before{
+			background-color: #00384E;
+			height: 1px;
+		}
+	}
+}
+
+
+.pt-block-title{
+	.pt-title{
+		color: #00384E;
+	}
+}
+
+.panel-menu{
+	li.mm-close-parent .mm-close:hover,
+	#mm0.mmpanel a:not(.mm-close):hover,
+	.mm-original-link:hover,
+	.mm-prev-level:hover,
+	li#entrypoint-objects .my-account ul li a:hover .pt-text,
+	ul li a:hover,
+	.mm-next-level:hover{
+		color: #FF7A00;
+	}
+}
+
+.pt-product{
+	.pt-image-box .pt-app-btn [class^="pt-btn"]:hover {
+		color: #FF7A00;
+	}
+	.pt-description{
+		.pt-title{
+			a{
+				color: #00384E;
+			}
+		}
+		.pt-price{
+			color: #FF7A00;
+			.new-price{
+				color: #FF7A00;
+			}
+		}
+		.pt-row-hover{
+			.pt-btn-addtocart{
+				background: #FF7A00;
+				.pt-icon svg:nth-child(2){
+					top: 0;
+				}
+			}
+		}
+		@media (max-width: 1024px){
+			.pt-row-hover .pt-wrapper-btn > [class^="pt-btn"]:hover {
+				color: #FF7A00;
+			}
+		}
+	}
+}
+
+
+.pt-reviewsbox.pt-layoutcolor-02{
+	.pt-reviewsbox-description{
+		background: #FFF6ED;
+		color: #00384E;
+		.pt-rating{
+			i{
+				color: #FF7A00;
+			}
+		}
+		.pt-reviewsbox-title{
+			.pt-title{
+				color: #FF7A00;
+				&:before{
+					background-color: #FF7A00;
+				}
+			}
+		}
+	}
+	.pt-reviewsbox-author:before{
+		border-top-color: #FFF6ED;
+	}
+	.pt-reviewsbox-author{
+		.pt-title{
+			color: #00384E;
+			strong{
+				color: #00384E;
+			}
+		}
+	}
+}
+
+
+.pt-post{
+	.pt-post-content{
+		.pt-title{
+			a{
+				color: #FF7A00;
+				&:hover{
+					color: #FF7A00;
+				}
+			}
+		}
+		.pt-meta{
+			color: #FF7A00;
+			span{
+				color: #00384E;
+			}
+		}
+	}
+}
+
+
+.pt-services-block{
+	color: #00384E;
+	.pt-title{
+		.pt-icon{
+			color: #FF7A00;
+		}
+		.pt-text{
+			color: #FF7A00;
+			&:before{
+				background-color: #FF7A00;
+			}
+		}
+	}
+	&:hover{
+		color: #00384E;
+	}
+}
+
+
+/*
+	Footer
+*/
+footer{
+	&:not(.footer-wrapper-none){
+		background: #002A3A;
+		color: #728C98;
+	}
+	.pt-footer-title{
+		color: #ffffff;
+	}
+	.pt-list{
+		li{
+			a{
+				color: #FF7A00;
+				&:hover{
+					color: #ffffff;
+				}
+			}
+		}
+	}
+	.pt-social-box{
+		.pt-social-box-title{
+			color: #ffffff;
+		}
+		.pt-social-box-icon{
+			li{
+				a{
+					color: #ffffff;
+					&:hover{
+						color: #FF7A00;
+					}
+				}
+			}
+		}
+	}
+	.newsletterform-01{
+		.form-group{
+			.pt-input{
+				background: #244856;
+				color: #ffffff;
+				font-weight: normal;
+				border-color:#244856;
+				&::-webkit-input-placeholder{
+					color: #ffffff;
+				}
+				&::-webkit-input-placeholder{
+					color: #ffffff;
+				}
+				&::-webkit-input-placeholder{
+					color: #ffffff;
+				}
+				&::-webkit-input-placeholder{
+					color: #ffffff;
+				}
+				&:focus{
+					background: #496772;
+					&::-webkit-input-placeholder{
+						color: transparent;
+					}
+					&::-webkit-input-placeholder{
+						color: transparent;
+					}
+					&::-webkit-input-placeholder{
+						color: transparent;
+					}
+					&::-webkit-input-placeholder{
+						color: transparent;
+					}
+				}
+			}
+			.pt-btn-icon{
+				color: #ffffff;
+				&:hover{
+					color: #FF7A00;
+				}
+			}
+		}
+	}
+	.pt-base-dark-color{
+		color: #ffffff;
+	}
+	.pt-box-copyright{
+		a{
+			color: #728C98;
+			&:before{
+				background: #728C98;
+			}
+		}
+	}
+	@media (min-width: 791px){
+		.pt-footer-col{
+			[class^="col-"]{
+				.pt-social-box{
+					.pt-social-box-title{
+						position: relative;
+						top: 1px;
+					}
+				}
+			}
+		}
+	}
+}
+.pt-back-to-top{
+	@media (min-width: 790px){
+		background: #FF7A00;
+		&:hover{
+			background: #00384E;
+		}
+	}
+	@media (max-width: 789px){
+		background: #002A3A;
+		&:hover{
+			background: #002A3A;
+		}
+		.pt-text{
+			margin-top: 12px;
+		}
+	}
+}

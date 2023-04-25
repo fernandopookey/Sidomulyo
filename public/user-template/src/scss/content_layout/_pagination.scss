@@ -1,0 +1,109 @@
+/* pagination */
+.pt-pagination {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	align-content: flex-start;
+	align-items: flex-start;
+	margin-left: -6px;
+	width: 100%;
+	&.text-center{
+		justify-content: center;
+	}
+	&.text-right{
+		justify-content: flex-end;
+	}
+	ul{
+		display: flex;
+		flex-wrap: wrap;
+		padding: 0;
+		padding-bottom: 6px;
+		margin:0 23px 0 0;
+		list-style: none;
+		li{
+			margin: 6px 0 0 6px;
+			a{
+				font-size: 14px;
+				line-height: 22px;
+				padding: 10px 13px;
+				position: relative;
+				color: $pagination_link;
+				display: inline-block;
+				text-align: center;
+				font-weight: 800;
+				border: 1px solid $pagination_link_border;
+				min-width: 44px;
+				min-height: 44px;
+				transition: all 0.2s linear;
+				&:before{
+					content: '';
+					display: block;
+					position: absolute;
+					top: 0;
+					left: 0;
+					width: 100%;
+					height: 100%;
+					border: 0px solid $pagination_link_border_hover;
+					transition: border-width 0.2s linear;
+				}
+				&:hover{
+					border-color: $pagination_link_border_hover;
+					&:before{
+						border-width: 1px;
+					}
+				}
+				&.active{
+					a{
+						border-color: $pagination_link_border_hover;
+						&:before{
+							border-width: 1px;
+						}
+					}
+				}
+			}
+		}
+	}
+	&.pt-pagination-center {
+		-webkit-justify-content: center;
+		-ms-flex-pack: center;
+		justify-content: center;
+	}
+	&.pt-pagination-right {
+		-w-webkit-justify-content: flex-end;
+		-ms-flex-pack: end;
+		justify-content: flex-end;
+	}
+	.btn-next {
+		display: inline-flex;
+		flex-direction: row;
+		flex-wrap: nowrap;
+		justify-content: center;
+		align-content: center;
+		align-items: center;
+		font-size: 14px;
+		line-height: 17px;
+		padding: 16px 7px 10px;
+		color: $pagination_btn_link;
+		font-weight: 800;
+		transition: color 0.2s linear;
+		&:hover{
+			color: $pagination_btn_link_hover;
+		}
+		&:after{
+			font-family: 'yanka';
+			font-size: 23px;
+			line-height: 1;
+			content: "\e905";
+			position: relative;
+			top: -1px;
+			margin-left: 4px;
+		}
+	}
+	@media (min-width: 1025px){
+		margin-top: 54px;
+	}
+	@media (max-width: 1024px){
+		margin-top: 39px;
+	}
+}

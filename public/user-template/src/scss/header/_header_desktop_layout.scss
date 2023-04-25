@@ -1,0 +1,125 @@
+/*
+	Header desktop layout
+*/
+.headinfo-color{
+	background: $default_color2;
+}
+.headinfo-box{
+	min-height: 80px;
+	.navinfo{
+		flex: 2 1 auto;
+		& > *{
+			display: inline-block;
+		}
+		&.text-left > *{
+			@media (min-width: 1240px){
+				margin-left: 40px;
+			}
+			@media (max-width: 1239px){
+				margin-left: 25px;
+			}
+		}
+		&.cont-center > *:not(:first-child){
+			@media (min-width: 1240px){
+				margin-left: 40px;
+			}
+			@media (max-width: 1239px){
+				margin-left: 25px;
+			}
+		}
+		&.text-right{
+			display: flex;
+			flex-direction: row;
+			flex-wrap: nowrap;
+			justify-content: flex-start;
+			align-content: center;
+			align-items: center;
+		}
+		&.text-right > *{
+			@media (min-width: 1240px){
+				margin-right: 40px;
+			}
+			@media (max-width: 1239px){
+				margin-right: 25px;
+			}
+			&:first-child:not(:last-child){
+				margin-left: 40px;
+			}
+			&.pt-desctop-parent-menu{
+				flex: 2 1 auto;
+				text-align: right;
+				.pt-desctop-menu{
+					text-align: right;
+					nav > ul{
+						text-align: left;
+					}
+				}
+			}
+
+		}
+	}
+	.cont-center{
+		position: absolute;
+		left: 0%;
+		width: 100%;
+		margin: 0;
+		justify-content: center;
+		text-align: center;
+	}
+}
+.options{
+	margin-left: auto;
+}
+.single-button{
+	margin-left: auto;
+	line-height: 38px;
+	.pt-btn-custom{
+		letter-spacing: 0.04em;
+	}
+}
+.button-сat{
+	line-height: 38px;
+}
+
+.menu-small-inner{
+	.pt-desctop-menu nav > ul > li.dropdown > a{
+		padding-top: 14px;
+		padding-bottom:12px;
+	}
+}
+.menu-without-bg{
+	margin-top: -13px;
+	.pt-desctop-menu nav > ul > li.dropdown > a{
+		padding: 11px 12px 25px;
+	}
+}
+.headnav-box{
+	display: flex;
+	flex-wrap: wrap;
+	min-height: 40px;
+	& > *:not(:first-child):not(.single-button){
+		margin-left: 31px;
+	}
+	& > .cont-right{
+		margin-left: auto !important;
+	}
+	&.cont-center{
+		justify-content: center;
+		text-align: center;
+	}
+	& .menu.cont-center{
+		position: absolute;
+		left: 0%;
+		width: 100%;
+		margin: 0;
+		justify-content: center;
+		text-align: center;
+	}
+	&.headnav-box-indent{
+		padding-left: 23px;
+		padding-right: 23px;
+	}
+}
+
+
+

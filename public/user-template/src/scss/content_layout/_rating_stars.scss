@@ -1,0 +1,38 @@
+.pt-rating{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+	align-content: flex-start;
+	align-items: flex-start;
+	line-height: 22px;
+	font-size: 18px;
+	i{
+		&:first-child{
+			margin-right: 3px;
+		}
+		&:last-child{
+			margin-left: 3px;
+		}
+		&:not(:first-child):not(:last-child){
+			margin-left: 3px;
+			margin-right: 3px;
+		}
+		color: $rating_star_empty;
+		&.pt-star{
+			color: $rating_star;
+		}
+	}
+	svg{
+		width: 16px;
+		height: 16px;
+	}
+	.pt-total{
+		color: $default_text_color;
+		font-size: 12px;
+		line-height: 14px;
+		top:2px;
+		margin-left: 5px;
+		position: relative;
+	}
+}

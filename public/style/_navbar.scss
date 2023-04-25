@@ -1,0 +1,36 @@
+.navbar-service {
+    padding-top: 15px;
+    background: linear-gradient(to left, #33ccff 43%, #0000cc 100%);
+
+    @include media-breakpoint-down(md) {
+        background-color: #fff !important;
+    }
+
+    li {
+        align-items: center;
+    }
+
+    .input-group-text {
+        background-color: #ff33bb;
+        border-radius: 5px;
+    }
+}
+
+.icon-home {
+    color: white;
+}
+
+.icon-search-form {
+    color: #fff;
+    background-color: #33ccff;
+}
+
+a {
+    font-weight: 500;
+    margin-left: 10px;
+}
+
+.navbar-fixed-top.scrolled {
+    background-color: #fff !important;
+    transition: background-color 200ms linear;
+}

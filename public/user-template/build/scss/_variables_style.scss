@@ -1,0 +1,176 @@
+/*
+	Theme variables
+*/
+/* font */
+$default_font: 'Neue Einstellung', sans-serif;
+
+/* default */
+$default_bg_color: #ffffff;
+$default_text_color: #777777;
+
+$default_color: #48CAB2;
+$default_color2: #333333;
+$default_color3: #D0D0D0;
+$default_color4: #EBEBEB;
+$default_color5: #f8f8f8;
+$default_title_color: $default_color2;
+$default_title_hover: $default_color;
+
+$link_color_base: $default_text_color;
+$simple_links_hover_speed: 0.2s;
+$border: #ebebeb;
+$speed: $simple_links_hover_speed;
+
+/* Colors */
+$base-color: $default_color;
+$base-dark-color: $default_color2;
+$white-color: #ffffff;
+$pt-light-green-color: #08da97;
+$color-bg-01: #add8e6;
+$color-bg-02: #fe9001;
+$color-bg-03: #808080;
+$color-bg-04: #f06292;
+$color-bg-05: #9675ce;
+$color-bg-06: #64b5f6;
+$color-bg-07: #caf1f6;
+$color-bg-08: #80c783;
+$color-bg-09: #dde776;
+$color-bg-10: #000000;
+$color-bg-11: #DD9964;
+$color-bg-12: #17A4A6;
+$color-bg-13: #4C4C4C;
+$color-bg-14: #F4F4F5;
+$color-bg-15: #FFC8B2;
+$color-bg-16: #B8B8B8;
+/*
+	Rating
+*/
+$rating_star: #FFBA0A;
+$rating_star_empty: $default_color4;
+/*
+	Pagination
+*/
+$pagination_link: #333333;
+$pagination_link_border: #EBEBEB;
+$pagination_link_border_hover: #333333;
+$pagination_btn_link: #333333;
+$pagination_btn_link_hover: $default_color;
+/*
+	label
+*/
+$label_new_text: #ffffff;
+$label_new_bg: #327FD9;
+$label_sale_text: #ffffff;
+$label_sale_bg: #E12C43;
+$label_our_fatured_text: #ffffff;
+$label_our_fatured_bg: #ffba0a;
+$label_out_stock_text: #ffffff;
+$label_out_stock_bg: #333333;
+$label_in_stock_text: #ffffff;
+$label_in_stock_bg: #48CAB2;
+$label_out_stock_bg: #333333;
+$label_out_text: #ffffff;
+/*
+	Back to top
+*/
+$backToTop_desctope_bg: $default_color2;
+$backToTop_desctope_bg_hover: $default_color;
+$backToTop_desctope_text: #ffffff;
+$backToTop_desctope_text_hover: #ffffff;
+$backToTop_mobile_bg: $default_color2;
+$backToTop_mobile_bg_hover: $backToTop_mobile_bg;
+$backToTop_mobile_text: #ffffff;
+$backToTop_mobile_text_hover: $backToTop_mobile_text;
+/*
+	Breadcrumb
+*/
+$breadcrumb_bg: $default_color5;
+$breadcrumb_text: $default_text_color;
+$breadcrumb_link: $breadcrumb_text;
+$breadcrumb_link_hover: $default_color;
+/*
+	Button
+*/
+$btn_colorbg: $default_color;
+$btn_colortext: #ffffff;
+$btn_colorbg_hover: $default_color * 0.85;
+$btn_colortext_hover: #ffffff;
+/*
+	Modal
+*/
+$modal_bg: #ffffff;
+$modal_backdrop: #000000;
+/*
+	Blog
+*/
+$blog_post_separaotr: $border;
+$blog_post_title: $default_title_color;
+$blog_post_title_hover: $default_title_hover;
+$blog_post_meta_text: $default_text_color;
+$blog_post_meta_link: $default_title_color;
+$blog_post_comments_link: $default_text_color;
+$blog_post_comments_link_hover: $default_color;
+$blog_aside_separaotr: $border;
+$blog_aside_title: $default_color2;
+$blog_single_title: $default_title_color;
+$blog_single_autor_text: $default_text_color;
+$blog_single_autor_select_text: $default_color2;
+$blog_single_autor_link: $default_color2;
+$blog_single_subtitle: $default_title_color;
+$blog_single_meta_text: $default_color2;
+$blog_single_meta_link: $default_text_color;
+$blog_single_meta_link_hover: $default_color2;
+$blog_single_meta_link_border: $border;
+$blog_single_meta_link_border_hover: $default_color2;
+$blog_comments_avatar_bg: $default_color5;
+$blog_comments_select_text: $default_color2;
+$blog_reviewsbox_bg: $default_color5;
+$blog_reviewsbox_title: $default_title_color;
+$blog_reviewsbox_text: $default_text_color;
+/*
+	Portfolio
+*/
+$portfolio_popup_bg: rgba(0, 0, 0, 0.7);
+$portfolio_popup_text: #ffffff;
+$portfolio_popup_title: #ffffff;
+$portfolio_popup_title_hover: $default_color;
+$portfolio_popup_btnzomm: #ffffff;
+$portfolio_popup_btnzomm_hover: $default_color;
+/*
+	Form default
+*/
+$form_placeholder: #777777;
+$form_bg: #ffffff;
+$form_bg_focus: #ffffff;
+$form_border: $border;
+$form_border_focus: transparent;
+$form_text: #777777;
+$form_label_text: #777777;
+/* checkbox */
+$checkbox_label: #777777;
+$checkbox_bg: transparent;
+$checkbox_bg_active: transparent;
+$checkbox_border: #EBEBEB;
+$checkbox_border_hover: $default_color2;
+$checkbox_border_active: $border;
+$checkbox_border_active_hover: $default_color2;
+$checkbox_icon_active: #333333;
+$checkbox_label_hover: $default_text_color;
+/* radio_text */
+$radio_text: $default_text_color;
+$radio_text_hover: $default_color;
+$radio_bg: transparent;
+$radio_bg_active: $default_color2;
+$radio_bg_border: $border;
+$errors_bg: #f8353e;
+$errors_text: #ffffff;
+$errors_icon: $errors_text;
+/*
+	Tooltip
+*/
+$tooltip_bg: #333333;
+$tooltip_text: #ffffff;
+/*
+	Typography
+*/
+$list_dot_bullet_sub: #191918;

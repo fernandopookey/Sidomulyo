@@ -1,0 +1,14 @@
+.pt-modal-get-access{
+	text-align: left;
+	.form-default{
+		.form-group{
+			margin-bottom: 10px;
+		}
+	}
+	@media (min-width: 430px){
+		padding: 38px 50px 50px;
+	}
+	@media (max-width: 429px){
+		padding: 38px 20px 46px;
+	}
+}

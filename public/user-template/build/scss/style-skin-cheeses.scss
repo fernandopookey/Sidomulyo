@@ -1,0 +1,731 @@
+/*---------------------------------------*/
+/*--------   Table of contents   --------*/
+/*---------------------------------------*/
+/*
+1. External module
+	1.1 Bootstrap
+	1.2 Slick carousel
+	1.3 Slider Revolution
+	1.4 Perfect Scrollbar
+	1.5 Magnific popup
+2. Fonts
+	2.1 Font Family
+	2.2 Fonts Icons
+3. Variables
+4. Typography
+5. Header
+6. Footer
+7. Product item
+8. Product Single
+9. Product listing
+10. Loader
+11. Promo
+12. Tabs
+13 Pages
+14. Slider Revolution and Slick
+15. Modal
+16. Blog
+17. Instagram
+18. Content layout
+19. Foorm layout
+20. Portfolio pages
+21. Breadcrumb
+22. Back to top
+23. Tooltip
+24. Demo Switch
+25. AddThis Dashboard
+---------------------------------------*/
+
+
+/*---------------------------------------*/
+/*--------   1. External module  --------*/
+/*---------------------------------------*/
+/*-------  1.1 Bootstrap  --------*/
+@import "../external/bootstrap/scss/bootstrap.scss";
+/*-------  1.2 Slick carousel  --------*/
+@import "../../node_modules/slick-carousel/slick/slick.scss";
+/*-------  1.3 Perfect Scrollbar  --------*/
+@import "../external/perfect-scrollbar/perfect-scrollbar.scss";
+/*-------  1.4 Magnific popup  --------*/
+@import "../external/magnific-popup/magnific-popup.scss";
+/*---------------------------------------*/
+/*--------         2. Fonts      --------*/
+/*---------------------------------------*/
+/*-------  2.1 Font Family  --------*/
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,800;1,400&display=swap');
+/*-------  2.2 Fonts Icons  --------*/
+@import "../font-icons/style.scss";
+/*---------------------------------------*/
+/*----       3. Variables              --*/
+/*---------------------------------------*/
+/*
+	Theme variables
+*/
+/* font */
+$default_font:								'Playfair Display', serif;
+$default_font02:							'Playfair Display', serif;
+
+
+/* default */
+$default_bg_color:							#f5f1e4;
+$default_text_color:						#777777;
+
+$default_color:								#FFD767;
+$default_color2:							#333333;
+$default_color3:							#D0D0D0;
+$default_color4:							#EBEBEB;
+$default_color5:							#f8f8f8;
+$default_title_color:						$default_color2;
+$default_title_hover:						$default_color;
+
+$link_color_base:							$default_text_color;
+$simple_links_hover_speed:					0.2s;
+$border:									#333333;
+$speed:										$simple_links_hover_speed;
+
+/* Colors */
+$base-color: 								$default_color;
+$base-dark-color:							$default_color2;
+$white-color:								#ffffff;
+$pt-light-green-color:						#08da97;
+$color-bg-01:								#add8e6;
+$color-bg-02:								#fe9001;
+$color-bg-03:								#808080;
+$color-bg-04:								#f06292;
+$color-bg-05:								#9675ce;
+$color-bg-06:								#64b5f6;
+$color-bg-07:								#caf1f6;
+$color-bg-08:								#80c783;
+$color-bg-09:								#dde776;
+$color-bg-10:								#000000;
+$color-bg-11:								#DD9964;
+$color-bg-12:								#17A4A6;
+$color-bg-13:								#4C4C4C;
+$color-bg-14:								#F4F4F5;
+$color-bg-15:								#FFC8B2;
+$color-bg-16:								#B8B8B8;
+/*
+	Rating
+*/
+$rating_star:								#FFBA0A;
+$rating_star_empty:							$default_color4;
+/*
+	Pagination
+*/
+$pagination_link:							#333333;
+$pagination_link_border:					#EBEBEB;
+$pagination_link_border_hover:				#333333;
+$pagination_btn_link:						#333333;
+$pagination_btn_link_hover:					$default_color;
+/*
+	label
+*/
+$label_new_text:							#ffffff;
+$label_new_bg:								#327FD9;
+$label_sale_text:							#ffffff;
+$label_sale_bg:								#E12C43;
+$label_our_fatured_text:					#ffffff;
+$label_our_fatured_bg:						#ffba0a;
+$label_out_stock_text:						#ffffff;
+$label_out_stock_bg:						#333333;
+$label_in_stock_text:						#ffffff;
+$label_in_stock_bg:							#48CAB2;
+$label_out_stock_bg:						#333333;
+$label_out_text:							#ffffff;
+/*
+	Back to top
+*/
+$backToTop_desctope_bg:						$default_color2;
+$backToTop_desctope_bg_hover:				$default_color;
+$backToTop_desctope_text:					#ffffff;
+$backToTop_desctope_text_hover:				#ffffff;
+$backToTop_mobile_bg:						$default_color2;
+$backToTop_mobile_bg_hover:					$backToTop_mobile_bg;
+$backToTop_mobile_text:						#ffffff;
+$backToTop_mobile_text_hover:				$backToTop_mobile_text;
+/*
+	Breadcrumb
+*/
+$breadcrumb_bg:								$default_color5;
+$breadcrumb_text:							$default_text_color;
+$breadcrumb_link:							$breadcrumb_text;
+$breadcrumb_link_hover:						$default_color;
+/*
+	Button
+*/
+$btn_colorbg:								#333333;
+$btn_colortext:								#ffffff;
+$btn_colorbg_hover:							#000000;
+$btn_colortext_hover:						#ffffff;
+/*
+	Modal
+*/
+$modal_bg:									#f5f1e4;
+$modal_backdrop:							#000000;
+/*
+	Blog
+*/
+$blog_post_separaotr:						$border;
+$blog_post_title:							$default_title_color;
+$blog_post_title_hover:						$default_title_hover;
+$blog_post_meta_text:						$default_text_color;
+$blog_post_meta_link:						$default_title_color;
+$blog_post_comments_link:					$default_text_color;
+$blog_post_comments_link_hover:				$default_color;
+$blog_aside_separaotr:						$border;
+$blog_aside_title:							$default_color2;
+$blog_single_title:							$default_title_color;
+$blog_single_autor_text:					$default_text_color;
+$blog_single_autor_select_text:				$default_color2;
+$blog_single_autor_link:					$default_color2;
+$blog_single_subtitle:						$default_title_color;
+$blog_single_meta_text:						$default_color2;
+$blog_single_meta_link:						$default_text_color;
+$blog_single_meta_link_hover:				$default_color2;
+$blog_single_meta_link_border:				$border;
+$blog_single_meta_link_border_hover:		$default_color2;
+$blog_comments_avatar_bg:					$default_color5;
+$blog_comments_select_text:					$default_color2;
+$blog_reviewsbox_bg:						$default_color5;
+$blog_reviewsbox_title:						$default_title_color;
+$blog_reviewsbox_text:						$default_text_color;
+/*
+	Portfolio
+*/
+$portfolio_popup_bg:						rgba(0, 0, 0, 0.7);
+$portfolio_popup_text:						#ffffff;
+$portfolio_popup_title:						#ffffff;
+$portfolio_popup_title_hover:				$default_color;
+$portfolio_popup_btnzomm:					#ffffff;
+$portfolio_popup_btnzomm_hover:				$default_color;
+/*
+	Form default
+*/
+$form_placeholder:							#777777;
+$form_bg:									#ffffff;
+$form_bg_focus:								#ffffff;
+$form_border:								$border;
+$form_border_focus:							transparent;
+$form_text:									#777777;
+$form_label_text:							#777777;
+/* checkbox */
+$checkbox_label:							#777777;
+$checkbox_bg:								transparent;
+$checkbox_bg_active:						transparent;
+$checkbox_border:							#EBEBEB;
+$checkbox_border_hover:						$default_color2;
+$checkbox_border_active:					$border;
+$checkbox_border_active_hover:				$default_color2;
+$checkbox_icon_active:						#333333;
+$checkbox_label_hover:						$default_text_color;
+/* radio_text */
+$radio_text: 								$default_text_color;
+$radio_text_hover:							$default_color;
+$radio_bg: 									transparent;
+$radio_bg_active: 							$default_color2;
+$radio_bg_border:							$border;
+$errors_bg:									#f8353e;
+$errors_text:								#ffffff;
+$errors_icon:								$errors_text;
+/*
+	Tooltip
+*/
+$tooltip_bg:								#333333;
+$tooltip_text:								#ffffff;
+/*
+	Typography
+*/
+$list_dot_bullet_sub:						#191918;
+
+/*---------------------------------------*/
+/*--------   4. Typography       --------*/
+/*---------------------------------------*/
+@import "_typography.scss";
+/*---------------------------------------*/
+/*--------     5. Header         --------*/
+/*---------------------------------------*/
+@import "header/_header.scss";
+@import "header/_header_desktop.scss";
+@import "header/_header_mobile.scss";
+@import "header/_header_desktop_layout.scss";
+@import "header/_header_desktop_menu.scss";
+@import "header/_header_mobile_menu.scss";
+@import "header/_header_stuck.scss";
+@import "header/_menu_categories.scss";
+@import "header/_header_stuck.scss";
+@import "header/_header_top_panel.scss";
+/*---------------------------------------*/
+/*--------     6. Footer         --------*/
+/*---------------------------------------*/
+@import "footer/_footer.scss";
+/*---------------------------------------*/
+/*--------    7. Product item    --------*/
+/*---------------------------------------*/
+@import "product_item/_product_item.scss";
+@import "product_item/_options-swatch.scss";
+@import "product_item/_product_layout_vertical.scss";
+/*---------------------------------------*/
+/*------     8. Product Single    -------*/
+/*---------------------------------------*/
+@import "product_single/_product_single.scss";
+@import "product_single/_product_single_fixed_item.scss";
+/*------     9. Product listing   -------*/
+/*---------------------------------------*/
+@import "product_listing/_aside-col.scss";
+@import "product_listing/_listing_product.scss";
+/*---------------------------------------*/
+/*--------     11. Promo         --------*/
+/*---------------------------------------*/
+@import "promo/_promo.scss";
+@import "promo/_promo_card.scss";
+@import "promo/_promo_card_02.scss";
+@import "promo/_promo_fullwidth.scss";
+@import "promo/_promo_parallax.scss";
+@import "promo/_promofixed.scss";
+@import "promo/_promo_external.scss";
+@import "promo/_promo_snapppt.scss";
+@import "promo/_promo3.scss";
+/*---------------------------------------*/
+/*--------     12. Tabs         --------*/
+/*---------------------------------------*/
+@import "tabs/_custom_tab.scss";
+@import "tabs/_tabs-default.scss";
+@import "tabs/_masonry-filter-btn.scss";
+/*---------------------------------------*/
+/*--------     13 Pages         --------*/
+/*---------------------------------------*/
+@import "pages/_compare.scss";
+@import "pages/_empty.scss";
+@import "pages/_lookbook.scss";
+@import "pages/_maintence.scss";
+@import "pages/_shopcart_page.scss";
+@import "pages/_about_page.scss";
+@import "pages/_contact_page.scss";
+@import "pages/_account_page.scss";
+@import "pages/_demo_typography.scss";
+/*---------------------------------------*/
+/*----14. Slick   -*_/
+/*---------------------------------------*/
+@import "slider/_slider_slick.scss";
+@import "slider/_slider_slick_main.scss";
+/*---------------------------------------*/
+/*--------     15. Modal         --------*/
+/*---------------------------------------*/
+@import "modal/_modal.scss";
+@import "modal/_modal_addtocart.scss";
+@import "modal/_modal_discount.scss";
+@import "modal/_modal_get_access.scss";
+@import "modal/_modal_quickview.scss";
+@import "modal/_modal_shipping.scss";
+@import "modal/_modal_sizeguide.scss";
+@import "modal/_modal_verify.scss";
+@import "modal/_modal_video.scss";
+/*--------------------------------------*/
+/*--------     16. Blog         --------*/
+/*--------------------------------------*/
+@import "blog/_blog_aside.scss";
+@import "blog/_blog_list.scss";
+@import "blog/_blog_masonry.scss";
+@import "blog/_blog_post.scss";
+@import "blog/_blog-single-post.scss";
+@import "blog/_reviewsbox.scss";
+/*---------------------------------------*/
+/*--------     17. Instagram     --------*/
+/*---------------------------------------*/
+@import "instagram/_instafeed.scss";
+/*---------------------------------------*/
+/*--------    18. Content layout  ------*/
+/*--------------------------------------*/
+@import "content_layout/_carusel_brands.scss";
+@import "content_layout/_categories_col.scss";
+@import "content_layout/_list_layout-01.scss";
+@import "content_layout/_pagination.scss";
+@import "content_layout/_box_layout-01.scss";
+@import "content_layout/_rating_stars.scss";
+@import "content_layout/_services_block.scss";
+/*---------------------------------------*/
+/*--------     19. Foorm layout   ------*/
+/*---------------------------------------*/
+@import "form/_form_default.scss";
+@import "form/_form_account.scss";
+/*---------------------------------------*/
+/*--------     20. Portfolio pages  ------*/
+/*---------------------------------------*/
+@import "portfolio/_portfolio.scss";
+/*---------------------------------------*/
+/*--------     21. Breadcrumb    ------*/
+/*---------------------------------------*/
+@import "breadcrumb/_breadcrumb.scss";
+/*---------------------------------------*/
+/*--------     22. Back to top    ------*/
+/*---------------------------------------*/
+@import "back_to_top/_back_to_top.scss";
+/*---------------------------------------*/
+/*--------       23. Tooltip      ------*/
+/*---------------------------------------*/
+@import "tooltip/_tooltip.scss";
+/*---------------------------------------*/
+/*--------  25. AddThis Dashboard   ------*/
+/*---------------------------------------*/
+@import "add_this_services/_add_this_services.scss";
+
+/*
+	Typography
+*/
+body, body #pt-header, body #pt-pageContent{
+	background-color: $default_bg_color;
+}
+.btn{
+	background-color: #333333;
+	font-weight: 700;
+	&:hover{
+		background-color: #FFD767;
+		color: #333333;
+	}
+	@media (min-width: 1025px){
+		padding-left: 30px;
+		padding-right: 30px;
+	}
+}
+
+/*
+	slider revolution
+*/
+
+/*
+	Header
+*/
+header {
+	.pt-box-info{
+		.slick-slider{
+			&:after,
+			&:before{
+				display: none;
+			}
+		}
+		li{
+			font-style: italic;
+			a.pt-link-underline{
+				font-style: normal;
+			}
+		}
+	}
+	.pt-desctop-menu{
+		nav>ul>li.dropdown>a{
+			font-weight: normal;
+		}
+		.pt-title-submenu{
+			font-weight: 700;
+		}
+	}
+	.pt-logo a .pt-title{
+		font-weight: normal;
+	}
+	.pt-dropdown-obj .pt-dropdown-toggle .pt-badge{
+		line-height: 1.25;
+	}
+}
+.stuck.pt-stuck-nav{
+	background-color: #f5f1e4;
+	border-bottom: 1px solid #333333;
+	box-shadow: none;
+}
+.pt-desktop-header{
+	.pt-logo.pt-logo-alignment a {
+		padding-top: 13px;
+		padding-bottom: 7px;
+	}
+	.pt-desctop-menu{
+		position: relative;
+		top: 3px;
+	}
+}
+@media (max-width: 1024px){
+	.pt-mobile-header{
+		.pt-logo {
+			padding-left: 70px;
+			padding-right: 70px;
+		}
+	}
+	.pt-logo-container .pt-logo img{
+		max-width: 135px;
+	}
+}
+
+
+header .pt-box-info ul li a.pt-link-underline{
+	color: #333333;
+	&:before{
+		background: #333333;
+	}
+}
+.pt-desctop-menu:not([class^="pt-hover-"]) li.dropdown.selected > a,
+.pt-desctop-menu:not([class^="pt-hover-"]) li.dropdown > a:hover{
+	color: #333333;
+}
+.pt-desctop-menu:not([class^="pt-hover-"]) li.dropdown > a span:before,{
+	background-color: #333333;
+}
+/*
+	Mobile Menu
+*/
+.panel-menu{
+	background-color: #f5f1e4;
+	#mm0>ul>li>a:not([class]){
+		font-weight: 400;
+	}
+}
+.panel-menu li#entrypoint-objects .external-item:not(.my-account) .external-item-content ul:not(.submenu) li a{
+	color: #333333;
+	&:hover{
+		color: #000000;
+	}
+}
+
+/*
+	Section Layout
+*/
+#pt-pageContent{
+	margin-top: -20px;
+	@media (max-width: 1024px){
+		& > .container-indent:not(.nomargin):not([class^=pt-offset]) {
+			margin-top: 100px;
+		}
+	}
+	@media (max-width: 575px){
+		& > .container-indent:not(.nomargin):not([class^=pt-offset]) {
+			margin-top: 60px;
+		}
+	}
+}
+
+.pt-block-title{
+	.pt-title{
+		font-weight: normal;
+		letter-spacing: 0.1em;
+		@media (min-width: 1025px){
+			line-height: 48px;
+		}
+	}
+	.pt-description{
+		font-style: italic;
+		margin-top: 7px;
+	}
+	@media (max-width: 1024px){
+		.pt-title{
+			font-size: 30px;
+			line-height: 42px;
+		}
+		.pt-description{
+			font-size: 16px;
+			line-height: 26px;
+			margin-top: 8px;
+		}
+	}
+}
+
+
+
+
+/*Product Item*/
+.pt-product{
+	.pt-description{
+		background-color: transparent;
+		.pt-price{
+			color:#333333;
+			font-style: italic;
+		}
+		.pt-row-hover{
+			.pt-btn-addtocart{
+				background-color: #333333;
+				font-weight: 700;
+			}
+			&:hover{
+				.pt-btn-addtocart:hover{
+					background-color: #000000;
+				}
+			}
+		}
+	}
+	@media (max-width: 575px){
+		.pt-description{
+			.pt-add-info{
+				li{
+					font-size: 13px;
+					line-height: 19px;
+				}
+			}
+			.pt-title {
+				font-size: 16px;
+				line-height: 23px;
+			}
+		}
+	}
+}
+
+/*parallax-02*/
+.pt-parallax-02{
+	.pt-description{
+		.pt-title-01{
+			font-weight: 400;
+			letter-spacing: 0.1em;
+		}
+		.pt-title-02{
+			font-weight: 400;
+			margin-top: 7px;
+			letter-spacing: 0.1em;
+			line-height: 48px;
+		}
+	}
+	@media (max-width: 1024px){
+		.pt-description{
+			.pt-title-01{
+				font-size: 16px;
+				line-height: 24px;
+			}
+			.pt-title-02{
+				font-size: 28px;
+				line-height: 40px;
+			}
+		}
+	}
+	@media (max-width: 575px){
+		.pt-description{
+			.pt-title-02{
+				font-size: 24px;
+				line-height: 36px;
+			}
+		}
+	}
+}
+
+/*parallax-01*/
+.pt-parallax-list{
+	@media (min-width: 1025px){
+		padding-top: 30px;
+		padding-bottom: 30px;
+	}
+}
+@media (min-width: 576px){
+	.pt-parallax-list [class^=pt-parallax-]:not(:first-child) {
+		margin-top: 115px;
+	}
+}
+.pt-parallax-01{
+	.pt-description{
+		.pt-title-01{
+			font-weight: 400;
+			letter-spacing: 0.1em;
+		}
+		.pt-title-02{
+			font-weight: 400;
+			letter-spacing: 0.1em;
+		}
+		p{
+			font-style: italic;
+		}
+	}
+	@media (min-width: 1025px){
+		.pt-description{
+			.pt-title-02{
+				line-height: 48px;
+			}
+			p{
+				margin-top: 13px;
+			}
+		}
+	}
+	@media (min-width: 791px){
+		.pt-img{
+			.pt-img-main{
+				max-width: 470px;
+			}
+			.pt-img-sub{
+				max-width: 370px;
+			}
+		}
+	}
+	@media (max-width: 1024px) and (min-width: 791px){
+		.pt-img{
+			.pt-img-main{
+				max-width: 360px;
+			}
+			.pt-img-sub{
+				max-width: 260px;
+			}
+		}
+	}
+	@media (max-width: 1024px){
+		.pt-description{
+			.pt-title-01{
+				font-size: 16px;
+				line-height: 24px
+			}
+			.pt-title-02{
+				font-size: 24px;
+				line-height: 36px;
+			}
+			p{
+				margin-top: 16px;
+			}
+		}
+	}
+	@media (max-width: 575px){
+		.pt-description [class^="btn"] {
+			margin-top: 26px;
+		}
+	}
+}
+
+/*post*/
+.pt-post .pt-post-content .pt-title{
+	font-weight: 400;
+	a:hover{
+		color: #333333;
+	}
+}
+
+.pt-back-to-top{
+	@media (min-width: 790px){
+		&:hover{
+			color: #333333;
+		}
+	}
+}
+
+/*
+	Footer
+*/
+footer{
+	padding-top: 0;
+	.pt-social-box{
+		.pt-social-box-icon{
+			li{
+				a{
+					color: #777777;
+					&:hover{
+						color: #000000;
+					}
+				}
+			}
+		}
+	}
+	.pt-box-copyright{
+		font-style: italic;
+		a{
+			color: #777777;
+			&:hover{
+				color: #000000;
+			}
+		}
+	}
+	@media (min-width: 791px){
+		.pt-footer-custom.text-center [class^=col-]:not(:first-child) {
+			margin-top: 53px;
+		}
+
+	}
+}
+
+
+

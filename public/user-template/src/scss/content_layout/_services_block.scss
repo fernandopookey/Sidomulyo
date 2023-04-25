@@ -1,0 +1,81 @@
+/* pt-services-block */
+.pt-services-block{
+	display: block;
+	font-size: 16px;
+	line-height: 23px;
+	color: $default_text_color;
+	transition: color $speed;
+	cursor: pointer;
+	.pt-title{
+		display: flex;
+		flex-direction: row;
+		flex-wrap: nowrap;
+		justify-content: flex-start;
+		align-content: stretch;
+		padding: 0 0 2px 0;
+		margin: 0;
+		color: $default_color2;
+		font-size: 18px;
+		line-height: 26px;
+		font-weight: 800;
+		min-height: 33px;
+		transition: color $speed;
+		.pt-icon{
+			margin-right: 20px;
+			position: relative;
+			top: -1px;
+			color: $default_color;
+			img{
+				max-width:24px;
+			}
+			svg{
+				width: 24px;
+				height: 24px;
+			}
+		}
+		.pt-text{
+			display: inline-block;
+			position: relative;
+			&:before{
+				position: absolute;
+				bottom: 7px;
+				left: 0;
+				right: 0;
+				margin: auto;
+				width: 0%;
+				content: '';
+				color: transparent;
+				background-color: $default_color2;
+				height: 2px;
+				-webkit-transition: width .2s linear;
+				transition: width .2s linear;
+			}
+		}
+	}
+	p{
+		margin-top: 0px;
+	}
+	&:not(:first-child){
+		margin-top: 35px;
+	}
+	> *:nth-child(1){
+		margin-top: 0;
+	}
+	&:hover{
+		color: $default_color2;
+		.pt-title{
+			.pt-text{
+				&:before{
+					width: 100%;
+				}
+			}
+		}
+	}
+}
+.pt-services-listing{
+	margin-top: -32px;
+	.pt-services-block{
+		margin-top: 32px;
+	}
+}
+

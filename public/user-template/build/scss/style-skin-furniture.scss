@@ -1,0 +1,538 @@
+/*---------------------------------------*/
+/*--------   Table of contents   --------*/
+/*---------------------------------------*/
+/*
+1. External module
+	1.1 Bootstrap
+	1.2 Slick carousel
+	1.3 Slider Revolution
+	1.4 Perfect Scrollbar
+	1.5 Magnific popup
+2. Fonts
+	2.1 Font Family
+	2.2 Fonts Icons
+3. Variables
+4. Typography
+5. Header
+6. Footer
+7. Product item
+8. Product Single
+9. Product listing
+10. Loader
+11. Promo
+12. Tabs
+13 Pages
+14. Slider Revolution and Slick
+15. Modal
+16. Blog
+17. Instagram
+18. Content layout
+19. Foorm layout
+20. Portfolio pages
+21. Breadcrumb
+22. Back to top
+23. Tooltip
+24. Demo Switch
+25. AddThis Dashboard
+---------------------------------------*/
+
+
+/*---------------------------------------*/
+/*--------   1. External module  --------*/
+/*---------------------------------------*/
+/*-------  1.1 Bootstrap  --------*/
+@import "../external/bootstrap/scss/bootstrap.scss";
+/*-------  1.2 Slick carousel  --------*/
+@import "../../node_modules/slick-carousel/slick/slick.scss";
+/*-------  1.3 Perfect Scrollbar  --------*/
+@import "../external/perfect-scrollbar/perfect-scrollbar.scss";
+/*-------  1.4 Magnific popup  --------*/
+@import "../external/magnific-popup/magnific-popup.scss";
+/*---------------------------------------*/
+/*--------         2. Fonts      --------*/
+/*---------------------------------------*/
+/*-------  2.1 Font Family  --------*/
+@import "../fonts/font-family.scss";
+/*-------  2.2 Fonts Icons  --------*/
+@import "../font-icons/style.scss";
+/*---------------------------------------*/
+/*----       3. Variables              --*/
+/*---------------------------------------*/
+@import "_variables_style";
+/*---------------------------------------*/
+/*--------   4. Typography       --------*/
+/*---------------------------------------*/
+@import "_typography.scss";
+/*---------------------------------------*/
+/*--------     5. Header         --------*/
+/*---------------------------------------*/
+@import "header/_header.scss";
+@import "header/_header_desktop.scss";
+@import "header/_header_mobile.scss";
+@import "header/_header_desktop_layout.scss";
+@import "header/_header_desktop_menu.scss";
+@import "header/_header_mobile_menu.scss";
+@import "header/_header_stuck.scss";
+@import "header/_menu_categories.scss";
+@import "header/_header_stuck.scss";
+@import "header/_header_top_panel.scss";
+/*---------------------------------------*/
+/*--------     6. Footer         --------*/
+/*---------------------------------------*/
+@import "footer/_footer.scss";
+/*---------------------------------------*/
+/*--------    7. Product item    --------*/
+/*---------------------------------------*/
+@import "product_item/_product_item.scss";
+@import "product_item/_options-swatch.scss";
+@import "product_item/_product_layout_vertical.scss";
+/*---------------------------------------*/
+/*------     8. Product Single    -------*/
+/*---------------------------------------*/
+@import "product_single/_product_single.scss";
+@import "product_single/_product_single_fixed_item.scss";
+/*------     9. Product listing   -------*/
+/*---------------------------------------*/
+@import "product_listing/_aside-col.scss";
+@import "product_listing/_listing_product.scss";
+/*---------------------------------------*/
+/*--------     11. Promo         --------*/
+/*---------------------------------------*/
+@import "promo/_promo.scss";
+@import "promo/_promo_card.scss";
+@import "promo/_promo_card_02.scss";
+@import "promo/_promo_fullwidth.scss";
+@import "promo/_promo_parallax.scss";
+@import "promo/_promofixed.scss";
+@import "promo/_promo_external.scss";
+@import "promo/_promo_snapppt.scss";
+@import "promo/_promo3.scss";
+/*---------------------------------------*/
+/*--------     12. Tabs         --------*/
+/*---------------------------------------*/
+@import "tabs/_custom_tab.scss";
+@import "tabs/_tabs-default.scss";
+@import "tabs/_masonry-filter-btn.scss";
+/*---------------------------------------*/
+/*--------     13 Pages         --------*/
+/*---------------------------------------*/
+@import "pages/_compare.scss";
+@import "pages/_empty.scss";
+@import "pages/_lookbook.scss";
+@import "pages/_maintence.scss";
+@import "pages/_shopcart_page.scss";
+@import "pages/_about_page.scss";
+@import "pages/_contact_page.scss";
+@import "pages/_account_page.scss";
+@import "pages/_demo_typography.scss";
+/*---------------------------------------*/
+/*----14. Slick   -*_/
+/*---------------------------------------*/
+@import "slider/_slider_slick.scss";
+@import "slider/_slider_slick_main.scss";
+/*---------------------------------------*/
+/*--------     15. Modal         --------*/
+/*---------------------------------------*/
+@import "modal/_modal.scss";
+@import "modal/_modal_addtocart.scss";
+@import "modal/_modal_discount.scss";
+@import "modal/_modal_get_access.scss";
+@import "modal/_modal_quickview.scss";
+@import "modal/_modal_shipping.scss";
+@import "modal/_modal_sizeguide.scss";
+@import "modal/_modal_verify.scss";
+@import "modal/_modal_video.scss";
+/*--------------------------------------*/
+/*--------     16. Blog         --------*/
+/*--------------------------------------*/
+@import "blog/_blog_aside.scss";
+@import "blog/_blog_list.scss";
+@import "blog/_blog_masonry.scss";
+@import "blog/_blog_post.scss";
+@import "blog/_blog-single-post.scss";
+@import "blog/_reviewsbox.scss";
+/*---------------------------------------*/
+/*--------     17. Instagram     --------*/
+/*---------------------------------------*/
+@import "instagram/_instafeed.scss";
+/*---------------------------------------*/
+/*--------    18. Content layout  ------*/
+/*--------------------------------------*/
+@import "content_layout/_carusel_brands.scss";
+@import "content_layout/_categories_col.scss";
+@import "content_layout/_list_layout-01.scss";
+@import "content_layout/_pagination.scss";
+@import "content_layout/_box_layout-01.scss";
+@import "content_layout/_rating_stars.scss";
+@import "content_layout/_services_block.scss";
+/*---------------------------------------*/
+/*--------     19. Foorm layout   ------*/
+/*---------------------------------------*/
+@import "form/_form_default.scss";
+@import "form/_form_account.scss";
+/*---------------------------------------*/
+/*--------     20. Portfolio pages  ------*/
+/*---------------------------------------*/
+@import "portfolio/_portfolio.scss";
+/*---------------------------------------*/
+/*--------     21. Breadcrumb    ------*/
+/*---------------------------------------*/
+@import "breadcrumb/_breadcrumb.scss";
+/*---------------------------------------*/
+/*--------     22. Back to top    ------*/
+/*---------------------------------------*/
+@import "back_to_top/_back_to_top.scss";
+/*---------------------------------------*/
+/*--------       23. Tooltip      ------*/
+/*---------------------------------------*/
+@import "tooltip/_tooltip.scss";
+/*---------------------------------------*/
+/*--------  25. AddThis Dashboard   ------*/
+/*---------------------------------------*/
+@import "add_this_services/_add_this_services.scss";
+
+
+
+.pt-desktop-header .pt-logo.pt-logo-alignment a{
+	padding-top: 0;
+	padding-bottom: 0px;
+}
+
+.pt-mobile-header .pt-logo-container{
+	height: inherit;
+	min-height: 50px;
+}
+.pt-mobile-header .pt-logo-container .pt-logo img{
+	max-height: inherit;
+}
+@media (max-width: 1024px){
+.pt-mobile-header .pt-header-row>:not(.pt-logo-container) {
+    position: absolute;
+    top: inherit;
+    z-index: 2;
+}
+}
+
+header .pt-logo img{
+	max-height: inherit;
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+@media (max-width: 1024px){
+	.pt-stuck-nav .pt-header-row>:not(.pt-logo-container) {
+	    position: absolute;
+	    top: inherit;
+	}
+}
+
+
+
+/*
+	Skin Furniture
+*/
+$default_color:								#48CAB2;
+$default_color2:							#333333;
+
+
+
+/* Typography */
+body{
+	color: #777777;
+}
+strong{
+	font-weight: 400;
+}
+.btn{
+	background: #333333;
+	color: #ffffff;
+	font-weight: normal;
+	&:hover{
+		background: #ffffff;
+		color: #333333;
+	}
+}
+/* Header */
+.pt-desktop-header{
+	.pt-logo.pt-logo-alignment{
+		top: 2px;
+	}
+}
+.headinfo-box{
+	.navinfo.text-left{
+		>*{
+			@media (min-width: 1240px){
+				margin-left: 24px;
+				&.pt-desctop-parent-menu{
+					margin-left: 48px;
+				}
+			}
+		}
+	}
+}
+header{
+	.pt-search-02{
+		.search-form{
+			.pt-search-input{
+				background: #F8F8F8;
+				border-color:#F8F8F8;
+				font-weight: 400;
+				&:focus{
+					box-shadow: 0px 2px 12px rgba(51, 51, 51, 0.08);
+					background: #F8F8F8;
+				}
+			}
+		}
+		&:not([class^="pt-hover-"]){
+			width: 250px;
+		}
+	}
+	.pt-search{
+		.pt-dropdown-menu{
+			.pt-btn-search{
+				color: #333333;
+				&:hover{
+					color: #333333;
+					svg{
+						color: #333333;
+					}
+				}
+			}
+		}
+	}
+	.pt-dropdown-obj{
+		.pt-dropdown-toggle{
+			&:hover {
+				color: #333333;
+			}
+		}
+		&.active{
+			.pt-dropdown-toggle{
+				color: #333333;
+			}
+		}
+	}
+	.pt-cart .pt-cart-layout .pt-cart-content .pt-cart-list .pt-item .pt-item-descriptions .pt-price{
+		color: #333333;
+	}
+	.pt-cart .pt-cart-layout .pt-cart-content .pt-cart-list .pt-item a:not([class]) .pt-title{
+		&:hover{
+			color: #333333;
+		}
+	}
+	.pt-cart .pt-cart-layout .pt-cart-content .pt-cart-list .pt-item-close .pt-btn-close:hover{
+		color: #333333;
+	}
+	.pt-box-info{
+		ul{
+			li{
+				color: #333333;
+				a.pt-link-underline{
+					color: #333333;
+					font-weight: normal;
+					&:before{
+						background: #333333;
+					}
+				}
+			}
+		}
+	}
+	.pt-dropdown-obj:not(.pt-search) .pt-mobile-add .pt-close:hover svg{
+		color: #333333;
+	}
+}
+.panel-menu{
+	li.mm-close-parent .mm-close:hover,
+	#mm0.mmpanel a:not(.mm-close):hover,
+	.mm-original-link:hover,
+	.mm-prev-level:hover,
+	li#entrypoint-objects .my-account ul li a:hover .pt-text{
+		color: #333333;
+	}
+}
+.pt-menu-toggle{
+	padding-top: 11px;
+	&:hover{
+		color: #333333;
+	}
+}
+.pt-stuck-nav{
+	.pt-menu-toggle{
+		top: 0;
+	}
+}
+.pt-desctop-menu{
+	nav>ul>li.dropdown>a{
+		font-weight: 400;
+	}
+	.pt-megamenu-submenu{
+		>li{
+			>a{
+				color: #777777;
+				&:hover{
+					color: #333333;
+				}
+			}
+		}
+	}
+}
+.pt-desctop-menu:not([class^="pt-hover-"]){
+	li.dropdown{
+		> a{
+			color: #333333;
+			font-size: 13px;
+			span:before{
+				background-color: #333333;
+			}
+			&:hover{
+				color: #333333;
+			}
+		}
+		&.active{
+			> a{
+				color: #333333;
+			}
+		}
+		&.selected{
+			> a{
+					color: #333333;
+				span{
+					&:before{
+						width: 100%;
+					}
+				}
+			}
+		}
+	}
+}
+/* slider revolution */
+.mainSliderSlick .slide .slide-content{
+	.tp-caption1-wd-1,
+	.tp-caption1-wd-2{
+		font-weight: normal;
+	}
+}
+
+/* Section Layout */
+.pt-block-title{
+	.pt-title{
+		font-weight: 400;
+	}
+}
+
+.pt-promo-card-02{
+	.pt-description{
+		.pt-title{
+			font-weight: 400;
+			span{
+				display: inline-block;
+				position: relative;
+				&:before{
+					content: '';
+					display: block;
+					position: absolute;
+					bottom: 3px;
+					width: 0%;
+					height: 2px;
+					margin: auto;
+					left: 0;
+					right: 0;
+					transition: width .2s linear;
+					background-color: #333;
+				}
+			}
+		}
+	}
+	&:hover{
+		.pt-description{
+			.pt-title{
+				span{
+					&:before{
+						width: 100%;
+					}
+				}
+			}
+		}
+	}
+}
+
+.pt-promo-box{
+	.image-box{
+		border-radius: 50%;
+		overflow: hidden;
+	}
+	.pt-description.pr-promo-type1{
+		.pt-title-large{
+			font-weight: 400;
+			&:before{
+				bottom: -2px;
+				height: 2px;
+			}
+			@media (min-width: 1025px){
+				font-size: 18px;
+				line-height: 26px;
+			}
+			@media (max-width: 1024px){
+				font-size: 16px;
+				line-height: 24px;
+			}
+		}
+	}
+	.pt-description.pt-point-external{
+		padding-top: 15px;
+	}
+}
+
+.pt-layout-col-promo{
+	@media (min-width: 576px){
+		[class^=pt-promo]{
+			margin-top: 33px;
+		}
+	}
+}
+
+.pt-services-block{
+	.pt-title{
+		font-weight: normal;
+		.pt-text{
+			color: #333333;
+		}
+		.pt-icon{
+			color: #333333;
+		}
+	}
+}
+
+.pt-carousel-brands .pt-item:hover {
+	color: #777777;
+}
+
+
+/* Footer */
+footer{
+	.pt-footer-title{
+		font-weight: 400;
+	}
+	.pt-list{
+		li{
+			a{
+				&:hover{
+					color: #333333;
+				}
+			}
+		}
+	}
+	.newsletterform-01{
+		.form-group{
+			.pt-input{
+				font-weight: 400;
+			}
+		}
+	}
+	.pt-social-box{
+		.pt-social-box-title{
+			font-weight: 400;
+		}
+	}
+}
+

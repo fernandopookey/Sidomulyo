@@ -1,0 +1,33 @@
+#ModalVerifyAge{
+	.pt-modal-verifyage{
+		p{
+			color: $default_color2;
+			font-size: 16px;
+			line-height: 25px;
+		}
+		.pt-title{
+			color: $default_title_color;
+			font-weight: 800;
+			font-size: 28px;
+			line-height: 34px;
+			margin-top: 12px;
+		}
+		.row-btn{
+			margin-top: 13px;
+			margin-left: -10px;
+			[class^="btn"]{
+				margin-top: 10px;
+				margin-left: 10px;
+				width: calc(50% - 10px);
+			}
+		}
+		& > *:nth-child(1){
+		  margin-top: 0;
+		}
+		@media (max-width: 650px){
+			.pt-title{
+				font-size: 24px;
+			}
+		}
+	}
+}

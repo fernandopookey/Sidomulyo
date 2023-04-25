@@ -1,0 +1,179 @@
+/*
+	instafeed-fluid
+*/
+._instafeed-default .instagram_gallery{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-content: center;
+	align-items: center;
+	text-align: center;
+	user-select: none;
+	a{
+		position: relative;
+		overflow: hidden;
+		text-decoration: none;
+		&:after{
+			content: "";
+			display: block;
+			position: absolute;
+			z-index: 1;
+			left: 0;
+			top: 0;
+			background-color: rgba(0, 0, 0, 0.65);
+			height: 100%;
+			width: 100%;
+			opacity: 0;
+			transition: opacity .2s;
+		}
+		&:before{
+			font-family: 'yanka';
+			font-size: 29px;
+			line-height: 1;
+			content: "\e907";
+			position: absolute;
+			z-index: 7;
+			top: 50%;
+			left: 50%;
+			margin-left: -15px;
+			margin-top: -15px;
+			width: 30px;
+			height: 30px;
+			display: block;
+			text-align: center;
+			opacity: 0;
+			transition: opacity .3s;
+			color: #ffffff;
+		}
+		&:hover{
+			&:after{
+				opacity: 0.7;
+			}
+			&:before{
+				opacity: 1;
+			}
+		}
+	}
+	img{
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		object-position: center;
+	}
+}
+.instafeed-fluid{
+	margin-left: -10px;
+	margin-right: -10px;
+	&:not(.instafeed-col-item-04),
+	&:not(.instafeed-col-item-06){
+		> *{
+			@media (min-width: 1240px){
+				width: 12.5%;
+			}
+			@media (max-width: 1239px){
+				width: 16.666%;
+			}
+			@media (max-width: 1024px){
+				width: 25%;
+			}
+			@media (max-width: 575px){
+				width: 33.333%;
+			}
+			@media (max-width: 400px){
+				width: 50%;
+			}
+		}
+	}
+	&.instafeed-col-item-06{
+		> *{
+			@media (min-width: 1240px){
+				width: calc(16.6% - 10px);
+			}
+			@media (max-width: 1239px){
+				width: calc(16.666% - 10px);
+			}
+			@media (max-width: 1024px){
+				width: calc(25% - 10px);
+			}
+			@media (max-width: 790px){
+				width: calc(33.333% - 10px);
+			}
+			@media (max-width: 400px){
+				width: calc(50% - 10px);
+			}
+		}
+	}
+	&.instafeed-col-item-04{
+		> *{
+			@media (min-width: 576px){
+				width: calc(25% - 10px);
+			}
+			@media (max-width: 575px){
+				width: calc(50% - 10px);
+			}
+		}
+	}
+	@extend ._instafeed-default;
+
+}
+.instafeed-col:not([class^="instafeed-item-"]){
+	margin-top: -10px;
+	margin-left: -10px;
+	&:not(.instafeed-col-item-04),
+	&:not(.instafeed-col-item-06){
+		.instagram-image{
+			margin-top: 10px;
+			margin-left: 10px;
+			@media (min-width: 1240px){
+				width: calc(12.5% - 10px);
+			}
+			@media (max-width: 1239px){
+				width: calc(16.666% - 10px);
+			}
+			@media (max-width: 1024px){
+				width: calc(25% - 10px);
+			}
+			@media (max-width: 575px){
+				width: calc(33.333% - 10px);
+			}
+			@media (max-width: 400px){
+				width: calc(50% - 10px);
+			}
+		}
+	}
+	&.instafeed-col-item-06{
+		.instagram-image{
+			margin-top: 10px;
+			margin-left: 10px;
+			@media (min-width: 1240px){
+				width: calc(16.6% - 10px);
+			}
+			@media (max-width: 1239px){
+				width: calc(16.666% - 10px);
+			}
+			@media (max-width: 1024px){
+				width: calc(25% - 10px);
+			}
+			@media (max-width: 790px){
+				width: calc(33.333% - 10px);
+			}
+			@media (max-width: 400px){
+				width: calc(50% - 10px);
+			}
+		}
+	}
+	&.instafeed-col-item-04{
+		.instagram-image{
+			margin-top: 10px;
+			margin-left: 10px;
+			@media (min-width: 576px){
+				width: calc(25% - 10px);
+			}
+			@media (max-width: 575px){
+				width: calc(50% - 10px);
+			}
+		}
+	}
+	@extend ._instafeed-default;
+}

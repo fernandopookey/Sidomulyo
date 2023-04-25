@@ -1,0 +1,42 @@
+/*
+	Blog list
+*/
+.pt-listing-post{
+	.pt-post{
+		padding-bottom: 54px;
+		border-bottom:1px solid $blog_post_separaotr;
+		&:not(:first-child){
+			margin-top: 60px;
+		}
+	}
+	@media (min-width: 1025px){
+		.pt-post .pt-post-content .pt-meta{
+			flex-direction: row;
+			flex-wrap: nowrap;
+			justify-content: space-between;
+			margin-top: 8px;
+		}
+		.pt-post-content .pt-meta .pt-autor{
+			margin-right: 20px;
+		}
+	}
+	@media (max-width: 1024px){
+		.pt-post{
+			padding-bottom: 40px;
+			&:not(:first-child){
+				margin-top: 45px;
+			}
+		}
+	}
+}
+/*
+	pt-content-post
+*/
+.pt-content-post{
+	margin-top: -40px;
+	.pt-post{
+		margin-top: 40px;
+	}
+}
+
+

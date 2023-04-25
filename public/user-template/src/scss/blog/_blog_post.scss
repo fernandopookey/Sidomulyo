@@ -1,0 +1,125 @@
+/* pt-post*/
+.pt-post{
+	.pt-post-img{
+		position: relative;
+		overflow: hidden;
+		img{
+			width: 100%;
+			height: auto;
+			 -webkit-transition: -webkit-transform .5s;
+			transition: transform 1s;
+		}
+		&:hover{
+			img{
+				-webkit-transform: scale3d(1.1,1.1,1);
+				transform: scale3d(1.1,1.1,1);
+			}
+		}
+	}
+	.pt-post-content{
+		margin-top: 23px;
+		.pt-title {
+			font-size: 24px;
+			line-height: 35px;
+			font-weight: 800;
+			a {
+				color: $blog_post_title;
+				display: inline-block;
+				text-decoration: none;
+				&:hover{
+					color: $blog_post_title_hover;
+					text-decoration: underline;
+				}
+			}
+		}
+		.pt-description {
+			margin-top: 10px;
+		}
+		.pt-meta {
+			width: 100%;
+			display: flex;
+			flex-direction: column;
+			flex-wrap: wrap;
+			justify-content: flex-start;
+			align-content: flex-start;
+			align-items: flex-start;
+			margin-top: 8px;
+			font-size: 13px;
+			line-height: 19px;
+			color: $blog_post_meta_text;
+			span {
+				color: $default_color2;
+				font-weight: 800;
+			}
+			.pt-autor {
+				margin-top: 9px;
+				a{
+					color: $blog_post_meta_link;
+					font-weight: 800;
+					display: inline-block;
+					position: relative;
+					&:before {
+						position: absolute;
+						bottom: 1px;
+						left: 0;
+						right: 0;
+						margin: auto;
+						width: 0%;
+						content: '';
+						color: transparent;
+						background-color: $blog_post_meta_link;
+						height: 2px;
+						transition: width 0.2s linear;
+					}
+					&:hover:before {
+						width: 100%;
+					}
+				}
+			}
+			.pt-comments{
+				a{
+					display: inline-block;
+					font-size: 13px;
+					line-height: 19px;
+					transition: all 0.2s linear;
+					color: $blog_post_comments_link;
+					.pt-icon{
+						font-style: inherit;
+						color: $default_color2;
+						&:before{
+							font-family: 'yanka';
+							font-size: 23px;
+							line-height: 1;
+							content: "\e906";
+						}
+						position: relative;
+						top: 8px;
+						display: inline-block;
+						margin-right: 10px;
+					}
+					&:hover{
+					  color: $blog_post_comments_link_hover;
+					}
+				}
+			}
+		}
+		.pt-btn {
+			margin-top: 25px;
+		}
+		& >*:nth-child(1):not(.pt-tag) {
+			margin-top: 0;
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+

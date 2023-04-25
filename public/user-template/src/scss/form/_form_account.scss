@@ -1,0 +1,29 @@
+/* account-form */
+.form-layout-01{
+	.row-btn{
+		[class^="btn"]:first-child{
+			margin-top: 7px;
+		}
+		[class^="btn"]:not(:first-child){
+			margin-top: 17px;
+		}
+	}
+	.form-content{
+		margin-top: 49px;
+		.pt-title-page{
+			padding-bottom: 10px;
+		}
+	}
+	button[type=submit].btn-top{
+		margin-top: 22px;
+		font-size: 13px;
+	}
+}
+html.mac.touch-device{
+	.form-layout-01{
+		.btn.btn-block{
+			text-align: center;
+			display: block;
+		}
+	}
+}

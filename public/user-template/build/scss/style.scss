@@ -1,0 +1,235 @@
+/*---------------------------------------*/
+/*--------   Table of contents   --------*/
+/*---------------------------------------*/
+/*
+1. External module
+	1.1 Bootstrap
+	1.2 Slick carousel
+	1.3 Perfect Scrollbar
+	1.4 Magnific popup
+2. Fonts
+	2.1 Font Family
+	2.2 Fonts Icons
+3. Variables
+4. Typography
+5. Header
+6. Footer
+7. Product item
+8. Product Single
+9. Product listing
+10. Promo
+11. Tabs
+12 Pages
+13. Slider Slick
+14. Modal
+15. Blog
+16. Instagram
+17. Content layout
+18. Foorm layout
+19. Portfolio pages
+20. Breadcrumb
+21. Back to top
+22. Tooltip
+23. AddThis Dashboard
+---------------------------------------*/
+
+
+/*---------------------------------------*/
+/*--------   1. External module  --------*/
+/*---------------------------------------*/
+/*-------  1.1 Bootstrap  --------*/
+@import "../external/bootstrap/scss/bootstrap.scss";
+/*-------  1.2 Slick carousel  --------*/
+@import "../../node_modules/slick-carousel/slick/slick.scss";
+/*-------  1.3 Perfect Scrollbar  --------*/
+@import "../external/perfect-scrollbar/perfect-scrollbar.scss";
+/*-------  1.4 Magnific popup  --------*/
+@import "../external/magnific-popup/magnific-popup.scss";
+/*---------------------------------------*/
+/*--------         2. Fonts      --------*/
+/*---------------------------------------*/
+/*-------  2.1 Font Family  --------*/
+@import "../fonts/font-family.scss";
+/*-------  2.2 Fonts Icons  --------*/
+@import "../font-icons/style.scss";
+/*---------------------------------------*/
+/*----       3. Variables              --*/
+/*---------------------------------------*/
+@import "_variables_style";
+/*---------------------------------------*/
+/*--------   4. Typography       --------*/
+/*---------------------------------------*/
+@import "_typography.scss";
+/*---------------------------------------*/
+/*--------     5. Header         --------*/
+/*---------------------------------------*/
+@import "header/_header.scss";
+@import "header/_header_desktop.scss";
+@import "header/_header_mobile.scss";
+@import "header/_header_desktop_layout.scss";
+@import "header/_header_desktop_menu.scss";
+@import "header/_header_mobile_menu.scss";
+@import "header/_header_stuck.scss";
+@import "header/_menu_categories.scss";
+@import "header/_header_stuck.scss";
+@import "header/_header_top_panel.scss";
+/*---------------------------------------*/
+/*--------     6. Footer         --------*/
+/*---------------------------------------*/
+@import "footer/_footer.scss";
+/*---------------------------------------*/
+/*--------    7. Product item    --------*/
+/*---------------------------------------*/
+@import "product_item/_product_item.scss";
+@import "product_item/_options-swatch.scss";
+@import "product_item/_product_layout_vertical.scss";
+
+/*---------------------------------------*/
+/*------     8. Product Single    -------*/
+/*---------------------------------------*/
+@import "product_single/_product_single.scss";
+@import "product_single/_product_single_fixed_item.scss";
+
+/*------     9. Product listing   -------*/
+/*---------------------------------------*/
+@import "product_listing/_aside-col.scss";
+@import "product_listing/_listing_product.scss";
+
+/*---------------------------------------*/
+/*--------     10. Promo         --------*/
+/*---------------------------------------*/
+@import "promo/_promo.scss";
+@import "promo/_promo_card.scss";
+@import "promo/_promo_card_02.scss";
+@import "promo/_promo_fullwidth.scss";
+@import "promo/_promo_parallax.scss";
+@import "promo/_promofixed.scss";
+@import "promo/_promo_external.scss";
+@import "promo/_promo_snapppt.scss";
+@import "promo/_promo3.scss";
+/*---------------------------------------*/
+/*--------     11. Tabs         --------*/
+/*---------------------------------------*/
+@import "tabs/_custom_tab.scss";
+@import "tabs/_tabs-default.scss";
+@import "tabs/_masonry-filter-btn.scss";
+
+/*---------------------------------------*/
+/*--------     12 Pages         --------*/
+/*---------------------------------------*/
+@import "pages/_compare.scss";
+@import "pages/_empty.scss";
+@import "pages/_lookbook.scss";
+@import "pages/_maintence.scss";
+@import "pages/_shopcart_page.scss";
+@import "pages/_about_page.scss";
+@import "pages/_contact_page.scss";
+@import "pages/_account_page.scss";
+@import "pages/_demo_typography.scss";
+/*---------------------------------------*/
+/*----13. Slider Slick               -*_/
+/*---------------------------------------*/
+@import "slider/_slider_slick.scss";
+@import "slider/_slider_slick_main.scss";
+/*---------------------------------------*/
+/*--------     14. Modal         --------*/
+/*---------------------------------------*/
+@import "modal/_modal.scss";
+@import "modal/_modal_addtocart.scss";
+@import "modal/_modal_discount.scss";
+@import "modal/_modal_get_access.scss";
+@import "modal/_modal_quickview.scss";
+@import "modal/_modal_shipping.scss";
+@import "modal/_modal_sizeguide.scss";
+@import "modal/_modal_verify.scss";
+@import "modal/_modal_video.scss";
+/*--------------------------------------*/
+/*--------     15. Blog         --------*/
+/*--------------------------------------*/
+@import "blog/_blog_aside.scss";
+@import "blog/_blog_list.scss";
+@import "blog/_blog_masonry.scss";
+@import "blog/_blog_post.scss";
+@import "blog/_blog-single-post.scss";
+@import "blog/_reviewsbox.scss";
+/*---------------------------------------*/
+/*--------     16. Instagram     --------*/
+/*---------------------------------------*/
+@import "instagram/_instafeed.scss";
+/*---------------------------------------*/
+/*--------    17. Content layout  ------*/
+/*--------------------------------------*/
+@import "content_layout/_carusel_brands.scss";
+@import "content_layout/_categories_col.scss";
+@import "content_layout/_list_layout-01.scss";
+@import "content_layout/_pagination.scss";
+@import "content_layout/_box_layout-01.scss";
+@import "content_layout/_rating_stars.scss";
+@import "content_layout/_services_block.scss";
+@import "content_layout/_aside-col.scss";
+/*---------------------------------------*/
+/*--------     18. Foorm layout   ------*/
+/*---------------------------------------*/
+@import "form/_form_default.scss";
+@import "form/_form_account.scss";
+/*---------------------------------------*/
+/*--------     19. Portfolio pages  ------*/
+/*---------------------------------------*/
+@import "portfolio/_portfolio.scss";
+/*---------------------------------------*/
+/*--------     20. Breadcrumb    ------*/
+/*---------------------------------------*/
+@import "breadcrumb/_breadcrumb.scss";
+/*---------------------------------------*/
+/*--------     21. Back to top    ------*/
+/*---------------------------------------*/
+@import "back_to_top/_back_to_top.scss";
+/*---------------------------------------*/
+/*--------       22. Tooltip      ------*/
+/*---------------------------------------*/
+@import "tooltip/_tooltip.scss";
+/*---------------------------------------*/
+/*--------  23. AddThis Dashboard   ------*/
+/*---------------------------------------*/
+@import "add_this_services/_add_this_services.scss";
+/*---------------------------------------*/
+/*--------  24. Floating   ------*/
+/*---------------------------------------*/
+@import "floating/floating";
+
+
+
+.pt-desktop-header .pt-logo.pt-logo-alignment a {
+	padding-top: 0;
+	padding-bottom: 0px;
+}
+
+.pt-mobile-header .pt-logo-container {
+	height: inherit;
+	min-height: 50px;
+}
+
+.pt-mobile-header .pt-logo-container .pt-logo img {
+	max-height: inherit;
+}
+
+@media (max-width: 1024px) {
+	.pt-mobile-header .pt-header-row>:not(.pt-logo-container) {
+		position: absolute;
+		top: inherit;
+		z-index: 2;
+	}
+}
+
+header .pt-logo img {
+	max-height: inherit;
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+@media (max-width: 1024px) {
+	.pt-stuck-nav .pt-header-row>:not(.pt-logo-container) {
+		position: absolute;
+		top: inherit;
+	}
+}

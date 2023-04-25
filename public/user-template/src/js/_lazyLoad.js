@@ -1,0 +1,8 @@
+/*
+	lazyLoad
+*/
+(function(){
+	new LazyLoad();
+}());
+
+

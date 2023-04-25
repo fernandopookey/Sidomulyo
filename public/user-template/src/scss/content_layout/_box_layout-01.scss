@@ -1,0 +1,79 @@
+/*
+	pt-box-layout-01(index-14.html)
+*/
+.pt-box-layout-01{
+	.pt-descriptipon{
+		.pt-title{
+			font-size: 36px;
+			line-height: 43px;
+			font-weight: 800;
+			color: $default_color2;
+			margin: 0;
+			padding: 0 0 21px 0;
+			& + p{
+				margin-top: 0;
+			}
+		}
+	}
+	.row{
+		align-items: center;
+		&:not(:first-child){
+			margin-top: 100px;
+		}
+		&:nth-child(odd){
+			.pt-descriptipon{
+				padding-left: 29px;
+			}
+		}
+	}
+	@media (max-width: 1024px){
+		.row{
+			&:not(:first-child){
+				margin-top: 73px;
+			}
+			&:nth-child(odd){
+				.pt-descriptipon{
+					padding-left: 19px;
+				}
+			}
+		}
+		.pt-descriptipon{
+			.pt-title{
+				font-size: 27px;
+				line-height: 37px;
+			}
+		}
+	}
+	@media (min-width: 791px){
+		.row{
+			&:nth-child(even){
+				flex-direction: row-reverse
+			}
+		}
+	}
+	@media (max-width: 790px){
+		.pt-descriptipon{
+			margin-top: 29px;
+		}
+		.row{
+			&:nth-child(odd){
+				.pt-descriptipon{
+					padding-left: 0px;
+				}
+			}
+		}
+	}
+	@media (max-width: 575px){
+		.row{
+			&:not(:first-child){
+				margin-top: 48px;
+			}
+		}
+		.pt-descriptipon{
+			.pt-title{
+				font-size: 24px;
+				line-height: 35px;
+			}
+		}
+	}
+}

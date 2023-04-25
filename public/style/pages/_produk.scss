@@ -1,0 +1,44 @@
+.page-content-produk {
+    margin-top: 55px;
+
+    .head-page {
+        background: linear-gradient(to left, #0000cc 43%, #33ccff 100%);
+        padding-top: 30px;
+        padding-bottom: 30px;
+        justify-content: center;
+        text-align: center;
+
+        .produk-title {
+            color: white;
+            font-weight: 600;
+            font-size: 30px;
+        }
+    }
+
+    .produk-card-content {
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 30px;
+
+    }
+
+    .produk-card {
+        font-weight: 500;
+        font-size: 20px;
+        color: #ffffff;
+        background: linear-gradient(90deg, rgba(16, 38, 148, 1) 0%, rgba(0, 185, 242, 1) 34%);
+        transition: .5s ease;
+        cursor: pointer;
+
+        a {
+            text-decoration: none !important;
+            color: #ffffff;
+        }
+
+        &:hover {
+            background-color: rgb(133, 133, 133);
+            transform: scale(1.1);
+        }
+
+    }
+}

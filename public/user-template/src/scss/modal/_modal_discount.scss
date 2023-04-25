@@ -1,0 +1,232 @@
+#ModalDiscount,
+#ModalDiscount02{
+	.modal-content{
+		background-color: #ffffff;
+		padding:10px;
+	}
+	.form-default{
+		.form-group{
+			margin-bottom: 10px;
+			font-size: 16px;
+			line-height: 25px;
+		}
+		.form-control{
+			font-size: 14px;
+		}
+	}
+	.checkbox-group{
+		margin-top: 17px;
+		margin-bottom: 0;
+		padding-bottom: 0px;
+		position: relative;
+		label{
+			font-size: 16px;
+			line-height: 25px;
+			padding-left: 32px;
+			.check:before{
+				top:7px;
+			}
+		}
+		.box{
+			top:3px;
+		}
+	}
+	.pt-background-fullwidth{
+		background-size: 100% auto;
+	}
+	.pt-modal-discount{
+		.pt-promo-title{
+			.text-01{
+				font-size: 36px;
+				line-height: 43px;
+				font-weight: 800;
+			}
+			.text-02{
+				font-size: 96px;
+				line-height: 115px;
+				font-weight: 800;
+			}
+			.text-03{
+				font-size: 18px;
+				line-height: 28px;
+			}
+		}
+	}
+	.pt-background{
+		// layout right modal
+		&:not(.pt-layout-center){
+			background: #ffffff url('../images/modal/modal-discount-bg-01.jpg') 0 0 no-repeat;
+			background-size: 49% auto;
+			.pt-modal-discount{
+				[class^="col"]{
+					padding-left: 40px;
+					padding-right: 40px;
+				}
+				.pt-promo-title{
+					padding-bottom: 32px;
+					.text-01{
+						color: $default_color2;
+					}
+					.text-02{
+						color: $default_color2;
+						margin-top: 33px;
+					}
+					.text-03{
+						color: $default_text_color;
+					}
+					.text-01 + .text-03{
+						margin-top: 10px;
+					}
+					>*:nth-child(1){
+						margin-top: 0;
+					}
+				}
+				p{
+					margin-top: 34px;
+				}
+				[class^="btn"]{
+					min-width:143px;
+					margin-top: 15px;
+				}
+			}
+			@media (min-width: 851px){
+				padding: 83px 0 59px;
+			}
+			@media (max-width: 850px){
+				padding: 60px 0 62px;
+				.pt-modal-discount{
+					.pt-promo-title{
+						padding-bottom: 18px;
+						.text-01{
+							font-size: 30px;
+							line-height: 41px;
+						}
+					}
+				}
+			}
+			@media (max-width: 760px){
+				padding: 54px 0 62px;
+				&:not(.pt-layout-center){
+					background: #ffffff;
+					[class^="col"]{
+						flex: 0 0 100%;
+						max-width: 100%;
+					}
+				}
+			}
+			@media (max-width: 500px){
+				.pt-modal-discount [class^="col"]{
+					padding-left: 25px;
+					padding-right: 25px;
+					.pt-promo-title{
+						.text-01{
+							font-size: 28px;
+							line-height: 39px;
+						}
+					}
+				}
+			}
+		}
+		// layout center modal
+		&.pt-layout-center{
+			background: #ffffff url('../images/modal/modal-discount-bg-02.jpg') 0 0 no-repeat;
+			background-size: cover;
+			.pt-modal-discount{
+				.pt-promo-title{
+					.text-01{
+						color: #ffffff;
+					}
+					.text-02{
+						color: #ffffff;
+						margin-top: 1px;
+					}
+					.text-03{
+						color: #ffffff;
+						margin-top: 9px;
+					}
+				}
+				[class^="btn"]{
+					min-width:143px;
+					margin-top: 32px;
+				}
+			}
+			@media (min-width: 851px){
+				padding: 137px 0 131px;
+			}
+			@media (max-width: 850px){
+				padding: 80px 0 82px;
+				.pt-modal-discount{
+					.pt-promo-title{
+						.text-01{
+							font-size: 30px;
+							line-height: 41px;
+						}
+						.text-02{
+							margin-top: 11px;
+							font-size: 80px;
+							line-height: 91px;
+						}
+					}
+					[class^="btn"]{
+						margin-top: 25px;
+					}
+				}
+			}
+			@media (max-width: 760px){
+				padding: 70px 0 72px;
+				.pt-modal-discount{
+					.pt-promo-title{
+						.text-01{
+							font-size: 24px;
+							line-height: 35px;
+						}
+						.text-02{
+							margin-top: 5px;
+							font-size: 55px;
+							line-height: 66px;
+						}
+						.text-03{
+							margin-top: 5px;
+							font-size: 16px;
+							line-height: 26px;
+						}
+					}
+					[class^="btn"]{
+						margin-top: 16px;
+					}
+				}
+			}
+			@media (max-width: 590px){
+				padding: 65px 20px 62px;
+			}
+		}
+	}
+	.pt-layout-center{
+		&:not([class^="pt-point-h"]){
+			[class^="col"]{
+				flex: 0 0 100%;
+				max-width: 100%;
+			}
+		}
+		&[class^="pt-point-h"]{
+			[class^="col"]{
+				@media (min-width: 761px){
+					flex: 0 0 62%;
+					max-width: 62%;
+				}
+				@media (max-width: 760px){
+					flex: 0 0 55%;
+					max-width: 55%;
+				}
+				@media (max-width: 590px){
+					flex: 0 0 100%;
+					max-width: 100%;
+				}
+			}
+		}
+	}
+	.form-default .form-group label.error{
+		top:60px;
+		z-index: 30;
+	}
+}

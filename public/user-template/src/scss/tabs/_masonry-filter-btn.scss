@@ -1,0 +1,44 @@
+ .pt-filter-nav{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-content: stretch;
+	align-items: center;
+	position: relative;
+	z-index: 2;
+	margin-top: -17px;
+	padding-bottom: 23px;
+	.button,
+	a.button{
+		color:$default_title_color;
+		font-weight: 800;
+		font-size: 13px;
+		line-height: 34px;
+		letter-spacing: 0.04em;
+		cursor: pointer;
+		transition: all 0.2s linear;
+		@media (min-width: 576px){
+			padding: 5px;
+			margin: 0 7px;
+		}
+		&.active{
+			color:$default_title_hover;
+			cursor: default;
+		}
+		&:hover{
+			color:$default_title_hover;
+		}
+	}
+	@media (max-width: 575px){
+		margin-top: -12px;
+		padding-bottom: 28px;
+		.button{
+			padding: 0px 5px;
+			margin: 0 3px;
+		}
+	}
+}
+
+
+

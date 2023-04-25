@@ -1,0 +1,21 @@
+.client-image-content {
+    display: flex;
+    flex-wrap: wrap;
+
+    .client-kartu {
+        margin-bottom: 50px;
+    }
+
+    .client-image {
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    img {
+        // float: left;
+        width: 100px;
+        height: 100px;
+        object-fit: contain;
+    }
+}

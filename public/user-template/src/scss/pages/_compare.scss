@@ -1,0 +1,217 @@
+/*
+	compare pages
+*/
+.pt-compare-table02{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+	align-content: stretch;
+	vertical-align: top;
+	position: relative;
+	top: 9px;
+	.pt-col-title,
+	.pt-item{
+		> *:nth-child(even){
+			background-color: $default_color5;
+		}
+	}
+	.pt-col-title{
+		position: relative;
+		width: 293px;
+		.title-item{
+			padding: 10px 20px 8px 20px;
+			font-size: 16px;
+			line-height: 22px;
+			color: $default_text_color;
+			&.js_one-height-01{
+				padding: 20px;
+			}
+		}
+	}
+	.pt-col-item{
+		@media (min-width: 1240px){
+			width: calc(100% - 286px);
+		}
+		@media (max-width: 1239px){
+			width: calc(100% - 200px);
+		}
+		@media (max-width: 575px){
+			width: calc(100% - 150px);
+		}
+		@media (max-width: 450px){
+			width: calc(100% - 110px);
+			.pt-product-box{
+				[class^="btn"]{
+					.pt-icon{
+						display: none;
+					}
+				}
+			}
+		}
+		.compare-row-item{
+			display: flex;
+			flex-direction: row;
+			flex-wrap: nowrap;
+			justify-content: flex-start;
+			align-content: stretch;
+		}
+		.pt-item{
+			@media (min-width: 1025px){
+				width: 33.333%;
+			}
+			@media (max-width: 1024px){
+				width: 50%;
+			}
+			@media (max-width: 789px){
+				width: 100%;
+				.pt-product-box{
+					padding-right: 0;
+				}
+			}
+		}
+		.pt-product-box{
+			padding: 0 15px 40px;
+			display: block;
+			position: relative;
+			.pt-remove-item{
+				display: inline-block;
+				color: $default_color2;
+				transition: color $speed;
+				&:hover{
+					color: $default_color;
+				}
+			}
+			.pt-img{
+				position: relative;
+				display: block;
+				margin-top: 12px;
+				img{
+					width: 100%;
+					height: auto;
+				}
+			}
+			.pt-label-location{
+				position: absolute;
+				top: 7px;
+				left: 7px;
+				margin-right: 53px;
+				z-index: 2;
+				display: flex;
+				flex-direction: row;
+				flex-wrap: wrap;
+				justify-content: flex-start;
+				align-content: stretch;
+				align-items: flex-start;
+				[class^="pt-label-"]{
+					margin-left: 3px;
+					margin-top: 3px;
+					font-size: 12px;
+					line-height: 1;
+					color: #ffffff;
+					font-weight: 800;
+					padding: 5px 7px 4px;
+				}
+				.pt-label-new{
+					background:$label_new_bg;
+					color: $label_new_text;
+				}
+				.pt-label-sale{
+					background:$label_sale_bg;
+					color: $label_sale_text;
+				}
+				.pt-label-our-fatured{
+					background:$label_our_fatured_bg;
+					color: $label_our_fatured_text;
+				}
+				.pt-label-our-stock{
+					background:$label_out_stock_bg;
+					color: $label_out_stock_text;
+				}
+				.pt-label-in-stock{
+					background:$label_in_stock_bg;
+					color: $label_in_stock_text;
+				}
+			}
+			.pt-add-info{
+				list-style: none;
+				margin: 16px 0 0 0;
+				padding: 0;
+				display: flex;
+				flex-direction: column;
+				li{
+					font-size: 13px;
+					line-height: 19px;
+					color: $default_text_color;
+					a{
+						color: $default_text_color;
+						transition: color $speed linear;
+						text-decoration: none;
+						&:hover{
+							color: $default_text_color;
+							text-decoration: underline;
+						}
+					}
+				}
+			}
+			.pt-title{
+				margin-top: 2px;
+				font-size: 16px;
+				line-height: 19px;
+				font-weight: 400;
+				color: $default_color2;
+				a{
+					color: $default_color2;
+					text-decoration: none;
+					&:hover{
+						text-decoration: underline;
+					}
+				}
+			}
+			.pt-price{
+				color: $default_color;
+				font-weight: 800;
+				font-size: 18px;
+				transition: opacity $speed linear;
+				position: relative;
+				margin-top: 9px;
+				.new-price{
+					color: #e12c43;
+				}
+				.old-price{
+					color: $default_text_color;
+					font-weight: normal;
+					text-decoration:line-through;
+				}
+			}
+			.btn{
+				margin-top: 12px;
+			}
+		}
+		.pt-value{
+			font-size: 16px;
+			line-height: 22px;
+			text-align: left;
+			color: $default_color2;
+			font-weight: 800;
+			padding: 10px 15px 8px;
+		}
+	}
+	&.slick-init{
+		position: relative;
+		margin-top: 37px;
+	}
+	.slick-track{
+		margin:0;
+	}
+	.slick-arrow{
+		opacity: 0;
+	}
+	@media (max-width: 790px){
+		.arrow-location-center-02{
+			.slick-arrow.slick-prev{
+				left: 15px
+			}
+		}
+	}
+}

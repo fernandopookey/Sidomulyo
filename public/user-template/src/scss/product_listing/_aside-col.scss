@@ -1,0 +1,18 @@
+.rightColumn{
+	@media (min-width: 1025px){
+		margin-top: 4px;
+	}
+	@media (max-width: 790px){
+		margin-top: 37px;
+	}
+}
+.leftColumn{
+	&:not(.rightColumn){
+		@media (min-width: 1025px){
+			margin-top: 4px;
+		}
+		@media (max-width: 790px){
+			margin-top: 37px;
+		}
+	}
+}

@@ -1,0 +1,36 @@
+/* pt-carousel-brands */
+.pt-carousel-brands{
+	.slick-slide{
+	  text-align: center;
+	}
+	.pt-item{
+		display: inline-block;
+		padding: 0 20px;
+		color: $default_color2;
+		transition: color $speed linear;
+		img{
+			height: auto;
+			width: 100%;
+			max-width:131px;
+			opacity:0.2;
+		}
+		&:hover{
+			color: $default_color;
+			img{
+				opacity:1;
+			}
+		}
+	}
+}
+html:not(.mac):not(.touch-device){
+	.pt-carousel-brands{
+		.slick-track{
+			display: flex;
+			flex-direction: row;
+			flex-wrap: wrap;
+			justify-content: center;
+			align-content: center;
+			align-items: center;
+		}
+	}
+}

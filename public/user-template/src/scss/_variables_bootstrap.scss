@@ -1,0 +1,26 @@
+/*
+	Bootstrap variables
+*/
+$body-bg:					#ffffff !default;
+$body-color:				#777777 !default;
+
+/* Grid */
+$grid-breakpoints: (
+	xs: 0,
+	sm: 576px,
+	md: 791px,
+	lg: 1025px,
+	xl: 1240px
+) !default;
+$container-max-widths: (
+	sm: 546px,
+	md: 770px,
+	lg: 990px,
+	xl: 1200px
+) !default;
+$grid-columns:					12 !default;
+$grid-gutter-width:				30px !default;
+
+
+$base-radius: 0px;
+$simple_links_hover_speed:							0.2s;

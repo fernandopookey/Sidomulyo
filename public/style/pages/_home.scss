@@ -1,0 +1,45 @@
+.page-home {
+    padding-top: 20px;
+    margin-top: 100px;
+
+    .carousel-inner {
+        // background-color: aqua;
+
+
+        img {
+            height: 300px;
+            object-fit: cover;
+        }
+    }
+
+    a {
+        text-decoration: none !important;
+    }
+
+    .component-service {
+        background-color: rgb(173, 173, 173);
+        border-radius: 10px;
+        transition: .5s ease;
+
+        .service-description {
+            // background-color: aquamarine;
+
+            .service-text {
+                color: #FFFFFF;
+                font-weight: 500;
+            }
+        }
+
+        .icon-home {
+            // background-color: aqua;
+            color: rgb(255, 253, 253);
+            padding: 30px;
+            border-radius: 10px;
+        }
+
+        &:hover {
+            background-color: rgb(133, 133, 133);
+            transform: scale(1.1);
+        }
+    }
+}
