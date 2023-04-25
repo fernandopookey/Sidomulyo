@@ -81,7 +81,7 @@ class ProductCategoryController extends Controller
         $data = [
             'title'             => 'Edit Kategori Produk',
             'product_category'  => ProductCategory::find($id),
-            'content'           => 'admin/new-product-category/edit'
+            'content'           => 'new-admin/product-category/edit'
         ];
         return view('new-admin.layouts.wrapper', $data);
     }
