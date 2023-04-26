@@ -113,7 +113,8 @@ class ProductController extends Controller
         $categories = ProductCategory::all();
 
         return view('new-admin.layouts.wrapper', [
-            'content'       => 'admin/product/detail',
+            'title'         => 'Edit Produk',
+            'content'       => 'new-admin/product/detail',
             'product'       => $product,
             'categories'    => $categories,
         ]);

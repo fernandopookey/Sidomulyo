@@ -1,6 +1,5 @@
 <div class="row">
     <div class="card">
-
         <div class="col-6 text-start mt-4 mb-4">
             <a class="btn bg-gradient-dark mb-0" href="{{ route('admin-product-create') }}">
                 <i class="fa fa-plus"></i> Tambah</a>

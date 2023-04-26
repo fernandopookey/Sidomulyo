@@ -2,15 +2,12 @@
     <div class="col-md-12">
         <div class="card">
             <div class="card-body">
-
                 <form action="/admin/profile/update" method="POST" enctype="multipart/form-data">
                     @method('PUT')
                     @csrf
-
-
                     <div class="row">
                         <div class="col-md-12">
-                            <div class="form-group">
+                            <div class="input-group input-group-static mb-4">
                                 <label for="">Nama</label>
                                 <input type="text" name="name" class="form-control @error('name') is-invalid @enderror"
                                     value="{{ isset($profile) ? $profile->name : old('name') }}" autocomplete="off">
@@ -24,8 +21,8 @@
                     </div>
                     <div class="row">
                         <div class="col-md-12">
-                            <div class="form-group">
-                                <label for="">Profil Perusahaan</label>
+                            <label for="">Profil Perusahaan</label>
+                            <div class="input-group input-group-static mb-4">
                                 <textarea name="proper" id="editor"
                                     class="form-control @error('proper') is-invalid @enderror">{!! isset($profile) ? $profile->proper : old('proper') !!}</textarea>
                                 @error('proper')
@@ -38,8 +35,8 @@
                     </div>
                     <div class="row">
                         <div class="col-md-12">
-                            <div class="form-group">
-                                <label for="">Visi</label>
+                            <label for="">Visi</label>
+                            <div class="input-group input-group-static mb-4">
                                 <textarea name="visi" id="editor2"
                                     class="form-control @error('visi') is-invalid @enderror">{!! isset($profile) ? $profile->visi : old('visi') !!}</textarea>
                                 @error('visi')
@@ -50,8 +47,8 @@
                             </div>
                         </div>
                         <div class="col-md-12">
-                            <div class="form-group">
-                                <label for="">Misi</label>
+                            <label for="">Misi</label>
+                            <div class="input-group input-group-static mb-4">
                                 <textarea name="misi" id="editor3"
                                     class="form-control @error('misi') is-invalid @enderror">{!! isset($profile) ? $profile->misi : old('misi') !!}</textarea>
                                 @error('misi')
@@ -62,8 +59,8 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="form-group">
-                                <label for="">Deskripsi</label>
+                            <label for="">Deskripsi</label>
+                            <div class="input-group input-group-static mb-4">
                                 <textarea name="description" id="editor4"
                                     class="form-control @error('description') is-invalid @enderror">{!! isset($profile) ? $profile->description : old('description') !!}</textarea>
                                 @error('description')
@@ -74,7 +71,7 @@
                             </div>
                         </div>
                         <div class="col-md-12">
-                            <div class="form-group">
+                            <div class="input-group input-group-static mb-4">
                                 <label>Gambar</label>
                                 <input type="file" name="photos" class="form-control" value="{{ $profile->photos }}"
                                     onchange="loadFile(event)">
@@ -87,19 +84,19 @@
 
                         <div class="row">
                             <div class="col-lg-6">
-                                <div class="col text-text-start">
+                                <div class="col text-start">
+                                    <button type="submit" class="btn btn-success px-5">
+                                        Simpan
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="col text-end">
                                     <a href="{{ route('profile.show', $profile->id) }}">
                                         <button type="button" class="btn btn-primary px-5">
                                             Detail
                                         </button>
                                     </a>
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="col text-end">
-                                    <button type="submit" class="btn btn-success px-5">
-                                        Simpan
-                                    </button>
                                 </div>
                             </div>
                         </div>

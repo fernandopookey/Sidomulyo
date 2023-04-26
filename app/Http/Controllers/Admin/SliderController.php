@@ -17,7 +17,7 @@ class SliderController extends Controller
         $data = [
             'title'     => 'List Slider',
             'slider'   => Slider::get(),
-            'content'   => 'admin/slider/index'
+            'content'   => 'new-admin/slider/index'
         ];
 
         if (request()->ajax()) {
@@ -49,31 +49,18 @@ class SliderController extends Controller
             })->rawColumns(['action', 'photos'])->make();
         }
 
-        return view('admin.layouts.wrapper', $data);
-
-        // $data = [
-        //     'title'     => 'Product List',
-        //     'content'   => 'pages/admin/product/index'
-        // ];
-        // return view('pages.admin.layouts.wrapper', $data);
+        return view('new-admin.layouts.wrapper', $data);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         $data = [
             'title' => 'Tambah Slider',
-            'content' => 'admin/slider/create'
+            'content' => 'new-admin/slider/create'
         ];
-        // return view('admin.layouts.wrapper', $data);
-        return view('admin.layouts.wrapper', $data);
+        return view('new-admin.layouts.wrapper', $data);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(SliderRequest $request)
     {
         $data = $request->all();
@@ -85,17 +72,14 @@ class SliderController extends Controller
         return redirect()->route('slider.index');
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(string $id)
     {
         $data = [
             'title'     => 'Detail Slider',
             'slider'   => Slider::find($id),
-            'content'   => 'admin/slider/detail'
+            'content'   => 'new-admin/slider/detail'
         ];
-        return view('admin.layouts.wrapper', $data);
+        return view('new-admin.layouts.wrapper', $data);
     }
 
     /**
@@ -106,9 +90,9 @@ class SliderController extends Controller
         $data = [
             'title' => 'Edit Slider',
             'slider' => Slider::find($id),
-            'content' => 'admin/slider/edit'
+            'content' => 'new-admin/slider/edit'
         ];
-        return view('admin.layouts.wrapper', $data);
+        return view('new-admin.layouts.wrapper', $data);
     }
 
     /**

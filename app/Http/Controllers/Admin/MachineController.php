@@ -18,7 +18,7 @@ class MachineController extends Controller
         $data = [
             'title'     => 'Machine List',
             'machine'   => Machine::get(),
-            'content'   => 'admin/machine/index'
+            'content'   => 'new-admin/machine/index'
         ];
 
         if (request()->ajax()) {
@@ -50,17 +50,17 @@ class MachineController extends Controller
             })->rawColumns(['action', 'photos'])->make();
         }
 
-        return view('admin.layouts.wrapper', $data);
+        return view('new-admin.layouts.wrapper', $data);
     }
 
     public function create()
     {
         $data = [
             'title' => 'Tambah Mesin',
-            'content' => 'admin/machine/create'
+            'content' => 'new-admin/machine/create'
         ];
 
-        return view('admin.layouts.wrapper', $data);
+        return view('new-admin.layouts.wrapper', $data);
     }
 
     public function store(MachineRequest $request)
@@ -80,9 +80,9 @@ class MachineController extends Controller
         $data = [
             'title'     => 'Detail Mesin',
             'machine'   => Machine::find($id),
-            'content'   => 'admin/machine/detail'
+            'content'   => 'new-admin/machine/detail'
         ];
-        return view('admin.layouts.wrapper', $data);
+        return view('new-admin.layouts.wrapper', $data);
     }
 
     public function edit(string $id)
@@ -90,9 +90,9 @@ class MachineController extends Controller
         $data = [
             'title' => 'Edit Mesin',
             'machine' => Machine::find($id),
-            'content' => 'admin/machine/edit'
+            'content' => 'new-admin/machine/edit'
         ];
-        return view('admin.layouts.wrapper', $data);
+        return view('new-admin.layouts.wrapper', $data);
     }
 
     public function update(Request $request, string $id)
