@@ -1,4 +1,4 @@
-<div class="dashboarod-content">
+<div class="dashboard-content">
     <div class="row">
         <div class="col-md-12">
             <div class="card">

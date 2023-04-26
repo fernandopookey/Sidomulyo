@@ -25,32 +25,52 @@
 
                             <div class="col-md-12 mb-3">
                                 <div class="input-group input-group-static mb-4">
-                                    <label>Deskripsi Produk</label>
-                                    <textarea name="description" id="" cols="30" rows="10"></textarea>
+                                    <label>Kategori Produk</label>
+                                    <select name="categories_id" class="form-control">
+                                        @foreach ($categories as $category)
+                                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
                             </div>
 
                             <div class="col-md-12 mb-3">
                                 <div class="input-group input-group-static mb-4">
-                                    <label>Label</label>
-                                    <input type="file" name="photos" class="form-control" onchange="loadFile(event)"
-                                        required>
+                                    <label>Harga Produk</label>
+                                    <input type="number" name="price" class="form-control" autocomplete="off" required>
                                 </div>
-                                <img id="output" class="pb-4" style="max-width: 200px" />
                             </div>
-                            {{-- <div class="col-md-12">
-                                <div class="form-group">
-                                    <label>Gambar Kategori Produk</label>
+
+                            <div class="col-md-12 mb-3">
+                                <label class="form-label">Deskripsi Produk</label>
+                                <div class="input-group input-group-static">
+                                    <textarea name="description" id="editor" class="form-control" cols="10"
+                                        rows="10"></textarea>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12 mb-3">
+                                <label class="form-label">Informasi Tambahan</label>
+                                <div class="input-group input-group-static">
+                                    <textarea name="additional_info" id="editor2" class="form-control" cols="10"
+                                        rows="10"></textarea>
+                                </div>
+                            </div>
+
+                            <div class=" col-md-12 mb-3 mt-3">
+                                <div class="input-group input-group-static mb-4">
+                                    <label>Gambar Produk</label>
                                     <input type="file" name="photos" class="form-control" onchange="loadFile(event)"
                                         required>
                                 </div>
-                                <img id="output" class="pb-4" style="max-width: 200px" />
-                            </div> --}}
+                                <img id="output" class="pb-4" style="width: 200px; height: 200px; object-fit: cover;" />
+                            </div>
+
                         </div>
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="col text-text-start">
-                                    <a href="{{ route('product-category.index') }}">
+                                    <a href="{{ route('admin-product') }}">
                                         <button type="button" class="btn btn-primary px-5">
                                             Kembali
                                         </button>
@@ -92,51 +112,15 @@
                 console.error(error);
               });
 </script>
+
+<script>
+    ClassicEditor
+              .create(document.querySelector('#editor2'))
+              .then(editor => {
+                console.log(editor);
+              })
+              .catch(error => {
+                console.error(error);
+              });
+</script>
 @endpush
-
-
-
-{{-- <div class="modal fade" id="addModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-    aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog modal-xl">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5" id="addModal">Tambah Produk Baru</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <form action="{{ route('admin-product-store') }}" method="POST" enctype="multipart/form-data">
-                    @csrf
-                    <div class="mb-3">
-                        <label>Nama Produk</label>
-                        <input type="text" name="name" class="form-control" autocomplete="off" required>
-                    </div>
-                    <div class="mb-3">
-                        <label>Harga Produk</label>
-                        <input type="number" name="price" class="form-control" autocomplete="off" required>
-                    </div>
-                    <div class="mb-3">
-                        <label>Kategori Produk</label>
-                        <select name="categories_id" class="form-control">
-                            @foreach ($categories as $item)
-                            <option value="{{ $item->id }}">{{ $item->name }}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                    <div class="mb-3">
-                        <label>Deskripsi Produk</label>
-                        <textarea name="description" id="editor" cols="30" rows="10"></textarea>
-                    </div>
-                    <div class="mb-3">
-                        <label>Informasi Tambahan</label>
-                        <textarea name="additional_info" id="editor2" cols="30" rows="10"></textarea>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-                        <button type="submit" class="btn btn-primary">Simpan</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div> --}}
