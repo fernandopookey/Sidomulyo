@@ -18,7 +18,7 @@ class InstallationController extends Controller
         $data = [
             'title'     => 'Pemasangan',
             'installation'   => Installation::get(),
-            'content'   => 'admin/installation/index'
+            'content'   => 'new-admin/installation/index'
         ];
 
         if (request()->ajax()) {
@@ -43,21 +43,21 @@ class InstallationController extends Controller
                     </div>
                 ';
             })->editColumn('photos', function ($item) {
-                return $item->photos ? '<img src="' . Storage::url($item->photos) . '" style="max-height: 80px;" />' : '';
+                return $item->photos ? '<img src="' . Storage::url($item->photos) . '" style="height: 100px; width: 120px; object-fit: cover;" />' : '';
             })->rawColumns(['action', 'photos'])->make();
         }
 
-        return view('admin.layouts.wrapper', $data);
+        return view('new-admin.layouts.wrapper', $data);
     }
 
     public function create()
     {
         $data = [
             'title' => 'Tambah Pemasangan',
-            'content' => 'admin/installation/create'
+            'content' => 'new-admin/installation/create'
         ];
 
-        return view('admin.layouts.wrapper', $data);
+        return view('new-admin.layouts.wrapper', $data);
     }
 
     public function store(InstallationRequest $request)
@@ -76,9 +76,9 @@ class InstallationController extends Controller
         $data = [
             'title' => 'Edit Pemasangan',
             'installation' => Installation::find($id),
-            'content' => 'admin/installation/edit'
+            'content' => 'new-admin/installation/edit'
         ];
-        return view('admin.layouts.wrapper', $data);
+        return view('new-admin.layouts.wrapper', $data);
     }
 
     public function update(Request $request, string $id)

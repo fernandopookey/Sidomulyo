@@ -19,7 +19,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="row border-top-3">
+                <div class="row border-top-3 mb-4 mt-4">
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="inputEmail">Visi</label>
@@ -35,7 +35,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row mt-4">
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="inputEmail">Tentang Kami</label>
@@ -56,7 +56,7 @@
         </div>
     </section>
 
-    <div class="row">
+    <div class="row mt-4">
         <div class="col-lg-6">
             <div class="col text-start">
                 <a href="/admin/profile">

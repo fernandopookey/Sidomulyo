@@ -18,7 +18,7 @@ class BlogController extends Controller
         $data = [
             'title'     => 'List Blog',
             'blog'      => Blog::get(),
-            'content'   => 'admin/blog/index'
+            'content'   => 'new-admin/blog/index'
         ];
 
         if (request()->ajax()) {
@@ -46,7 +46,7 @@ class BlogController extends Controller
                     </div>
                 ';
             })->editColumn('photos', function ($item) {
-                return $item->photos ? '<img src="' . Storage::url($item->photos) . '" style="max-height: 80px;" />' : '';
+                return $item->photos ? '<img src="' . Storage::url($item->photos) . '" style="height: 100px; width: 120px; object-fit: cover;" />' : '';
             })->rawColumns(['action', 'photos'])->make();
         }
 
@@ -57,10 +57,10 @@ class BlogController extends Controller
     {
         $data = [
             'title' => 'Tambah Blog',
-            'content' => 'admin/blog/create'
+            'content' => 'new-admin/blog/create'
         ];
 
-        return view('admin.layouts.wrapper', $data);
+        return view('new-admin.layouts.wrapper', $data);
     }
 
     public function store(BlogRequest $request)
@@ -80,9 +80,9 @@ class BlogController extends Controller
         $data = [
             'title'     => 'Detail Blog',
             'blog'      => Blog::find($id),
-            'content'   => 'admin/blog/detail'
+            'content'   => 'new-admin/blog/detail'
         ];
-        return view('admin.layouts.wrapper', $data);
+        return view('new-admin.layouts.wrapper', $data);
     }
 
     public function edit(string $id)
@@ -90,9 +90,9 @@ class BlogController extends Controller
         $data = [
             'title'     => 'Edit Blog',
             'blog'      => Blog::find($id),
-            'content'   => 'admin/blog/edit'
+            'content'   => 'new-admin/blog/edit'
         ];
-        return view('admin.layouts.wrapper', $data);
+        return view('new-admin.layouts.wrapper', $data);
     }
 
     public function update(Request $request, string $id)

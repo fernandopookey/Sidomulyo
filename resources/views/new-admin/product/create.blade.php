@@ -15,7 +15,6 @@
                     <form action="{{ route('admin-product-store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="row">
-
                             <div class="col-md-12 mb-3">
                                 <div class="input-group input-group-static mb-4">
                                     <label>Nama Produk</label>
@@ -57,7 +56,7 @@
                                 </div>
                             </div>
 
-                            <div class=" col-md-12 mb-3 mt-3">
+                            <div class="col-md-12 mb-3 mt-3">
                                 <div class="input-group input-group-static mb-4">
                                     <label>Gambar Produk</label>
                                     <input type="file" name="photos" class="form-control" onchange="loadFile(event)"

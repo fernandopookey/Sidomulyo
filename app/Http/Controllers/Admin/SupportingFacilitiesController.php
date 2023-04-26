@@ -17,7 +17,7 @@ class SupportingFacilitiesController extends Controller
         $data = [
             'title'                 => 'Fasilitas Penunjang',
             'supporting_facilities' => SupportingFacilities::get(),
-            'content'               => 'admin/supporting-facilities/index'
+            'content'               => 'new-admin/supporting-facilities/index'
         ];
 
         if (request()->ajax()) {
@@ -46,17 +46,17 @@ class SupportingFacilitiesController extends Controller
             })->rawColumns(['action', 'photos'])->make();
         }
 
-        return view('admin.layouts.wrapper', $data);
+        return view('new-admin.layouts.wrapper', $data);
     }
 
     public function create()
     {
         $data = [
             'title' => 'Tambah Fasilitas Penunjang',
-            'content' => 'admin/supporting-facilities/create'
+            'content' => 'new-admin/supporting-facilities/create'
         ];
 
-        return view('admin.layouts.wrapper', $data);
+        return view('new-admin.layouts.wrapper', $data);
     }
 
     public function store(SupportingFacilitiesRequest $request)
@@ -75,9 +75,9 @@ class SupportingFacilitiesController extends Controller
         $data = [
             'title'                     => 'Edit Fasilitas Penunjang',
             'supporting_facilities'     => SupportingFacilities::find($id),
-            'content'                   => 'admin/supporting-facilities/edit'
+            'content'                   => 'new-admin/supporting-facilities/edit'
         ];
-        return view('admin.layouts.wrapper', $data);
+        return view('new-admin.layouts.wrapper', $data);
     }
 
     public function update(Request $request, string $id)

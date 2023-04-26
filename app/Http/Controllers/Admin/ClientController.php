@@ -18,7 +18,7 @@ class ClientController extends Controller
         $data = [
             'title'     => 'List Client',
             'client'    => Client::get(),
-            'content'   => 'admin/client/index'
+            'content'   => 'new-admin/client/index'
         ];
 
         if (request()->ajax()) {
@@ -47,17 +47,17 @@ class ClientController extends Controller
             })->rawColumns(['action', 'photos'])->make();
         }
 
-        return view('admin.layouts.wrapper', $data);
+        return view('new-admin.layouts.wrapper', $data);
     }
 
     public function create()
     {
         $data = [
             'title' => 'Tambah Client',
-            'content' => 'admin/client/create'
+            'content' => 'new-admin/client/create'
         ];
 
-        return view('admin.layouts.wrapper', $data);
+        return view('new-admin.layouts.wrapper', $data);
     }
 
     public function store(ClientRequest $request)
@@ -76,9 +76,9 @@ class ClientController extends Controller
         $data = [
             'title' => 'Edit Client',
             'client' => Client::find($id),
-            'content' => 'admin/client/edit'
+            'content' => 'new-admin/client/edit'
         ];
-        return view('admin.layouts.wrapper', $data);
+        return view('new-admin.layouts.wrapper', $data);
     }
 
     public function update(Request $request, string $id)

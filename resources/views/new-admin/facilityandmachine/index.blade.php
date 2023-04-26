@@ -1,59 +1,39 @@
-<div class="row">
-    <div class="col-md-12">
-        <div class="card">
-            <div class="card-body">
-
-                <form action="/admin/facilityandmachine/update" method="POST" enctype="multipart/form-data">
-                    @method('PUT')
-                    @csrf
-
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="form-group">
+<div class="dashboard-content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <form action="/admin/facilityandmachine/update" method="POST" enctype="multipart/form-data">
+                        @method('PUT')
+                        @csrf
+                        <div class="row">
+                            <div class="col-md-12 mb-4">
                                 <label for="">Deskripsi 1</label>
-                                <textarea name="head" id="editor"
-                                    class="form-control @error('head') is-invalid @enderror">{!! isset($facilityandmachine) ? $facilityandmachine->head : old('head') !!}</textarea>
-                                @error('head')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
+                                <div class="input-group input-group-static mb-4">
+                                    <textarea name="head" id="editor"
+                                        class="form-control @error('head') is-invalid @enderror">{!! isset($facilityandmachine) ? $facilityandmachine->head : old('head') !!}</textarea>
+                                    @error('head')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
                                 </div>
-                                @enderror
                             </div>
-                        </div>
-                        <div class="col-md-12">
-                            <div class="form-group">
+                            <div class="col-md-12">
                                 <label for="">Deskripsi 2</label>
-                                <textarea name="description" id="editor2"
-                                    class="form-control @error('description') is-invalid @enderror">{!! isset($facilityandmachine) ? $facilityandmachine->description : old('description') !!}</textarea>
-                                @error('description')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
-                                @enderror
-                            </div>
-                        </div>
-
-                        {{-- <div class="row">
-                            <div class="col-lg-6">
-                                <div class="col text-text-start">
-                                    <a href="{{ route('facilityandmachine.show', $facilityandmachine->id) }}">
-                                        <button type="button" class="btn btn-primary px-5">
-                                            Detail
-                                        </button>
-                                    </a>
+                                <div class="input-group input-group-static mb-4">
+                                    <textarea name="description" id="editor2"
+                                        class="form-control @error('description') is-invalid @enderror">{!! isset($facilityandmachine) ? $facilityandmachine->description : old('description') !!}</textarea>
+                                    @error('description')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
                                 </div>
                             </div>
-                            <div class="col-lg-6">
-                                <div class="col text-end">
-                                    <button type="submit" class="btn btn-success px-5">
-                                        Simpan
-                                    </button>
-                                </div>
-                            </div>
-                        </div> --}}
-
-                        <button type="submit" class="btn btn-primary pt-2">Simpan</button>
-                </form>
+                            <button type="submit" class="btn btn-primary pt-2">Simpan</button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>

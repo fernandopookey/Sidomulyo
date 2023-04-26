@@ -15,31 +15,31 @@
                     <form action="{{ route('blog.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group">
+                            <div class="col-md-12 mb-3">
+                                <div class="input-group input-group-static mb-4">
                                     <label>Judul Blog</label>
                                     <input type="text" name="name" class="form-control" autocomplete="off" required>
                                 </div>
                             </div>
-                            <div class="col-md-12">
-                                <div class="form-group">
+                            <div class="col-md-12 mb-3">
+                                <div class="input-group input-group-static mb-4">
                                     <label>Penulis</label>
                                     <input type="text" name="author" class="form-control" autocomplete="off" required>
                                 </div>
                             </div>
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label>Deskripsi</label>
+                            <div class="col-md-12 mb-3">
+                                <label>Deskripsi</label>
+                                <div class="input-group input-group-static mb-4">
                                     <textarea name="description" id="editor" cols="30" rows="10"></textarea>
                                 </div>
                             </div>
-                            <div class="col-md-12">
-                                <div class="form-group">
+                            <div class="col-md-12 mb-3 mt-3">
+                                <div class="input-group input-group-static mb-4">
                                     <label>Gambar</label>
                                     <input type="file" name="photos" class="form-control" onchange="loadFile(event)"
                                         required>
                                 </div>
-                                <img id="output" class="pb-4" style="max-width: 200px" />
+                                <img id="output" class="pb-4" style="width: 200px; height: 200px; object-fit: cover;" />
                             </div>
                         </div>
                         <div class="row">

@@ -1,43 +1,55 @@
-<form action="{{ route('installation.update', $installation->id) }}" method="POST" enctype="multipart/form-data">
-    @method('PUT')
-    @csrf
+<div class="dashboard-content">
     <div class="row">
         <div class="col-md-12">
-            <div class="form-group">
-                <label>Name</label>
-                <input type="text" name="name" class="form-control" value="{{ $installation->name }}"
-                    autocomplete="off">
+            <div class="card">
+                <div class="card-body">
+                    <form action="{{ route('installation.update', $installation->id) }}" method="POST"
+                        enctype="multipart/form-data">
+                        @method('PUT')
+                        @csrf
+                        <div class="row">
+                            <div class="col-md-12 mb-3">
+                                <div class="input-group input-group-static mb-4">
+                                    <label>Name</label>
+                                    <input type="text" name="name" class="form-control"
+                                        value="{{ $installation->name }}" autocomplete="off">
+                                </div>
+                            </div>
+                            <div class="col-md-12 mb-4">
+                                <div class="input-group input-group-static mb-4">
+                                    <label>Gambar</label>
+                                    <input type="file" name="photos" class="form-control"
+                                        value="{{ $installation->photos }}" onchange="loadFile(event)">
+                                    <img src="{{ Storage::disk('local')->url($installation->photos) }}"
+                                        style="width: 200px; height: 150px; object-fit: cover;" class="pt-4" alt="">
+                                </div>
+                                <img id="output" class="pb-4" style="width: 200px; height: 200px; object-fit: cover;" />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="col text-start">
+                                    <button type="submit" class="btn btn-success px-5">
+                                        Simpan
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="col text-end">
+                                    <a href="{{ route('installation.index') }}">
+                                        <button type="button" class="btn btn-primary px-5">
+                                            Kembali
+                                        </button>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
-        </div>
-        <div class="col-md-12">
-            <div class="form-group">
-                <label>Gambar</label>
-                <input type="file" name="photos" class="form-control" value="{{ $installation->photos }}"
-                    onchange="loadFile(event)">
-                <img src="{{ Storage::disk('local')->url($installation->photos) }}" width="150" class="pt-4" alt="">
-            </div>
-            <img id="output" class="pb-4" style="max-width: 200px" />
         </div>
     </div>
-    <div class="row">
-        <div class="col-lg-6">
-            <div class="col text-start">
-                <a href="{{ route('installation.index') }}">
-                    <button type="button" class="btn btn-primary px-5">
-                        Kembali
-                    </button>
-                </a>
-            </div>
-        </div>
-        <div class="col-lg-6">
-            <div class="col text-end">
-                <button type="submit" class="btn btn-success px-5">
-                    Simpan
-                </button>
-            </div>
-        </div>
-    </div>
-</form>
+</div>
 
 @push('addon-script')
 

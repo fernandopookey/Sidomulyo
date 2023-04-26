@@ -4,7 +4,8 @@
             <div class="row">
                 <div class="col-5 text-center d-flex align-items-center justify-content-center">
                     <div class="">
-                        <img src="{{ Storage::url($blog->photos) }}" alt="" style="max-width: 300px">
+                        <img src="{{ Storage::url($blog->photos) }}" alt=""
+                            style="width: 300px; height: 250px; object-fit: cover;">
                     </div>
                 </div>
                 <div class="col-7">
@@ -22,7 +23,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <div class="row mt-4">
                 <div class="col-12">
                     <div class="form-group">
                         <label for="inputEmail">Deskripsi</label>
@@ -34,7 +35,7 @@
     </div>
 </section>
 
-<div class="row">
+<div class="row mt-4">
     <div class="col-lg-6">
         <div class="col text-start">
             <a href="{{ route('blog.index') }}">
