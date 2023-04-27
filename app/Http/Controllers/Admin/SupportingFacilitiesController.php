@@ -42,7 +42,7 @@ class SupportingFacilitiesController extends Controller
                     </div>
                 ';
             })->editColumn('photos', function ($item) {
-                return $item->photos ? '<img src="' . Storage::url($item->photos) . '" style="max-height: 80px;" />' : '';
+                return $item->photos ? '<img src="' . Storage::url($item->photos) . '" style="height: 100px; width: 120px; object-fit: cover;" />' : '';
             })->rawColumns(['action', 'photos'])->make();
         }
 
