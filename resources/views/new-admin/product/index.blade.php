@@ -15,7 +15,7 @@
                         <th>Aksi</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody class="text-sm">
                     {{-- @foreach ($product as $item)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
