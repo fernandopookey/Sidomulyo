@@ -14,9 +14,9 @@ class HeaderController extends Controller
         $data = [
             'title' => 'Konten Dan Link Sosial Media Navbar',
             'header' => Header::first(),
-            'content' => 'admin/header/index'
+            'content' => 'new-admin/header/index'
         ];
-        return view('admin.layouts.wrapper', $data);
+        return view('new-admin.layouts.wrapper', $data);
     }
 
 
