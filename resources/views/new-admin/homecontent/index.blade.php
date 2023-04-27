@@ -1,27 +1,26 @@
-<a href="{{ route('homecontent.create') }}" class="btn btn-primary mb-3">
-    <i class="fa fa-plus"></i> Tambah
-</a>
+<div class="row">
+    <div class="card">
+        <div class="col-6 text-start mt-4 mb-4">
+            <a href="{{ route('homecontent.create') }}" class="btn bg-gradient-dark mb-0">
+                <i class="fa fa-plus"></i> Tambah
+            </a>
+        </div>
+        <div class="table-responsive">
+            <table class="table table-hover scroll-horizontal-vertical w-100" id="crudTable">
+                <thead>
+                    <tr>
+                        <th>Nama Tautan</th>
+                        <th>Tautan</th>
+                        <th>Gambar</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+                <tbody class="text-sm">
 
-<div class="table-responsive">
-    <table class="table table-hover table-striped scroll-horizontal-vertical w-100" id="crudTable">
-        <thead>
-            <tr>
-                <th>Title Link</th>
-                <th>Link</th>
-                <th>Gambar</th>
-                <th>Aksi</th>
-            </tr>
-        </thead>
-        <tbody>
-            {{-- @foreach ($product as $item)
-            <tr>
-                <td>{{ $loop->iteration }}</td>
-                <td>{{ $item->name }}</td>
-                <td><i class="fa fa-eye"></i></td>
-            </tr>
-            @endforeach --}}
-        </tbody>
-    </table>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
 
 @push('addon-script')

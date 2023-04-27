@@ -12,8 +12,9 @@
             </a>
         </div>
         <hr class="horizontal light mt-0 mb-2">
-        <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
+        <div class="collapse navbar-collapse w-auto" id="sidenav-collapse-main">
             <ul class="navbar-nav">
+
                 <li class="nav-item">
                     <a href="{{ route('admin-dashboard') }}"
                         class="nav-link text-white {{ (request()->is('admin/dashboard*')) ? 'active bg-gradient-info' : '' }}">
@@ -38,6 +39,7 @@
                         <span class="nav-link-text ms-1">Kategori Produk</span>
                     </a>
                 </li>
+
                 <li class="nav-item">
                     <a href="{{ route('admin-product') }}"
                         class="nav-link text-white {{ (request()->is('admin/product')) ? 'active bg-gradient-info' : '' }}">

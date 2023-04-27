@@ -17,7 +17,7 @@ class HomeContentController extends Controller
         $data = [
             'title'     => 'Konten & Link Halaman Home',
             'homecontent'   => HomeContent::get(),
-            'content'   => 'admin/homecontent/index'
+            'content'   => 'new-admin/homecontent/index'
         ];
 
         if (request()->ajax()) {
@@ -42,21 +42,21 @@ class HomeContentController extends Controller
                     </div>
                 ';
             })->editColumn('icon', function ($item) {
-                return $item->icon ? '<img src="' . Storage::url($item->icon) . '" style="max-height: 80px;" />' : '';
+                return $item->icon ? '<img src="' . Storage::url($item->icon) . '" style="height: 80px; width: 110px; object-fit: cover;" />' : '';
             })->rawColumns(['action', 'icon'])->make();
         }
 
-        return view('admin.layouts.wrapper', $data);
+        return view('new-admin.layouts.wrapper', $data);
     }
 
     public function create()
     {
         $data = [
             'title' => 'Tambah Konten',
-            'content' => 'admin/homecontent/create'
+            'content' => 'new-admin/homecontent/create'
         ];
 
-        return view('admin.layouts.wrapper', $data);
+        return view('new-admin.layouts.wrapper', $data);
     }
 
     public function store(Request $request)
@@ -79,9 +79,9 @@ class HomeContentController extends Controller
         $data = [
             'title'         => 'Edit Konten',
             'homecontent'   => HomeContent::find($id),
-            'content'       => 'admin/homecontent/edit'
+            'content'       => 'new-admin/homecontent/edit'
         ];
-        return view('admin.layouts.wrapper', $data);
+        return view('new-admin.layouts.wrapper', $data);
     }
 
     public function update(Request $request, string $id)
