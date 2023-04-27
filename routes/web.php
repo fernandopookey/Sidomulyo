@@ -98,7 +98,6 @@ Route::prefix('customer_service')->namespace('Cs')->middleware(['auth', 'cs'])->
 //======================================== ADMIN ========================================
 Route::prefix('admin')->namespace('Admin')->middleware(['auth', 'admin'])->group(function () {
     Route::get('/', [AdminDashboardController::class, 'index'])->name('admin-dashboard');
-    // Route::resource('product', '\App\Http\Controllers\Admin\ProductController');
 
     Route::get('/products', [ProductController::class, 'index'])->name('admin-product');
     Route::get('/products/create', [ProductController::class, 'create'])->name('admin-product-create');

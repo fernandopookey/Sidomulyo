@@ -400,6 +400,14 @@
 
 @stack('prepend-script')
 
+
+<script>
+  var loader = document.getElementById("preloader");
+  window.addEventListener("load", function(){
+    loader.style.display = "none";
+  });
+</script>
+
 <script src="/vendor/jquery/jquery.min.js"></script>
 <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdn.datatables.net/v/dt/dt-1.13.3/datatables.min.js"></script>
