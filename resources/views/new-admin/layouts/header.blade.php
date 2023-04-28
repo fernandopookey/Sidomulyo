@@ -29,7 +29,7 @@
                         </a>
                     </li>
                     <li class="nav-item d-flex align-items-center">
-                        <a class="btn btn-outline-primary btn-sm mb-0 me-3" target="_blank" href="#">{{
+                        <a class="btn btn-outline-primary btn-sm mb-0 me-3" href="#">{{
                             Auth::user()->username }}</a>
                     </li>
                     <li class="nav-item px-3 d-flex align-items-center">
