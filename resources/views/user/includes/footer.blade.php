@@ -35,7 +35,7 @@
                             @foreach ($sosmed as $item)
                             <ul class="pt-list">
                                 <li class="mb-2">
-                                    <img src="images/logonav.png" class="footer-image"
+                                    <img src="/images/logonav.png" class="footer-image"
                                         style="width: 250px; height: 60px;" alt="">
                                 </li>
                                 <li>
