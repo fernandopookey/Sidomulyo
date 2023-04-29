@@ -42,6 +42,7 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 // Route::get('/cart', [CartController::class, 'index'])->name('cart');
 
 Route::get('/produk', [UserProductController::class, 'index'])->name('product');
+Route::get('/produk/{id}', [UserProductController::class, 'details'])->name('product-details');
 // Route::get('/produk/{post:name}', [UserProductController::class, 'productdetail'])->name('product-detail');
 
 Route::get('/profil', [HomeController::class, 'profile'])->name('profile');
@@ -68,8 +69,6 @@ Route::get('/categories/{id}', [UserProductCategoryController::class, 'detail'])
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/cart', [CartController::class, 'index'])->name('cart');
     Route::get('/my_profile', [HomeController::class, 'myprofile'])->name('user-profile');
-
-    Route::get('/produk/{id}', [UserProductController::class, 'details'])->name('product-details');
 
     Route::get('/transaksi', [UserTransactionController::class, 'index'])->name('my-transaction');
 
