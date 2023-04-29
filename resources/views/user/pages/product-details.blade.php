@@ -22,6 +22,12 @@ Sidomulyo | Product Detail Page
     .pt-price {
         padding-top: 10px;
     }
+
+    .btn-add-cart {
+        background: transparent;
+        border: none !important;
+        color: white;
+    }
 </style>
 
 <div class="pt-breadcrumb">
@@ -210,6 +216,185 @@ Sidomulyo | Product Detail Page
                         <div class="addthis_inline_share_toolbox"></div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="container-indent">
+        <div class="container container-fluid-custom-mobile-padding">
+            <div class="pt-block-title">
+                <h4 class="pt-title">Produk Terkait</h4>
+            </div>
+            <div class="js-init-carousel js-align-arrow row arrow-location-center-02 pt-layout-product-item">
+                @if (count($product->related_products)>0)
+                @foreach ($product->related_products as $item)
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="pt-product">
+                        <div class="pt-image-box">
+                            {{-- <div class="pt-app-btn">
+                                <a href="#" class="pt-btn-wishlist" data-tooltip="Add to Wishlist"
+                                    data-tposition="left">
+                                    <svg>
+                                        <use xlink:href="#icon-wishlist"></use>
+                                    </svg>
+                                    <svg>
+                                        <use xlink:href="#icon-wishlist-add"></use>
+                                    </svg>
+                                </a>
+                                <a href="#" class="pt-btn-compare" data-tooltip="Add to Compare" data-tposition="left">
+                                    <svg>
+                                        <use xlink:href="#icon-compare"></use>
+                                    </svg>
+                                    <svg>
+                                        <use xlink:href="#icon-compare-add"></use>
+                                    </svg>
+                                </a>
+                                <a href="#" class="pt-btn-quickview" data-toggle="modal" data-target="#ModalquickView"
+                                    data-tooltip="Quick View" data-tposition="left">
+                                    <svg>
+                                        <use xlink:href="#icon-quick_view"></use>
+                                    </svg>
+                                </a>
+                            </div> --}}
+                            <a href="{{ route('product-details', $item->id) }}">
+                                <span class="pt-img">
+                                    @if ($item->galleries->count())
+                                    <img src="{{ Storage::url($item->galleries->first()->photos ?? '') }}"
+                                        class="lazyload" style="width:300px; height: 250px; object-fit: cover;"
+                                        alt="image">
+                                    @else
+                                    <img src="/images/blank.png" style="width:300px; height: 250px; object-fit: cover;"
+                                        alt="">
+                                    @endif
+                                </span>
+                                {{-- <span class="pt-label-location">
+                                    <span class="pt-label-new">NEW</span>
+                                </span> --}}
+                            </a>
+                        </div>
+                        <div class="pt-description">
+                            <div class="pt-col">
+                                {{-- <div class="pt-rating">
+                                    <i class="pt-star">
+                                        <svg>
+                                            <use xlink:href="#icon-review"></use>
+                                        </svg>
+                                    </i>
+                                    <i class="pt-star">
+                                        <svg>
+                                            <use xlink:href="#icon-review"></use>
+                                        </svg>
+                                    </i>
+                                    <i class="pt-star">
+                                        <svg>
+                                            <use xlink:href="#icon-review"></use>
+                                        </svg>
+                                    </i>
+                                    <i class="pt-star">
+                                        <svg>
+                                            <use xlink:href="#icon-review"></use>
+                                        </svg>
+                                    </i>
+                                    <i>
+                                        <svg>
+                                            <use xlink:href="#icon-review"></use>
+                                        </svg>
+                                    </i>
+                                    <span class="pt-total">(2)</span>
+                                </div> --}}
+                                <ul class="pt-add-info">
+                                    <li><a href="#">Kategori {{ $item->categories->name }}</a></li>
+                                </ul>
+                                <h2 class="pt-title">
+                                    <a href="{{ route('product-details', $item->id) }}">{{ $item->name }}</a>
+                                </h2>
+                                <div class="pt-price">
+                                    Rp. 120, 000
+                                </div>
+                                {{-- <div class="pt-option-block">
+                                    <ul class="pt-options-swatch">
+                                        <li class="active">
+                                            <a href="#">XS</a>
+                                        </li>
+                                        <li><a href="#">S</a></li>
+                                        <li><a href="#">M</a></li>
+                                    </ul>
+                                </div> --}}
+                            </div>
+                            <div class="pt-col">
+                                <div class="pt-row-hover">
+                                    <span href="#" class="pt-btn-addtocart" data-toggle="modal"
+                                        data-target="#modalAddToCart">
+                                        <div class="pt-icon">
+                                            <svg>
+                                                <use xlink:href="#icon-cart_1"></use>
+                                            </svg>
+                                            <svg>
+                                                <use xlink:href="#icon-cart_1_plus"></use>
+                                            </svg>
+                                            <svg>
+                                                <use xlink:href="#icon-cart_1_disable"></use>
+                                            </svg>
+                                        </div>
+                                        @auth
+                                        <form action="{{ route('detail-add', $item->id) }}" method="POST"
+                                            enctype="multipart/form-data">
+                                            @csrf
+                                            <button type="submit" class="btn-add-cart">
+                                                <span class="pt-text main">Tambah Ke Keranjang</span>
+                                            </button>
+                                        </form>
+                                        @else
+                                        <form action="{{ route('login') }}">
+                                            <button type="submit" class="btn-add-cart">
+                                                <span class="pt-text main">Login Untuk Belanja</span>
+                                            </button>
+                                        </form>
+                                        @endauth
+                                    </span>
+                                    <div class="pt-price">
+                                        Rp. {{ number_format($item->price) }}
+                                    </div>
+                                    <div class="pt-wrapper-btn">
+                                        <a href="#" class="pt-btn-wishlist">
+                                            <span class="pt-icon">
+                                                <svg>
+                                                    <use xlink:href="#icon-wishlist"></use>
+                                                </svg>
+                                                <svg>
+                                                    <use xlink:href="#icon-wishlist-add"></use>
+                                                </svg>
+                                            </span>
+                                            <span class="pt-text">Add to wishlist</span>
+                                        </a>
+                                        <a href="#" class="pt-btn-compare">
+                                            <span class="pt-icon">
+                                                <svg>
+                                                    <use xlink:href="#icon-compare"></use>
+                                                </svg>
+                                                <svg>
+                                                    <use xlink:href="#icon-compare-add"></use>
+                                                </svg>
+                                            </span>
+                                            <span class="pt-text">Add to compare</span>
+                                        </a>
+                                        <a href="#" class="pt-btn-quickview" data-toggle="modal"
+                                            data-target="#ModalquickView">
+                                            <span class="pt-icon">
+                                                <svg>
+                                                    <use xlink:href="#icon-quick_view"></use>
+                                                </svg>
+                                            </span>
+                                            <span class="pt-text">Zoom</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @endforeach
+                @endif
             </div>
         </div>
     </div>

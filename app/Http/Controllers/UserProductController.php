@@ -26,7 +26,7 @@ class UserProductController extends Controller
 
     public function details(Request $request, $id)
     {
-        $product    = Product::with((['galleries', 'user', 'categories']))->findOrFail($id);
+        $product    = Product::with((['galleries', 'user', 'categories', 'related_product']))->findOrFail($id);
         $categories = ProductCategory::all();
 
         return view('user.pages.product-details', [
