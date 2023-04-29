@@ -32,4 +32,9 @@ class Product extends Model
     {
         return $this->belongsTo(ProductCategory::class, 'categories_id', 'id');
     }
+
+    public function related_products()
+    {
+        return $this->hasMany('App\Models\Product', 'categories_id', 'categories_id');
+    }
 }
