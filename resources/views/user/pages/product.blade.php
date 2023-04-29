@@ -130,7 +130,6 @@ Sidomulyo | Product Page
                                                             style="width:300px; height: 250px; object-fit: cover;"
                                                             alt="">
                                                         @endif
-
                                                     </div>
                                                 </div>
                                             </span>
