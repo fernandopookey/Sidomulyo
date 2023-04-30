@@ -44,6 +44,7 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/produk', [UserProductController::class, 'index'])->name('product');
 Route::get('/produk/{id}', [UserProductController::class, 'details'])->name('product-details');
 // Route::get('/produk/{post:name}', [UserProductController::class, 'productdetail'])->name('product-detail');
+Route::get('/produk/{id}', [UserProductController::class, 'details'])->name('product-details');
 
 Route::get('/profil', [HomeController::class, 'profile'])->name('profile');
 Route::get('/client', [HomeController::class, 'client'])->name('client');

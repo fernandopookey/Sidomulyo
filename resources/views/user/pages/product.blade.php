@@ -131,7 +131,6 @@ Sidomulyo | Product Page
                                                             <p>Tidak Ada Gambar</p>
                                                         </div>
                                                         @endif
-
                                                     </div>
                                                 </div>
                                             </span>
