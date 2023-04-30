@@ -45,6 +45,7 @@ Sidomulyo | Product Detail Page
         <div class="row">
             <div class="col-lg-1">
                 <div class="row">
+                    {{-- @if ( $product > 0 ) --}}
                     <div class="col-3 col-lg-12 mt-2 mt-lg-0" v-for="(photo, index) in photos" :key="photo.id"
                         data-aos="zoom-in" data-aos-delay="100">
                         <a href="#" @click="changeActive(index)">
@@ -52,6 +53,9 @@ Sidomulyo | Product Detail Page
                                 style="width: 100px; height:100px; object-fit: cover;" alt="">
                         </a>
                     </div>
+                    {{-- @else
+                    <img src="/images/neon4.jpeg" alt="">
+                    @endif --}}
                 </div>
             </div>
             <div class="col-lg-5" data-aos="zoom-in">
@@ -223,11 +227,7 @@ Sidomulyo | Product Detail Page
     <div class="container-indent">
         <div class="container container-fluid-custom-mobile-padding">
             <div class="pt-block-title">
-<<<<<<< HEAD
                 <h4 class="pt-title">Related Products</h4>
-=======
-                <h4 class="pt-title">Produk Terkait</h4>
->>>>>>> 0f1940ff46f898732ff07bafceb23688e7eda379
             </div>
             <div class="js-init-carousel js-align-arrow row arrow-location-center-02 pt-layout-product-item">
                 @if (count($product->related_products)>0)
@@ -235,11 +235,7 @@ Sidomulyo | Product Detail Page
                 <div class="col-6 col-md-4 col-lg-3">
                     <div class="pt-product">
                         <div class="pt-image-box">
-<<<<<<< HEAD
                             <div class="pt-app-btn">
-=======
-                            {{-- <div class="pt-app-btn">
->>>>>>> 0f1940ff46f898732ff07bafceb23688e7eda379
                                 <a href="#" class="pt-btn-wishlist" data-tooltip="Add to Wishlist"
                                     data-tposition="left">
                                     <svg>
@@ -263,11 +259,7 @@ Sidomulyo | Product Detail Page
                                         <use xlink:href="#icon-quick_view"></use>
                                     </svg>
                                 </a>
-<<<<<<< HEAD
                             </div>
-=======
-                            </div> --}}
->>>>>>> 0f1940ff46f898732ff07bafceb23688e7eda379
                             <a href="{{ route('product-details', $item->id) }}">
                                 <span class="pt-img">
                                     @if ($item->galleries->count())
@@ -279,12 +271,6 @@ Sidomulyo | Product Detail Page
                                         alt="">
                                     @endif
                                 </span>
-<<<<<<< HEAD
-=======
-                                {{-- <span class="pt-label-location">
-                                    <span class="pt-label-new">NEW</span>
-                                </span> --}}
->>>>>>> 0f1940ff46f898732ff07bafceb23688e7eda379
                             </a>
                         </div>
                         <div class="pt-description">
@@ -320,19 +306,10 @@ Sidomulyo | Product Detail Page
                                 <ul class="pt-add-info">
                                     <li><a href="#">Kategori {{ $item->categories->name }}</a></li>
                                 </ul>
-<<<<<<< HEAD
                                 <h2 class="pt-title"><a href="product-type-03.html">{{ $item->name }}</a></h2>
                                 {{-- <div class="pt-price">
                                     $34.89
                                 </div> --}}
-=======
-                                <h2 class="pt-title">
-                                    <a href="{{ route('product-details', $item->id) }}">{{ $item->name }}</a>
-                                </h2>
-                                <div class="pt-price">
-                                    Rp. 120, 000
-                                </div>
->>>>>>> 0f1940ff46f898732ff07bafceb23688e7eda379
                                 {{-- <div class="pt-option-block">
                                     <ul class="pt-options-swatch">
                                         <li class="active">
