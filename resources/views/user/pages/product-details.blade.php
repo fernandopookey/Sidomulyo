@@ -45,6 +45,7 @@ Sidomulyo | Product Detail Page
         <div class="row">
             <div class="col-lg-1">
                 <div class="row">
+                    {{-- @if ( $product > 0 ) --}}
                     <div class="col-3 col-lg-12 mt-2 mt-lg-0" v-for="(photo, index) in photos" :key="photo.id"
                         data-aos="zoom-in" data-aos-delay="100">
                         <a href="#" @click="changeActive(index)">
@@ -52,6 +53,9 @@ Sidomulyo | Product Detail Page
                                 style="width: 100px; height:100px; object-fit: cover;" alt="">
                         </a>
                     </div>
+                    {{-- @else
+                    <img src="/images/neon4.jpeg" alt="">
+                    @endif --}}
                 </div>
             </div>
             <div class="col-lg-5" data-aos="zoom-in">

@@ -111,7 +111,7 @@
             <div class="pt-header-row">
                 <!-- mobile menu toggle -->
                 <div class="pt-mobile-parent-menu">
-                    <div class="pt-menu-toggle">
+                    <div class="pt-menu-toggle" style="color: white;">
                         <svg width="24" height="24" viewBox="0 0 24 24">
                             <use xlink:href="#icon-mobile-menu-toggle"></use>
                         </svg>
