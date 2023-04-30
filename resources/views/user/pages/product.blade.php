@@ -126,9 +126,10 @@ Sidomulyo | Product Page
                                                             style="width:300px; height: 250px; object-fit: cover;"
                                                             alt="image">
                                                         @else
-                                                        <img src="/images/blank.png"
-                                                            style="width:300px; height: 250px; object-fit: cover;"
-                                                            alt="">
+                                                        <div class="justify-content-center align-items-center"
+                                                            style="width: 300px; height: 235px;">
+                                                            <p>Tidak Ada Gambar</p>
+                                                        </div>
                                                         @endif
                                                     </div>
                                                 </div>
