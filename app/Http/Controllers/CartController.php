@@ -23,12 +23,18 @@ class CartController extends Controller
         ]);
     }
 
-    public function add($id)
+    public function add(Request $request, $id)
     {
+        $qty = $request->qty;
+
         $data = [
-            'products_id' => $id,
-            'users_id' => Auth::user()->id,
+            'products_id'   => $id,
+            'users_id'      => Auth::user()->id,
+            'qty'           => $qty
         ];
+
+        // dd($data);
+
 
         Cart::create($data);
 
