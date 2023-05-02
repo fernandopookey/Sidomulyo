@@ -22,6 +22,12 @@ Sidomulyo | Product Detail Page
     .pt-price {
         padding-top: 10px;
     }
+
+    .btn-add-cart {
+        background: transparent;
+        border: none !important;
+        color: white;
+    }
 </style>
 
 <div class="pt-breadcrumb">
@@ -36,19 +42,20 @@ Sidomulyo | Product Detail Page
 
 <section class="store-gallery mb-5 mt-4 page-content" id="gallery">
     <div class="container">
-        <form action="{{ route('detail-add', $product->id) }}" method="POST" enctype="multipart/form-data">
-            @csrf
-            <div class="row">
-                <div class="col-lg-1">
-                    <div class="row">
-                        <div class="col-3 col-lg-12 mt-2 mt-lg-0" v-for="(photo, index) in photos" :key="photo.id"
-                            data-aos="zoom-in" data-aos-delay="100">
-                            <a href="#" @click="changeActive(index)">
-                                <img :src="photo.url" class="thumbnail-image" :class="{ active: index == activePhoto }"
-                                    style="width: 100px; height:100px; object-fit: cover;" alt="">
-                            </a>
-                        </div>
+        <div class="row">
+            <div class="col-lg-1">
+                <div class="row">
+                    {{-- @if ( $product > 0 ) --}}
+                    <div class="col-3 col-lg-12 mt-2 mt-lg-0" v-for="(photo, index) in photos" :key="photo.id"
+                        data-aos="zoom-in" data-aos-delay="100">
+                        <a href="#" @click="changeActive(index)">
+                            <img :src="photo.url" class="thumbnail-image" :class="{ active: index == activePhoto }"
+                                style="width: 100px; height:100px; object-fit: cover;" alt="">
+                        </a>
                     </div>
+                    {{-- @else
+                    <img src="/images/neon4.jpeg" alt="">
+                    @endif --}}
                 </div>
                 <div class="col-lg-5" data-aos="zoom-in">
                     <transition name="slide-fade" mode="out-in">
@@ -223,162 +230,338 @@ Sidomulyo | Product Detail Page
                     </div>
                 </div>
             </div>
-        </form>
-    </div>
-    <hr>
-    <div class="container-indent">
-        <div class="container container-fluid-custom-mobile-padding">
-            <div class="pt-block-title">
-                <h4 class="pt-title">Produk Terkait</h4>
-            </div>
-            <div class="js-init-carousel js-align-arrow row arrow-location-center-02 pt-layout-product-item">
-                @foreach ($product as $item)
-                <div class="col-6 col-md-4 col-lg-3">
-                    <div class="pt-product">
-                        <div class="pt-image-box">
-                            <div class="pt-app-btn">
-                                <a href="#" class="pt-btn-wishlist" data-tooltip="Add to Wishlist"
-                                    data-tposition="left">
-                                    <svg>
-                                        <use xlink:href="#icon-wishlist"></use>
-                                    </svg>
-                                    <svg>
-                                        <use xlink:href="#icon-wishlist-add"></use>
-                                    </svg>
-                                </a>
-                                <a href="#" class="pt-btn-compare" data-tooltip="Add to Compare" data-tposition="left">
-                                    <svg>
-                                        <use xlink:href="#icon-compare"></use>
-                                    </svg>
-                                    <svg>
-                                        <use xlink:href="#icon-compare-add"></use>
-                                    </svg>
-                                </a>
-                                <a href="#" class="pt-btn-quickview" data-toggle="modal" data-target="#ModalquickView"
-                                    data-tooltip="Quick View" data-tposition="left">
-                                    <svg>
-                                        <use xlink:href="#icon-quick_view"></use>
-                                    </svg>
-                                </a>
-                            </div>
-                            <a href="product-type-03.html">
-                                <span class="pt-img">
-                                    <img src="/images/neon4.jpeg" class="lazyload" alt="image">
-                                </span>
-                                {{-- <span class="pt-label-location">
-                                    <span class="pt-label-new">NEW</span>
-                                </span> --}}
-                            </a>
-                        </div>
-                        <div class="pt-description">
-                            <div class="pt-col">
-                                {{-- <div class="pt-rating">
-                                    <i class="pt-star">
+            </form>
+        </div>
+        <hr>
+        <div class="container-indent">
+            <div class="container container-fluid-custom-mobile-padding">
+                <div class="pt-block-title">
+                    <h4 class="pt-title">Produk Terkait</h4>
+                </div>
+                <div class="js-init-carousel js-align-arrow row arrow-location-center-02 pt-layout-product-item">
+                    @foreach ($product as $item)
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <div class="pt-product">
+                            <div class="pt-image-box">
+                                <div class="pt-app-btn">
+                                    <a href="#" class="pt-btn-wishlist" data-tooltip="Add to Wishlist"
+                                        data-tposition="left">
                                         <svg>
-                                            <use xlink:href="#icon-review"></use>
+                                            <use xlink:href="#icon-wishlist"></use>
                                         </svg>
-                                    </i>
-                                    <i class="pt-star">
                                         <svg>
-                                            <use xlink:href="#icon-review"></use>
+                                            <use xlink:href="#icon-wishlist-add"></use>
                                         </svg>
-                                    </i>
-                                    <i class="pt-star">
-                                        <svg>
-                                            <use xlink:href="#icon-review"></use>
-                                        </svg>
-                                    </i>
-                                    <i class="pt-star">
-                                        <svg>
-                                            <use xlink:href="#icon-review"></use>
-                                        </svg>
-                                    </i>
-                                    <i>
-                                        <svg>
-                                            <use xlink:href="#icon-review"></use>
-                                        </svg>
-                                    </i>
-                                    <span class="pt-total">(2)</span>
-                                </div> --}}
-                                <ul class="pt-add-info">
-                                    <li><a href="#">Kategori {{ $item->categories->name }}</a></li>
-                                </ul>
-                                <h2 class="pt-title"><a href="product-type-03.html">{{ $item->name }}</a></h2>
-                                {{-- <div class="pt-price">
-                                    $34.89
-                                </div> --}}
-                                <div class="pt-option-block">
-                                    <ul class="pt-options-swatch">
-                                        <li class="active">
-                                            <a href="#">XS</a>
-                                        </li>
-                                        <li><a href="#">S</a></li>
-                                        <li><a href="#">M</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="pt-col">
-                                <div class="pt-row-hover">
-                                    <a href="#" class="pt-btn-addtocart" data-toggle="modal"
-                                        data-target="#modalAddToCart">
-                                        <div class="pt-icon">
-                                            <svg>
-                                                <use xlink:href="#icon-cart_1"></use>
-                                            </svg>
-                                            <svg>
-                                                <use xlink:href="#icon-cart_1_plus"></use>
-                                            </svg>
-                                            <svg>
-                                                <use xlink:href="#icon-cart_1_disable"></use>
-                                            </svg>
-                                        </div>
-                                        <span class="pt-text">ADD TO CART</span>
                                     </a>
-                                    <div class="pt-price">
+                                    <a href="#" class="pt-btn-compare" data-tooltip="Add to Compare"
+                                        data-tposition="left">
+                                        <svg>
+                                            <use xlink:href="#icon-compare"></use>
+                                        </svg>
+                                        <svg>
+                                            <use xlink:href="#icon-compare-add"></use>
+                                        </svg>
+                                    </a>
+                                    <a href="#" class="pt-btn-quickview" data-toggle="modal"
+                                        data-target="#ModalquickView" data-tooltip="Quick View" data-tposition="left">
+                                        <svg>
+                                            <use xlink:href="#icon-quick_view"></use>
+                                        </svg>
+                                    </a>
+                                </div>
+                                <a href="product-type-03.html">
+                                    <span class="pt-img">
+                                        <img src="/images/neon4.jpeg" class="lazyload" alt="image">
+                                    </span>
+                                    {{-- <span class="pt-label-location">
+                                        <span class="pt-label-new">NEW</span>
+                                    </span> --}}
+                                </a>
+                            </div>
+                            <div class="pt-description">
+                                <div class="pt-col">
+                                    {{-- <div class="pt-rating">
+                                        <i class="pt-star">
+                                            <svg>
+                                                <use xlink:href="#icon-review"></use>
+                                            </svg>
+                                        </i>
+                                        <i class="pt-star">
+                                            <svg>
+                                                <use xlink:href="#icon-review"></use>
+                                            </svg>
+                                        </i>
+                                        <i class="pt-star">
+                                            <svg>
+                                                <use xlink:href="#icon-review"></use>
+                                            </svg>
+                                        </i>
+                                        <i class="pt-star">
+                                            <svg>
+                                                <use xlink:href="#icon-review"></use>
+                                            </svg>
+                                        </i>
+                                        <i>
+                                            <svg>
+                                                <use xlink:href="#icon-review"></use>
+                                            </svg>
+                                        </i>
+                                        <span class="pt-total">(2)</span>
+                                    </div> --}}
+                                    <ul class="pt-add-info">
+                                        <li><a href="#">Kategori {{ $item->categories->name }}</a></li>
+                                    </ul>
+                                    <h2 class="pt-title"><a href="product-type-03.html">{{ $item->name }}</a></h2>
+                                    {{-- <div class="pt-price">
                                         $34.89
+                                    </div> --}}
+                                    <div class="pt-option-block">
+                                        <ul class="pt-options-swatch">
+                                            <li class="active">
+                                                <a href="#">XS</a>
+                                            </li>
+                                            <li><a href="#">S</a></li>
+                                            <li><a href="#">M</a></li>
+                                        </ul>
                                     </div>
-                                    <div class="pt-wrapper-btn">
-                                        <a href="#" class="pt-btn-wishlist">
-                                            <span class="pt-icon">
+                                </div>
+                                <div class="pt-col">
+                                    <div class="pt-row-hover">
+                                        <a href="#" class="pt-btn-addtocart" data-toggle="modal"
+                                            data-target="#modalAddToCart">
+                                            <div class="pt-icon">
                                                 <svg>
-                                                    <use xlink:href="#icon-wishlist"></use>
+                                                    <use xlink:href="#icon-cart_1"></use>
                                                 </svg>
                                                 <svg>
-                                                    <use xlink:href="#icon-wishlist-add"></use>
+                                                    <use xlink:href="#icon-cart_1_plus"></use>
                                                 </svg>
-                                            </span>
-                                            <span class="pt-text">Add to wishlist</span>
+                                                <svg>
+                                                    <use xlink:href="#icon-cart_1_disable"></use>
+                                                </svg>
+                                            </div>
+                                            <span class="pt-text">ADD TO CART</span>
                                         </a>
-                                        <a href="#" class="pt-btn-compare">
-                                            <span class="pt-icon">
-                                                <svg>
-                                                    <use xlink:href="#icon-compare"></use>
-                                                </svg>
-                                                <svg>
-                                                    <use xlink:href="#icon-compare-add"></use>
-                                                </svg>
-                                            </span>
-                                            <span class="pt-text">Add to compare</span>
-                                        </a>
-                                        <a href="#" class="pt-btn-quickview" data-toggle="modal"
-                                            data-target="#ModalquickView">
-                                            <span class="pt-icon">
-                                                <svg>
-                                                    <use xlink:href="#icon-quick_view"></use>
-                                                </svg>
-                                            </span>
-                                            <span class="pt-text">Zoom</span>
-                                        </a>
+                                        <div class="pt-price">
+                                            $34.89
+                                        </div>
+                                        <div class="pt-wrapper-btn">
+                                            <a href="#" class="pt-btn-wishlist">
+                                                <span class="pt-icon">
+                                                    <svg>
+                                                        <use xlink:href="#icon-wishlist"></use>
+                                                    </svg>
+                                                    <svg>
+                                                        <use xlink:href="#icon-wishlist-add"></use>
+                                                    </svg>
+                                                </span>
+                                                <span class="pt-text">Add to wishlist</span>
+                                            </a>
+                                            <a href="#" class="pt-btn-compare">
+                                                <span class="pt-icon">
+                                                    <svg>
+                                                        <use xlink:href="#icon-compare"></use>
+                                                    </svg>
+                                                    <svg>
+                                                        <use xlink:href="#icon-compare-add"></use>
+                                                    </svg>
+                                                </span>
+                                                <span class="pt-text">Add to compare</span>
+                                            </a>
+                                            <a href="#" class="pt-btn-quickview" data-toggle="modal"
+                                                data-target="#ModalquickView">
+                                                <span class="pt-icon">
+                                                    <svg>
+                                                        <use xlink:href="#icon-quick_view"></use>
+                                                    </svg>
+                                                </span>
+                                                <span class="pt-text">Zoom</span>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    @endforeach
                 </div>
-                @endforeach
             </div>
         </div>
-    </div>
+        <hr>
+        <div class="container-indent">
+            <div class="container container-fluid-custom-mobile-padding">
+                <div class="pt-block-title">
+                    <h4 class="pt-title">Related Products</h4>
+                </div>
+                <div class="js-init-carousel js-align-arrow row arrow-location-center-02 pt-layout-product-item">
+                    @if (count($product->related_products)>0)
+                    @foreach ($product->related_products as $item)
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <div class="pt-product">
+                            <div class="pt-image-box">
+                                <div class="pt-app-btn">
+                                    <a href="#" class="pt-btn-wishlist" data-tooltip="Add to Wishlist"
+                                        data-tposition="left">
+                                        <svg>
+                                            <use xlink:href="#icon-wishlist"></use>
+                                        </svg>
+                                        <svg>
+                                            <use xlink:href="#icon-wishlist-add"></use>
+                                        </svg>
+                                    </a>
+                                    <a href="#" class="pt-btn-compare" data-tooltip="Add to Compare"
+                                        data-tposition="left">
+                                        <svg>
+                                            <use xlink:href="#icon-compare"></use>
+                                        </svg>
+                                        <svg>
+                                            <use xlink:href="#icon-compare-add"></use>
+                                        </svg>
+                                    </a>
+                                    <a href="#" class="pt-btn-quickview" data-toggle="modal"
+                                        data-target="#ModalquickView" data-tooltip="Quick View" data-tposition="left">
+                                        <svg>
+                                            <use xlink:href="#icon-quick_view"></use>
+                                        </svg>
+                                    </a>
+                                </div>
+                                <a href="{{ route('product-details', $item->id) }}">
+                                    <span class="pt-img">
+                                        @if ($item->galleries->count())
+                                        <img src="{{ Storage::url($item->galleries->first()->photos ?? '') }}"
+                                            class="lazyload" style="width:300px; height: 250px; object-fit: cover;"
+                                            alt="image">
+                                        @else
+                                        <img src="/images/blank.png"
+                                            style="width:300px; height: 250px; object-fit: cover;" alt="">
+                                        @endif
+                                    </span>
+                                </a>
+                            </div>
+                            <div class="pt-description">
+                                <div class="pt-col">
+                                    {{-- <div class="pt-rating">
+                                        <i class="pt-star">
+                                            <svg>
+                                                <use xlink:href="#icon-review"></use>
+                                            </svg>
+                                        </i>
+                                        <i class="pt-star">
+                                            <svg>
+                                                <use xlink:href="#icon-review"></use>
+                                            </svg>
+                                        </i>
+                                        <i class="pt-star">
+                                            <svg>
+                                                <use xlink:href="#icon-review"></use>
+                                            </svg>
+                                        </i>
+                                        <i class="pt-star">
+                                            <svg>
+                                                <use xlink:href="#icon-review"></use>
+                                            </svg>
+                                        </i>
+                                        <i>
+                                            <svg>
+                                                <use xlink:href="#icon-review"></use>
+                                            </svg>
+                                        </i>
+                                        <span class="pt-total">(2)</span>
+                                    </div> --}}
+                                    <ul class="pt-add-info">
+                                        <li><a href="#">Kategori {{ $item->categories->name }}</a></li>
+                                    </ul>
+                                    <h2 class="pt-title"><a href="product-type-03.html">{{ $item->name }}</a></h2>
+                                    {{-- <div class="pt-price">
+                                        $34.89
+                                    </div> --}}
+                                    {{-- <div class="pt-option-block">
+                                        <ul class="pt-options-swatch">
+                                            <li class="active">
+                                                <a href="#">XS</a>
+                                            </li>
+                                            <li><a href="#">S</a></li>
+                                            <li><a href="#">M</a></li>
+                                        </ul>
+                                    </div> --}}
+                                </div>
+                                <div class="pt-col">
+                                    <div class="pt-row-hover">
+                                        <span href="#" class="pt-btn-addtocart" data-toggle="modal"
+                                            data-target="#modalAddToCart">
+                                            <div class="pt-icon">
+                                                <svg>
+                                                    <use xlink:href="#icon-cart_1"></use>
+                                                </svg>
+                                                <svg>
+                                                    <use xlink:href="#icon-cart_1_plus"></use>
+                                                </svg>
+                                                <svg>
+                                                    <use xlink:href="#icon-cart_1_disable"></use>
+                                                </svg>
+                                            </div>
+                                            @auth
+                                            <form action="{{ route('detail-add', $item->id) }}" method="POST"
+                                                enctype="multipart/form-data">
+                                                @csrf
+                                                <button type="submit" class="btn-add-cart">
+                                                    <span class="pt-text main">Tambah Ke Keranjang</span>
+                                                </button>
+                                            </form>
+                                            @else
+                                            <form action="{{ route('login') }}">
+                                                <button type="submit" class="btn-add-cart">
+                                                    <span class="pt-text main">Login Untuk Belanja</span>
+                                                </button>
+                                            </form>
+                                            @endauth
+                                        </span>
+                                        <div class="pt-price">
+                                            Rp. {{ number_format($item->price) }}
+                                        </div>
+                                        <div class="pt-wrapper-btn">
+                                            <a href="#" class="pt-btn-wishlist">
+                                                <span class="pt-icon">
+                                                    <svg>
+                                                        <use xlink:href="#icon-wishlist"></use>
+                                                    </svg>
+                                                    <svg>
+                                                        <use xlink:href="#icon-wishlist-add"></use>
+                                                    </svg>
+                                                </span>
+                                                <span class="pt-text">Add to wishlist</span>
+                                            </a>
+                                            <a href="#" class="pt-btn-compare">
+                                                <span class="pt-icon">
+                                                    <svg>
+                                                        <use xlink:href="#icon-compare"></use>
+                                                    </svg>
+                                                    <svg>
+                                                        <use xlink:href="#icon-compare-add"></use>
+                                                    </svg>
+                                                </span>
+                                                <span class="pt-text">Add to compare</span>
+                                            </a>
+                                            <a href="#" class="pt-btn-quickview" data-toggle="modal"
+                                                data-target="#ModalquickView">
+                                                <span class="pt-icon">
+                                                    <svg>
+                                                        <use xlink:href="#icon-quick_view"></use>
+                                                    </svg>
+                                                </span>
+                                                <span class="pt-text">Zoom</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @endforeach
+                    @endif
+                </div>
+            </div>
+        </div>
 </section>
 
 @endsection

@@ -56,31 +56,22 @@
                                 </div>
                             </div>
 
-                            <div class="col-md-12 mb-3 mt-3">
-                                <div class="input-group input-group-static mb-4">
-                                    <label>Gambar Produk</label>
-                                    <input type="file" name="photos" class="form-control" onchange="loadFile(event)"
-                                        required>
-                                </div>
-                                <img id="output" class="pb-4" style="width: 200px; height: 200px; object-fit: cover;" />
-                            </div>
-
                         </div>
                         <div class="row">
                             <div class="col-lg-6">
-                                <div class="col text-text-start">
+                                <div class="col text-start">
+                                    <button type="submit" class="btn btn-success px-5">
+                                        Simpan
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="col text-end">
                                     <a href="{{ route('admin-product') }}">
                                         <button type="button" class="btn btn-primary px-5">
                                             Kembali
                                         </button>
                                     </a>
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="col text-end">
-                                    <button type="submit" class="btn btn-success px-5">
-                                        Simpan
-                                    </button>
                                 </div>
                             </div>
                         </div>
