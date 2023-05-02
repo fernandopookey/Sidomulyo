@@ -9,7 +9,8 @@ class Cart extends Model
 {
     protected $fillable = [
         'products_id',
-        'users_id'
+        'users_id',
+        'qty'
     ];
 
     protected $hidden = [];
@@ -22,5 +23,10 @@ class Cart extends Model
     public function user()
     {
         return $this->belongsTo(User::class, 'users_id', 'id');
+    }
+
+    public function categories()
+    {
+        return $this->hasMany('');
     }
 }
