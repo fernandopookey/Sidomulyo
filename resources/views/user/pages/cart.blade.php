@@ -28,6 +28,11 @@ Sidomulyo | Cart Page
     <div class="container mt-4" style="padding-top: 30px;">
         <h1 class="pt-title-subpages noborder">Keranjang Belanja</h1>
         <div class="pt-shopcart-page">
+            {{-- @if (session('status'))
+            <div class="btn btn-success btn-block">
+                {{ session('status') }}
+            </div>
+            @endif --}}
             @foreach ($carts as $item)
             <div class="pt-item">
                 <div class="pt-item-btn mr-2">
@@ -79,6 +84,9 @@ Sidomulyo | Cart Page
                             {{-- @for ($i = 1; $i <= 10; $i++) <input type="number" class="quantity" name="qty"
                                 value="1">
                                 @endfor --}}
+                                {{-- <input type="number" class="quantity" name="qty" value="{{ $item->qty }}"> --}}
+                                <input type="number" class="quantity" name="qty"
+                                    value="{{ old('products.' . $item->id, 1) }}">
                         </div>
                     </div>
                     <div class="pt-col col-lg-3 text-start">
@@ -253,6 +261,35 @@ Sidomulyo | Cart Page
             }
         });
     });
+</script>
+
+{{-- <script type="text/javascript">
+    (function(){
+        const className = document.querySelectorAll('.quantity');
+
+        Array.from(className).forEach(function(element){
+            element.addEventListener('change', function(){
+                const id = element.getAttribute('data-item');
+                axios.patch(`/cart/${id}`, {
+                    quantity: this.value,
+                    id: id
+                })
+                .then(function (response) {
+                    //console.log(response);
+                    window.location.href = '/cart'
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+            })
+        })
+    })
+</script> --}}
+
+<script>
+    @if (Session::has('success'))
+        toastr.success("{{ Session::get('success') }}")
+    @endif
 </script>
 
 @endpush

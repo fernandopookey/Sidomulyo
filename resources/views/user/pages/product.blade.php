@@ -212,6 +212,7 @@ Sidomulyo | Product Page
                                                     <form action="{{ route('detail-add', $item->id) }}" method="POST"
                                                         enctype="multipart/form-data">
                                                         @csrf
+                                                        <input type="hidden" class="quantity" name="qty" value="1">
                                                         <button type="submit" class="btn-add-cart">
                                                             <span class="pt-text main">Tambah Ke Keranjang</span>
                                                         </button>

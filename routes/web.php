@@ -80,6 +80,7 @@ Route::group(['middleware' => ['auth']], function () {
     // Route::get('/details/{id}', [CartController::class, 'index'])->name('detail');
     Route::post('/details/{id}', [CartController::class, 'add'])->name('detail-add');
     Route::delete('/cart/{id}', [CartController::class, 'delete'])->name('cart-delete');
+    Route::patch('/cart/{id}', [CartController::class, 'update'])->name('cart-update');
 
     Route::post('/checkout', [UserCheckoutController::class, 'process'])->name('checkout');
 });
