@@ -126,11 +126,11 @@ Sidomulyo | Product Page
                                                             style="width:300px; height: 250px; object-fit: cover;"
                                                             alt="image">
                                                         @else
-                                                        <img src="/images/blank.png"
-                                                            style="width:300px; height: 250px; object-fit: cover;"
-                                                            alt="">
+                                                        <div class="justify-content-center align-items-center"
+                                                            style="width: 300px; height: 235px;">
+                                                            <p>Tidak Ada Gambar</p>
+                                                        </div>
                                                         @endif
-
                                                     </div>
                                                 </div>
                                             </span>
@@ -212,6 +212,7 @@ Sidomulyo | Product Page
                                                     <form action="{{ route('detail-add', $item->id) }}" method="POST"
                                                         enctype="multipart/form-data">
                                                         @csrf
+                                                        <input type="hidden" class="quantity" name="qty" value="1">
                                                         <button type="submit" class="btn-add-cart">
                                                             <span class="pt-text main">Tambah Ke Keranjang</span>
                                                         </button>
