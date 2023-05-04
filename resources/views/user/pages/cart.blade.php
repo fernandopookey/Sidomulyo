@@ -85,17 +85,22 @@ Sidomulyo | Cart Page
                                 value="1">
                                 @endfor --}}
                                 {{-- <input type="number" class="quantity" name="qty" value="{{ $item->qty }}"> --}}
-                                <input type="number" class="quantity" name="qty"
-                                    value="{{ old('products.' . $item->id, 1) }}">
+                                {{-- <input type="number" class="quantity" name="qty" value="{{ $item->qty }}"> --}}
+                                <a href="{{ url('/cart/update-quantity/'.$item->id.'/1') }}">
+                                    +
+                                </a>
+                                <input type="number" class="quantity" name="qty" min="0" step="1" class="input-qty"
+                                    value="{{ $item->qty }}">
+                                <a href="{{ url('/cart/update-quantity/'.$item->id.'/-1') }}">-</a>
                         </div>
                     </div>
                     <div class="pt-col col-lg-3 text-start">
-                        <div class="pt-price">Rp. {{ number_format($item->product->price) }}</div>
+                        <div class="pt-price">Rp. {{ number_format($item->product->price * $item->qty) }}</div>
                     </div>
                 </div>
             </div>
             @php
-            $totalPrice += $item->product->price
+            $totalPrice += $item->product->price * $item->qty
             @endphp
             @endforeach
             <div class="pt-shopcart-btn">

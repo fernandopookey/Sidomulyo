@@ -7,6 +7,7 @@ use App\Models\Header;
 use App\Models\Sosmed;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use RealRashid\SweetAlert\Facades\Alert;
 use Mckenziearts\Notify\Facades\LaravelNotify;
 
@@ -27,12 +28,12 @@ class CartController extends Controller
 
     public function add(Request $request, $id)
     {
-        // $qty = $request->qty;
+        $qty = $request->qty;
 
         $data = [
             'products_id'   => $id,
             'users_id'      => Auth::user()->id,
-            'qty'           => 1
+            'qty'           => $qty
         ];
 
         // dd($data);
@@ -45,15 +46,11 @@ class CartController extends Controller
         return redirect()->route('cart')->with('success', 'Produk Berhasil Ditambahkan');
     }
 
-    public function update(Request $request, $id)
+    public function update($id = null, $quantity = null)
     {
-        Cart::where('id', $id)->update([
-            'qty'   => $request->qty
-        ]);
-
-        return response()->json([
-            'success'   => true
-        ]);
+        DB::table('carts')->where('id', $id)->increment('qty', $quantity);
+        // DB::table('carts')->where('id', $id)->decrement('qty', $quantity);
+        return redirect()->route('cart')->with('success', 'Quantity Berhasil Diubah');
     }
 
     public function delete(Request $request, $id)
