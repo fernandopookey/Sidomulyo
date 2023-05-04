@@ -44,6 +44,7 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/produk', [UserProductController::class, 'index'])->name('product');
 Route::get('/produk/{id}', [UserProductController::class, 'details'])->name('product-details');
 // Route::get('/produk/{post:name}', [UserProductController::class, 'productdetail'])->name('product-detail');
+Route::get('/produk/{id}', [UserProductController::class, 'details'])->name('product-details');
 
 Route::get('/profil', [HomeController::class, 'profile'])->name('profile');
 Route::get('/client', [HomeController::class, 'client'])->name('client');
@@ -79,6 +80,8 @@ Route::group(['middleware' => ['auth']], function () {
     // Route::get('/details/{id}', [CartController::class, 'index'])->name('detail');
     Route::post('/details/{id}', [CartController::class, 'add'])->name('detail-add');
     Route::delete('/cart/{id}', [CartController::class, 'delete'])->name('cart-delete');
+    // Route::patch('/cart/{id}', [CartController::class, 'update'])->name('cart-update');
+    Route::get('/cart/update-quantity/{id}/{quantity}', [CartController::class, 'update']);
 
     Route::post('/checkout', [UserCheckoutController::class, 'process'])->name('checkout');
 });
