@@ -23,6 +23,7 @@ use App\Http\Controllers\Cs\DashboarController as CsDashboardController;
 use App\Http\Controllers\UserCheckoutController;
 use App\Http\Controllers\UserProductCategoryController;
 use App\Http\Controllers\UserProductController;
+use App\Http\Controllers\UserProfileController;
 use App\Http\Controllers\UserTransactionController;
 use Illuminate\Support\Facades\Auth;
 
@@ -44,6 +45,7 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/produk', [UserProductController::class, 'index'])->name('product');
 Route::get('/produk/{id}', [UserProductController::class, 'details'])->name('product-details');
 // Route::get('/produk/{post:name}', [UserProductController::class, 'productdetail'])->name('product-detail');
+Route::get('/produk/{id}', [UserProductController::class, 'details'])->name('product-details');
 
 Route::get('/profil', [HomeController::class, 'profile'])->name('profile');
 Route::get('/client', [HomeController::class, 'client'])->name('client');
@@ -68,7 +70,10 @@ Route::get('/categories/{id}', [UserProductCategoryController::class, 'detail'])
 //======================================== USER ========================================
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/cart', [CartController::class, 'index'])->name('cart');
-    Route::get('/my_profile', [HomeController::class, 'myprofile'])->name('user-profile');
+    // Route::get('/my_profile', [HomeController::class, 'myprofile'])->name('user-profile');
+    Route::get('/my_profile', [UserProfileController::class, 'account'])->name('user-profile');
+    // Route::get('/dashboard/account', [UserProfileController::class, 'account'])->name('dashboard-settings-account');
+    Route::post('/dashboard/account/{redirect}', [UserProfileController::class, 'update'])->name('dashboard-settings-redirect');
 
     Route::get('/transaksi', [UserTransactionController::class, 'index'])->name('my-transaction');
 
@@ -79,6 +84,8 @@ Route::group(['middleware' => ['auth']], function () {
     // Route::get('/details/{id}', [CartController::class, 'index'])->name('detail');
     Route::post('/details/{id}', [CartController::class, 'add'])->name('detail-add');
     Route::delete('/cart/{id}', [CartController::class, 'delete'])->name('cart-delete');
+    // Route::patch('/cart/{id}', [CartController::class, 'update'])->name('cart-update');
+    Route::get('/cart/update-quantity/{id}/{quantity}', [CartController::class, 'update']);
 
     Route::post('/checkout', [UserCheckoutController::class, 'process'])->name('checkout');
 });

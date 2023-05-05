@@ -38,7 +38,7 @@ class TransactionController extends Controller
         Storage::delete($payment->photos);
         $payment->delete();
         Alert::success('Sukses', 'Transaksi Berhasil Dihapus');
-        return redirect()->route('paymentConfirmation.index');
+        return redirect()->route('transaction.index');
     }
 
     public function show(string $id)
