@@ -10,6 +10,10 @@ Sidomulyo | Cart Page
     .blog-page-list {
         text-align: center;
     }
+
+    .input-qty {
+        color: red
+    }
 </style>
 
 <div class="pt-breadcrumb">
@@ -51,6 +55,9 @@ Sidomulyo | Cart Page
                 </div>
                 <div class="pt-item-img">
                     <a href="#">
+                        <img src="{{ Storage::url($item->product->galleries->first()->photos) }}"
+                            style="width: 170px; height: 200px; object-fit: cover;" alt="">
+
                         <img src="{{ Storage::url($item->product->galleries->first()->photos) }}" alt="">
                     </a>
                 </div>
@@ -86,6 +93,15 @@ Sidomulyo | Cart Page
                                 @endfor --}}
                                 {{-- <input type="number" class="quantity" name="qty" value="{{ $item->qty }}"> --}}
                                 {{-- <input type="number" class="quantity" name="qty" value="{{ $item->qty }}"> --}}
+                                <div class="d-flex align-items-center">
+                                    <a href="{{ url('/cart/update-quantity/'.$item->id.'/-1') }}"
+                                        class="btn btn-primary">-</a>
+                                    <input type="text" class="quantity" name="qty" min="0" step="1" class="input-qty"
+                                        value="{{ $item->qty }}">
+                                    <a href="{{ url('/cart/update-quantity/'.$item->id.'/1') }}"
+                                        class="btn btn-primary">+</a>
+                                </div>
+
                                 <a href="{{ url('/cart/update-quantity/'.$item->id.'/1') }}">
                                     +
                                 </a>
@@ -150,17 +166,18 @@ Sidomulyo | Cart Page
                                 <input type="hidden" name="total_price" value="{{ $totalPrice }}">
                                 <div class="form-group">
                                     <label>Nama Penerima *</label>
-                                    <input type="text" name="name" class="form-control" autocomplete="off" required>
+                                    <input type="text" name="name" class="form-control" value="{{ $user->fullname }}"
+                                        autocomplete="off" required>
                                 </div>
                                 <div class="form-group">
                                     <label>Nomor Hp Penerima *</label>
-                                    <input type="text" name="phone_number" class="form-control" autocomplete="off"
-                                        required>
+                                    <input type="text" name="phone_number" class="form-control"
+                                        value="{{ $user->phone_number }}" autocomplete="off" required>
                                 </div>
                                 <div class="form-group">
                                     <label>Alamat Penerima *</label>
                                     <textarea name="address" class="form-control" rows="3" placeholder=""
-                                        id="textareaMessage" required></textarea>
+                                        id="textareaMessage" required>{!! $user->address !!}</textarea>
                                 </div>
                             </div>
                         </div>
@@ -172,9 +189,8 @@ Sidomulyo | Cart Page
                                 Tambah Catatan Jika Ada
                             </p>
                             <div class="form-default form-wrapper">
-                                <textarea name="note" class="form-control" rows="7" placeholder="Enter message"
-                                    id="textareaMessage" autocomplete="off">
-                                    </textarea>
+                                <textarea name="note" class="form-control" id="textareaMessage"
+                                    autocomplete="off"></textarea>
                             </div>
                         </div>
                     </div>

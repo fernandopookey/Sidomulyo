@@ -22,73 +22,98 @@ Sidomulyo | My Profile Page
             <h1 class="pt-title-subpages noborder">Akun Saya</h1>
             <div class="pt-account-layout">
                 <div class="pt-wrapper">
-                    <h3 class="pt-title">Detail Akun</h3>
-                    <div class="pt-table-responsive">
-                        <table class="pt-table-shop-02">
-                            <tbody>
-                                <tr>
-                                    <td>Nama Lengkap</td>
-                                    <td>user@gmail.com user@gmail.com </td>
-                                </tr>
-                                <tr>
-                                    <td>Username</td>
-                                    <td>user2@gmail.com</td>
-                                </tr>
-                                <tr>
-                                    <td>Email</td>
-                                    <td>Euser2@gmail.com</td>
-                                </tr>
-                                <tr>
-                                    <td>Alamat</td>
-                                    <td>Commodo consequat. Duis aute irure dol</td>
-                                </tr>
-                                <tr>
-                                    <td>Nomor Handphone / Whatsapp</td>
-                                    <td>08080808</td>
-                                </tr>
-                                <tr>
-                                    <td>Foto</td>
-                                    <td>3242</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <a href="#" class="btn btn-border">View Addresses 1</a>
+                    <form action="{{ route('dashboard-settings-redirect', 'dashboard-settings-account') }}"
+                        id="locations" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <h3 class="pt-title">Biodata</h3>
+                        <div class="pt-table-responsive">
+                            <table class="pt-table-shop-02">
+                                <tbody>
+                                    <tr>
+                                        <td>Nama Lengkap</td>
+                                        <td>
+                                            <div class="input-group input-group-static">
+                                                <input type="text" name="fullname" class="form-control"
+                                                    value="{{ $user->fullname }}" required>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Username</td>
+                                        <td>
+                                            <div class="input-group input-group-static">
+                                                <input type="text" name="username" class="form-control"
+                                                    value="{{ $user->username }}" required>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Email</td>
+                                        <td>
+                                            <div class="input-group input-group-static">
+                                                <input type="text" name="email" class="form-control"
+                                                    value="{{ $user->email }}" required>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Alamat</td>
+                                        <td>
+                                            <div class="input-group input-group-static">
+                                                <input type="text" name="address" class="form-control"
+                                                    value="{{ $user->address }}" required>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Nomor Handphone / Whatsapp</td>
+                                        <td>
+                                            <div class="input-group input-group-static">
+                                                <input type="text" name="phone_number" class="form-control"
+                                                    value="{{ $user->phone_number }}" required>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    {{-- <tr>
+                                        <td>Foto</td>
+                                        <td>3242</td>
+                                    </tr> --}}
+                                </tbody>
+                            </table>
+                            <button type="submit" class="btn btn-secondary">Ubah Profil</button>
+                    </form>
                 </div>
-                <div class="pt-wrapper">
-                    <h3 class="pt-title">Histori Pesanan</h3>
-                    <div class="pt-table-responsive">
-                        <table class="pt-table-shop-01">
-                            <thead>
-                                <tr>
-                                    <th>Order</th>
-                                    <th>Date</th>
-                                    <th>Payment Status</th>
-                                    <th>Fulfillment Status</th>
-                                    <th>Total</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><a href="page-account_order.html">#001</a></td>
-                                    <td>09 Jan 01:09</td>
-                                    <td>Pending</td>
-                                    <td>Unfulfilled</td>
-                                    <td>$30.00</td>
-                                </tr>
-                                <tr>
-                                    <td><a href="page-account_order.html">#002</a></td>
-                                    <td>19 Jan 01:09</td>
-                                    <td>Pending</td>
-                                    <td>Unfulfilled</td>
-                                    <td>$10.00</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                {{-- <a href="#" class="btn btn-border">Ubah Profil</a> --}}
+            </div>
+
+
+            <div class="pt-wrapper">
+                <h3 class="pt-title">Histori Pesanan</h3>
+                <div class="pt-table-responsive">
+                    <table class="pt-table-shop-01">
+                        @foreach ($transactions as $item)
+                        <thead>
+                            <tr>
+                                <th>Kode</th>
+                                <th>Waktu</th>
+                                <th>Status</th>
+                                <th>Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>{{ $item->code }}</td>
+                                <td>{{ $item->created_at }}</td>
+                                <td>{{ $item->transaction->transaction_status }}</td>
+                                <td>{{ $item->product->price }}</td>
+                            </tr>
+                        </tbody>
+                        @endforeach
+                    </table>
                 </div>
             </div>
         </div>
+    </div>
     </div>
 </main>
 
