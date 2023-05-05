@@ -15,14 +15,16 @@ class CartController extends Controller
 {
     public function index()
     {
-        $sosmed         = Sosmed::get();
-        $header         = Header::get();
-        $carts = Cart::with(['product.galleries', 'user'])->where('users_id', Auth::user()->id)->get();
+        $sosmed     = Sosmed::get();
+        $header     = Header::get();
+        $carts      = Cart::with(['product.galleries', 'user'])->where('users_id', Auth::user()->id)->get();
+        $user       = Auth::user();
 
         return view('user.pages.cart', [
-            'carts' => $carts,
-            'sosmed'        => $sosmed,
-            'header'        => $header
+            'carts'     => $carts,
+            'sosmed'    => $sosmed,
+            'header'    => $header,
+            'user'      => $user
         ]);
     }
 

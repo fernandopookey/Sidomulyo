@@ -157,17 +157,18 @@ Sidomulyo | Cart Page
                                 <input type="hidden" name="total_price" value="{{ $totalPrice }}">
                                 <div class="form-group">
                                     <label>Nama Penerima *</label>
-                                    <input type="text" name="name" class="form-control" autocomplete="off" required>
+                                    <input type="text" name="name" class="form-control" value="{{ $user->fullname }}"
+                                        autocomplete="off" required>
                                 </div>
                                 <div class="form-group">
                                     <label>Nomor Hp Penerima *</label>
-                                    <input type="text" name="phone_number" class="form-control" autocomplete="off"
-                                        required>
+                                    <input type="text" name="phone_number" class="form-control"
+                                        value="{{ $user->phone_number }}" autocomplete="off" required>
                                 </div>
                                 <div class="form-group">
                                     <label>Alamat Penerima *</label>
                                     <textarea name="address" class="form-control" rows="3" placeholder=""
-                                        id="textareaMessage" required></textarea>
+                                        id="textareaMessage" required>{!! $user->address !!}</textarea>
                                 </div>
                             </div>
                         </div>
@@ -179,9 +180,8 @@ Sidomulyo | Cart Page
                                 Tambah Catatan Jika Ada
                             </p>
                             <div class="form-default form-wrapper">
-                                <textarea name="note" class="form-control" rows="7" placeholder="Enter message"
-                                    id="textareaMessage" autocomplete="off">
-                                    </textarea>
+                                <textarea name="note" class="form-control" id="textareaMessage"
+                                    autocomplete="off"></textarea>
                             </div>
                         </div>
                     </div>

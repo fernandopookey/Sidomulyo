@@ -23,6 +23,7 @@ use App\Http\Controllers\Cs\DashboarController as CsDashboardController;
 use App\Http\Controllers\UserCheckoutController;
 use App\Http\Controllers\UserProductCategoryController;
 use App\Http\Controllers\UserProductController;
+use App\Http\Controllers\UserProfileController;
 use App\Http\Controllers\UserTransactionController;
 use Illuminate\Support\Facades\Auth;
 
@@ -69,7 +70,10 @@ Route::get('/categories/{id}', [UserProductCategoryController::class, 'detail'])
 //======================================== USER ========================================
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/cart', [CartController::class, 'index'])->name('cart');
-    Route::get('/my_profile', [HomeController::class, 'myprofile'])->name('user-profile');
+    // Route::get('/my_profile', [HomeController::class, 'myprofile'])->name('user-profile');
+    Route::get('/my_profile', [UserProfileController::class, 'account'])->name('user-profile');
+    // Route::get('/dashboard/account', [UserProfileController::class, 'account'])->name('dashboard-settings-account');
+    Route::post('/dashboard/account/{redirect}', [UserProfileController::class, 'update'])->name('dashboard-settings-redirect');
 
     Route::get('/transaksi', [UserTransactionController::class, 'index'])->name('my-transaction');
 
