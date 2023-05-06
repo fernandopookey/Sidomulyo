@@ -10,9 +10,12 @@ class UserTransactionController extends Controller
 {
     public function index()
     {
-        return view('user.pages.transaction', [
-            'sosmed'        => Sosmed::get(),
-            'header'        => Header::get(),
+        $sosmed         = Sosmed::get();
+        $header         = Header::get();
+
+        return view('user.pages.transaction-details', [
+            'sosmed'        => $sosmed,
+            'header'        => $header
         ]);
     }
 }
