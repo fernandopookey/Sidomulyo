@@ -75,7 +75,6 @@ class UserController extends Controller
             'address'           => 'string',
             'phone_number'      => 'required',
             'roles'             => 'nullable|string|in:ADMIN,USER,CS',
-            'photos'            => 'image',
             'status'            => 'boolean'
         ]);
 

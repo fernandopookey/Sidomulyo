@@ -74,15 +74,6 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-12 mt-4 mb-4">
-                            <div class="input-group input-group-static">
-                                <label>Gambar</label>
-                                <input type="file" name="photos" class="form-control" value="{{ $user->photos }}"
-                                    onchange="loadFile(event)">
-                                <img src="{{ Storage::disk('local')->url($user->photos) }}" width="150" class="pt-4"
-                                    alt="">
-                            </div>
-                        </div>
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="col text-start">
