@@ -91,7 +91,6 @@ Sidomulyo | My Profile Page
                 <h3 class="pt-title">Histori Pesanan</h3>
                 <div class="pt-table-responsive">
                     <table class="pt-table-shop-01">
-                        @foreach ($transactions as $item)
                         <thead>
                             <tr>
                                 <th>Kode</th>
@@ -101,14 +100,15 @@ Sidomulyo | My Profile Page
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach ($transactions as $item)
                             <tr>
                                 <td>{{ $item->code }}</td>
                                 <td>{{ $item->created_at }}</td>
                                 <td>{{ $item->transaction->transaction_status }}</td>
                                 <td>{{ $item->product->price }}</td>
                             </tr>
+                            @endforeach
                         </tbody>
-                        @endforeach
                     </table>
                 </div>
             </div>

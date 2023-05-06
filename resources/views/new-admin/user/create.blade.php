@@ -67,14 +67,6 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-12 mb-4 mt-4">
-                            <div class="input-group input-group-static">
-                                <label>Gambar</label>
-                                <input type="file" name="photos" class="form-control" onchange="loadFile(event)"
-                                    autocomplete="off" required>
-                            </div>
-                            <img id="output" class="pb-4" style="max-width: 200px" />
-                        </div>
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="col text-start">

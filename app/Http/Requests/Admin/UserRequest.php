@@ -30,7 +30,6 @@ class UserRequest extends FormRequest
             'roles'         => 'nullable|string|in:ADMIN,USER,CS',
             'address'       => 'required',
             'phone_number'  => 'required',
-            'photos'        => 'nullable|image',
             'status'        => 'boolean'
         ];
     }

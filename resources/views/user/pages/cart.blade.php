@@ -58,7 +58,7 @@ Sidomulyo | Cart Page
                         <img src="{{ Storage::url($item->product->galleries->first()->photos) }}"
                             style="width: 170px; height: 200px; object-fit: cover;" alt="">
 
-                        <img src="{{ Storage::url($item->product->galleries->first()->photos) }}" alt="">
+                        {{-- <img src="{{ Storage::url($item->product->galleries->first()->photos) }}" alt=""> --}}
                     </a>
                 </div>
                 @php
@@ -102,12 +102,12 @@ Sidomulyo | Cart Page
                                         class="btn btn-primary">+</a>
                                 </div>
 
-                                <a href="{{ url('/cart/update-quantity/'.$item->id.'/1') }}">
+                                {{-- <a href="{{ url('/cart/update-quantity/'.$item->id.'/1') }}">
                                     +
                                 </a>
                                 <input type="number" class="quantity" name="qty" min="0" step="1" class="input-qty"
                                     value="{{ $item->qty }}">
-                                <a href="{{ url('/cart/update-quantity/'.$item->id.'/-1') }}">-</a>
+                                <a href="{{ url('/cart/update-quantity/'.$item->id.'/-1') }}">-</a> --}}
                         </div>
                     </div>
                     <div class="pt-col col-lg-3 text-start">
