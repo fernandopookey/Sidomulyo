@@ -96,9 +96,9 @@
             <li>
                 <a href="{{ route('blog') }}">BLOG</a>
             </li>
-            <li>
+            {{-- <li>
                 <a href="#">KONFIRMASI PEMBAYARAN</a>
-            </li>
+            </li> --}}
         </ul>
         <div class="mm-navbtn-names">
             <div class="mm-closebtn">Close</div>
@@ -210,11 +210,11 @@
                                             <span style="color: white">BLOG</span>
                                         </a>
                                     </li>
-                                    <li class="dropdown megamenu">
+                                    {{-- <li class="dropdown megamenu">
                                         <a href="{{ route('payment-confirmation') }}">
                                             <span style="color: white">KONFIRMASI PEMBAYARAN</span>
                                         </a>
-                                    </li>
+                                    </li> --}}
 
                                     {{-- <li class="dropdown megamenu">
                                         <a href="{{ route('coba') }}">
