@@ -19,7 +19,10 @@
 <body>
 
 
-
+    @include('sweetalert::alert')
+    @include('notify::messages')
+    <x:notify-messages />
+    @notifyJs
     {{-- Header --}}
     @include('user.includes.header')
 

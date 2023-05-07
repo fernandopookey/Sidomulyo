@@ -1,7 +1,7 @@
 @extends('user.layouts.app')
 
 @section('title')
-Sidomulyo | My Profile Page
+Sidomulyo | Transaction Details
 @endsection
 
 @section('content')
@@ -19,7 +19,7 @@ Sidomulyo | My Profile Page
 <main id="pt-pageContent">
     <div class="container-indent">
         <div class="container">
-            <h1 class="pt-title-subpages noborder">Akun Saya</h1>
+            <h1 class="pt-title-subpages noborder">Detail Transaksi</h1>
             <div class="pt-account-layout">
                 <div class="pt-wrapper">
                     <form action="{{ route('dashboard-settings-redirect', 'dashboard-settings-account') }}"
@@ -27,7 +27,7 @@ Sidomulyo | My Profile Page
                         @csrf
                         <h3 class="pt-title">Biodata</h3>
                         <div class="pt-table-responsive">
-                            <table class="pt-table-shop-02">
+                            {{-- <table class="pt-table-shop-02">
                                 <tbody>
                                     <tr>
                                         <td>Nama Lengkap</td>
@@ -74,46 +74,11 @@ Sidomulyo | My Profile Page
                                             </div>
                                         </td>
                                     </tr>
-                                    {{-- <tr>
-                                        <td>Foto</td>
-                                        <td>3242</td>
-                                    </tr> --}}
                                 </tbody>
-                            </table>
+                            </table> --}}
+                            <p>Detail Transaksi</p>
                             <button type="submit" class="btn btn-secondary">Ubah Profil</button>
                     </form>
-                </div>
-                {{-- <a href="#" class="btn btn-border">Ubah Profil</a> --}}
-            </div>
-
-
-            <div class="pt-wrapper">
-                <h3 class="pt-title">Histori Pesanan</h3>
-                <div class="pt-table-responsive">
-                    <table class="pt-table-shop-01">
-                        <thead>
-                            <tr>
-                                <th>Kode</th>
-                                <th>Waktu</th>
-                                <th>Status</th>
-                                <th>Total</th>
-                                <th>Aksi</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($transactions as $item)
-                            <tr>
-                                <td>{{ $item->code }}</td>
-                                <td>{{ $item->created_at }}</td>
-                                <td>{{ $item->transaction->transaction_status }}</td>
-                                <td>{{ $item->product->price }}</td>
-                                <td>
-                                    <a href="{{ route('user-transaction-details') }}">Detail</a>
-                                </td>
-                            </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
                 </div>
             </div>
         </div>

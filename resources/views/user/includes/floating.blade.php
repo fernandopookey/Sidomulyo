@@ -133,9 +133,9 @@
 </a>
 
 <!-- Bottom -->
-<a href="https://wa.me/085254143531?text=I'm%20interested%20in%20your%20car%20for%20sale" target="_blank">
+{{-- <a href="https://wa.me/085254143531?text=I'm%20interested%20in%20your%20car%20for%20sale" target="_blank">
     <button class="btn-floating whatsapp">
         <img src="/images/whatsapp.png" alt="whatsapp">
         <span>Whatsapp</span>
     </button>
-</a>
+</a> --}}

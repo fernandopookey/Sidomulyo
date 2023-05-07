@@ -45,7 +45,6 @@ Sidomulyo | Product Detail Page
         <div class="row">
             <div class="col-lg-1">
                 <div class="row">
-                    {{-- @if ( $product > 0 ) --}}
                     <div class="col-3 col-lg-12 mt-2 mt-lg-0" v-for="(photo, index) in photos" :key="photo.id"
                         data-aos="zoom-in" data-aos-delay="100">
                         <a href="#" @click="changeActive(index)">
@@ -53,9 +52,6 @@ Sidomulyo | Product Detail Page
                                 style="width: 100px; height:100px; object-fit: cover;" alt="">
                         </a>
                     </div>
-                    {{-- @else
-                    <img src="/images/neon4.jpeg" alt="">
-                    @endif --}}
                 </div>
             </div>
             <div class="col-lg-5" data-aos="zoom-in">
@@ -178,27 +174,28 @@ Sidomulyo | Product Detail Page
                         </div>
                     </div>
                     <div class="pt-wrapper">
-                        <div class="pt-row-custom-01">
-                            <div class="col-item">
-                                {{-- <input type="hidden" value="{{ $product->id }}" class="prod_id"> --}}
-                                <div class="pt-input-counter style-01">
-                                    <span class="minus-btn decrement-btn">
-                                        -
-                                    </span>
-                                    <input type="text" name="jml" class="qty-input" value="1">
-                                    <span class="plus-btn increment-btn">
-                                        +
-                                    </span>
+                        <form action="{{ route('detail-add', $product->id) }}" method="POST"
+                            enctype="multipart/form-data">
+                            @csrf
+                            <div class="pt-row-custom-01">
+                                <div class="col-item">
+                                    {{-- <input type="hidden" value="{{ $product->id }}" class="prod_id"> --}}
+                                    <div class="pt-input-counter style-01">
+                                        {{-- <span class="minus-btn decrement-btn">
+                                            -
+                                        </span>
+                                        <input type="text" name="jml" class="qty-input" value="1">
+                                        <span class="plus-btn increment-btn">
+                                            +
+                                        </span> --}}
+                                        <input type="number" class="quantity" name="qty" value="1">
+                                    </div>
                                 </div>
-                            </div>
-                            <form action="{{ route('detail-add', $product->id) }}" method="POST"
-                                enctype="multipart/form-data">
-                                @csrf
                                 <button type="submit" class="btn btn-block">
                                     Tambah Ke Keranjang
                                 </button>
-                            </form>
-                        </div>
+                            </div>
+                        </form>
                     </div>
                     <div class="pt-wrapper">
                         <div class="pt-row-custom-03">
@@ -227,7 +224,7 @@ Sidomulyo | Product Detail Page
     <div class="container-indent">
         <div class="container container-fluid-custom-mobile-padding">
             <div class="pt-block-title">
-                <h4 class="pt-title">Related Products</h4>
+                <h4 class="pt-title">Produk Terkait</h4>
             </div>
             <div class="js-init-carousel js-align-arrow row arrow-location-center-02 pt-layout-product-item">
                 @if (count($product->related_products)>0)

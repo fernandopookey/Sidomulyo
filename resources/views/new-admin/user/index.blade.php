@@ -20,7 +20,6 @@
                         <th scope="col">Username</th>
                         <th scope="col">Role</th>
                         <th scope="col">Status</th>
-                        <th scope="col">Gambar</th>
                         <th scope="col">Aksi</th>
                     </tr>
                 </thead>
@@ -37,10 +36,6 @@
                             <?php }else{ ?>
                             <a href="{{ url('/admin/status-update', $item->id) }}" class="btn btn-danger">Inactive</a>
                             <?php } ?>
-                        </td>
-                        <td>
-                            <img src="{{ Storage::disk('local')->url($item->photos) }}" style="height: 80px;
-                                width: 110px; object-fit: cover;" alt="">
                         </td>
                         <td width="20%">
                             <div class="d-flex justify-content-between">

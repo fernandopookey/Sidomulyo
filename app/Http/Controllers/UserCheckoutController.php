@@ -45,6 +45,6 @@ class UserCheckoutController extends Controller
 
         //Hapus Data Keranjang
         Cart::where('users_id', Auth::user()->id)->delete();
-        return redirect('/');
+        return redirect('cart')->with('success', 'Transaksi Diproses');
     }
 }
