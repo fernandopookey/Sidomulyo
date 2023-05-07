@@ -84,7 +84,7 @@ Sidomulyo Homepage
                             {{-- <div class="tp-caption1-wd-2 pt-white-color">{{ $item->name }}</div>
                             <div class="tp-caption1-wd-3 pt-white-color">{!! $item->description !!}</div> --}}
                             <div class="tp-caption1-wd-4 button-pesan-home">
-                                <a href="#" class="btn" data-text="DISCOVER NOW!">PESAN SEKARANG!
+                                <a href="{{ route('product') }}" class="btn" data-text="DISCOVER NOW!">PESAN SEKARANG!
                                 </a>
                             </div>
                         </div>
@@ -135,7 +135,7 @@ Sidomulyo Homepage
     </div>
     <div class="container-indent">
         <div class="container">
-            <hr> /
+            <hr />
             <div class="row justify-content-center" style="text-align: center" data-aos="fade-up">
                 @foreach ($sosmed as $item)
                 <div class="col-12" style="max-width: 550px;">

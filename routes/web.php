@@ -82,6 +82,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::delete('/cart/{id}', [CartController::class, 'delete'])->name('cart-delete');
 
     Route::post('/checkout', [UserCheckoutController::class, 'process'])->name('checkout');
+
+    Route::get('search', [UserProductController::class, 'search'])->name('search');
 });
 
 

@@ -238,9 +238,10 @@
                             </button>
                             <div class="pt-dropdown-menu">
                                 <div class="container">
-                                    <form>
+                                    <form action="/search">
                                         <div class="pt-col">
-                                            <input type="text" class="pt-search-input" placeholder="Cari Produk....">
+                                            <input type="text" name="search" class="pt-search-input"
+                                                placeholder="Cari Produk...." autocomplete="off">
                                             <button class="pt-btn-search" type="submit">
                                                 <svg width="24" height="24" viewBox="0 0 24 24">
                                                     <use xlink:href="#icon-search"></use>
