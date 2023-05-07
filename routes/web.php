@@ -89,6 +89,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/cart/update-quantity/{id}/{quantity}', [CartController::class, 'update']);
 
     Route::post('/checkout', [UserCheckoutController::class, 'process'])->name('checkout');
+
+    Route::get('search', [UserProductController::class, 'search'])->name('search');
 });
 
 

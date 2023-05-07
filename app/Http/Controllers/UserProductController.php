@@ -36,4 +36,17 @@ class UserProductController extends Controller
             'categories'    => $categories,
         ]);
     }
+
+    public function search(Request $request)
+    {
+        // return $request->input();
+        $data = Product::where('name', 'like', '%' . $request->input('search') . '%')->get();
+
+        return view('user.pages.search', [
+            'product'      => $data,
+            'sosmed'        => Sosmed::get(),
+            'header'        => Header::get()
+
+        ]);
+    }
 }

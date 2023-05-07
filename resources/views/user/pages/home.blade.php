@@ -135,7 +135,7 @@ Sidomulyo Homepage
     </div>
     <div class="container-indent">
         <div class="container">
-            <hr> /
+            <hr />
             <div class="row justify-content-center" style="text-align: center" data-aos="fade-up">
                 @foreach ($sosmed as $item)
                 <div class="col-12" style="max-width: 550px;">
