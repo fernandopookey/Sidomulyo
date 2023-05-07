@@ -21,14 +21,15 @@ Sidomulyo Client Page
                 <div class="pt-blog-init pt-grid-col-3 pt-listing-col pt-add-item pt-show">
                     @foreach ($client as $item)
                     <div class="element-item pb-4 pt-4">
-                        <div class="pt-post">
+                        <div class="pt-post text-center">
                             <div class="pt-post-img">
-                                <a href="blog-single-post.html">
-                                    <img src="{{ Storage::url($item->photos ?? '') }}" alt="">
+                                <a href="#">
+                                    <img src="{{ Storage::url($item->photos ?? '') }}"
+                                        style="width: 250px; height: 150px; object-fit: contain;" alt="">
                                 </a>
                             </div>
                             <div class="pt-post-content">
-                                <h5 class="pt-title text-center">{{ $item->name }}</h5>
+                                <h5 class="pt-title">{{ $item->name }}</h5>
                             </div>
                         </div>
                     </div>
