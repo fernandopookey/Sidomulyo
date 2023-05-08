@@ -58,6 +58,11 @@ Sidomulyo Profil Page
                     </div>
                 </div>
             </div>
+            <div class="row pt-4">
+                <div class="col-12">
+                    {{ $item->document }}
+                </div>
+            </div>
             @endforeach
         </div>
     </div>

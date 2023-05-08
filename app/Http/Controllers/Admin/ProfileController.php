@@ -37,12 +37,13 @@ class ProfileController extends Controller
     {
         $item = Profile::first();
         $data = $request->validate([
-            'name'         => 'required',
-            'visi'         => 'required',
-            'misi'         => 'required',
-            'proper'       => 'required',
-            'description'  => 'required',
-            'photos'       => 'image',
+            'name'          => 'required',
+            'visi'          => 'required',
+            'misi'          => 'required',
+            'proper'        => 'required',
+            'description'   => 'required',
+            'photos'        => 'image',
+            'document'      => 'required|file'
         ]);
 
         if ($request->hasFile('photos')) {

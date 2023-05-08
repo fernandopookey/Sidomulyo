@@ -13,7 +13,8 @@ class Profile extends Model
         'misi',
         'proper',
         'description',
-        'photos'
+        'photos',
+        'document'
     ];
 
     protected $hidden = [];

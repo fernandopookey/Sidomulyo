@@ -70,6 +70,15 @@
                                 @enderror
                             </div>
                         </div>
+
+                        <div class="col-md-12">
+                            <div class="input-group input-group-static mb-4">
+                                <label>Document</label>
+                                <input type="file" name="document" class="form-control"
+                                    value="{{ $profile->document }}">
+                            </div>
+                        </div>
+
                         <div class="col-md-12">
                             <div class="input-group input-group-static mb-4">
                                 <label>Gambar</label>
