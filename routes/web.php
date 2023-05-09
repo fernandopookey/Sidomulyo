@@ -25,6 +25,7 @@ use App\Http\Controllers\UserProductCategoryController;
 use App\Http\Controllers\UserProductController;
 use App\Http\Controllers\UserProfileController;
 use App\Http\Controllers\UserTransactionController;
+use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -66,6 +67,12 @@ Route::get('/register/success', [RegisterController::class, 'success'])->name('r
 
 Route::get('/categories', [UserProductCategoryController::class, 'index'])->name('categories');
 Route::get('/categories/{id}', [UserProductCategoryController::class, 'detail'])->name('categories-detail');
+
+// Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
+//     $request->fulfill();
+
+//     return redirect('/');
+// })->middleware(['auth', 'signed'])->name('verification.verify');
 
 //======================================== USER ========================================
 Route::group(['middleware' => ['auth', 'verified']], function () {
