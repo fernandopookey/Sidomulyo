@@ -17,46 +17,50 @@
 <main id="pt-pageContent">
     <div class="container-indent">
         <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-md-6 col-lg-5 col-xl-4">
-                    <h2 class="pt-title-page text-center">Login</h2>
-                    <form id="login-form" class="form-default form-layout-01" method="post" novalidate="novalidate"
-                        action="{{ route('login') }}">
-                        @csrf
-                        <div class="form-group">
-                            <label for="inputFitstName">Email</label>
-                            {{-- <div class="pt-required">* Required Fields</div> --}}
-                            <input type="email" type="email" name="email"
-                                class="form-control @error('email') is-invalid @enderror" id="email"
-                                placeholder="Masukan Email anda" value="{{ old('email') }}" required
-                                autocomplete="email" autofocus>
-                            @error('email')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
+            <div class="card">
+                <div class="card-body">
+                    <div class="row justify-content-center">
+                        <div class="col-md-6 col-lg-5 col-xl-4">
+                            <h2 class="pt-title-page text-center">Login</h2>
+                            <form id="login-form" class="form-default form-layout-01" method="post"
+                                novalidate="novalidate" action="{{ route('login') }}">
+                                @csrf
+                                <div class="form-group">
+                                    <label for="inputFitstName">Email</label>
+                                    {{-- <div class="pt-required">* Required Fields</div> --}}
+                                    <input type="email" type="email" name="email"
+                                        class="form-control @error('email') is-invalid @enderror" id="email"
+                                        placeholder="Masukan Email anda" value="{{ old('email') }}" required
+                                        autocomplete="email" autofocus>
+                                    @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputLastName">Password</label>
+                                    <input type="password" name="password"
+                                        class="form-control @error('password') is-invalid @enderror" id="password"
+                                        placeholder="Masukan Password anda" required autocomplete="current-password">
+                                    @error('password')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+                                <div class="row-btn">
+                                    <button type="submit" class="btn btn-block">LOGIN</button>
+                                </div>
+                                <div class="form-content">
+                                    <h3 class="pt-title-page text-center">Belum Punya Akun ?</h3>
+                                    <button type="button" class="btn btn-dark btn-block btn-top">
+                                        <a href="{{ route('register') }}" style="color: white;">Registrasi Akun</a>
+                                    </button>
+                                </div>
+                            </form>
                         </div>
-                        <div class="form-group">
-                            <label for="inputLastName">Password</label>
-                            <input type="password" name="password"
-                                class="form-control @error('password') is-invalid @enderror" id="password"
-                                placeholder="Masukan Password anda" required autocomplete="current-password">
-                            @error('password')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-                        </div>
-                        <div class="row-btn">
-                            <button type="submit" class="btn btn-block">LOGIN</button>
-                        </div>
-                        <div class="form-content">
-                            <h3 class="pt-title-page text-center">Belum Punya Akun ?</h3>
-                            <button type="button" class="btn btn-dark btn-block btn-top">
-                                <a href="{{ route('register') }}" style="color: white;">Registrasi Akun</a>
-                            </button>
-                        </div>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>

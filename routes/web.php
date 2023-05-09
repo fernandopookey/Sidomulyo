@@ -68,7 +68,7 @@ Route::get('/categories', [UserProductCategoryController::class, 'index'])->name
 Route::get('/categories/{id}', [UserProductCategoryController::class, 'detail'])->name('categories-detail');
 
 //======================================== USER ========================================
-Route::group(['middleware' => ['auth']], function () {
+Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::get('/cart', [CartController::class, 'index'])->name('cart');
     // Route::get('/my_profile', [HomeController::class, 'myprofile'])->name('user-profile');
     Route::get('/my_profile', [UserProfileController::class, 'account'])->name('user-profile');
@@ -168,4 +168,6 @@ Route::prefix('admin')->namespace('Admin')->middleware(['auth', 'admin'])->group
     Route::resource('transaction', '\App\Http\Controllers\Admin\TransactionController');
     Route::get('/transaction-status-update/{id}', [ChangeController::class, 'transaction_status']);
 });
-Auth::routes();
+
+
+Auth::routes(['verify' => true]);
