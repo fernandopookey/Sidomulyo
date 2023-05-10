@@ -29,7 +29,8 @@ class ProfileRequest extends FormRequest
             'misi'          => 'required|string',
             'description'   => 'required|string',
             'proper'        => 'required|string',
-            'photos'        => 'required|image'
+            'photos'        => 'required|image',
+            'document'      => 'required|mimes:pdf,xlxs,xlx,docx,doc,csv,txt,png,gif,jpg,jpeg|max:2048'
         ];
     }
 }

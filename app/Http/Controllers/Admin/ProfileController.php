@@ -43,8 +43,32 @@ class ProfileController extends Controller
             'proper'        => 'required',
             'description'   => 'required',
             'photos'        => 'image',
-            'document'      => 'required|file'
+            'document'      => 'required|mimes:pdf,xlxs,xlx,docx,doc,csv,txt,png,gif,jpg,jpeg|max:2048'
         ]);
+
+        // $fileName = $request->file('document')->getClientOriginalName();
+        // $filePath = 'uploads/' . $fileName;
+
+        // $path = Storage::disk('public')->put($filePath, file_get_contents($request->file('document')));
+        // $path = Storage::disk('public')->url($path);
+
+        if ($request->hasFile('document')) {
+
+            if ($item->document != null) {
+                $realLocation = "storage/" . $item->document;
+                if (file_exists($realLocation) && !is_dir($realLocation)) {
+                    unlink($realLocation);
+                }
+            }
+
+            $document = $request->file('document');
+            $file_name = time() . '-' . $document->getClientOriginalName();
+
+            $data['document'] = $request->file('document')->store('assets/profile', 'public');
+        } else {
+            $data['document'] = $item->document;
+        }
+
 
         if ($request->hasFile('photos')) {
 
@@ -62,6 +86,8 @@ class ProfileController extends Controller
         } else {
             $data['photos'] = $item->photos;
         }
+
+        // dd($data);
 
         $item->update($data);
         Alert::success('Sukses', 'Profil Berhasil Diubah');
