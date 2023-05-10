@@ -59,9 +59,10 @@ Sidomulyo Profil Page
                 </div>
             </div>
             <div class="row pt-4">
-                <div class="col-12">
+                <div class="col-12" type="hidden">
                     {{ $item->document }}
                 </div>
+                <button class="btn mt-4">Download Company Profile</button>
             </div>
             @endforeach
         </div>
