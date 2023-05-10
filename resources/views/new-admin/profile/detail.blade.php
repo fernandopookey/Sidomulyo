@@ -51,6 +51,14 @@
                             {{-- <span>{!! $product->description !!}</span> --}}
                         </div>
                     </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="inputEmail">File PDF</label>
+                            {{-- <iFrame src="/assets/profile{{ $profile->document }}" frameborder="0"></iFrame> --}}
+                            <iFrame src="{{ Storage::url($profile->document) }}"></iFrame>
+                            {{-- <img src="{{ Storage::url($profile->photos) }}" alt="" style="max-width: 300px"> --}}
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

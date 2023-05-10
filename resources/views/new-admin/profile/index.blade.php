@@ -76,6 +76,7 @@
                                 <label>Document</label>
                                 <input type="file" name="document" class="form-control"
                                     value="{{ $profile->document }}">
+                                {{ $profile->document }}
                             </div>
                         </div>
 
