@@ -134,6 +134,8 @@ Route::prefix('admin')->namespace('Admin')->middleware(['auth', 'admin'])->group
 
     Route::resource('client', '\App\Http\Controllers\Admin\ClientController');
 
+    Route::resource('backgroundImage', '\App\Http\Controllers\Admin\BackgroundImageController');
+
     Route::resource('homecontent', '\App\Http\Controllers\Admin\HomeContentController');
 
     Route::resource('profile', '\App\Http\Controllers\Admin\ProfileController');

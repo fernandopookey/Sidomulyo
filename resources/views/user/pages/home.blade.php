@@ -5,6 +5,22 @@ Sidomulyo Homepage
 @endsection
 
 <style>
+    .homealone {
+        /* background-color: blue; */
+        padding-top: 25px;
+    }
+
+    .cobacoba {
+        /* background-color: blue; */
+        background-image: url('/images/bgp.avif');
+        /* height: 50%; */
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        object-fit: contain;
+    }
+
     .opening-card {
         background-color: #cccccc;
         color: white;
@@ -84,7 +100,8 @@ Sidomulyo Homepage
                             {{-- <div class="tp-caption1-wd-2 pt-white-color">{{ $item->name }}</div>
                             <div class="tp-caption1-wd-3 pt-white-color">{!! $item->description !!}</div> --}}
                             <div class="tp-caption1-wd-4 button-pesan-home">
-                                <a href="{{ route('product') }}" class="btn" data-text="DISCOVER NOW!">PESAN SEKARANG!
+                                <a href="{{ route('product') }}" class="btn" data-text="DISCOVER NOW!">PESAN
+                                    SEKARANG!
                                 </a>
                             </div>
                         </div>
@@ -95,104 +112,109 @@ Sidomulyo Homepage
         </div>
     </div>
 
-    <div class="container-indent">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3 col-sm-6 col-md-6">
-                    <div class="opening-card pt-3 pb-3 mb-4" data-aos="fade-up" data-aos-delay="100">
-                        <div class="justify-content-center align-items-center text-center opening-body-card">
-                            <i class="fa-solid fa-thumbs-up fa-5x"></i>
-                            <div class="card-title pt-1">KUALITAS TERJAMIN</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-4 col-md-6">
-                    <div class="opening-card pt-3 pb-3 mb-4" data-aos="fade-up" data-aos-delay="200">
-                        <div class="justify-content-center align-items-center text-center opening-body-card">
-                            <i class="fa-solid fa-clock fa-5x"></i>
-                            <div class="card-title pt-1">PENGERJAAN CEPAT</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-4 col-md-6">
-                    <div class="opening-card pt-3 pb-3 mb-4" data-aos="fade-up" data-aos-delay="300">
-                        <div class="justify-content-center align-items-center text-center opening-body-card">
-                            <i class="fa-solid fa-money-bill fa-5x"></i>
-                            <div class="card-title pt-1">HARGA BERSAING</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-4 col-md-6">
-                    <div class="opening-card pt-3 pb-3 mb-4" data-aos="fade-up" data-aos-delay="400">
-                        <div class="justify-content-center align-items-center text-center opening-body-card">
-                            <i class="fa-solid fa-computer fa-5x"></i>
-                            <div class="card-title pt-1">DESAIN BERKUALITAS</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="container-indent">
-        <div class="container">
-            <hr />
-            <div class="row justify-content-center" style="text-align: center" data-aos="fade-up">
-                @foreach ($sosmed as $item)
-                <div class="col-12" style="max-width: 550px;">
-                    <h2>{{ $item->home_title }}</h2>
-                    <h5>{{ $item->other }}</h5>
-                </div>
-                @endforeach
-            </div>
-        </div>
-    </div>
-    <div class="container-indent">
-        <div class="container">
-            <hr />
-            <div class="pt-block-title" data-aos="fade-down">
-                <h4 class="pt-title">Produk</h4>
-                <div class="pt-description">Sesuaikan Kebutuhan Anda</div>
-            </div>
-            <div class="pt-layout-promo-card-02">
-                <div class="row d-flex justify-content-center mb-4 pb-4">
-                    @php
-                    $incrementProduct = 0
-                    @endphp
-                    @forelse ($product as $item)
-                    <div class="col-md-3" data-aos="fade-up" data-aos-delay="{{ $incrementProduct+= 100}}">
-                        <a href="#" class="pt-promo-card-02">
-                            <div class="image-box">
-                                <img src="{{ Storage::url($item->galleries->first()->photos ?? '') }}" class="lazyload"
-                                    style="width: 300px; height: 300px; object-fit:cover;" alt="NEW COLLETION">
+    <div class="cobacoba">
+        <div class="container-indent homealone">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-sm-6 col-md-6">
+                        <div class="opening-card pt-3 pb-3 mb-4" data-aos="fade-up" data-aos-delay="100">
+                            <div class="justify-content-center align-items-center text-center opening-body-card">
+                                <i class="fa-solid fa-thumbs-up fa-5x"></i>
+                                <div class="card-title pt-1">KUALITAS TERJAMIN</div>
                             </div>
-                            <div class="pt-description">
-                                <div class="pt-title">
-                                    {{ $item->name }}
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-4 col-md-6">
+                        <div class="opening-card pt-3 pb-3 mb-4" data-aos="fade-up" data-aos-delay="200">
+                            <div class="justify-content-center align-items-center text-center opening-body-card">
+                                <i class="fa-solid fa-clock fa-5x"></i>
+                                <div class="card-title pt-1">PENGERJAAN CEPAT</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-4 col-md-6">
+                        <div class="opening-card pt-3 pb-3 mb-4" data-aos="fade-up" data-aos-delay="300">
+                            <div class="justify-content-center align-items-center text-center opening-body-card">
+                                <i class="fa-solid fa-money-bill fa-5x"></i>
+                                <div class="card-title pt-1">HARGA BERSAING</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-4 col-md-6">
+                        <div class="opening-card pt-3 pb-3 mb-4" data-aos="fade-up" data-aos-delay="400">
+                            <div class="justify-content-center align-items-center text-center opening-body-card">
+                                <i class="fa-solid fa-computer fa-5x"></i>
+                                <div class="card-title pt-1">DESAIN BERKUALITAS</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-indent">
+            <div class="container">
+                <hr />
+                <div class="row justify-content-center" style="text-align: center" data-aos="fade-up">
+                    @foreach ($sosmed as $item)
+                    <div class="col-12" style="max-width: 550px;">
+                        <h2>{{ $item->home_title }}</h2>
+                        <h5>{{ $item->other }}</h5>
+                    </div>
+                    @endforeach
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="cobacoba">
+        <div class="container-indent">
+            <div class="container">
+                <div class="pt-block-title" data-aos="fade-down">
+                    <h4 class="pt-title">Produk</h4>
+                    <div class="pt-description">Sesuaikan Kebutuhan Anda</div>
+                </div>
+                <div class="pt-layout-promo-card-02">
+                    <div class="row d-flex justify-content-center mb-4 pb-4">
+                        @php
+                        $incrementProduct = 0
+                        @endphp
+                        @forelse ($product as $item)
+                        <div class="col-md-3" data-aos="fade-up" data-aos-delay="{{ $incrementProduct+= 100}}">
+                            <a href="#" class="pt-promo-card-02">
+                                <div class="image-box">
+                                    <img src="{{ Storage::url($item->galleries->first()->photos ?? '') }}"
+                                        class="lazyload" style="width: 300px; height: 300px; object-fit:cover;"
+                                        alt="NEW COLLETION">
                                 </div>
-                                <p>
-                                    Rp. {{ number_format($item->price) }}
-                                </p>
-                                {{-- <div class="btn btn-border">Pesan Sekarang!</div> --}}
-                                <a href="{{ route('product') }}" class="btn btn-border">Pesan Sekarang!</a>
-                            </div>
-                        </a>
+                                <div class="pt-description">
+                                    <div class="pt-title">
+                                        {{ $item->name }}
+                                    </div>
+                                    <p>
+                                        Rp. {{ number_format($item->price) }}
+                                    </p>
+                                    {{-- <div class="btn btn-border">Pesan Sekarang!</div> --}}
+                                    <a href="{{ route('product') }}" class="btn btn-border">Pesan Sekarang!</a>
+                                </div>
+                            </a>
+                        </div>
+                        @empty
+                        <div class="col-12 text-center py-5" data-aos="fade-up" data-aos-delay="100">
+                            No Products Found
+                        </div>
+                        @endforelse
                     </div>
-                    @empty
-                    <div class="col-12 text-center py-5" data-aos="fade-up" data-aos-delay="100">
-                        No Products Found
-                    </div>
-                    @endforelse
-                </div>
-                <div class="col-lg-12">
-                    <div class="text-center mt-4 pt-4">
-                        <a href="{{ route('product') }}" class="btn" data-text="DISCOVER NOW!">LIHAT
-                            PRODUK LAINNYA!
-                        </a>
+                    <div class="col-lg-12 pb-4">
+                        <div class="text-center mt-4 pt-4">
+                            <a href="{{ route('product') }}" class="btn" data-text="DISCOVER NOW!">LIHAT
+                                PRODUK LAINNYA!
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <hr>
     {{-- <div class="container-indent">
         <div class="container container-fluid-custom-mobile-padding">
             <hr />
@@ -909,94 +931,99 @@ Sidomulyo Homepage
             </div>
         </div>
     </div> --}}
-    <div class="container-indent">
-        <div class="container">
-            <hr>
-            <div class="row pt-services-listing text-center">
-                @php
-                $incrementLink = 0
-                @endphp
-                @foreach ($homecontent as $item)
-                <div class="col-xs-12 col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="{{ $incrementLink+= 200 }}">
-                    <a href="{{ $item->link }}" class="pt-services-block" target="_blank">
-                        <h4 class="pt-title">
-                            <span class="pt-icon">
-                                <img src="{{ Storage::url($item->icon ?? '') }}" style="max-width: 50px" alt="">
-                                <a href="{{ $item->link }}" target="_blank">{{ $item->title }}</a>
-                                {{-- <svg>
-                                    <use xlink:href="{{ route('installation.index') }}"></use>
-                                </svg> --}}
-                            </span>
-                            {{-- <span class="pt-text">Fasilitas Pendukung</span> --}}
-                        </h4>
-                        {{-- <p>Free shipping on orders over $99.</p> --}}
-                    </a>
-                </div>
-                @endforeach
-                {{-- <div class="col-xs-12 col-md-6 col-lg-4">
-                    <a href="page-faq.html" class="pt-services-block" target="_blank">
-                        <h4 class="pt-title">
-                            <span class="pt-icon">
-                                <i class="fa fa-computer fa-3x"></i>
-                                <a href="{{ route('machine.index') }}">Finishing Machine</a> --}}
-                                {{-- <svg>
-                                    <use xlink:href="{{ route('installation.index') }}"></use>
-                                </svg> --}}
-                                {{-- </span> --}}
-                            {{-- <span class="pt-text">Fasilitas Pendukung</span> --}}
+    {{-- <div class="cobacoba2"> --}}
+        <div class="cobacoba">
+            <div class="container-indent">
+                <div class="container pb-4">
+                    <div class="row pt-services-listing text-center">
+                        @php
+                        $incrementLink = 0
+                        @endphp
+                        @foreach ($homecontent as $item)
+                        <div class="col-xs-12 col-md-6 col-lg-4" data-aos="zoom-in"
+                            data-aos-delay="{{ $incrementLink+= 200 }}">
+                            <a href="{{ $item->link }}" class="pt-services-block" target="_blank">
+                                <h4 class="pt-title">
+                                    <span class="pt-icon">
+                                        <img src="{{ Storage::url($item->icon ?? '') }}" style="max-width: 50px" alt="">
+                                        <a href="{{ $item->link }}">{{ $item->title }}</a>
+                                        {{-- <svg>
+                                            <use xlink:href="{{ route('installation.index') }}"></use>
+                                        </svg> --}}
+                                    </span>
+                                    {{-- <span class="pt-text">Fasilitas Pendukung</span> --}}
+                                </h4>
+                                {{-- <p>Free shipping on orders over $99.</p> --}}
+                            </a>
+                        </div>
+                        @endforeach
+                        {{-- <div class="col-xs-12 col-md-6 col-lg-4">
+                            <a href="page-faq.html" class="pt-services-block" target="_blank">
+                                <h4 class="pt-title">
+                                    <span class="pt-icon">
+                                        <i class="fa fa-computer fa-3x"></i>
+                                        <a href="{{ route('machine.index') }}">Finishing Machine</a> --}}
+                                        {{-- <svg>
+                                            <use xlink:href="{{ route('installation.index') }}"></use>
+                                        </svg> --}}
+                                        {{-- </span> --}}
+                                    {{-- <span class="pt-text">Fasilitas Pendukung</span> --}}
+                                    {{--
+                                </h4> --}}
+                                {{-- <p>Free shipping on orders over $99.</p> --}}
+                                {{--
+                            </a>
+                        </div> --}}
+                        {{-- <div class="col-xs-12 col-md-6 col-lg-4">
+                            <a href="page-faq.html" class="pt-services-block" target="_blank">
+                                <h4 class="pt-title">
+                                    <span class="pt-icon">
+                                        <i class="fa fa-blog fa-3x"></i>
+                                        <a href="{{ route('blog.index') }}">Our Blog</a> --}}
+                                        {{-- <svg>
+                                            <use xlink:href="{{ route('installation.index') }}"></use>
+                                        </svg> --}}
+                                        {{-- </span> --}}
+                                    {{-- <span class="pt-text">Fasilitas Pendukung</span> --}}
+                                    {{--
+                                </h4> --}}
+                                {{-- <p>Free shipping on orders over $99.</p> --}}
+                                {{--
+                            </a> --}}
                             {{--
-                        </h4> --}}
-                        {{-- <p>Free shipping on orders over $99.</p> --}}
-                        {{--
-                    </a>
-                </div> --}}
-                {{-- <div class="col-xs-12 col-md-6 col-lg-4">
-                    <a href="page-faq.html" class="pt-services-block" target="_blank">
-                        <h4 class="pt-title">
-                            <span class="pt-icon">
-                                <i class="fa fa-blog fa-3x"></i>
-                                <a href="{{ route('blog.index') }}">Our Blog</a> --}}
-                                {{-- <svg>
-                                    <use xlink:href="{{ route('installation.index') }}"></use>
-                                </svg> --}}
-                                {{-- </span> --}}
-                            {{-- <span class="pt-text">Fasilitas Pendukung</span> --}}
-                            {{--
-                        </h4> --}}
-                        {{-- <p>Free shipping on orders over $99.</p> --}}
-                        {{--
-                    </a> --}}
-                    {{--
-                </div> --}}
-                {{-- <div class="col-xs-12 col-md-6 col-lg-4">
-                    <a href="page-faq.html" class="pt-services-block" target="_blank">
-                        <h4 class="pt-title">
-                            <span class="pt-icon">
-                                <svg>
-                                    <use xlink:href="#icon-services_support"></use>
-                                </svg>
-                            </span>
-                            <span class="pt-text">Support 24/7</span>
-                        </h4>
-                        <p>Contact us 24 hours a day, 7 days a week.</p>
-                    </a>
+                        </div> --}}
+                        {{-- <div class="col-xs-12 col-md-6 col-lg-4">
+                            <a href="page-faq.html" class="pt-services-block" target="_blank">
+                                <h4 class="pt-title">
+                                    <span class="pt-icon">
+                                        <svg>
+                                            <use xlink:href="#icon-services_support"></use>
+                                        </svg>
+                                    </span>
+                                    <span class="pt-text">Support 24/7</span>
+                                </h4>
+                                <p>Contact us 24 hours a day, 7 days a week.</p>
+                            </a>
+                        </div>
+                        <div class="col-xs-12 col-md-6 col-lg-4">
+                            <a href="page-faq.html" class="pt-services-block" target="_blank">
+                                <h4 class="pt-title">
+                                    <span class="pt-icon">
+                                        <svg>
+                                            <use xlink:href="#icon-services_return"></use>
+                                        </svg>
+                                    </span>
+                                    <span class="pt-text">Return</span>
+                                </h4>
+                                <p>Simply return it within 30 days for an exchange.</p>
+                            </a>
+                        </div> --}}
+                    </div>
                 </div>
-                <div class="col-xs-12 col-md-6 col-lg-4">
-                    <a href="page-faq.html" class="pt-services-block" target="_blank">
-                        <h4 class="pt-title">
-                            <span class="pt-icon">
-                                <svg>
-                                    <use xlink:href="#icon-services_return"></use>
-                                </svg>
-                            </span>
-                            <span class="pt-text">Return</span>
-                        </h4>
-                        <p>Simply return it within 30 days for an exchange.</p>
-                    </a>
-                </div> --}}
             </div>
         </div>
-    </div>
+        {{--
+    </div> --}}
 </main>
 
 <div class="popup" id="close">
