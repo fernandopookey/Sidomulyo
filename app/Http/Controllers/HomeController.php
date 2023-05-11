@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\BackgroundImage;
 use App\Models\Blog;
 use App\Models\Client;
 use App\Models\FacilityAndMachine;
@@ -95,10 +96,11 @@ class HomeController extends Controller
     public function client()
     {
         $data = [
-            'client' => Client::get(),
-            'sosmed'    => Sosmed::get(),
-            'header'    => Header::get(),
-            'content' => 'user/pages/client'
+            'client'            => Client::get(),
+            'backgroundImage'   => BackgroundImage::get(),
+            'sosmed'            => Sosmed::get(),
+            'header'            => Header::get(),
+            'content'           => 'user/pages/client'
         ];
 
         return view('user.pages.client', $data);

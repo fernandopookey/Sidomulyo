@@ -56,6 +56,15 @@
                 </li>
 
                 <li class="nav-item">
+                    <a href="{{ route('backgroundImage.index') }}"
+                        class="nav-link text-white {{ (request()->is('admin/backgroundImage')) ? 'active bg-gradient-info' : '' }}">
+                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="fas fa-circle opacity-10"></i>
+                        </div>
+                        <span class="nav-link-text ms-1">Background Image</span>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="{{ route('blog.index') }}"
                         class="nav-link text-white {{ (request()->is('admin/blog')) ? 'active bg-gradient-info' : '' }}">
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
