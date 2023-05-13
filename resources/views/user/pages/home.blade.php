@@ -10,15 +10,20 @@ Sidomulyo Homepage
         padding-top: 25px;
     }
 
-    .cobacoba {
-        /* background-color: blue; */
+    /* .cobacoba {
         background-image: url('/images/bgp.avif');
-        /* height: 50%; */
         background-attachment: fixed;
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
         object-fit: contain;
+    } */
+
+    .backgroundImageHome {
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
     }
 
     .opening-card {
@@ -112,7 +117,7 @@ Sidomulyo Homepage
         </div>
     </div>
 
-    <div class="cobacoba">
+    <div class="backgroundImageHome" style="background-image: url('{{ Storage::url($backgroundImage[0]->photos) }}')">
         <div class="container-indent homealone">
             <div class="container">
                 <div class="row">
@@ -151,21 +156,22 @@ Sidomulyo Homepage
                 </div>
             </div>
         </div>
-        <div class="container-indent">
-            <div class="container">
-                <hr />
-                <div class="row justify-content-center" style="text-align: center" data-aos="fade-up">
-                    @foreach ($sosmed as $item)
-                    <div class="col-12" style="max-width: 550px;">
-                        <h2>{{ $item->home_title }}</h2>
-                        <h5>{{ $item->other }}</h5>
-                    </div>
-                    @endforeach
+    </div>
+    <hr />
+    <div class="container-indent">
+        <div class="container">
+            <div class="row justify-content-center" style="text-align: center" data-aos="fade-up">
+                @foreach ($sosmed as $item)
+                <div class="col-12" style="max-width: 550px;">
+                    <h2>{{ $item->home_title }}</h2>
+                    <h5>{{ $item->other }}</h5>
                 </div>
+                @endforeach
             </div>
         </div>
     </div>
-    <div class="cobacoba">
+    <div class="backgroundImageHome pt-4"
+        style="background-image: url('{{ Storage::url($backgroundImage[0]->photos) }}')">
         <div class="container-indent">
             <div class="container">
                 <div class="pt-block-title" data-aos="fade-down">
@@ -932,7 +938,8 @@ Sidomulyo Homepage
         </div>
     </div> --}}
     {{-- <div class="cobacoba2"> --}}
-        <div class="cobacoba">
+        <div class="backgroundImageHome"
+            style="background-image: url('{{ Storage::url($backgroundImage[0]->photos) }}')">
             <div class="container-indent">
                 <div class="container pb-4">
                     <div class="row pt-services-listing text-center">

@@ -38,13 +38,14 @@ class HomeController extends Controller
         // $products = Product::with(['galleries'])->take(8)->latest()->get(); ini juga untuk mengambil product terakhir
 
         return view('user.pages.home', [
-            'slider'        => $slider,
-            'product'       => $product,
-            'sosmed'        => $sosmed,
-            'header'        => $header,
-            'homecontent'   => $homecontent,
-            'modalHome'   => $modalHome,
-            // 'modal'         => $modal
+            'slider'            => $slider,
+            'product'           => $product,
+            'sosmed'            => $sosmed,
+            'backgroundImage'   => BackgroundImage::get(),
+            'header'            => $header,
+            'homecontent'       => $homecontent,
+            'modalHome'         => $modalHome,
+            // 'modal'          => $modal
         ]);
 
         // return view('user.pages.home');
@@ -97,7 +98,6 @@ class HomeController extends Controller
     {
         $data = [
             'client'            => Client::get(),
-            'backgroundImage'   => BackgroundImage::get(),
             'sosmed'            => Sosmed::get(),
             'header'            => Header::get(),
             'content'           => 'user/pages/client'
