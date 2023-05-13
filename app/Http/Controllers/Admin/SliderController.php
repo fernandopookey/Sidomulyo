@@ -17,7 +17,7 @@ class SliderController extends Controller
         $data = [
             'title'     => 'List Slider',
             'slider'   => Slider::get(),
-            'content'   => 'new-admin/slider/index'
+            'content'   => 'admin/slider/index'
         ];
 
         if (request()->ajax()) {
@@ -49,16 +49,16 @@ class SliderController extends Controller
             })->rawColumns(['action', 'photos'])->make();
         }
 
-        return view('new-admin.layouts.wrapper', $data);
+        return view('admin.layouts.wrapper', $data);
     }
 
     public function create()
     {
         $data = [
             'title' => 'Tambah Slider',
-            'content' => 'new-admin/slider/create'
+            'content' => 'admin/slider/create'
         ];
-        return view('new-admin.layouts.wrapper', $data);
+        return view('admin.layouts.wrapper', $data);
     }
 
     public function store(SliderRequest $request)
@@ -77,9 +77,9 @@ class SliderController extends Controller
         $data = [
             'title'     => 'Detail Slider',
             'slider'   => Slider::find($id),
-            'content'   => 'new-admin/slider/detail'
+            'content'   => 'admin/slider/detail'
         ];
-        return view('new-admin.layouts.wrapper', $data);
+        return view('admin.layouts.wrapper', $data);
     }
 
     /**
@@ -90,9 +90,9 @@ class SliderController extends Controller
         $data = [
             'title' => 'Edit Slider',
             'slider' => Slider::find($id),
-            'content' => 'new-admin/slider/edit'
+            'content' => 'admin/slider/edit'
         ];
-        return view('new-admin.layouts.wrapper', $data);
+        return view('admin.layouts.wrapper', $data);
     }
 
     /**

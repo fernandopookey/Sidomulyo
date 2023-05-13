@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
 use App\Http\Controllers\Admin\FacilityAndMachineController;
 use App\Http\Controllers\Admin\HeaderController;
 use App\Http\Controllers\Admin\HomeContentController;
+use App\Http\Controllers\Admin\HomeTextContentController;
 use App\Http\Controllers\Admin\ModalController;
 use App\Http\Controllers\Admin\ModalHomeController;
 use App\Http\Controllers\Admin\PaymentConfirmationController;
@@ -159,14 +160,17 @@ Route::prefix('admin')->namespace('Admin')->middleware(['auth', 'admin'])->group
     Route::resource('blog', '\App\Http\Controllers\Admin\BlogController');
     Route::resource('installation', '\App\Http\Controllers\Admin\InstallationController');
 
-    Route::get('/header', [HeaderController::class, 'index']);
-    Route::put('/header/update', [HeaderController::class, 'update']);
+    Route::get('/navbar_content', [HeaderController::class, 'index']);
+    Route::put('/navbar_content/update', [HeaderController::class, 'update']);
+
+    Route::get('/home_text_content', [HomeTextContentController::class, 'index']);
+    Route::put('/home_text_content/update', [HomeTextContentController::class, 'update']);
 
     Route::get('/modalHome', [ModalHomeController::class, 'index']);
     Route::put('/modalHome/update', [ModalHomeController::class, 'update']);
 
-    Route::get('/sosmed', [SosmedController::class, 'index']);
-    Route::put('/sosmed/update', [SosmedController::class, 'update']);
+    Route::get('/sosmed_footer', [SosmedController::class, 'index']);
+    Route::put('/sosmed_footer/update', [SosmedController::class, 'update']);
 
     // Route::get('/paymentConfirmation', [PaymentConfirmationController::class, 'index']);
     // Route::delete('/paymentConfirmation/{id}', [PaymentConfirmationController::class, 'delete']);

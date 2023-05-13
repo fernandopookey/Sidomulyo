@@ -20,14 +20,14 @@
         <!-- small box -->
         <div class="small-box bg-success">
             <div class="inner">
-                <h3>{{ $machine }}</h3>
+                <h3>{{ $transaction }}</h3>
 
-                <p>Mesin</p>
+                <p>Transaksi Customer</p>
             </div>
             <div class="icon">
                 <i class="ion ion-bag"></i>
             </div>
-            <a href="{{ route('machine.index') }}" class="small-box-footer">More info <i
+            <a href="{{ route('transaction.index') }}" class="small-box-footer">More info <i
                     class="fas fa-arrow-circle-right"></i></a>
         </div>
     </div>
@@ -37,14 +37,14 @@
         <!-- small box -->
         <div class="small-box bg-warning">
             <div class="inner">
-                <h3>{{ $user }}</h3>
+                <h3>{{ $paymentConfirmation }}</h3>
 
-                <p>User</p>
+                <p>Konfirmasi Pembayaran</p>
             </div>
             <div class="icon">
                 <i class="ion ion-person-add"></i>
             </div>
-            <a href="{{ route('user.index') }}" class="small-box-footer">More info <i
+            <a href="{{ route('paymentConfirmation.index') }}" class="small-box-footer">More info <i
                     class="fas fa-arrow-circle-right"></i></a>
         </div>
     </div>
@@ -53,14 +53,14 @@
         <!-- small box -->
         <div class="small-box bg-danger">
             <div class="inner">
-                <h3>{{ $blog }}</h3>
+                <h3>{{ $user }}</h3>
 
-                <p>Blog</p>
+                <p>User</p>
             </div>
             <div class="icon">
                 <i class="ion ion-pie-graph"></i>
             </div>
-            <a href="{{ route('blog.index') }}" class="small-box-footer">More info <i
+            <a href="{{ route('user.index') }}" class="small-box-footer">More info <i
                     class="fas fa-arrow-circle-right"></i></a>
         </div>
     </div>

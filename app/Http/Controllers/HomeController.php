@@ -8,6 +8,7 @@ use App\Models\Client;
 use App\Models\FacilityAndMachine;
 use App\Models\Header;
 use App\Models\HomeContent;
+use App\Models\HomeTextContent;
 use App\Models\Installation;
 use App\Models\Machine;
 use App\Models\Modal;
@@ -30,10 +31,6 @@ class HomeController extends Controller
         $header         = Header::get();
         $homecontent    = HomeContent::get();
         $modalHome      = ModalHome::get();
-        // $modal          = Modal::get();
-        // $data = [
-        //     'sosmed' => Sosmed::get()
-        // ];
         // $categories = Category::take(6)->latest()->get(); Ini untuk mengambil product terakhir
         // $products = Product::with(['galleries'])->take(8)->latest()->get(); ini juga untuk mengambil product terakhir
 
@@ -45,6 +42,7 @@ class HomeController extends Controller
             'header'            => $header,
             'homecontent'       => $homecontent,
             'modalHome'         => $modalHome,
+            'homeTextContent'   => HomeTextContent::get(),
             // 'modal'          => $modal
         ]);
 

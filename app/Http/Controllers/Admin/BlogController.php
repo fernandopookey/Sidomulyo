@@ -18,7 +18,7 @@ class BlogController extends Controller
         $data = [
             'title'     => 'List Blog',
             'blog'      => Blog::get(),
-            'content'   => 'new-admin/blog/index'
+            'content'   => 'admin/blog/index'
         ];
 
         if (request()->ajax()) {
@@ -57,10 +57,10 @@ class BlogController extends Controller
     {
         $data = [
             'title' => 'Tambah Blog',
-            'content' => 'new-admin/blog/create'
+            'content' => 'admin/blog/create'
         ];
 
-        return view('new-admin.layouts.wrapper', $data);
+        return view('admin.layouts.wrapper', $data);
     }
 
     public function store(BlogRequest $request)
@@ -80,9 +80,9 @@ class BlogController extends Controller
         $data = [
             'title'     => 'Detail Blog',
             'blog'      => Blog::find($id),
-            'content'   => 'new-admin/blog/detail'
+            'content'   => 'admin/blog/detail'
         ];
-        return view('new-admin.layouts.wrapper', $data);
+        return view('admin.layouts.wrapper', $data);
     }
 
     public function edit(string $id)
@@ -92,7 +92,7 @@ class BlogController extends Controller
             'blog'      => Blog::find($id),
             'content'   => 'new-admin/blog/edit'
         ];
-        return view('new-admin.layouts.wrapper', $data);
+        return view('admin.layouts.wrapper', $data);
     }
 
     public function update(Request $request, string $id)

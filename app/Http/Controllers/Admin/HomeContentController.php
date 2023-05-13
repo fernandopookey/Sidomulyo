@@ -17,7 +17,7 @@ class HomeContentController extends Controller
         $data = [
             'title'     => 'Konten & Link Halaman Home',
             'homecontent'   => HomeContent::get(),
-            'content'   => 'new-admin/homecontent/index'
+            'content'   => 'admin/homecontent/index'
         ];
 
         if (request()->ajax()) {
@@ -46,17 +46,17 @@ class HomeContentController extends Controller
             })->rawColumns(['action', 'icon'])->make();
         }
 
-        return view('new-admin.layouts.wrapper', $data);
+        return view('admin.layouts.wrapper', $data);
     }
 
     public function create()
     {
         $data = [
             'title' => 'Tambah Konten',
-            'content' => 'new-admin/homecontent/create'
+            'content' => 'admin/homecontent/create'
         ];
 
-        return view('new-admin.layouts.wrapper', $data);
+        return view('admin.layouts.wrapper', $data);
     }
 
     public function store(Request $request)
@@ -79,9 +79,9 @@ class HomeContentController extends Controller
         $data = [
             'title'         => 'Edit Konten',
             'homecontent'   => HomeContent::find($id),
-            'content'       => 'new-admin/homecontent/edit'
+            'content'       => 'admin/homecontent/edit'
         ];
-        return view('new-admin.layouts.wrapper', $data);
+        return view('admin.layouts.wrapper', $data);
     }
 
     public function update(Request $request, string $id)

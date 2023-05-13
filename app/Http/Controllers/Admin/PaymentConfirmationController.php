@@ -15,10 +15,10 @@ class PaymentConfirmationController extends Controller
         $data = [
             'title'                 => 'Konfirmasi Pembayaran Customer',
             'paymentConfirmation'   => PaymentConfirmation::get(),
-            'content'               => 'new-admin/paymentConfirmation/index'
+            'content'               => 'admin/paymentConfirmation/index'
         ];
 
-        return view('new-admin.layouts.wrapper', $data);
+        return view('admin.layouts.wrapper', $data);
     }
 
     public function destroy($id)

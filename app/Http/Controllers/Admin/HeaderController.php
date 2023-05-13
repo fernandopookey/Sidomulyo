@@ -12,11 +12,11 @@ class HeaderController extends Controller
     public function index()
     {
         $data = [
-            'title' => 'Konten Dan Link Sosial Media Navbar',
-            'header' => Header::first(),
-            'content' => 'new-admin/header/index'
+            'title'     => 'Teks Dan Link Sosial Media Navigasi Bar Header',
+            'header'    => Header::first(),
+            'content'   => 'admin/header/index'
         ];
-        return view('new-admin.layouts.wrapper', $data);
+        return view('admin.layouts.wrapper', $data);
     }
 
 
@@ -60,6 +60,6 @@ class HeaderController extends Controller
 
         $item->update($data);
         Alert::success('Sukses', 'Data Berhasil Diubah');
-        return redirect('/admin/header');
+        return redirect('/admin/navbar_content');
     }
 }

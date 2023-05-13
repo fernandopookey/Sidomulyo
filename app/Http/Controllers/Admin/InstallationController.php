@@ -18,7 +18,7 @@ class InstallationController extends Controller
         $data = [
             'title'     => 'Pemasangan',
             'installation'   => Installation::get(),
-            'content'   => 'new-admin/installation/index'
+            'content'   => 'admin/installation/index'
         ];
 
         if (request()->ajax()) {
@@ -47,17 +47,17 @@ class InstallationController extends Controller
             })->rawColumns(['action', 'photos'])->make();
         }
 
-        return view('new-admin.layouts.wrapper', $data);
+        return view('admin.layouts.wrapper', $data);
     }
 
     public function create()
     {
         $data = [
             'title' => 'Tambah Pemasangan',
-            'content' => 'new-admin/installation/create'
+            'content' => 'admin/installation/create'
         ];
 
-        return view('new-admin.layouts.wrapper', $data);
+        return view('admin.layouts.wrapper', $data);
     }
 
     public function store(InstallationRequest $request)
@@ -76,9 +76,9 @@ class InstallationController extends Controller
         $data = [
             'title' => 'Edit Pemasangan',
             'installation' => Installation::find($id),
-            'content' => 'new-admin/installation/edit'
+            'content' => 'admin/installation/edit'
         ];
-        return view('new-admin.layouts.wrapper', $data);
+        return view('admin.layouts.wrapper', $data);
     }
 
     public function update(Request $request, string $id)

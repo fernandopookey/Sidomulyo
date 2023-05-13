@@ -17,7 +17,7 @@ class BackgroundImageController extends Controller
         $data = [
             'title'             => 'List Background Image',
             'backgroundImage'   => BackgroundImage::get(),
-            'content'           => 'new-admin/background-image/index'
+            'content'           => 'admin/background-image/index'
         ];
 
         if (request()->ajax()) {
@@ -53,10 +53,10 @@ class BackgroundImageController extends Controller
     {
         $data = [
             'title' => 'Tambah Background Image',
-            'content' => 'new-admin/background-image/create'
+            'content' => 'admin/background-image/create'
         ];
 
-        return view('new-admin.layouts.wrapper', $data);
+        return view('admin.layouts.wrapper', $data);
     }
 
     public function store(BackgroundImageRequest $request)
@@ -75,9 +75,9 @@ class BackgroundImageController extends Controller
         $data = [
             'title'             => 'Edit Background Image',
             'backgroundImage'   => BackgroundImage::find($id),
-            'content'           => 'new-admin/background-image/edit'
+            'content'           => 'admin/background-image/edit'
         ];
-        return view('new-admin.layouts.wrapper', $data);
+        return view('admin.layouts.wrapper', $data);
     }
 
     public function update(Request $request, string $id)

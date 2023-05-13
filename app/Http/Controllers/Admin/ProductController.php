@@ -21,7 +21,7 @@ class ProductController extends Controller
             'title'         => 'List Product',
             'products'      => Product::get(),
             'categories'    => ProductCategory::all(),
-            'content'       => 'new-admin/product/index'
+            'content'       => 'admin/product/index'
         ];
 
         if (request()->ajax()) {
@@ -42,7 +42,7 @@ class ProductController extends Controller
             })->rawColumns(['action'])->make();
         }
 
-        return view('new-admin.layouts.wrapper', $data);
+        return view('admin.layouts.wrapper', $data);
     }
 
     public function uploadGallery(Request $request)
@@ -82,11 +82,11 @@ class ProductController extends Controller
     {
         $data = [
             'title'         => 'Tambah Produk',
-            'content'       => 'new-admin/product/create',
+            'content'       => 'admin/product/create',
             'categories'      => ProductCategory::all()
         ];
 
-        return view('new-admin.layouts.wrapper', $data);
+        return view('admin.layouts.wrapper', $data);
     }
 
     public function store(ProductRequest $request)
@@ -112,9 +112,9 @@ class ProductController extends Controller
         $product = Product::with((['galleries', 'user', 'categories']))->findOrFail($id);
         $categories = ProductCategory::all();
 
-        return view('new-admin.layouts.wrapper', [
+        return view('admin.layouts.wrapper', [
             'title'         => 'Edit Produk',
-            'content'       => 'new-admin/product/detail',
+            'content'       => 'admin/product/detail',
             'product'       => $product,
             'categories'    => $categories,
         ]);
@@ -126,8 +126,8 @@ class ProductController extends Controller
         $product = Product::findOrFail($id);
         $categories = ProductCategory::all();
 
-        return view('new-admin.layouts.wrapper', [
-            'content'   => 'new-admin/product/edit',
+        return view('admin.layouts.wrapper', [
+            'content'   => 'admin/product/edit',
             'product'      => $product,
             'categories'  => $categories
         ]);
