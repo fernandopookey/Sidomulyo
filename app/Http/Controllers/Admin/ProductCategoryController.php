@@ -17,7 +17,7 @@ class ProductCategoryController extends Controller
         $data = [
             'title'              => 'List Kategori Product',
             'product-category'   => ProductCategory::get(),
-            'content'            => 'new-admin/product-category/index'
+            'content'            => 'admin/product-category/index'
         ];
 
         if (request()->ajax()) {
@@ -46,17 +46,17 @@ class ProductCategoryController extends Controller
             })->rawColumns(['action', 'photos'])->make();
         }
 
-        return view('new-admin.layouts.wrapper', $data);
+        return view('admin.layouts.wrapper', $data);
     }
 
     public function create()
     {
         $data = [
             'title' => 'Tambah Kategori Produk',
-            'content' => 'new-admin/product-category/create'
+            'content' => 'admin/product-category/create'
         ];
 
-        return view('new-admin.layouts.wrapper', $data);
+        return view('admin.layouts.wrapper', $data);
     }
 
     public function store(Request $request)
@@ -81,9 +81,9 @@ class ProductCategoryController extends Controller
         $data = [
             'title'             => 'Edit Kategori Produk',
             'product_category'  => ProductCategory::find($id),
-            'content'           => 'new-admin/product-category/edit'
+            'content'           => 'admin/product-category/edit'
         ];
-        return view('new-admin.layouts.wrapper', $data);
+        return view('admin.layouts.wrapper', $data);
     }
 
     public function update(Request $request, string $id)

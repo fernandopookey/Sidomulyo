@@ -8,7 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Sosmed extends Model
 {
     protected $fillable = [
-        'home_title',
         'alamat',
         'alamat_title',
         'whatsapp',
@@ -20,8 +19,7 @@ class Sosmed extends Model
         'instagram',
         'instagram_title',
         'twiter',
-        'twiter_title',
-        'other'
+        'twiter_title'
     ];
 
     protected $hidden = [];

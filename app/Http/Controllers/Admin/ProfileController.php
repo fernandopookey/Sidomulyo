@@ -17,9 +17,9 @@ class ProfileController extends Controller
         $data = [
             'title' => 'Profil Perusahaan',
             'profile' => Profile::first(),
-            'content' => 'new-admin/profile/index'
+            'content' => 'admin/profile/index'
         ];
-        return view('new-admin.layouts.wrapper', $data);
+        return view('admin.layouts.wrapper', $data);
     }
 
     public function show(string $id)
@@ -27,9 +27,9 @@ class ProfileController extends Controller
         $data = [
             'title'     => 'Detail Profil Perusahaan',
             'profile'   => Profile::find($id),
-            'content'   => 'new-admin/profile/detail'
+            'content'   => 'admin/profile/detail'
         ];
-        return view('new-admin.layouts.wrapper', $data);
+        return view('admin.layouts.wrapper', $data);
     }
 
 

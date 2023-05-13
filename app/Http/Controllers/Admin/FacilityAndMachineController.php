@@ -14,10 +14,10 @@ class FacilityAndMachineController extends Controller
         $data = [
             'title'     => 'Fasilitas Dan Mesin',
             'facilityandmachine'   => FacilityAndMachine::first(),
-            'content'   => 'new-admin/facilityandmachine/index'
+            'content'   => 'admin/facilityandmachine/index'
         ];
 
-        return view('new-admin.layouts.wrapper', $data);
+        return view('admin.layouts.wrapper', $data);
     }
 
     public function show(string $id)
@@ -25,9 +25,9 @@ class FacilityAndMachineController extends Controller
         $data = [
             'title'                 => 'Detail Fasilitas Dan Mesin',
             'facilityandmachine'    => FacilityAndMachine::find($id),
-            'content'               => 'new-admin/facility&machine/detail'
+            'content'               => 'admin/facility&machine/detail'
         ];
-        return view('new-admin.layouts.wrapper', $data);
+        return view('admin.layouts.wrapper', $data);
     }
 
 

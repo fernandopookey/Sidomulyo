@@ -158,13 +158,13 @@ Sidomulyo Homepage
         </div>
     </div>
     <hr />
-    <div class="container-indent">
+    <div class="container-indent mb-4 pb-4">
         <div class="container">
             <div class="row justify-content-center" style="text-align: center" data-aos="fade-up">
-                @foreach ($sosmed as $item)
+                @foreach ($homeTextContent as $item)
                 <div class="col-12" style="max-width: 550px;">
-                    <h2>{{ $item->home_title }}</h2>
-                    <h5>{{ $item->other }}</h5>
+                    <h2><b>{{ $item->title }}</b></h2>
+                    <h5>{!! $item->description !!}</h5>
                 </div>
                 @endforeach
             </div>

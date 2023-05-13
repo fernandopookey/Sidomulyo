@@ -18,10 +18,10 @@ class TransactionController extends Controller
         $data = [
             'title'         => 'Transaksi Customer',
             'transaction'   => Transaction::get(),
-            'content'       => 'new-admin/transaction/index'
+            'content'       => 'admin/transaction/index'
         ];
 
-        return view('new-admin.layouts.wrapper', $data);
+        return view('admin.layouts.wrapper', $data);
     }
 
     public function destroy($id)
@@ -52,9 +52,9 @@ class TransactionController extends Controller
             'title'             => 'Detail Transaksi',
             'transaction'       => $transaction,
             'transactionDetail' => $transactionDetail,
-            'content'           => 'new-admin/transaction/detail'
+            'content'           => 'admin/transaction/detail'
         ];
 
-        return view('new-admin.layouts.wrapper', $data);
+        return view('admin.layouts.wrapper', $data);
     }
 }
