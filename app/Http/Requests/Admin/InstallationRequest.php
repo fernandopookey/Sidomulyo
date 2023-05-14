@@ -25,7 +25,7 @@ class InstallationRequest extends FormRequest
     {
         return [
             'name'          => 'required|string',
-            'photos'        => 'required|image'
+            'photos'        => 'required|mimes:png,jpg,jpeg'
         ];
     }
 }

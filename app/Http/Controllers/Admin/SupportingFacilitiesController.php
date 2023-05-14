@@ -15,7 +15,7 @@ class SupportingFacilitiesController extends Controller
     public function index()
     {
         $data = [
-            'title'                 => 'Fasilitas Penunjang',
+            'title'                 => 'List Fasilitas Penunjang',
             'supporting_facilities' => SupportingFacilities::get(),
             'content'               => 'admin/supporting-facilities/index'
         ];
@@ -34,7 +34,7 @@ class SupportingFacilitiesController extends Controller
                                 <a class="dropdown-item" href="' . route('facility.edit', $item->id) . '">
                                     Edit
                                 </a>
-                                <form action="' . route('facility.destroy', $item->id) . '" method="POST">
+                                <form action="' . route('facility.destroy', $item->id) . '" method="POST" onclick="return confirm(`Hapus Data ?`)">
                                     ' . method_field('delete') . csrf_field() . '
                                     <button type="submit" class="dropdown-item text-danger">Hapus</button>
                                 </form>

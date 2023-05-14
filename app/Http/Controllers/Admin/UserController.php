@@ -38,7 +38,6 @@ class UserController extends Controller
         $data = $request->all();
 
         $data['password'] = bcrypt($request->password);
-        $data['photos'] = $request->file('photos')->store('assets/user', 'public');
 
         User::create($data);
         Alert::success('Sukses', 'User Berhasil Ditambahkan');
@@ -77,26 +76,6 @@ class UserController extends Controller
             'roles'             => 'nullable|string|in:ADMIN,USER,CS',
             'status'            => 'boolean'
         ]);
-
-        if ($request->hasFile('photos')) {
-
-            if ($item->photos != null) {
-                $realLocation = "storage/" . $item->photos;
-                if (file_exists($realLocation) && !is_dir($realLocation)) {
-                    unlink($realLocation);
-                }
-            }
-
-            $photos = $request->file('photos');
-            $file_name = time() . '-' . $photos->getClientOriginalName();
-
-            $data['photos'] = $request->file('photos')->store('assets/user', 'public');
-            $data['password'] = bcrypt($request->password);
-        } else {
-            $data['photos'] = $item->photos;
-            $data['password'] = bcrypt($request->password);
-        }
-
         $item->update($data);
         Alert::success('Sukses', 'User Berhasil Diubah');
         return redirect()->route('user.index');

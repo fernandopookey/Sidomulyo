@@ -27,7 +27,7 @@ class BlogRequest extends FormRequest
             'name'          => 'required|string',
             'author'        => 'required|string',
             'description'   => 'required|string',
-            'photos'        => 'required|image'
+            'photos'        => 'required|mimes:png,jpg,jpeg'
         ];
     }
 }

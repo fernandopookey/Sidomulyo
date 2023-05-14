@@ -15,9 +15,9 @@ class ProfileController extends Controller
     public function index()
     {
         $data = [
-            'title' => 'Profil Perusahaan',
-            'profile' => Profile::first(),
-            'content' => 'admin/profile/index'
+            'title'     => 'Profil Perusahaan',
+            'profile'   => Profile::first(),
+            'content'   => 'admin/profile/index'
         ];
         return view('admin.layouts.wrapper', $data);
     }

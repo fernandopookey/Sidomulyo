@@ -141,7 +141,7 @@
                         <li class="nav-item">
                             <a href="{{ route('blog.index') }}"
                                 class="nav-link {{ (request()->is('admin/blog')) ? 'active' : '' }}">
-                                <i class="nav-icon fas fa-blog"></i>
+                                <i class="far fa-circle nav-icon"></i>
                                 <p>
                                     Blog
                                 </p>
@@ -151,7 +151,7 @@
                         <li class="nav-item">
                             <a href="/admin/profile"
                                 class="nav-link {{ (request()->is('admin/profile')) ? 'active' : '' }}">
-                                <i class="nav-icon fas fa-info"></i>
+                                <i class="far fa-circle nav-icon"></i>
                                 <p>
                                     Profil Perusahaan
                                 </p>
@@ -161,7 +161,7 @@
                         <li class="nav-item">
                             <a href="/admin/facilityandmachine"
                                 class="nav-link {{ (request()->is('admin/facilityandmachine')) ? 'active' : '' }}">
-                                <i class="nav-icon fas fa-cash-register"></i>
+                                <i class="far fa-circle nav-icon"></i>
                                 <p>
                                     Fasilitias Dan Mesin
                                 </p>
@@ -170,7 +170,7 @@
                         <li class="nav-item">
                             <a href="{{ route('facility.index') }}"
                                 class="nav-link {{ (request()->is('admin/facility')) ? 'active' : '' }}">
-                                <i class="nav-icon fas fa-car"></i>
+                                <i class="far fa-circle nav-icon"></i>
                                 <p>
                                     Fasilitas
                                 </p>
@@ -180,9 +180,9 @@
                         <li class="nav-item">
                             <a href="{{ route('machine.index') }}"
                                 class="nav-link {{ (request()->is('admin/machine')) ? 'active' : '' }}">
-                                <i class="nav-icon fas fa-car"></i>
+                                <i class="far fa-circle nav-icon"></i>
                                 <p>
-                                    Machine
+                                    Mesin
                                 </p>
                             </a>
                         </li>
@@ -190,7 +190,7 @@
                         <li class="nav-item">
                             <a href="{{ route('installation.index') }}"
                                 class="nav-link {{ (request()->is('admin/installation')) ? 'active' : '' }}">
-                                <i class="nav-icon fas fa-person-booth"></i>
+                                <i class="far fa-circle nav-icon"></i>
                                 <p>
                                     Pemasangan
                                 </p>
@@ -211,7 +211,7 @@
                         <li class="nav-item">
                             <a href="{{ route('user.index') }}"
                                 class="nav-link {{ (request()->is('admin/user')) ? 'active' : '' }}">
-                                <i class="nav-icon fas fa-user"></i>
+                                <i class="far fa-circle nav-icon"></i>
                                 <p>
                                     User
                                 </p>
@@ -221,7 +221,7 @@
                         <li class="nav-item">
                             <a href="{{route('paymentConfirmation.index') }}"
                                 class="nav-link {{ (request()->is('admin/paymentConfirmation')) ? 'active' : '' }}">
-                                <i class="nav-icon fas fa-user"></i>
+                                <i class="far fa-circle nav-icon"></i>
                                 <p>
                                     Konfirmasi Pembayaran
                                 </p>
@@ -231,7 +231,7 @@
                         <li class="nav-item">
                             <a href="{{route('transaction.index') }}"
                                 class="nav-link {{ (request()->is('admin/transaction')) ? 'active' : '' }}">
-                                <i class="nav-icon fas fa-user"></i>
+                                <i class="far fa-circle nav-icon"></i>
                                 <p>
                                     Transaksi User
                                 </p>

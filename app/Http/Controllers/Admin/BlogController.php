@@ -38,7 +38,7 @@ class BlogController extends Controller
                                 <a class="dropdown-item" href="' . route('blog.edit', $item->id) . '">
                                     Edit
                                 </a>
-                                <form action="' . route('blog.destroy', $item->id) . '" method="POST">
+                                <form action="' . route('blog.destroy', $item->id) . '" method="POST" onclick="return confirm(`Hapus Data ?`)">
                                     ' . method_field('delete') . csrf_field() . '
                                     <button type="submit" class="dropdown-item text-danger">Hapus</button>
                                 </form>
@@ -50,7 +50,7 @@ class BlogController extends Controller
             })->rawColumns(['action', 'photos'])->make();
         }
 
-        return view('new-admin.layouts.wrapper', $data);
+        return view('admin.layouts.wrapper', $data);
     }
 
     public function create()
@@ -90,7 +90,7 @@ class BlogController extends Controller
         $data = [
             'title'     => 'Edit Blog',
             'blog'      => Blog::find($id),
-            'content'   => 'new-admin/blog/edit'
+            'content'   => 'admin/blog/edit'
         ];
         return view('admin.layouts.wrapper', $data);
     }
@@ -103,7 +103,7 @@ class BlogController extends Controller
             'author'        => 'required',
             'description'   => 'required',
             'slug'          => 'string',
-            'photos'        => 'image',
+            'photos'        => 'mimes:png,jpg,jpeg',
         ]);
 
         if ($request->hasFile('photos')) {

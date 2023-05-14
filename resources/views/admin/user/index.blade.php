@@ -17,7 +17,6 @@
                 <th scope="col">Username</th>
                 <th scope="col">Role</th>
                 <th scope="col">Status</th>
-                <th scope="col">Gambar</th>
                 <th scope="col">Aksi</th>
             </tr>
         </thead>
@@ -34,36 +33,17 @@
                     <?php }else{ ?>
                     <a href="{{ url('/admin/status-update', $item->id) }}" class="btn btn-danger">Inactive</a>
                     <?php } ?>
-                    {{-- <input data-id="{{ route('user.change', $item->id) }}" class="toggle-class" type="checkbox"
-                        data-onstyle="success" data-offstyle="danger" data-toggle="toggle" data-on="Active"
-                        data-off="InActive" {{ $item->status ? 'checked' : '' }}> --}}
-                    {{-- @if ($item->status==1)
-                    <form action="/admin/change/{$id}" method="POST">
-                        @csrf
-                        <button class="btn btn-primary">Active</button>
-                    </form>
-                    @else
-                    <form action="/admin/change/{$id}" method="POST">
-                        @csrf
-                        <button class="btn btn-danger">Inactive</button>
-                    </form>
-                    @endif --}}
-
-                    {{-- @if ($item->status==1)
-                    <a href="{{ route('change.index', $item->id) }}" class="btn btn-success">Active</a>
-                    @else
-                    <a href="{{ route('change.index', $item->id) }}" class="btn btn-danger">Inactive</a>
-                    @endif --}}
-                </td>
-                <td>
-                    <img src="{{ Storage::disk('local')->url($item->photos) }}"
-                        style="width: 100px; height: 70px; object-fit: cover;" alt="">
                 </td>
                 <td width="20%">
                     <div class="d-flex justify-content-between">
                         <a href="{{ route('user.edit', $item->id) }}" class="btn btn-success mx-2"><i
                                 class="fas fa-edit"></i>
-                            Edit</a>
+                            Edit
+                        </a>
+                        <a href="{{ route('user.show', $item->id) }}" class="btn btn-warning mx-2"><i
+                                class="fas fa-edit"></i>
+                            Detail
+                        </a>
                         <form action="{{ route('user.destroy', $item->id) }}" method="POST">
                             @method('delete')
                             @csrf

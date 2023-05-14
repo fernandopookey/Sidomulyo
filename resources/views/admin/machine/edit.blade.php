@@ -1,3 +1,12 @@
+@if ($errors->any())
+<div class="alert alert-danger">
+    <ul>
+        @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+        @endforeach
+    </ul>
+</div>
+@endif
 <form action="{{ route('machine.update', $machine->id) }}" method="POST" enctype="multipart/form-data">
     @method('PUT')
     @csrf
@@ -20,27 +29,24 @@
                 <label>Gambar</label>
                 <input type="file" name="photos" class="form-control" value="{{ $machine->photos }}"
                     onchange="loadFile(event)">
-                <img src="{{ Storage::disk('local')->url($machine->photos) }}" width="150" class="pt-4" alt="">
+                <img src="{{ Storage::disk('local')->url($machine->photos) }}"
+                    style="width: 250px; height: 200px; object-fit: cover;" class="pt-4" alt="">
             </div>
-            <img id="output" class="pb-4" style="max-width: 200px" />
+            <img id="output" class="pb-4" style="width: 250px; height: 200px; object-fit: cover;" />
         </div>
     </div>
     <div class="row">
-        <div class="col-lg-6">
-            <div class="col text-start">
-                <a href="{{ route('machine.index') }}">
-                    <button type="button" class="btn btn-primary px-5">
-                        Kembali
-                    </button>
-                </a>
-            </div>
+        <div class="col-lg-6 text-start">
+            <button type="submit" class="btn btn-success px-5">
+                Simpan
+            </button>
         </div>
-        <div class="col-lg-6">
-            <div class="col text-end">
-                <button type="submit" class="btn btn-success px-5">
-                    Simpan
+        <div class="col-lg-6 text-end">
+            <a href="{{ route('machine.index') }}">
+                <button type="button" class="btn btn-primary px-5">
+                    Kembali
                 </button>
-            </div>
+            </a>
         </div>
     </div>
 </form>

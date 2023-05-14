@@ -26,7 +26,7 @@ class MachineRequest extends FormRequest
         return [
             'name'          => 'required|string',
             'description'   => 'required|string',
-            'photos'        => 'nullable|image'
+            'photos'        => 'required|mimes:png,jpg,jpeg'
         ];
     }
 }

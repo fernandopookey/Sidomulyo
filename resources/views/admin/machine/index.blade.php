@@ -3,7 +3,7 @@
 </a>
 
 <div class="table-responsive">
-    <table class="table table-striped table-hover scroll-horizontal-vertical w-100" id="crudTable">
+    <table class="table table-bordered table-hover scroll-horizontal-vertical w-100" id="crudTable">
         <thead>
             <tr>
                 <th>Nama Mesin</th>

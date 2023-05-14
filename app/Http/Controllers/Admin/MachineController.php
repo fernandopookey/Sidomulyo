@@ -16,7 +16,7 @@ class MachineController extends Controller
     public function index()
     {
         $data = [
-            'title'     => 'Machine List',
+            'title'     => 'List Mesin',
             'machine'   => Machine::get(),
             'content'   => 'admin/machine/index'
         ];
@@ -32,13 +32,13 @@ class MachineController extends Controller
                             <span class="visually-hidden">Toggle Dropdown</span>
                         </button>
                         <ul class="dropdown-menu">
+                        <a class="dropdown-item" href="' . route('machine.edit', $item->id) . '">
+                                    Edit
+                                </a>
                                 <a class="dropdown-item text-success" href="' . route('machine.show', $item->id) . '">
                                     Detail
                                 </a>
-                                <a class="dropdown-item" href="' . route('machine.edit', $item->id) . '">
-                                    Edit
-                                </a>
-                                <form action="' . route('machine.destroy', $item->id) . '" method="POST">
+                                <form action="' . route('machine.destroy', $item->id) . '" method="POST" onclick="return confirm(`Hapus Data ?`)">
                                     ' . method_field('delete') . csrf_field() . '
                                     <button type="submit" class="dropdown-item text-danger" onclick="return confirm("Yakin Dek ?");">Hapus</button>
                                 </form>
@@ -56,8 +56,8 @@ class MachineController extends Controller
     public function create()
     {
         $data = [
-            'title' => 'Tambah Mesin',
-            'content' => 'admin/machine/create'
+            'title'     => 'Tambah Mesin',
+            'content'   => 'admin/machine/create'
         ];
 
         return view('admin.layouts.wrapper', $data);

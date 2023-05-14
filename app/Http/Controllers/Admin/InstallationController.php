@@ -16,7 +16,7 @@ class InstallationController extends Controller
     public function index()
     {
         $data = [
-            'title'     => 'Pemasangan',
+            'title'     => 'List Pemasangan',
             'installation'   => Installation::get(),
             'content'   => 'admin/installation/index'
         ];
@@ -35,7 +35,7 @@ class InstallationController extends Controller
                                 <a class="dropdown-item" href="' . route('installation.edit', $item->id) . '">
                                     Edit
                                 </a>
-                                <form action="' . route('installation.destroy', $item->id) . '" method="POST">
+                                <form action="' . route('installation.destroy', $item->id) . '" method="POST" onclick="return confirm(`Hapus Data ?`)">
                                     ' . method_field('delete') . csrf_field() . '
                                     <button type="submit" class="dropdown-item text-danger">Hapus</button>
                                 </form>
@@ -86,7 +86,7 @@ class InstallationController extends Controller
         $item = Installation::find($id);
         $data = $request->validate([
             'name'          => 'required',
-            'photos'        => 'image',
+            'photos'        => 'mimes:png,jpg,jpeg',
         ]);
 
         if ($request->hasFile('photos')) {
