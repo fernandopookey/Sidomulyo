@@ -27,17 +27,8 @@
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
                             Dashboard
-                            {{-- <i class="right fas fa-angle-left"></i> --}}
                         </p>
                     </a>
-                    {{-- <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="../../index.html" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Dashboard v1</p>
-                            </a>
-                        </li>
-                    </ul> --}}
                 </li>
 
                 {{-- COMPONENT PAGE --}}
@@ -106,61 +97,33 @@
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
-
-                        <li class="nav-item {{ Request::is('admin/posts*') ? 'menu-is-opening menu-open' : '' }}">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fa fa-cube"></i>
-                                <p>
-                                    Produk
-                                    <i class="right fas fa-angle-left"></i>
-                                </p>
+                        <li class="nav-item">
+                            <a href="{{ route('product-category.index') }}"
+                                class="nav-link {{ (request()->is('admin/product-category')) ? 'active' : '' }}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Kategori Produk</p>
                             </a>
-                            <ul class="nav nav-treeview">
-
-                                <li class="nav-item">
-                                    <a href="{{ route('product-category.index') }}"
-                                        class="nav-link {{ (request()->is('admin/product-category')) ? 'active' : '' }}">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Kategori Produk</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{ route('admin-product') }}"
-                                        class="nav-link {{ (request()->is('admin/product')) ? 'active' : '' }}">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Produk</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="/admin/productgallery"
-                                        class="nav-link {{ (request()->is('admin/productgallery')) ? 'active' : '' }}">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Galeri Produk</p>
-                                    </a>
-                                </li>
-                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('admin-product') }}"
+                                class="nav-link {{ (request()->is('admin/product')) ? 'active' : '' }}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Produk</p>
+                            </a>
                         </li>
                         <li class="nav-item">
                             <a href="/admin/homecontent"
                                 class="nav-link {{ (request()->is('admin/homecontent')) ? 'active' : '' }}">
-                                <i class="nav-icon fas fa-home"></i>
+                                <i class="far fa-circle nav-icon"></i>
                                 <p>
-                                    User Home Page
+                                    Link Halaman Utama
                                 </p>
                             </a>
                         </li>
-                        {{-- <li class="nav-item">
-                            <a href="{{ route('product.index') }}"
-                                class="nav-link {{ (request()->is('admin/product')) ? 'active' : '' }}">
-                                <i class="far fa-circle nav-icon"></i>
-                                <i class="nav-icon fa fa-cube"></i>
-                                <p>Product</p>
-                            </a>
-                        </li> --}}
                         <li class="nav-item">
                             <a href="{{ route('slider.index') }}"
                                 class="nav-link {{ (request()->is('admin/slider')) ? 'active' : '' }}">
-                                <i class="nav-icon fas fa-sliders"></i>
+                                <i class="far fa-circle nav-icon"></i>
                                 <p>
                                     Slider
                                 </p>
@@ -169,9 +132,9 @@
                         <li class="nav-item">
                             <a href="{{ route('client.index') }}"
                                 class="nav-link {{ (request()->is('admin/client')) ? 'active' : '' }}">
-                                <i class="fa fa-users nav-icon"></i>
+                                <i class="far fa-circle nav-icon"></i>
                                 <p>
-                                    Client
+                                    Halaman Client
                                 </p>
                             </a>
                         </li>

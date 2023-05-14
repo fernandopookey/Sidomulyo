@@ -15,9 +15,9 @@ class HomeContentController extends Controller
     public function index()
     {
         $data = [
-            'title'     => 'Konten & Link Halaman Home',
+            'title'         => 'Tautan Halaman Utama',
             'homecontent'   => HomeContent::get(),
-            'content'   => 'admin/homecontent/index'
+            'content'       => 'admin/homecontent/index'
         ];
 
         if (request()->ajax()) {
@@ -34,7 +34,7 @@ class HomeContentController extends Controller
                                 <a class="dropdown-item" href="' . route('homecontent.edit', $item->id) . '">
                                     Edit
                                 </a>
-                                <form action="' . route('homecontent.destroy', $item->id) . '" method="POST">
+                                <form action="' . route('homecontent.destroy', $item->id) . '" method="POST" onclick="return confirm(`Hapus Data ?`)">
                                     ' . method_field('delete') . csrf_field() . '
                                     <button type="submit" class="dropdown-item text-danger">Hapus</button>
                                 </form>
@@ -42,7 +42,7 @@ class HomeContentController extends Controller
                     </div>
                 ';
             })->editColumn('icon', function ($item) {
-                return $item->icon ? '<img src="' . Storage::url($item->icon) . '" style="height: 80px; width: 110px; object-fit: cover;" />' : '';
+                return $item->icon ? '<img src="' . Storage::url($item->icon) . '" style="height: 100px; width: 120px; object-fit: cover;" />' : '';
             })->rawColumns(['action', 'icon'])->make();
         }
 
@@ -52,7 +52,7 @@ class HomeContentController extends Controller
     public function create()
     {
         $data = [
-            'title' => 'Tambah Konten',
+            'title' => 'Tambah Tautan',
             'content' => 'admin/homecontent/create'
         ];
 
@@ -64,7 +64,7 @@ class HomeContentController extends Controller
         $data = $request->validate([
             'title'     => 'required',
             'link'      => 'required',
-            'icon'      => 'required|image',
+            'icon'      => 'required|mimes:png,jpg,jpeg,svg',
         ]);
 
         $data['icon'] = $request->file('icon')->store('assets/homecontent', 'public');
@@ -89,8 +89,8 @@ class HomeContentController extends Controller
         $homecontent = HomeContent::find($id);
         $data = $request->validate([
             'title'          => 'required',
-            'link'              => 'required',
-            'icon'            => 'image',
+            'link'           => 'required',
+            'icon'           => 'required|mimes:png,jpg,jpeg,svg',
         ]);
 
         if ($request->hasFile('icon')) {

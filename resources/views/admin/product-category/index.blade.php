@@ -3,7 +3,7 @@
 </a>
 
 <div class="table-responsive">
-    <table class="table table-hover table-striped scroll-horizontal-vertical w-100" id="crudTable">
+    <table class="table table-bordered table-hover scroll-horizontal-vertical w-100" id="crudTable">
         <thead>
             <tr>
                 <th>Nama Kategori</th>
@@ -12,13 +12,6 @@
             </tr>
         </thead>
         <tbody>
-            {{-- @foreach ($product as $item)
-            <tr>
-                <td>{{ $loop->iteration }}</td>
-                <td>{{ $item->name }}</td>
-                <td><i class="fa fa-eye"></i></td>
-            </tr>
-            @endforeach --}}
         </tbody>
     </table>
 </div>

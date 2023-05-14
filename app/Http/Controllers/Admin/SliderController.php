@@ -31,13 +31,10 @@ class SliderController extends Controller
                             <span class="visually-hidden">Toggle Dropdown</span>
                         </button>
                         <ul class="dropdown-menu">
-                                <a class="dropdown-item text-success" href="' . route('slider.show', $item->id) . '">
-                                    Detail
-                                </a>
                                 <a class="dropdown-item" href="' . route('slider.edit', $item->id) . '">
                                     Edit
                                 </a>
-                                <form action="' . route('slider.destroy', $item->id) . '" method="POST">
+                                <form action="' . route('slider.destroy', $item->id) . '" method="POST" onclick="return confirm(`Hapus Data ?`)">
                                     ' . method_field('delete') . csrf_field() . '
                                     <button type="submit" class="dropdown-item text-danger">Hapus</button>
                                 </form>
@@ -102,9 +99,7 @@ class SliderController extends Controller
     {
         $item = Slider::find($id);
         $data = $request->validate([
-            'name'          => 'required',
-            'description'   => 'required',
-            'photos'        => 'image',
+            'photos'        => 'required|mimes:png,jpg,jpeg',
         ]);
 
         if ($request->hasFile('photos')) {

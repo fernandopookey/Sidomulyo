@@ -3,11 +3,11 @@
 </a>
 
 <div class="table-responsive">
-    <table class="table table-hover table-striped scroll-horizontal-vertical w-100" id="crudTable">
+    <table class="table table-bordered table-hover scroll-horizontal-vertical w-100" id="crudTable">
         <thead>
             <tr>
-                <th>Title Link</th>
-                <th>Link</th>
+                <th>Nama Tautan</th>
+                <th>Tautan</th>
                 <th>Gambar</th>
                 <th>Aksi</th>
             </tr>

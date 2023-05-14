@@ -10,12 +10,6 @@
 
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
-                {{-- <img src="assets/user/{{ Auth::user()->photos }}" class="img-circle elevation-2" alt="User Image">
-                --}}
-                {{-- <img src="{{ Storage::disk('local')->url($slider->photos) }}" width="150" class="pt-4" alt=""> --}}
-                {{-- <img src="{{ url('images/banner1.jpg') }}" class="img-circle elevation-2" alt="User Image"> --}}
-                {{-- <img src="{{ url(Auth::user()->photos) }}" class="img-circle elevation-2" alt="User Image"> --}}
-                {{-- <img src="{{ auth()->user()->photos }}" class="img-circle elevation-2" alt="User Image"> --}}
             </div>
             <div class="info">
                 <a href="#" class="d-block text-center" style="text-decoration: none">{{ Auth::user()->username }}</a>
@@ -61,25 +55,6 @@
                         <p>Pesan</p>
                     </a>
                 </li>
-
-                {{-- <li class="nav-item">
-                    <a href="{{ route('product.index') }}"
-                        class="nav-link {{ (request()->is('admin/product')) ? 'active' : '' }}">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Produk</p>
-                    </a>
-                </li> --}}
-
-                {{-- <li class="nav-item">
-                    <a href="{{ route('installation.index') }}"
-                        class="nav-link {{ (request()->is('admin/installation')) ? 'active' : '' }}">
-                        <i class="nav-icon fas fa-person-booth"></i>
-                        <p>
-                            Pemasangan
-                        </p>
-                    </a>
-                </li> --}}
-
                 <li class="nav-item">
                     <a href="{{ route('logout') }}" class="nav-link" onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();" class="dropdown-item">

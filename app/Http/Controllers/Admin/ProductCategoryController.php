@@ -15,7 +15,7 @@ class ProductCategoryController extends Controller
     public function index()
     {
         $data = [
-            'title'              => 'List Kategori Product',
+            'title'              => 'List Kategori Produk',
             'product-category'   => ProductCategory::get(),
             'content'            => 'admin/product-category/index'
         ];
@@ -34,9 +34,9 @@ class ProductCategoryController extends Controller
                                 <a class="dropdown-item" href="' . route('product-category.edit', $item->id) . '">
                                     Edit
                                 </a>
-                                <form action="' . route('product-category.destroy', $item->id) . '" method="POST">
+                                <form action="' . route('product-category.destroy', $item->id) . '" method="POST" onclick="return confirm(`Hapus Data ?`)">
                                     ' . method_field('delete') . csrf_field() . '
-                                    <button type="submit" class="dropdown-item text-danger">Hapus</button>
+                                    <button data-toggle="confirmation" type="submit" class="dropdown-item text-danger">Hapus</button>
                                 </form>
                         </ul>
                     </div>
@@ -64,7 +64,7 @@ class ProductCategoryController extends Controller
         // $data = $request->all();
         $data = $request->validate([
             'name'      => 'required|string|max:200',
-            'photos'    => 'required|image'
+            'photos'    => 'required|mimes:png,jpg,jpeg'
         ]);
 
         $data['slug'] = Str::slug($request->name);
@@ -90,8 +90,8 @@ class ProductCategoryController extends Controller
     {
         $item = ProductCategory::find($id);
         $data = $request->validate([
-            'name'          => 'required|string',
-            'photos'        => 'image',
+            'name'          => 'string',
+            'photos'        => 'mimes:png,jpg,jpeg',
         ]);
 
         if ($request->hasFile('photos')) {
