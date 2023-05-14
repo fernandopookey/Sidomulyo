@@ -33,7 +33,7 @@ class ProductController extends Controller
                         <a class="btn btn-warning" href="' . route('admin-product-details', $item->id) . '">
                             <i class="fas fa-pen"></i> Edit
                         </a>
-                        <form action="' . route('admin-product-delete', $item->id) . '" method="POST">
+                        <form action="' . route('admin-product-delete', $item->id) . '" method="POST" onclick="return confirm(`Hapus Data ?`)">
                             ' . method_field('delete') . csrf_field() . '
                             <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i> Hapus</button>
                         </form>

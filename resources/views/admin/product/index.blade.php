@@ -4,7 +4,7 @@
     }
 </style>
 
-<a href="#" class="btn btn-primary mb-3" type="button" data-bs-toggle="modal" data-bs-target="#addModal">
+<a href="{{ route('admin-product-create') }}" class="btn btn-primary mb-3">
     <i class="fa fa-plus"></i> Tambah
 </a>
 
@@ -28,12 +28,6 @@
             @endforeach --}}
         </tbody>
     </table>
-</div>
-
-@include('admin.product.create')
-
-<div class="row pt-4">
-    <a href="/admin/productgallery" class="product-route btn btn-info">Galeri Produk</a>
 </div>
 
 @push('addon-script')

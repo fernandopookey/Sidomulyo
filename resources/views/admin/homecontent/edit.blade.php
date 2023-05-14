@@ -19,27 +19,24 @@
                 <label>Gambar Product</label>
                 <input type="file" name="icon" class="form-control" value="{{ $homecontent->icon }}"
                     onchange="loadFile(event)">
-                <img src="{{ Storage::disk('local')->url($homecontent->icon) }}" width="150" class="pt-4" alt="">
+                <img src="{{ Storage::disk('local')->url($homecontent->icon) }}"
+                    style="width: 250px; height: 200px; object-fit: cover;" class="pt-4" alt="">
             </div>
-            <img id="output" class="pb-4" style="max-width: 200px" />
+            <img id="output" class="pb-4" style="width: 250px; height: 200px; object-fit: cover;" />
         </div>
     </div>
     <div class="row">
-        <div class="col-lg-6">
-            <div class="col text-start">
-                <a href="{{ route('homecontent.index') }}">
-                    <button type="button" class="btn btn-primary px-5">
-                        Kembali
-                    </button>
-                </a>
-            </div>
+        <div class="col-lg-6 text-start">
+            <button type="submit" class="btn btn-success px-5">
+                Simpan
+            </button>
         </div>
-        <div class="col-lg-6">
-            <div class="col text-end">
-                <button type="submit" class="btn btn-success px-5">
-                    Simpan
+        <div class="col-lg-6 text-end">
+            <a href="{{ route('homecontent.index') }}">
+                <button type="button" class="btn btn-primary px-5">
+                    Kembali
                 </button>
-            </div>
+            </a>
         </div>
     </div>
 </form>

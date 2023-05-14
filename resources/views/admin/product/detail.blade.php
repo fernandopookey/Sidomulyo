@@ -36,13 +36,15 @@
                     </select>
                 </div>
             </div>
-            <div class="col-md-12">
+        </div>
+        <div class="row">
+            <div class="col-md-6">
                 <div class="form-group">
-                    <label>Deskripsi</label>
+                    <label>Deskripsi Produk</label>
                     <textarea name="description" id="editor">{!! $product->description !!}</textarea>
                 </div>
             </div>
-            <div class="col-md-12">
+            <div class="col-md-6">
                 <div class="form-group">
                     <label>Informasi Tambahan</label>
                     <textarea name="additional_info" id="editor2">{!! $product->additional_info !!}</textarea>

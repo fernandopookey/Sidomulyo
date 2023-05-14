@@ -24,9 +24,7 @@ class ModalHomeController extends Controller
     {
         $item = ModalHome::first();
         $data = $request->validate([
-            'photos'        => 'image',
-            'name'          => 'string',
-            'description'   => 'string'
+            'photos'        => 'required|mimes:png,jpg,jpeg,'
         ]);
 
         // $data['logo'] = $request->file('logo')->store('assets/header', 'public');

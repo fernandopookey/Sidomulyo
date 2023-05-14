@@ -35,7 +35,7 @@ class ClientController extends Controller
                                 <a class="dropdown-item" href="' . route('client.edit', $item->id) . '">
                                     Edit
                                 </a>
-                                <form action="' . route('client.destroy', $item->id) . '" method="POST">
+                                <form action="' . route('client.destroy', $item->id) . '" method="POST" onclick="return confirm(`Hapus Data ?`)">
                                     ' . method_field('delete') . csrf_field() . '
                                     <button type="submit" class="dropdown-item text-danger">Hapus</button>
                                 </form>
@@ -43,7 +43,7 @@ class ClientController extends Controller
                     </div>
                 ';
             })->editColumn('photos', function ($item) {
-                return $item->photos ? '<img src="' . Storage::url($item->photos) . '" style="max-height: 80px;" />' : '';
+                return $item->photos ? '<img src="' . Storage::url($item->photos) . '" style="height: 150px; width: 300px; object-fit: cover;" />' : '';
             })->rawColumns(['action', 'photos'])->make();
         }
 
@@ -86,7 +86,7 @@ class ClientController extends Controller
         $item = Client::find($id);
         $data = $request->validate([
             'name'          => 'required',
-            'photos'        => 'image',
+            'photos'        => 'mimes:png,jpg,jpeg',
         ]);
 
         if ($request->hasFile('photos')) {
