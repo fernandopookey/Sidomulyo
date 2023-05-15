@@ -93,7 +93,7 @@ Sidomulyo | My Profile Page
                     <table class="pt-table-shop-01">
                         <thead>
                             <tr>
-                                <th>Kode</th>
+                                <th>Kode Transaksi</th>
                                 <th>Waktu</th>
                                 <th>Status</th>
                                 <th>Total</th>
@@ -103,10 +103,10 @@ Sidomulyo | My Profile Page
                         <tbody>
                             @foreach ($transactions as $item)
                             <tr>
-                                <td>{{ $item->code }}</td>
-                                <td>{{ $item->created_at }}</td>
+                                <td>{{ $item->transaction->code }}</td>
+                                <td>{{ $item->transaction->created_at }}</td>
                                 <td>{{ $item->transaction->transaction_status }}</td>
-                                <td>{{ $item->product->price }}</td>
+                                <td>{{ $item->transaction->total_price }}</td>
                                 <td>
                                     <a href="{{ route('user-transaction-details') }}">Detail</a>
                                 </td>
