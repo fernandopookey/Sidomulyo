@@ -318,7 +318,7 @@
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="{{ route('my-transaction') }}">
+                                                <a href="#">
                                                     <i class="pt-icon">
                                                         <svg width="18" height="23">
                                                             <use xlink:href="#icon-lock"></use>

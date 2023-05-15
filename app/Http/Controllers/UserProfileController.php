@@ -22,10 +22,10 @@ class UserProfileController extends Controller
         })->get();
 
         return view('user.pages.user-profile', [
-            'user'      => $user,
-            'header'    => $header,
-            'sosmed'    => $sosmed,
-            'transactions' => $transactions,
+            'user'          => $user,
+            'header'        => $header,
+            'sosmed'        => $sosmed,
+            'transactions'  => $transactions,
         ]);
     }
 
@@ -47,6 +47,26 @@ class UserProfileController extends Controller
 
         return view('pages.dashboard-transactions', [
             'sellTransactions' => $transactions,
+        ]);
+    }
+
+    public function show()
+    {
+        $header     = Header::get();
+        $sosmed     = Sosmed::get();
+        // $user       = Auth::user();
+
+        // $transactionDetails = TransactionDetail::with(['transaction.user', 'product.galleries'])->whereHas('transaction', function ($transaction) {
+        //     $transaction->where('users_id', Auth::user()->id);
+        // })->get();
+
+        $transactionDetails = TransactionDetail::get();
+
+        return view('user.pages.user-transaction-details', [
+            // 'user'                  => $user,
+            'header'                => $header,
+            'sosmed'                => $sosmed,
+            'transaction_details'   => $transactionDetails,
         ]);
     }
 }
