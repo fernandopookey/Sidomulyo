@@ -78,13 +78,15 @@ Route::get('/categories/{id}', [UserProductCategoryController::class, 'detail'])
 //======================================== USER ========================================
 Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::get('/cart', [CartController::class, 'index'])->name('cart');
+
     // Route::get('/my_profile', [HomeController::class, 'myprofile'])->name('user-profile');
     Route::get('/my_profile', [UserProfileController::class, 'account'])->name('user-profile');
+
     // Route::get('/dashboard/account', [UserProfileController::class, 'account'])->name('dashboard-settings-account');
     Route::post('/dashboard/account/{redirect}', [UserProfileController::class, 'update'])->name('dashboard-settings-redirect');
 
     Route::get('/transaksi', [UserTransactionController::class, 'index'])->name('my-transaction');
-    Route::get('/detail_transaksi', [UserProfileController::class, 'show'])->name('user-transaction-details');
+    Route::get('/detail_transaksi/{id}', [UserTransactionController::class, 'detail'])->name('transaction-details');
 
     Route::get('/konfirmasi_pembayaran', [UserPaymentConfirmationController::class, 'index'])->name('payment-confirmation');
     Route::post('/konfirmasi_pembayaran/send', [UserPaymentConfirmationController::class, 'send'])->name('send');

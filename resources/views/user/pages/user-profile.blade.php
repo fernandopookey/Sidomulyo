@@ -83,38 +83,6 @@ Sidomulyo | My Profile Page
                             <button type="submit" class="btn btn-secondary">Ubah Profil</button>
                     </form>
                 </div>
-                {{-- <a href="#" class="btn btn-border">Ubah Profil</a> --}}
-            </div>
-
-
-            <div class="pt-wrapper">
-                <h3 class="pt-title">Histori Pesanan</h3>
-                <div class="pt-table-responsive">
-                    <table class="pt-table-shop-01">
-                        <thead>
-                            <tr>
-                                <th>Kode Transaksi</th>
-                                <th>Waktu</th>
-                                <th>Status</th>
-                                <th>Total</th>
-                                <th>Aksi</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($transactions as $item)
-                            <tr>
-                                <td>{{ $item->transaction->code }}</td>
-                                <td>{{ $item->transaction->created_at }}</td>
-                                <td>{{ $item->transaction->transaction_status }}</td>
-                                <td>{{ $item->transaction->total_price }}</td>
-                                <td>
-                                    <a href="{{ route('user-transaction-details') }}">Detail</a>
-                                </td>
-                            </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-                </div>
             </div>
         </div>
     </div>

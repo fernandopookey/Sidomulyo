@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Header;
 use App\Models\Sosmed;
-use Illuminate\Http\Request;
+use App\Models\Transaction;
+use App\Models\TransactionDetail;
+// use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserTransactionController extends Controller
 {
@@ -12,10 +15,33 @@ class UserTransactionController extends Controller
     {
         $sosmed         = Sosmed::get();
         $header         = Header::get();
+        // $transactions   = TransactionDetail::with(['transaction.user', 'product.galleries'])->whereHas('transaction', function ($transaction) {
+        //     $transaction->where('users_id', Auth::user()->id);
+        // })->get();
+
+        $transactions   = Transaction::where('users_id', Auth::id())->get();
+
+        // dd($transactions);
+
+        return view('user.pages.transactions', [
+            'sosmed'        => $sosmed,
+            'header'        => $header,
+            'transactions'  => $transactions
+        ]);
+    }
+
+    public function detail($id)
+    {
+        $sosmed         = Sosmed::get();
+        $header         = Header::get();
+
+        $transactions = Transaction::where('id', $id)->where('users_id', Auth::id())->first();
+        // $transaction = TransactionDetail::with(['transaction.user', 'product.galleries'])->findOrFail($id);
 
         return view('user.pages.transaction-details', [
             'sosmed'        => $sosmed,
-            'header'        => $header
+            'header'        => $header,
+            'transactions'  => $transactions
         ]);
     }
 }
