@@ -33,22 +33,26 @@ Sidomulyo | My Profile Page
                             <tr>
                                 <th>Kode Detail Transaksi</th>
                                 <th>Waktu</th>
+                                <th>Nama</th>
                                 <th>Produk</th>
                                 <th>Harga</th>
+                                <th>Quantity</th>
                                 <th>Gambar</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($transactions->products as $item)
+                            @foreach ($transactions as $item)
                             <tr>
-                                <td>{{ $transactions->code }}</td>
-                                <td>{{ $transactions->created_at }}</td>
-                                <td>{{ $transactions->product->name }}</td>
-                                <td>Rp. {{number_format($transactions->product->price) }}</td>
-                                <td>
+                                {{-- <td>{{ $item->code }}</td> --}}
+                                {{-- <td>{{ $transactions->created_at }}</td> --}}
+                                {{-- <td>{{$transactions->code }}</td> --}}
+                                <td>{{ $transactions->name }}</td>
+                                {{-- <td>Rp. {{number_format($transactions->product->price) }}</td> --}}
+                                {{-- <td>{{ $transactions->carts->quantity }}</td> --}}
+                                {{-- <td>
                                     <img src="{{ Storage::url($transactions->product->galleries->first()->photos ?? '') }}"
                                         style="height: 100px; width: 100px; object-fit: cover;" alt="">
-                                </td>
+                                </td> --}}
                             </tr>
                             @endforeach
                         </tbody>

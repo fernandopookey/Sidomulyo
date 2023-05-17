@@ -11,7 +11,8 @@ class TransactionDetail extends Model
         'transactions_id',
         'products_id',
         'price',
-        'code'
+        'code',
+        'qty'
     ];
 
     protected $hidden = [];
