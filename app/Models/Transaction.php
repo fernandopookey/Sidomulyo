@@ -20,6 +20,11 @@ class Transaction extends Model
 
     protected $hidden = [];
 
+    // public function transactionDetails()
+    // {
+    //     return $this->hasMany(TransactionDetail::class);
+    // }
+
     public function user()
     {
         return $this->belongsTo(User::class, 'users_id', 'id');

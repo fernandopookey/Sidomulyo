@@ -86,7 +86,7 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::post('/dashboard/account/{redirect}', [UserProfileController::class, 'update'])->name('dashboard-settings-redirect');
 
     Route::get('/transaksi', [UserTransactionController::class, 'index'])->name('my-transaction');
-    Route::get('/detail_transaksi/{id}', [UserTransactionController::class, 'detail'])->name('transaction-details');
+    Route::get('/transaksi/detail_transaksi/{id}', [UserTransactionController::class, 'detail'])->name('transaction-details');
 
     Route::get('/konfirmasi_pembayaran', [UserPaymentConfirmationController::class, 'index'])->name('payment-confirmation');
     Route::post('/konfirmasi_pembayaran/send', [UserPaymentConfirmationController::class, 'send'])->name('send');

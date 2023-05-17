@@ -39,6 +39,7 @@ class UserCheckoutController extends Controller
                 'transactions_id'       => $transaction->id,
                 'products_id'           => $cart->product->id,
                 'price'                 => $cart->product->price,
+                'qty'                   => $cart->qty,
                 'code'                  => $tsm
             ]);
         }
