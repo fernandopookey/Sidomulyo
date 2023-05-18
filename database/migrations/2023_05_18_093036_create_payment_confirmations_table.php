@@ -15,14 +15,13 @@ class CreatePaymentConfirmationsTable extends Migration
     {
         Schema::create('payment_confirmations', function (Blueprint $table) {
             $table->id();
-
+            $table->integer('transaction_id');
             $table->integer('user_id');
             $table->string('name');
             $table->string('bank');
-            $table->string('account_number');
+            $table->integer('account_number');
             $table->string('account_name');
             $table->string('photos');
-
             $table->timestamps();
         });
     }

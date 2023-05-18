@@ -15,13 +15,8 @@ class UserTransactionController extends Controller
     {
         $sosmed         = Sosmed::get();
         $header         = Header::get();
-        // $transactions   = TransactionDetail::with(['transaction.user', 'product.galleries'])->whereHas('transaction', function ($transaction) {
-        //     $transaction->where('users_id', Auth::user()->id);
-        // })->get();
 
         $transactions   = Transaction::where('users_id', Auth::id())->get();
-
-        // dd($transactions);
 
         return view('user.pages.transactions', [
             'sosmed'        => $sosmed,
@@ -36,8 +31,6 @@ class UserTransactionController extends Controller
         $header         = Header::get();
 
         $transactions   = Transaction::where('id', $id)->where('users_id', Auth::id())->first();
-
-        // dd($transactions);
 
         return view('user.pages.transaction-details', compact('transactions', 'header', 'sosmed'));
 

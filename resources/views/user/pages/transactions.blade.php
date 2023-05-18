@@ -40,7 +40,8 @@ Sidomulyo Transaction Page
                                 <td>{{ $item->transaction_status }}</td>
                                 <td>Rp. {{ number_format($item->total_price) }}</td>
                                 <td>
-                                    <a href="#">Konfirmasi pembayaran anda</a>
+                                    <a href="{{ route('payment-confirmation', $item->id) }}">Konfirmasi pembayaran
+                                        anda</a>
                                 </td>
                                 <td>
                                     <a href="{{ route('transaction-details', $item->id) }}">Detail</a>

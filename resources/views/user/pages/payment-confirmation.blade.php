@@ -48,9 +48,7 @@ Sidomulyo | Payment Confirmation Page
                             @csrf
                             <div class="pt-post">
                                 <p class="text-center pb-4">Lakukan konfirmasi pembayaran Anda secepatnya, maka kami
-                                    akan
-                                    segera
-                                    memproses pesanan Anda
+                                    akan segera memproses pesanan Anda
                                 </p>
                                 <div class="row pt-4">
                                     <div class="col-md-12">
@@ -58,7 +56,20 @@ Sidomulyo | Payment Confirmation Page
                                             <label>Nama</label>
                                             <input type="text" name="name"
                                                 class="form-control @error('name') is-invalid @enderror"
-                                                autocomplete="off" required>
+                                                autocomplete="off" value="{{ $payment->name }}" disabled>
+                                            @error('name')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label>Kode Pesanan</label>
+                                            <input type="text" name="transaction_code"
+                                                class="form-control @error('transaction_code') is-invalid @enderror"
+                                                autocomplete="off" value="{{ $payment->code }}" disabled>
                                             @error('name')
                                             <div class="invalid-feedback">
                                                 {{ $message }}
@@ -105,6 +116,20 @@ Sidomulyo | Payment Confirmation Page
                                                 class="form-control @error('account_name') is-invalid @enderror"
                                                 autocomplete="off" required>
                                             @error('account_name')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label>Total Pembayaran</label>
+                                            <input type="text" name="transaction_code"
+                                                class="form-control @error('transaction_code') is-invalid @enderror"
+                                                autocomplete="off"
+                                                value="Rp. {{ number_format($payment->total_price) }}" disabled>
+                                            @error('name')
                                             <div class="invalid-feedback">
                                                 {{ $message }}
                                             </div>
