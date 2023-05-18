@@ -36,7 +36,7 @@ class UserCheckoutController extends Controller
             $tsm = 'TSM-' . mt_rand(000000, 999999);
 
             TransactionDetail::create([
-                'transactions_id'       => $transaction->id,
+                'transaction_id'        => $transaction->id,
                 'products_id'           => $cart->product->id,
                 'price'                 => $cart->product->price,
                 'qty'                   => $cart->qty,

@@ -7,6 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Transaction extends Model
 {
+    // use HasFactory;
+    // protected $table = 'transactions';
+
     protected $fillable = [
         'users_id',
         'name',
@@ -20,10 +23,10 @@ class Transaction extends Model
 
     protected $hidden = [];
 
-    // public function transactionDetails()
-    // {
-    //     return $this->hasMany(TransactionDetail::class);
-    // }
+    public function transactiondetails()
+    {
+        return $this->hasMany(TransactionDetail::class);
+    }
 
     public function user()
     {
