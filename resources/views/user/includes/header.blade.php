@@ -324,7 +324,7 @@
                                                             <use xlink:href="#icon-lock"></use>
                                                         </svg>
                                                     </i>
-                                                    <span class="pt-text">Transaksi Saya</span>
+                                                    <span class="pt-text">Pesanan Saya</span>
                                                 </a>
                                             </li>
                                             <li>

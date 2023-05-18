@@ -13,46 +13,95 @@ Sidomulyo | My Profile Page
                 <a href="{{ route('home') }}">Home</a>
             </li>
             <li>
-                <a href="{{ route('my-transaction') }}">Transaksi Saya</a>
+                <a href="{{ route('my-transaction') }}">Pesanan</a>
             </li>
-            <li>Detail Transaksi</li>
+            <li>Detail Pemesanan</li>
         </ul>
     </div>
 </div>
 <main id="pt-pageContent">
     <div class="container-indent">
         <div class="container">
-            <h1 class="pt-title-subpages noborder">Detail Transaksi</h1>
+            <h1 class="pt-title-subpages noborder">Detail Pemesanan</h1>
 
+            <div class="pt-account-layout">
+                <div class="pt-wrapper">
+                    <form action="{{ route('dashboard-settings-redirect', 'dashboard-settings-account') }}"
+                        id="locations" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <h3 class="pt-title">Biodata</h3>
+                        <div class="pt-table-responsive">
+                            <table class="pt-table-shop-02">
+                                <tbody>
+                                    <tr>
+                                        <td>Nama Lengkap</td>
+                                        <td>
+                                            <div class="input-group input-group-static">
+                                                <input type="text" name="fullname" class="form-control"
+                                                    value="{{ $transactions->name }}" required>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Email</td>
+                                        <td>
+                                            <div class="input-group input-group-static">
+                                                <input type="text" name="email" class="form-control"
+                                                    value="{{ $transactions->email }}" required>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Alamat</td>
+                                        <td>
+                                            <div class="input-group input-group-static">
+                                                <input type="text" name="address" class="form-control"
+                                                    value="{{ $transactions->address }}" required>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Nomor Handphone / Whatsapp</td>
+                                        <td>
+                                            <div class="input-group input-group-static">
+                                                <input type="text" name="phone_number" class="form-control"
+                                                    value="{{ $transactions->phone_number }}" required>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    {{-- <tr>
+                                        <td>Foto</td>
+                                        <td>3242</td>
+                                    </tr> --}}
+                                </tbody>
+                            </table>
+                            <button type="submit" class="btn btn-secondary">Ubah Profil</button>
+                    </form>
+                </div>
+            </div>
 
             <div class="pt-wrapper">
-                <h3 class="pt-title">Histori Pesanan</h3>
+                <h3 class="pt-title">Detail Produk</h3>
                 <div class="pt-table-responsive">
                     <table class="pt-table-shop-01">
                         <thead>
                             <tr>
-                                <th>Kode Detail Transaksi</th>
-                                <th>Waktu</th>
-                                <th>Nama</th>
-                                <th>Produk</th>
-                                <th>Harga</th>
-                                <th>Quantity</th>
+                                <th>Nama Produk</th>
+                                <th>Harga Produk</th>
+                                <th>Jumlah Produk</th>
                                 <th>Gambar</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($transactions as $item)
+                            @foreach ($transactions->transactiondetails as $item)
                             <tr>
-                                {{-- <td>{{ $item->code }}</td> --}}
-                                {{-- <td>{{ $transactions->created_at }}</td> --}}
-                                {{-- <td>{{$transactions->code }}</td> --}}
-                                <td>{{ $transactions->name }}</td>
-                                {{-- <td>Rp. {{number_format($transactions->product->price) }}</td> --}}
-                                {{-- <td>{{ $transactions->carts->quantity }}</td> --}}
-                                {{-- <td>
-                                    <img src="{{ Storage::url($transactions->product->galleries->first()->photos ?? '') }}"
-                                        style="height: 100px; width: 100px; object-fit: cover;" alt="">
-                                </td> --}}
+                                <td>{{ $item->product->name }}</td>
+                                <td>{{ $item->product->price }}</td>
+                                <td>{{ $item->qty }}</td>
+                                <td>
+                                    <img src="{{ Storage::url($item->product->galleries->first()->photos ?? '') }}"
+                                        style="height: 100px; width: 120px; object-fit: cover;" alt="">
+                                </td>
                             </tr>
                             @endforeach
                         </tbody>

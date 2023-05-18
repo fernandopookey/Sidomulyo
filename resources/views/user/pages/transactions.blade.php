@@ -11,23 +11,24 @@ Sidomulyo Transaction Page
         <div class="container">
             <ul>
                 <li><a href="{{ route('home') }}">Home</a></li>
-                <li>Transaksi</li>
+                <li>Pesanan</li>
             </ul>
         </div>
     </div>
     <div class="container-indent">
         <div class="container">
-            <h1 class="pt-title-subpages noborder">Transaksi Saya</h1>
+            <h1 class="pt-title-subpages noborder">Pesanan Saya</h1>
             <div class="pt-wrapper">
                 <h3 class="pt-title">Histori Pesanan</h3>
                 <div class="pt-table-responsive">
                     <table class="pt-table-shop-01">
                         <thead>
                             <tr>
-                                <th>Kode Transaksi</th>
+                                <th>Kode Pemesanan</th>
                                 <th>Waktu</th>
                                 <th>Status</th>
                                 <th>Total</th>
+                                <th>Konfirmasi Pembayaran</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
@@ -37,7 +38,10 @@ Sidomulyo Transaction Page
                                 <td>{{ $item->code }}</td>
                                 <td>{{ $item->created_at }}</td>
                                 <td>{{ $item->transaction_status }}</td>
-                                <td>{{ $item->total_price }}</td>
+                                <td>Rp. {{ number_format($item->total_price) }}</td>
+                                <td>
+                                    <a href="#">Konfirmasi pembayaran anda</a>
+                                </td>
                                 <td>
                                     <a href="{{ route('transaction-details', $item->id) }}">Detail</a>
                                 </td>
