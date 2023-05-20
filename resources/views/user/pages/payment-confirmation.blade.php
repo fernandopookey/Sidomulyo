@@ -12,7 +12,10 @@ Sidomulyo | Payment Confirmation Page
             <li>
                 <a href="{{ route('home') }}">Home</a>
             </li>
-            <li>Konfirmasi Pembayaran</li>
+            <li>
+                <a href="{{ route('my-transaction') }}">Pesanan</a>
+            </li>
+            <li>Detail Pesanan</li>
         </ul>
     </div>
 </div>
@@ -44,7 +47,8 @@ Sidomulyo | Payment Confirmation Page
             <div class="row justify-content-center">
                 <div class="col-12 col-lg-10 col-xl-8">
                     <div class="">
-                        <form action="/konfirmasi_pembayaran/send" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('send-payment-confirmation', $payment->id) }}" method="POST"
+                            enctype="multipart/form-data">
                             @csrf
                             <div class="pt-post">
                                 <p class="text-center pb-4">Lakukan konfirmasi pembayaran Anda secepatnya, maka kami
@@ -56,7 +60,7 @@ Sidomulyo | Payment Confirmation Page
                                             <label>Nama</label>
                                             <input type="text" name="name"
                                                 class="form-control @error('name') is-invalid @enderror"
-                                                autocomplete="off" value="{{ $payment->name }}" disabled>
+                                                value="{{ $payment->name }}" disabled>
                                             @error('name')
                                             <div class="invalid-feedback">
                                                 {{ $message }}
@@ -67,10 +71,10 @@ Sidomulyo | Payment Confirmation Page
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label>Kode Pesanan</label>
-                                            <input type="text" name="transaction_code"
-                                                class="form-control @error('transaction_code') is-invalid @enderror"
-                                                autocomplete="off" value="{{ $payment->code }}" disabled>
-                                            @error('name')
+                                            <input type="text" name="code"
+                                                class="form-control @error('code') is-invalid @enderror"
+                                                autocomplete="off" disabled>
+                                            @error('code')
                                             <div class="invalid-feedback">
                                                 {{ $message }}
                                             </div>
@@ -122,7 +126,7 @@ Sidomulyo | Payment Confirmation Page
                                             @enderror
                                         </div>
                                     </div>
-                                    <div class="col-md-12">
+                                    {{-- <div class="col-md-12">
                                         <div class="form-group">
                                             <label>Total Pembayaran</label>
                                             <input type="text" name="transaction_code"
@@ -135,7 +139,7 @@ Sidomulyo | Payment Confirmation Page
                                             </div>
                                             @enderror
                                         </div>
-                                    </div>
+                                    </div> --}}
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label>Upload Bukti Pembayaran</label>
