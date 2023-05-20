@@ -89,7 +89,7 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::get('/transaksi/detail_transaksi/{id}', [UserTransactionController::class, 'detail'])->name('transaction-details');
 
     Route::get('/konfirmasi_pembayaran/{id}', [UserPaymentConfirmationController::class, 'index'])->name('payment-confirmation');
-    Route::post('/konfirmasi_pembayaran/send', [UserPaymentConfirmationController::class, 'send'])->name('send');
+    Route::post('/konfirmasi_pembayaran/{id}/send', [UserPaymentConfirmationController::class, 'send'])->name('send-payment-confirmation');
     Route::get('/konfirmasi_pembayaran/success', [UserPaymentConfirmationController::class, 'success'])->name('payment-confirmation-success');
 
     // Route::get('/details/{id}', [CartController::class, 'index'])->name('detail');

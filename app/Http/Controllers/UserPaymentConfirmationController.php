@@ -29,28 +29,35 @@ class UserPaymentConfirmationController extends Controller
         return view('user.pages.payment-confirmation', $data);
     }
 
-    public function send(Request $request)
+    public function send(Request $request, string $id)
     {
         // Simpan Data User
-        $user = Auth::user();
-        $user->update($request->except('total_price'));
+        // $user = Auth::user();
+        // $user->update($request->except('total_price'));
+
+        // dd($user);
 
         //Proses Checkout
-        $code = 'SM-' . mt_rand(000000, 999999);
-        $payment = PaymentConfirmation::with(['product', 'user'])->where('user_id', Auth::user()->id)->get();
+        $code = 'SM-' . mt_rand(000000, 999999) . 'PAYMENT';
+        // $transaction = PaymentConfirmation::with(['product', 'user'])->where('user_id', Auth::user()->id)->get();
+        $transactionf   = Transaction::where('id', $id)->where('users_id', Auth::id())->first();
 
+        // dd($transactionf);
         //Transaksi Dibuat
         $transaction = PaymentConfirmation::create([
-            'user_id'           => Auth::user()->id,
-            'transaction_id'    => $transaction->id,
-            'name'              => $request->name,
-            'phone_number'      => $request->phone_number,
-            'address'           => $request->address,
-            'note'              => $request->note,
-            'transaction_status' => 'PENDING',
-            'total_price'       => $request->total_price,
-            'code'              => $code
+            'user_id'               => Auth::user()->id,
+            'transaction_id'        => $transactionf->id,
+            'bank'                  => $request->bank,
+            'name'                  => $request->name,
+            'address'               => $request->address,
+            'note'                  => $request->note,
+            'account_number'        => $request->account_number,
+            'account_name'          => $request->account_name,
+            'photos'                => $request->photos,
+            'code'                  => $code
         ]);
+
+        $transaction['photos'] = $request->file('photos')->store('assets/paymentconfirmation', 'public');
 
         // foreach ($carts as $cart) {
         //     $tsm = 'TSM-' . mt_rand(000000, 999999);
@@ -63,6 +70,8 @@ class UserPaymentConfirmationController extends Controller
         //         'code'                  => $tsm
         //     ]);
         // }
+        // dd($transaction);
+        PaymentConfirmation::create($transaction);
         return redirect('cart')->with('success', 'Transaksi Diproses');
     }
 
