@@ -55,17 +55,17 @@ Sidomulyo | Payment Confirmation Page
                                     akan segera memproses pesanan Anda
                                 </p>
                                 <div class="row pt-4">
-                                    <div class="col-md-12">
-                                        <div class="form-group">
-                                            <label>Nama</label>
-                                            <input type="text" name="name"
-                                                class="form-control @error('name') is-invalid @enderror"
-                                                value="{{ $payment->name }}" disabled>
-                                            @error('name')
-                                            <div class="invalid-feedback">
-                                                {{ $message }}
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label>Nama</label>
+                                                    {{-- <input type="text" name="name"
+                                                        class="form-control @error('name') is-invalid @enderror"
+                                                        value="{{ $payment->name }}" disabled> --}}
+                                                    <span>{{ $payment->name }}</span>
+                                                </div>
                                             </div>
-                                            @enderror
                                         </div>
                                     </div>
                                     <div class="col-md-12">
@@ -73,7 +73,7 @@ Sidomulyo | Payment Confirmation Page
                                             <label>Kode Pesanan</label>
                                             <input type="text" name="code"
                                                 class="form-control @error('code') is-invalid @enderror"
-                                                autocomplete="off" disabled>
+                                                autocomplete="off" value="{{ $payment->code }}" disabled>
                                             @error('code')
                                             <div class="invalid-feedback">
                                                 {{ $message }}
@@ -85,13 +85,13 @@ Sidomulyo | Payment Confirmation Page
                                         <div class="form-group">
                                             <label>Transfer Bank</label>
                                             <select name="bank" class="form-control">
-                                                <option value="BNI">BNI</option>
-                                                <option value="BRI">BRI</option>
-                                                <option value="BCA">BCA</option>
+                                                <option value="BANK INDONESIA">BNI</option>
+                                                <option value="BANK RAKYAT INDONESIA">BRI</option>
+                                                <option value="BANK CENTRAL ASIA">BCA</option>
                                                 <option value="MANDIRI">Mandiri</option>
-                                                <option value="BI">Bank Indonesia</option>
-                                                <option value="BTN">Bank Tabungan Negara</option>
-                                                <option value="SYARIAH">Bank Syariah</option>
+                                                <option value="BANK INDONESIA">Bank Indonesia</option>
+                                                <option value="BANK TABUNGAN NEGARA">Bank Tabungan Negara</option>
+                                                <option value="BANK SYARIAH">Bank Syariah</option>
                                             </select>
                                             @error('bank')
                                             <div class="invalid-feedback">
@@ -126,20 +126,20 @@ Sidomulyo | Payment Confirmation Page
                                             @enderror
                                         </div>
                                     </div>
-                                    {{-- <div class="col-md-12">
+                                    <div class="col-md-12">
                                         <div class="form-group">
                                             <label>Total Pembayaran</label>
-                                            <input type="text" name="transaction_code"
-                                                class="form-control @error('transaction_code') is-invalid @enderror"
+                                            <input type="text" name="total"
+                                                class="form-control @error('total') is-invalid @enderror"
                                                 autocomplete="off"
                                                 value="Rp. {{ number_format($payment->total_price) }}" disabled>
-                                            @error('name')
+                                            @error('total')
                                             <div class="invalid-feedback">
                                                 {{ $message }}
                                             </div>
                                             @enderror
                                         </div>
-                                    </div> --}}
+                                    </div>
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label>Upload Bukti Pembayaran</label>

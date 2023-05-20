@@ -14,6 +14,8 @@ class PaymentConfirmation extends Model
         'bank',
         'account_number',
         'account_name',
+        'code',
+        'total',
         'photos',
     ];
 
