@@ -44,12 +44,12 @@ class UserPaymentConfirmationController extends Controller
 
         // dd($transactionf);
         //Transaksi Dibuat
-        $transaction = PaymentConfirmation::create([
+        $transaction = ([
             'user_id'               => Auth::user()->id,
             'transaction_id'        => $transactionf->id,
             'bank'                  => $request->bank,
-            'name'                  => $request->name,
-            'address'               => $request->address,
+            'name'                  => $transactionf->name,
+            'total'                 => $transactionf->total,
             'note'                  => $request->note,
             'account_number'        => $request->account_number,
             'account_name'          => $request->account_name,
@@ -72,7 +72,7 @@ class UserPaymentConfirmationController extends Controller
         // }
         // dd($transaction);
         PaymentConfirmation::create($transaction);
-        return redirect('cart')->with('success', 'Transaksi Diproses');
+        return redirect('/')->with('success', 'Transaksi Diproses');
     }
 
     // public function send(Request $request)
