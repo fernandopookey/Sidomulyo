@@ -10,12 +10,10 @@ class PaymentConfirmation extends Model
     protected $fillable = [
         'transaction_id',
         'user_id',
-        'name',
         'bank',
         'account_number',
         'account_name',
         'code',
-        'total',
         'photos',
     ];
 
