@@ -181,6 +181,7 @@ Route::prefix('admin')->namespace('Admin')->middleware(['auth', 'admin'])->group
     // Route::delete('paymentConfirmation/{id}', [ProductGalleryController::class, 'destroy'])->name('paymentConfirmationDelete');
 
     Route::resource('transaction', '\App\Http\Controllers\Admin\TransactionController');
+    Route::get('/transaction/payment/{id}', [PaymentConfirmationController::class, 'index'])->name('admin-payment-confirmation');
     Route::get('/transaction-status-update/{id}', [ChangeController::class, 'transaction_status']);
 });
 

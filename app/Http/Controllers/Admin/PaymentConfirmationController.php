@@ -15,7 +15,7 @@ class PaymentConfirmationController extends Controller
         $data = [
             'title'                 => 'Konfirmasi Pembayaran Customer',
             'paymentConfirmation'   => PaymentConfirmation::get(),
-            'content'               => 'admin/paymentConfirmation/index'
+            'content'               => 'admin/transaction/payment'
         ];
 
         return view('admin.layouts.wrapper', $data);
