@@ -4,6 +4,13 @@
 Sidomulyo | Payment Confirmation Page
 @endsection
 
+<style>
+    .tes-card {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        transition: 0.3s;
+    }
+</style>
+
 @section('content')
 
 <div class="pt-breadcrumb">
@@ -47,40 +54,45 @@ Sidomulyo | Payment Confirmation Page
             <div class="row justify-content-center">
                 <div class="col-12 col-lg-10 col-xl-8">
                     <div class="">
+                        <p class="text-center pb-4">Lakukan konfirmasi pembayaran Anda secepatnya, maka kami
+                            akan segera memproses pesanan Anda
+                        </p>
+                        <table class="pt-table-shop-02">
+                            <tbody>
+                                <tr>
+                                    <td>Nama</td>
+                                    <td>
+                                        <div class="input-group input-group-static">
+                                            <input type="text" name="fullname" class="form-control"
+                                                value="{{ $payment->name }}" disabled>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Kode Pesanan</td>
+                                    <td>
+                                        <div class="input-group input-group-static">
+                                            <input type="text" name="username" class="form-control"
+                                                value="{{ $payment->code }}" disabled>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Total Pembayaran</td>
+                                    <td>
+                                        <div class="input-group input-group-static">
+                                            <input type="text" name="email" class="form-control"
+                                                value="Rp. {{ number_format($payment->total_price) }}" disabled>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
                         <form action="{{ route('send-payment-confirmation', $payment->id) }}" method="POST"
                             enctype="multipart/form-data">
                             @csrf
                             <div class="pt-post">
-                                <p class="text-center pb-4">Lakukan konfirmasi pembayaran Anda secepatnya, maka kami
-                                    akan segera memproses pesanan Anda
-                                </p>
                                 <div class="row pt-4">
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <div class="col-md-12">
-                                                <div class="form-group">
-                                                    <label>Nama</label>
-                                                    {{-- <input type="text" name="name"
-                                                        class="form-control @error('name') is-invalid @enderror"
-                                                        value="{{ $payment->name }}" disabled> --}}
-                                                    <span>{{ $payment->name }}</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <div class="form-group">
-                                            <label>Kode Pesanan</label>
-                                            <input type="text" name="code"
-                                                class="form-control @error('code') is-invalid @enderror"
-                                                autocomplete="off" value="{{ $payment->code }}" disabled>
-                                            @error('code')
-                                            <div class="invalid-feedback">
-                                                {{ $message }}
-                                            </div>
-                                            @enderror
-                                        </div>
-                                    </div>
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label>Transfer Bank</label>
@@ -120,20 +132,6 @@ Sidomulyo | Payment Confirmation Page
                                                 class="form-control @error('account_name') is-invalid @enderror"
                                                 autocomplete="off" required>
                                             @error('account_name')
-                                            <div class="invalid-feedback">
-                                                {{ $message }}
-                                            </div>
-                                            @enderror
-                                        </div>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <div class="form-group">
-                                            <label>Total Pembayaran</label>
-                                            <input type="text" name="total"
-                                                class="form-control @error('total') is-invalid @enderror"
-                                                autocomplete="off"
-                                                value="Rp. {{ number_format($payment->total_price) }}" disabled>
-                                            @error('total')
                                             <div class="invalid-feedback">
                                                 {{ $message }}
                                             </div>
