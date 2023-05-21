@@ -12,6 +12,7 @@
                 <th scope="col">Nama</th>
                 <th scope="col">Nomor HP</th>
                 <th scope="col">Status Transaksi</th>
+                <th>Konfirmasi Pembayaran</th>
                 <th scope="col">Aksi</th>
             </tr>
         </thead>
@@ -31,7 +32,12 @@
                         class="btn btn-warning">PENDING</a>
                     <?php } ?>
                 </td>
-                <td width="21%">
+                <td>
+                    <a href="{{ route('admin-payment-confirmation', $item->id) }}" class="btn btn-primary">
+                        Lihat
+                    </a>
+                </td>
+                <td width="14%">
                     <div class="d-flex justify-content-between">
                         <a href="{{ route('transaction.show', $item->id) }}" class="btn btn-info mx-2 text-light"><i
                                 class="fas fa-edit"></i>
