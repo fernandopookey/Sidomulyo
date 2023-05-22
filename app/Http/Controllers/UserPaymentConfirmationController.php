@@ -38,7 +38,7 @@ class UserPaymentConfirmationController extends Controller
         // dd($user);
 
         //Proses Checkout
-        $code = 'SM-' . mt_rand(000000, 999999) . 'PAYMENT';
+        $code = 'SM-' . mt_rand(000000, 999999) . '-PAYMENT';
         // $transaction = PaymentConfirmation::with(['product', 'user'])->where('user_id', Auth::user()->id)->get();
         $transactionf   = Transaction::where('id', $id)->where('users_id', Auth::id())->first();
 

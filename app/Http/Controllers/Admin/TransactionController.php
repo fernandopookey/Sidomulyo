@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\PaymentConfirmation;
 use App\Models\Transaction;
 use App\Models\TransactionDetail;
 use App\Models\User;
@@ -53,6 +54,19 @@ class TransactionController extends Controller
             'transaction'       => $transaction,
             'transactionDetail' => $transactionDetail,
             'content'           => 'admin/transaction/detail'
+        ];
+
+        return view('admin.layouts.wrapper', $data);
+    }
+
+    public function payment(Request $request, $id)
+    {
+        $payment = PaymentConfirmation::where('transaction_id', $id)->first();
+
+        $data = [
+            'title'             => 'Konfirmasi Pembayaran Customer',
+            'payment'           => $payment,
+            'content'           => 'admin/transaction/payment'
         ];
 
         return view('admin.layouts.wrapper', $data);
