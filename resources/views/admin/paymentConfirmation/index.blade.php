@@ -18,7 +18,7 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($paymentConfirmation as $item)
+            @foreach ($payment as $item)
             <tr class="tbl">
                 <td>{{ $loop->iteration }}</td>
                 <td>{{ $item->name }}</td>

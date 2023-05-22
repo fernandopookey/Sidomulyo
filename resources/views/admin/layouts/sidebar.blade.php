@@ -218,7 +218,7 @@
                             </a>
                         </li>
 
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a href="{{route('paymentConfirmation.index') }}"
                                 class="nav-link {{ (request()->is('admin/paymentConfirmation')) ? 'active' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
@@ -226,7 +226,7 @@
                                     Konfirmasi Pembayaran
                                 </p>
                             </a>
-                        </li>
+                        </li> --}}
 
                         <li class="nav-item">
                             <a href="{{route('transaction.index') }}"

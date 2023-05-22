@@ -37,4 +37,9 @@ class Transaction extends Model
     {
         return $this->hasMany(Product::class, 'id', 'product_id');
     }
+
+    public function payments()
+    {
+        return $this->hasMany(PaymentConfirmation::class);
+    }
 }

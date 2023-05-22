@@ -16,6 +16,7 @@ use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\ProductGalleryController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\SosmedController;
+use App\Http\Controllers\Admin\TransactionController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\UserPaymentConfirmationController;
@@ -181,7 +182,8 @@ Route::prefix('admin')->namespace('Admin')->middleware(['auth', 'admin'])->group
     // Route::delete('paymentConfirmation/{id}', [ProductGalleryController::class, 'destroy'])->name('paymentConfirmationDelete');
 
     Route::resource('transaction', '\App\Http\Controllers\Admin\TransactionController');
-    Route::get('/transaction/payment/{id}', [PaymentConfirmationController::class, 'index'])->name('admin-payment-confirmation');
+    Route::get('/transaction/payment/{id}', [TransactionController::class, 'payment'])->name('admin-payment-confirmation');
+    Route::get('/paymentConfirmation', [PaymentConfirmationController::class, 'index'])->name('payment-confirmation-admin');
     Route::get('/transaction-status-update/{id}', [ChangeController::class, 'transaction_status']);
 });
 

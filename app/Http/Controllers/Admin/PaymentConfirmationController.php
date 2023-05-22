@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\PaymentConfirmation;
+use App\Models\Transaction;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -13,9 +14,9 @@ class PaymentConfirmationController extends Controller
     public function index()
     {
         $data = [
-            'title'                 => 'Konfirmasi Pembayaran Customer',
-            'paymentConfirmation'   => PaymentConfirmation::get(),
-            'content'               => 'admin/transaction/payment'
+            'title'             => 'Konfirmasi Pembayaran Customer',
+            'payment'           => PaymentConfirmation::get(),
+            'content'           => 'admin/paymentConfirmation/index'
         ];
 
         return view('admin.layouts.wrapper', $data);

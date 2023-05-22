@@ -19,8 +19,13 @@ class PaymentConfirmation extends Model
 
     protected $hidden = [];
 
-    public function transaction()
+    public function transactions()
     {
         return $this->belongsTo(Transaction::class, 'transaction_id', 'id');
     }
+
+    // public function users()
+    // {
+    //     return $this->belongsTo(User::class, 'user_id', 'id');
+    // }
 }
