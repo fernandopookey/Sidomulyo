@@ -154,7 +154,11 @@ Route::prefix('admin')->namespace('Admin')->middleware(['auth', 'admin'])->group
     Route::put('/facilityandmachine/update', [FacilityAndMachineController::class, 'update']);
 
     Route::resource('machine', '\App\Http\Controllers\Admin\MachineController');
+
     Route::resource('user', '\App\Http\Controllers\Admin\UserController');
+
+    Route::resource('floating', '\App\Http\Controllers\Admin\FloatingController');
+
     Route::get('/status-update/{id}', [ChangeController::class, 'status_update']);
 
 
