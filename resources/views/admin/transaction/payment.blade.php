@@ -61,4 +61,26 @@
             </tr>
         </tbody>
     </table>
+    {{-- <h5>Produk</h5>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">No</th>
+                <th scope="col">Produk</th>
+                <th scope="col">Harga</th>
+                <th scope="col">Jumlah</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($transaction as $item)
+            <tr>
+                <td>{{ $item->name }}</td>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+            </tr>
+            @endforeach
+        </tbody>
+    </table> --}}
+    <a href="{{ route('transaction.index') }}" class="btn btn-primary">Kembali</a>
 </div>

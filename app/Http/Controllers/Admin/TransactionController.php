@@ -62,10 +62,23 @@ class TransactionController extends Controller
     public function payment(Request $request, $id)
     {
         $payment = PaymentConfirmation::where('transaction_id', $id)->first();
+        // $transaction        = Transaction::with(['user', 'product'])->findOrFail($id);
+        // $transactionDetail = TransactionDetail::with(['product', 'transaction'])->find($id);
+
+        if (!$payment) {
+            $data = [
+                'payment'           => $payment,
+                'content'           => 'admin/transaction/paymentnull'
+            ];
+            return
+                view('admin.layouts.wrapper', $data);
+        }
 
         $data = [
             'title'             => 'Konfirmasi Pembayaran Customer',
             'payment'           => $payment,
+            // 'transaction'       => $transaction,
+            // 'transactionDetail' => $transactionDetail,
             'content'           => 'admin/transaction/payment'
         ];
 
