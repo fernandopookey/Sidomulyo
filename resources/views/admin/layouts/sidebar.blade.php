@@ -69,7 +69,8 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link {{ (request()->is('admin/floating')) ? 'active' : '' }}">
+                            <a href="{{ route('floating.index') }}"
+                                class="nav-link {{ (request()->is('admin/floating')) ? 'active' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>
                                     Floating Button

@@ -6,6 +6,7 @@ use App\Models\BackgroundImage;
 use App\Models\Blog;
 use App\Models\Client;
 use App\Models\FacilityAndMachine;
+use App\Models\Floating;
 use App\Models\Header;
 use App\Models\HomeContent;
 use App\Models\HomeTextContent;
@@ -29,6 +30,7 @@ class HomeController extends Controller
         $product        = Product::take(8)->get();
         $sosmed         = Sosmed::get();
         $header         = Header::get();
+        $floating       = Floating::get();
         $homecontent    = HomeContent::get();
         $modalHome      = ModalHome::get();
         // $categories = Category::take(6)->latest()->get(); Ini untuk mengambil product terakhir
@@ -40,6 +42,7 @@ class HomeController extends Controller
             'sosmed'            => $sosmed,
             'backgroundImage'   => BackgroundImage::get(),
             'header'            => $header,
+            'floating'          => $floating,
             'homecontent'       => $homecontent,
             'modalHome'         => $modalHome,
             'homeTextContent'   => HomeTextContent::get(),
@@ -55,6 +58,7 @@ class HomeController extends Controller
             'modalHome' => ModalHome::get(),
             'sosmed'    => Sosmed::get(),
             'header'    => Header::get(),
+            'floating'  => Floating::get(),
             'content'   => 'user/pages/modalHome'
         ];
 
@@ -69,6 +73,7 @@ class HomeController extends Controller
             'product'       => $products,
             'sosmed'        => Sosmed::get(),
             'header'        => Header::get(),
+            'floating'      => Floating::get(),
         ]);
 
         // $categories = Category::take(6)->get();
@@ -86,9 +91,10 @@ class HomeController extends Controller
     {
 
         return view('user.pages.productdetail', [
-            'product'      => $post,
-            'sosmed'       => Sosmed::get(),
-            'header'    => Header::get(),
+            'product'       => $post,
+            'sosmed'        => Sosmed::get(),
+            'header'        => Header::get(),
+            'floating'      => Floating::get(),
         ]);
     }
 
@@ -98,6 +104,7 @@ class HomeController extends Controller
             'client'            => Client::get(),
             'sosmed'            => Sosmed::get(),
             'header'            => Header::get(),
+            'floating'          => Floating::get(),
             'content'           => 'user/pages/client'
         ];
 
@@ -109,7 +116,8 @@ class HomeController extends Controller
         $data = [
             'sosmed'    => Sosmed::get(),
             'header'    => Header::get(),
-            'content' => 'user/pages/user-profile'
+            'floating'  => Floating::get(),
+            'content'   => 'user/pages/user-profile'
         ];
 
         return view('user.pages.user-profile', $data);
@@ -130,10 +138,11 @@ class HomeController extends Controller
     public function blog()
     {
         $data = [
-            'blog' => Blog::get(),
+            'blog'      => Blog::get(),
             'sosmed'    => Sosmed::get(),
             'header'    => Header::get(),
-            'content' => 'user/pages/blog'
+            'floating'  => Floating::get(),
+            'content'   => 'user/pages/blog'
         ];
 
         return view('user.pages.blog', $data);
@@ -146,6 +155,7 @@ class HomeController extends Controller
             'blog'      => $post,
             'sosmed'    => Sosmed::get(),
             'header'    => Header::get(),
+            'floating'  => Floating::get(),
         ];
 
         return view('user.pages.blogDetail', $data);
@@ -160,10 +170,11 @@ class HomeController extends Controller
     public function profile()
     {
         $data = [
-            'profile' => Profile::get(),
+            'profile'   => Profile::get(),
             'sosmed'    => Sosmed::get(),
             'header'    => Header::get(),
-            'content' => 'user/pages/profile'
+            'floating'  => Floating::get(),
+            'content'   => 'user/pages/profile'
         ];
 
         return view('user.pages.profile', $data);
@@ -175,7 +186,8 @@ class HomeController extends Controller
             'facilityandmachine' => FacilityAndMachine::get(),
             'sosmed'    => Sosmed::get(),
             'header'    => Header::get(),
-            'content' => 'user/pages/facility&machine'
+            'floating'  => Floating::get(),
+            'content'   => 'user/pages/facility&machine'
         ];
 
         return view('user.pages.facilityandmachine', $data);
@@ -184,10 +196,11 @@ class HomeController extends Controller
     public function facility()
     {
         $data = [
-            'facility' => SupportingFacilities::get(),
+            'facility'  => SupportingFacilities::get(),
             'sosmed'    => Sosmed::get(),
             'header'    => Header::get(),
-            'content' => 'user/pages/facility'
+            'floating'  => Floating::get(),
+            'content'   => 'user/pages/facility'
         ];
 
         return view('user.pages.facility', $data);
@@ -196,10 +209,11 @@ class HomeController extends Controller
     public function machine()
     {
         $data = [
-            'machine' => Machine::get(),
+            'machine'   => Machine::get(),
             'sosmed'    => Sosmed::get(),
             'header'    => Header::get(),
-            'content' => 'user/pages/machine'
+            'floating'  => Floating::get(),
+            'content'   => 'user/pages/machine'
         ];
 
         return view('user.pages.machine', $data);
@@ -209,9 +223,22 @@ class HomeController extends Controller
     {
 
         return view('user.pages.machinedetails', [
-            'machine'      => $post,
-            'sosmed'       => Sosmed::get(),
-            'header'    => Header::get(),
+            'machine'       => $post,
+            'sosmed'        => Sosmed::get(),
+            'header'        => Header::get(),
+            'floating'      => Floating::get(),
         ]);
+    }
+
+    public function floating()
+    {
+        $data = [
+            'floating'  => Floating::all(),
+            'sosmed'    => Sosmed::get(),
+            'header'    => Header::get(),
+            'content'   => 'user/includes/floating'
+        ];
+
+        return view('user.includes.floating', $data);
     }
 }

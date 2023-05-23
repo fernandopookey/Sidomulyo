@@ -36,18 +36,18 @@
 
 
 
-    .btn-floating.logo {
+    .btn-floating.all {
         bottom: 500px;
         background-color: #f0f0f0;
         border: 2px solid #fff;
         color: black;
     }
 
-    .btn-floating.logo:hover {
+    .btn-floating.all:hover {
         background-color: #f0f0f0;
     }
 
-    .btn-floating.print {
+    /* .btn-floating.print {
         bottom: 450px;
         background-color: #00b9f2;
         border: 2px solid #fff;
@@ -96,18 +96,23 @@
 
     .btn-floating.whatsapp:hover {
         background-color: #1f7a12;
-    }
+    } */
 </style>
 
 <!-- Floating Button -->
 <!-- Top -->
-<a href="/">
-    <button class="btn-floating logo">
-        <img src="/images/logocircle.png" width="40" alt="logo" />
-        <span>Home</span>
+
+@foreach ($floating as $item)
+
+<a href="{{ $item->link }}" target="_blank">
+    <button class="btn-floating all">
+        <img src="{{ Storage::url($item->photos) }}" width="40" alt="logo" />
+        <span>{{ $item->name }}</span>
     </button>
 </a>
-<a href="#">
+
+@endforeach
+{{-- <a href="#">
     <button class="btn-floating print">
         <i class="fa-solid fa-print fa-2x"></i>
         <span>Cetak</span>
@@ -130,7 +135,7 @@
         <img src="/images/cart.png" style="max-width: 30px" alt="cart">
         <span>Keranjang</span>
     </button>
-</a>
+</a> --}}
 
 <!-- Bottom -->
 {{-- <a href="https://wa.me/085254143531?text=I'm%20interested%20in%20your%20car%20for%20sale" target="_blank">
