@@ -7,6 +7,7 @@ use App\Models\Blog;
 use App\Models\Client;
 use App\Models\FacilityAndMachine;
 use App\Models\Floating;
+use App\Models\FourthFloating;
 use App\Models\Header;
 use App\Models\HomeContent;
 use App\Models\HomeTextContent;
@@ -17,22 +18,27 @@ use App\Models\ModalHome;
 use App\Models\Product;
 use App\Models\ProductCategory;
 use App\Models\Profile;
+use App\Models\SecondFloating;
 use App\Models\Slider;
 use App\Models\Sosmed;
 use App\Models\SupportingFacilities;
+use App\Models\ThirdFloating;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
     public function index()
     {
-        $slider         = Slider::take(3)->get();
-        $product        = Product::take(8)->get();
-        $sosmed         = Sosmed::get();
-        $header         = Header::get();
-        $floating       = Floating::get();
-        $homecontent    = HomeContent::get();
-        $modalHome      = ModalHome::get();
+        $slider             = Slider::take(3)->get();
+        $product            = Product::take(8)->get();
+        $sosmed             = Sosmed::get();
+        $header             = Header::get();
+        $floating           = Floating::get();
+        $secondFloating     = SecondFloating::get();
+        $thirdFloating      = ThirdFloating::get();
+        $fourthFloating     = FourthFloating::get();
+        $homecontent        = HomeContent::get();
+        $modalHome          = ModalHome::get();
         // $categories = Category::take(6)->latest()->get(); Ini untuk mengambil product terakhir
         // $products = Product::with(['galleries'])->take(8)->latest()->get(); ini juga untuk mengambil product terakhir
 
@@ -43,6 +49,9 @@ class HomeController extends Controller
             'backgroundImage'   => BackgroundImage::get(),
             'header'            => $header,
             'floating'          => $floating,
+            'secondFloating'    => $secondFloating,
+            'thirdFloating'     => $thirdFloating,
+            'fourthFloating'    => $fourthFloating,
             'homecontent'       => $homecontent,
             'modalHome'         => $modalHome,
             'homeTextContent'   => HomeTextContent::get(),
@@ -55,11 +64,14 @@ class HomeController extends Controller
     public function modalHome()
     {
         $data = [
-            'modalHome' => ModalHome::get(),
-            'sosmed'    => Sosmed::get(),
-            'header'    => Header::get(),
-            'floating'  => Floating::get(),
-            'content'   => 'user/pages/modalHome'
+            'modalHome'         => ModalHome::get(),
+            'sosmed'            => Sosmed::get(),
+            'header'            => Header::get(),
+            'floating'          => Floating::get(),
+            'secondFloating'    => SecondFloating::get(),
+            'thirdFloating'     => ThirdFloating::get(),
+            'fourthFloating'    => FourthFloating::get(),
+            'content'           => 'user/pages/modalHome'
         ];
 
         return view('user.pages.modalHome', $data);
@@ -70,10 +82,13 @@ class HomeController extends Controller
         $categories = ProductCategory::take(2)->get();
         $products = Product::orderBy('name')->with(['galleries', 'categories'])->take(8)->get();
         return view('user.pages.home', [
-            'product'       => $products,
-            'sosmed'        => Sosmed::get(),
-            'header'        => Header::get(),
-            'floating'      => Floating::get(),
+            'product'           => $products,
+            'sosmed'            => Sosmed::get(),
+            'header'            => Header::get(),
+            'floating'          => Floating::get(),
+            'secondFloating'    => SecondFloating::get(),
+            'thirdFloating'     => ThirdFloating::get(),
+            'fourthFloating'    => FourthFloating::get(),
         ]);
 
         // $categories = Category::take(6)->get();
@@ -91,10 +106,13 @@ class HomeController extends Controller
     {
 
         return view('user.pages.productdetail', [
-            'product'       => $post,
-            'sosmed'        => Sosmed::get(),
-            'header'        => Header::get(),
-            'floating'      => Floating::get(),
+            'product'           => $post,
+            'sosmed'            => Sosmed::get(),
+            'header'            => Header::get(),
+            'floating'          => Floating::get(),
+            'secondFloating'    => SecondFloating::get(),
+            'thirdFloating'     => ThirdFloating::get(),
+            'fourthFloating'    => FourthFloating::get(),
         ]);
     }
 
@@ -105,6 +123,9 @@ class HomeController extends Controller
             'sosmed'            => Sosmed::get(),
             'header'            => Header::get(),
             'floating'          => Floating::get(),
+            'secondFloating'    => SecondFloating::get(),
+            'thirdFloating'     => ThirdFloating::get(),
+            'fourthFloating'    => FourthFloating::get(),
             'content'           => 'user/pages/client'
         ];
 
@@ -114,10 +135,13 @@ class HomeController extends Controller
     public function myprofile()
     {
         $data = [
-            'sosmed'    => Sosmed::get(),
-            'header'    => Header::get(),
-            'floating'  => Floating::get(),
-            'content'   => 'user/pages/user-profile'
+            'sosmed'            => Sosmed::get(),
+            'header'            => Header::get(),
+            'floating'          => Floating::get(),
+            'secondFloating'    => SecondFloating::get(),
+            'thirdFloating'     => ThirdFloating::get(),
+            'fourthFloating'    => FourthFloating::get(),
+            'content'           => 'user/pages/user-profile'
         ];
 
         return view('user.pages.user-profile', $data);
@@ -126,9 +150,13 @@ class HomeController extends Controller
     public function installation()
     {
         $data = [
-            'installation' => Installation::get(),
-            'sosmed'    => Sosmed::get(),
-            'header'    => Header::get(),
+            'installation'      => Installation::get(),
+            'sosmed'            => Sosmed::get(),
+            'header'            => Header::get(),
+            'floating'          => Floating::get(),
+            'secondFloating'    => SecondFloating::get(),
+            'thirdFloating'     => ThirdFloating::get(),
+            'fourthFloating'    => FourthFloating::get(),
             'content' => 'user/pages/installation'
         ];
 
@@ -138,11 +166,14 @@ class HomeController extends Controller
     public function blog()
     {
         $data = [
-            'blog'      => Blog::get(),
-            'sosmed'    => Sosmed::get(),
-            'header'    => Header::get(),
-            'floating'  => Floating::get(),
-            'content'   => 'user/pages/blog'
+            'blog'              => Blog::get(),
+            'sosmed'            => Sosmed::get(),
+            'header'            => Header::get(),
+            'floating'          => Floating::get(),
+            'secondFloating'    => SecondFloating::get(),
+            'thirdFloating'     => ThirdFloating::get(),
+            'fourthFloating'    => FourthFloating::get(),
+            'content'           => 'user/pages/blog'
         ];
 
         return view('user.pages.blog', $data);
@@ -152,29 +183,29 @@ class HomeController extends Controller
     {
 
         $data = [
-            'blog'      => $post,
-            'sosmed'    => Sosmed::get(),
-            'header'    => Header::get(),
-            'floating'  => Floating::get(),
+            'blog'              => $post,
+            'sosmed'            => Sosmed::get(),
+            'header'            => Header::get(),
+            'floating'          => Floating::get(),
+            'secondFloating'    => SecondFloating::get(),
+            'thirdFloating'     => ThirdFloating::get(),
+            'fourthFloating'    => FourthFloating::get(),
         ];
 
         return view('user.pages.blogDetail', $data);
-
-        // return view('user.pages.blogdetail', [
-        //     'blog'      => $post,
-        //     'sosmed'    => Sosmed::get(),
-        //     'header'    => Header::get(),
-        // ]);
     }
 
     public function profile()
     {
         $data = [
-            'profile'   => Profile::get(),
-            'sosmed'    => Sosmed::get(),
-            'header'    => Header::get(),
-            'floating'  => Floating::get(),
-            'content'   => 'user/pages/profile'
+            'profile'           => Profile::get(),
+            'sosmed'            => Sosmed::get(),
+            'header'            => Header::get(),
+            'floating'          => Floating::get(),
+            'secondFloating'    => SecondFloating::get(),
+            'thirdFloating'     => ThirdFloating::get(),
+            'fourthFloating'    => FourthFloating::get(),
+            'content'           => 'user/pages/profile'
         ];
 
         return view('user.pages.profile', $data);
@@ -183,11 +214,14 @@ class HomeController extends Controller
     public function facilityandmachine()
     {
         $data = [
-            'facilityandmachine' => FacilityAndMachine::get(),
-            'sosmed'    => Sosmed::get(),
-            'header'    => Header::get(),
-            'floating'  => Floating::get(),
-            'content'   => 'user/pages/facility&machine'
+            'facilityandmachine'    => FacilityAndMachine::get(),
+            'sosmed'                => Sosmed::get(),
+            'header'                => Header::get(),
+            'floating'              => Floating::get(),
+            'secondFloating'        => SecondFloating::get(),
+            'thirdFloating'         => ThirdFloating::get(),
+            'fourthFloating'        => FourthFloating::get(),
+            'content'               => 'user/pages/facility&machine'
         ];
 
         return view('user.pages.facilityandmachine', $data);
@@ -196,11 +230,14 @@ class HomeController extends Controller
     public function facility()
     {
         $data = [
-            'facility'  => SupportingFacilities::get(),
-            'sosmed'    => Sosmed::get(),
-            'header'    => Header::get(),
-            'floating'  => Floating::get(),
-            'content'   => 'user/pages/facility'
+            'facility'          => SupportingFacilities::get(),
+            'sosmed'            => Sosmed::get(),
+            'header'            => Header::get(),
+            'floating'          => Floating::get(),
+            'secondFloating'    => SecondFloating::get(),
+            'thirdFloating'     => ThirdFloating::get(),
+            'fourthFloating'    => FourthFloating::get(),
+            'content'           => 'user/pages/facility'
         ];
 
         return view('user.pages.facility', $data);
@@ -209,11 +246,14 @@ class HomeController extends Controller
     public function machine()
     {
         $data = [
-            'machine'   => Machine::get(),
-            'sosmed'    => Sosmed::get(),
-            'header'    => Header::get(),
-            'floating'  => Floating::get(),
-            'content'   => 'user/pages/machine'
+            'machine'           => Machine::get(),
+            'sosmed'            => Sosmed::get(),
+            'header'            => Header::get(),
+            'floating'          => Floating::get(),
+            'secondFloating'    => SecondFloating::get(),
+            'thirdFloating'     => ThirdFloating::get(),
+            'fourthFloating'    => FourthFloating::get(),
+            'content'           => 'user/pages/machine'
         ];
 
         return view('user.pages.machine', $data);
@@ -223,20 +263,26 @@ class HomeController extends Controller
     {
 
         return view('user.pages.machinedetails', [
-            'machine'       => $post,
-            'sosmed'        => Sosmed::get(),
-            'header'        => Header::get(),
-            'floating'      => Floating::get(),
+            'machine'           => $post,
+            'sosmed'            => Sosmed::get(),
+            'header'            => Header::get(),
+            'floating'          => Floating::get(),
+            'secondFloating'    => SecondFloating::get(),
+            'thirdFloating'     => ThirdFloating::get(),
+            'fourthFloating'    => FourthFloating::get(),
         ]);
     }
 
     public function floating()
     {
         $data = [
-            'floating'  => Floating::all(),
-            'sosmed'    => Sosmed::get(),
-            'header'    => Header::get(),
-            'content'   => 'user/includes/floating'
+            'floating'          => Floating::all(),
+            'secondFloating'    => SecondFloating::get(),
+            'thirdFloating'     => ThirdFloating::get(),
+            'fourthFloating'    => FourthFloating::get(),
+            'sosmed'            => Sosmed::get(),
+            'header'            => Header::get(),
+            'content'           => 'user/includes/floating'
         ];
 
         return view('user.includes.floating', $data);

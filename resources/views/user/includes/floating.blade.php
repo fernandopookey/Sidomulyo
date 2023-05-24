@@ -36,111 +36,80 @@
 
 
 
-    .btn-floating.all {
-        bottom: 500px;
-        background-color: #f0f0f0;
-        border: 2px solid #fff;
-        color: black;
-    }
-
-    .btn-floating.all:hover {
-        background-color: #f0f0f0;
-    }
-
-    /* .btn-floating.print {
-        bottom: 450px;
+    .btn-floating.satu {
+        bottom: 650px;
         background-color: #00b9f2;
         border: 2px solid #fff;
     }
 
-    .btn-floating.print:hover {
+    .btn-floating.satu:hover {
         background-color: #00b9f2;
     }
 
-    .btn-floating.cs {
-        bottom: 400px;
-        background-color: #00b9f2;
-        border: 2px solid #fff;
-    }
-
-    .btn-floating.cs:hover {
-        background-color: #00b9f2;
-    }
-
-    .btn-floating.user {
-        bottom: 350px;
+    .btn-floating.dua {
+        bottom: 590px;
         background-color: #00b9f2;
         border: 2px solid #fff;
     }
 
-    .btn-floating.user:hover {
+    .btn-floating.dua:hover {
         background-color: #00b9f2;
     }
 
-    .btn-floating.cart {
-        bottom: 300px;
-        background-color: #6d6d6d;
+    .btn-floating.tiga {
+        bottom: 530px;
+        background-color: #00b9f2;
         border: 2px solid #fff;
     }
 
-    .btn-floating.cart:hover {
-        background-color: #102694;
-
+    .btn-floating.tiga:hover {
+        background-color: #00b9f2;
     }
 
-    .btn-floating.whatsapp {
-        bottom: 25px;
-        background-color: #34af23;
+    .btn-floating.empat {
+        bottom: 470px;
+        background-color: #00b9f2;
         border: 2px solid #fff;
     }
 
-    .btn-floating.whatsapp:hover {
-        background-color: #1f7a12;
-    } */
+    .btn-floating.empat:hover {
+        background-color: #00b9f2;
+    }
 </style>
 
 <!-- Floating Button -->
 <!-- Top -->
 
 @foreach ($floating as $item)
-
 <a href="{{ $item->link }}" target="_blank">
-    <button class="btn-floating all">
+    <button class="btn-floating satu">
         <img src="{{ Storage::url($item->photos) }}" width="40" alt="logo" />
         <span>{{ $item->name }}</span>
     </button>
 </a>
-
 @endforeach
-{{-- <a href="#">
-    <button class="btn-floating print">
-        <i class="fa-solid fa-print fa-2x"></i>
-        <span>Cetak</span>
-    </button>
-</a>
-<a href="#">
-    <button class="btn-floating cs">
-        <i class="fa-solid fa-phone fa-1x"></i>
-        <span>Customer Service</span>
-    </button>
-</a>
-<a href="#">
-    <button class="btn-floating user">
-        <i class="fa-solid fa-user fa-1x"></i>
-        <span>User</span>
-    </button>
-</a>
-<a href="#">
-    <button class="btn-floating cart">
-        <img src="/images/cart.png" style="max-width: 30px" alt="cart">
-        <span>Keranjang</span>
-    </button>
-</a> --}}
 
-<!-- Bottom -->
-{{-- <a href="https://wa.me/085254143531?text=I'm%20interested%20in%20your%20car%20for%20sale" target="_blank">
-    <button class="btn-floating whatsapp">
-        <img src="/images/whatsapp.png" alt="whatsapp">
-        <span>Whatsapp</span>
+@foreach ($secondFloating as $item)
+<a href="{{ $item->link }}" target="_blank">
+    <button class="btn-floating dua">
+        <img src="{{ Storage::url($item->photos) }}" width="40" alt="logo" />
+        <span>{{ $item->name }}</span>
     </button>
-</a> --}}
+</a>
+@endforeach
+@foreach ($thirdFloating as $item)
+<a href="{{ $item->link }}" target="_blank">
+    <button class="btn-floating tiga">
+        <img src="{{ Storage::url($item->photos) }}" width="40" alt="logo" />
+        <span>{{ $item->name }}</span>
+    </button>
+</a>
+@endforeach
+@foreach ($fourthFloating as $item)
+<a href="{{ $item->link }}" target="_blank">
+    <button class="btn-floating empat">
+        <img src="{{ Storage::url($item->photos) }}" width="40" alt="logo" />
+        <span>{{ $item->name }}</span>
+    </button>
+</a>
+@endforeach
