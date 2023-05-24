@@ -5,6 +5,8 @@ use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
 use App\Http\Controllers\Admin\FacilityAndMachineController;
+use App\Http\Controllers\Admin\FloatingController;
+use App\Http\Controllers\Admin\FourthFloatingController;
 use App\Http\Controllers\Admin\HeaderController;
 use App\Http\Controllers\Admin\HomeContentController;
 use App\Http\Controllers\Admin\HomeTextContentController;
@@ -15,7 +17,9 @@ use App\Http\Controllers\Admin\ProductCategoryController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\ProductGalleryController;
 use App\Http\Controllers\Admin\ProfileController;
+use App\Http\Controllers\Admin\SecondFloatingController;
 use App\Http\Controllers\Admin\SosmedController;
+use App\Http\Controllers\Admin\ThirdFloatingController;
 use App\Http\Controllers\Admin\TransactionController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\CartController;
@@ -157,7 +161,17 @@ Route::prefix('admin')->namespace('Admin')->middleware(['auth', 'admin'])->group
 
     Route::resource('user', '\App\Http\Controllers\Admin\UserController');
 
-    Route::resource('floating', '\App\Http\Controllers\Admin\FloatingController');
+    Route::get('/first_floating', [FloatingController::class, 'index']);
+    Route::put('/first_floating/update', [FloatingController::class, 'update']);
+
+    Route::get('/second_floating', [SecondFloatingController::class, 'index']);
+    Route::put('/second_floating/update', [SecondFloatingController::class, 'update']);
+
+    Route::get('/third_floating', [ThirdFloatingController::class, 'index']);
+    Route::put('/third_floating/update', [ThirdFloatingController::class, 'update']);
+
+    Route::get('/fourth_floating', [FourthFloatingController::class, 'index']);
+    Route::put('/fourth_floating/update', [FourthFloatingController::class, 'update']);
 
     Route::get('/status-update/{id}', [ChangeController::class, 'status_update']);
 

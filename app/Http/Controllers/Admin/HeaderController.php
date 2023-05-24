@@ -24,7 +24,7 @@ class HeaderController extends Controller
     {
         $item = Header::first();
         $data = $request->validate([
-            'logo'              =>  'image',
+            'logo'              =>  'required|mimes:png,jpg,jpeg,svg',
             'phone_number'      =>  'required',
             'facebook_title'    =>  'required',
             'facebook_link'     =>  'required',

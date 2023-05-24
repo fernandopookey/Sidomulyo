@@ -3,21 +3,18 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\FloatingRequest;
-use App\Models\Floating;
+use App\Models\SecondFloating;
 use Illuminate\Http\Request;
-use Yajra\DataTables\Facades\DataTables;
-use Illuminate\Support\Facades\Storage;
 use RealRashid\SweetAlert\Facades\Alert;
 
-class FloatingController extends Controller
+class SecondFloatingController extends Controller
 {
     public function index()
     {
         $data = [
-            'title'         => 'Floating Button Pertama',
-            'floating'      => Floating::first(),
-            'content'       => 'admin/floating/firstFloating'
+            'title'         => 'Floating Button Kedua',
+            'floating'      => SecondFloating::first(),
+            'content'       => 'admin/floating/secondFloating'
         ];
         return view('admin.layouts.wrapper', $data);
     }
@@ -25,7 +22,7 @@ class FloatingController extends Controller
 
     public function update(Request $request)
     {
-        $item = Floating::first();
+        $item = SecondFloating::first();
         $data = $request->validate([
             'name'      => 'required',
             'link'      => 'required',
@@ -50,6 +47,6 @@ class FloatingController extends Controller
 
         $item->update($data);
         Alert::success('Sukses', 'Data Berhasil Diubah');
-        return redirect('/admin/first_floating');
+        return redirect('/admin/second_floating');
     }
 }

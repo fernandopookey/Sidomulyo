@@ -68,7 +68,7 @@
                                 </p>
                             </a>
                         </li>
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a href="{{ route('floating.index') }}"
                                 class="nav-link {{ (request()->is('admin/floating')) ? 'active' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
@@ -76,13 +76,61 @@
                                     Floating Button
                                 </p>
                             </a>
-                        </li>
+                        </li> --}}
                         <li class="nav-item">
                             <a href="/admin/modalHome"
                                 class="nav-link {{ (request()->is('admin/modalHome')) ? 'active' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>
                                     Modal Halaman Utama
+                                </p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                {{-- Floating Button --}}
+                <li class="nav-item">
+                    <a href="#" class="nav-link {{ (request()->is('admin')) ? 'active' : '' }}">
+                        <p>
+                            FLOATING BUTTON
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="/admin/first_floating"
+                                class="nav-link {{ (request()->is('admin/first_floating')) ? 'active' : '' }}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>
+                                    Floating Button 1
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/admin/second_floating"
+                                class="nav-link {{ (request()->is('admin/second_floating')) ? 'active' : '' }}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>
+                                    Floating Button 2
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/admin/third_floating"
+                                class="nav-link {{ (request()->is('admin/third_floating')) ? 'active' : '' }}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>
+                                    Floating Button 3
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/admin/fourth_floating"
+                                class="nav-link {{ (request()->is('admin/fourth_floating')) ? 'active' : '' }}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>
+                                    Floating Button 4
                                 </p>
                             </a>
                         </li>
