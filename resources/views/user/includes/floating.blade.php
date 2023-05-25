@@ -37,7 +37,7 @@
 
 
     .btn-floating.satu {
-        bottom: 650px;
+        bottom: 400px;
         background-color: #00b9f2;
         border: 2px solid #fff;
     }
@@ -47,7 +47,7 @@
     }
 
     .btn-floating.dua {
-        bottom: 590px;
+        bottom: 340px;
         background-color: #00b9f2;
         border: 2px solid #fff;
     }
@@ -57,7 +57,7 @@
     }
 
     .btn-floating.tiga {
-        bottom: 530px;
+        bottom: 280px;
         background-color: #00b9f2;
         border: 2px solid #fff;
     }
@@ -67,7 +67,7 @@
     }
 
     .btn-floating.empat {
-        bottom: 470px;
+        bottom: 220px;
         background-color: #00b9f2;
         border: 2px solid #fff;
     }
