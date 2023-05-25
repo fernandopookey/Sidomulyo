@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Floating;
+use App\Models\FourthFloating;
 use App\Models\Header;
 use App\Models\PaymentConfirmation;
+use App\Models\SecondFloating;
 use App\Models\Sosmed;
+use App\Models\ThirdFloating;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -14,16 +18,23 @@ class UserPaymentConfirmationController extends Controller
 {
     public function index($id)
     {
-        $sosmed         = Sosmed::get();
-        $header         = Header::get();
-
-        $payment   = Transaction::where('id', $id)->where('users_id', Auth::id())->first();
+        $sosmed             = Sosmed::get();
+        $header             = Header::get();
+        $floating           = Floating::get();
+        $secondFloating     = SecondFloating::get();
+        $thirdFloating      = ThirdFloating::get();
+        $fourthFloating     = FourthFloating::get();
+        $payment            = Transaction::where('id', $id)->where('users_id', Auth::id())->first();
 
         $data = [
-            'sosmed'    => $sosmed,
-            'header'    => $header,
-            'content'   => 'user/pages/payment-confirmation',
-            'payment'   => $payment
+            'sosmed'            => $sosmed,
+            'header'            => $header,
+            'floating'          => $floating,
+            'secondFloating'    => $secondFloating,
+            'thirdFloating'     => $thirdFloating,
+            'fourthFloating'    => $fourthFloating,
+            'content'           => 'user/pages/payment-confirmation',
+            'payment'           => $payment
         ];
 
         return view('user.pages.payment-confirmation', $data);
@@ -92,9 +103,13 @@ class UserPaymentConfirmationController extends Controller
     public function success()
     {
         $data = [
-            'sosmed'    => Sosmed::get(),
-            'header'    => Header::get(),
-            'content' => 'user/pages/paymentConfirmationSuccess'
+            'sosmed'            => Sosmed::get(),
+            'header'            => Header::get(),
+            'floating'          => Floating::get(),
+            'secondFloating'    => SecondFloating::get(),
+            'thirdFloating'     => ThirdFloating::get(),
+            'fourthFloating'    => FourthFloating::get(),
+            'content'           => 'user/pages/paymentConfirmationSuccess'
         ];
 
         return view('user.pages.paymentConfirmationSuccess', $data);
