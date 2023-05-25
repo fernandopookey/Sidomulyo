@@ -5,7 +5,8 @@
             @method('PUT')
             @csrf
 
-
+            {{-- <a href="{{ asset('images/tes.pdf') }}">Open the pdf!</a> --}}
+            <a href="{{ Storage::disk('local')->url($profile->document) }}">Download Dokumen PDF</a>
             <div class="row">
                 <div class="col-md-12">
                     <div class="form-group">

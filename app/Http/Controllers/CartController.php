@@ -3,8 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cart;
+use App\Models\Floating;
+use App\Models\FourthFloating;
 use App\Models\Header;
+use App\Models\SecondFloating;
 use App\Models\Sosmed;
+use App\Models\ThirdFloating;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -15,16 +19,24 @@ class CartController extends Controller
 {
     public function index()
     {
-        $sosmed     = Sosmed::get();
-        $header     = Header::get();
+        $sosmed             = Sosmed::get();
+        $header             = Header::get();
+        $floating           = Floating::get();
+        $secondFloating     = SecondFloating::get();
+        $thirdFloating      = ThirdFloating::get();
+        $fourthFloating     = FourthFloating::get();
         $carts      = Cart::with(['product.galleries', 'user'])->where('users_id', Auth::user()->id)->get();
         $user       = Auth::user();
 
         return view('user.pages.cart', [
-            'carts'     => $carts,
-            'sosmed'    => $sosmed,
-            'header'    => $header,
-            'user'      => $user
+            'carts'             => $carts,
+            'sosmed'            => $sosmed,
+            'header'            => $header,
+            'floating'          => $floating,
+            'secondFloating'    => $secondFloating,
+            'thirdFloating'     => $thirdFloating,
+            'fourthFloating'    => $fourthFloating,
+            'user'              => $user
         ]);
     }
 
