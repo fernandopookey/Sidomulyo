@@ -179,6 +179,9 @@ Route::prefix('admin')->namespace('Admin')->middleware(['auth', 'admin'])->group
     Route::resource('slider', '\App\Http\Controllers\Admin\SliderController');
 
     Route::resource('blog', '\App\Http\Controllers\Admin\BlogController');
+
+    Route::resource('coupons', '\App\Http\Controllers\Admin\CouponsController');
+
     Route::resource('installation', '\App\Http\Controllers\Admin\InstallationController');
 
     Route::get('/navbar_content', [HeaderController::class, 'index']);

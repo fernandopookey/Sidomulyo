@@ -89,6 +89,27 @@
                     </ul>
                 </li>
 
+                {{-- Coupons --}}
+                <li class="nav-item">
+                    <a href="#" class="nav-link {{ (request()->is('admin')) ? 'active' : '' }}">
+                        <p>
+                            E-COMMERCE
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('coupons.index') }}"
+                                class="nav-link {{ (request()->is('admin/coupons')) ? 'active' : '' }}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>
+                                    Kupon
+                                </p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
                 {{-- Floating Button --}}
                 <li class="nav-item">
                     <a href="#" class="nav-link {{ (request()->is('admin')) ? 'active' : '' }}">
