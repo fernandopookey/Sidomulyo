@@ -24,13 +24,6 @@ class ChangeController extends Controller
         DB::table('users')->where('id', $id)->update($values);
         session()->flash('msg', 'Sukses');
         return redirect()->route('user.index');
-
-        // Log::info($request->all());
-        // $user = User::find($request->user_id);
-        // $user->status = $request->status;
-        // $user->save();
-
-        // return response()->json(['success' => 'Status change successfully.']);
     }
 
     public function transaction_status($id)
