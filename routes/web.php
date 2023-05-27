@@ -180,6 +180,8 @@ Route::prefix('admin')->namespace('Admin')->middleware(['auth', 'admin'])->group
 
     Route::resource('blog', '\App\Http\Controllers\Admin\BlogController');
 
+    Route::resource('discountTotalPayment', '\App\Http\Controllers\Admin\DiscountTotalPaymentController');
+
     Route::resource('coupons', '\App\Http\Controllers\Admin\CouponsController');
 
     Route::resource('installation', '\App\Http\Controllers\Admin\InstallationController');
