@@ -9,7 +9,8 @@
                         <label>Hubungi Kami</label>
                         <input type="text" name="phone_number"
                             class="form-control @error('phone_number') is-invalid @enderror"
-                            value="{{ isset($header) ? $header->phone_number : old('phone_number') }}">
+                            value="{{ isset($header) ? $header->phone_number : old('phone_number') }}"
+                            autocomplete="off">
                         @error('phone_number')
                         <div class="invalid-feedback">
                             {{ $message }}
@@ -24,7 +25,8 @@
                         <label for="">Teks Navigasi Bar 1</label>
                         <input type="text" name="facebook_title"
                             class="form-control @error('facebook_title') is-invalid @enderror"
-                            value="{{ isset($header) ? $header->facebook_title : old('facebook_title') }}">
+                            value="{{ isset($header) ? $header->facebook_title : old('facebook_title') }}"
+                            autocomplete="off">
                         @error('facebook_title')
                         <div class="invalid-feedback">
                             {{ $message }}
@@ -37,7 +39,8 @@
                         <label for="">Link Navigasi Bar 1</label>
                         <input type="text" name="facebook_link"
                             class="form-control @error('facebook_link') is-invalid @enderror"
-                            value="{{ isset($header) ? $header->facebook_link : old('facebook_link') }}">
+                            value="{{ isset($header) ? $header->facebook_link : old('facebook_link') }}"
+                            autocomplete="off">
                         @error('facebook_link')
                         <div class="invalid-feedback">
                             {{ $message }}
@@ -52,7 +55,8 @@
                         <label for="">Teks Navigasi Bar 2</label>
                         <input type="text" name="twiter_title"
                             class="form-control @error('twiter_title') is-invalid @enderror"
-                            value="{{ isset($header) ? $header->twiter_title : old('twiter_title') }}">
+                            value="{{ isset($header) ? $header->twiter_title : old('twiter_title') }}"
+                            autocomplete="off">
                         @error('twiter_title')
                         <div class="invalid-feedback">
                             {{ $message }}
@@ -65,7 +69,7 @@
                         <label for="">Link Navigasi Bar 2</label>
                         <input type="text" name="twiter_link"
                             class="form-control @error('twiter_link') is-invalid @enderror"
-                            value="{{ isset($header) ? $header->twiter_link : old('twiter_link') }}">
+                            value="{{ isset($header) ? $header->twiter_link : old('twiter_link') }}" autocomplete="off">
                         @error('twiter_link')
                         <div class="invalid-feedback">
                             {{ $message }}
@@ -80,7 +84,8 @@
                         <label for="">Teks Navigasi Bar 3</label>
                         <input type="text" name="instagram_title"
                             class="form-control @error('instagram_title') is-invalid @enderror"
-                            value="{{ isset($header) ? $header->instagram_title : old('instagram_title') }}">
+                            value="{{ isset($header) ? $header->instagram_title : old('instagram_title') }}"
+                            autocomplete="off">
                         @error('instagram_title')
                         <div class="invalid-feedback">
                             {{ $message }}
@@ -93,7 +98,8 @@
                         <label for="">Link Navigasi Bar 3</label>
                         <input type="text" name="instagram_link"
                             class="form-control @error('instagram_link') is-invalid @enderror"
-                            value="{{ isset($header) ? $header->instagram_link : old('instagram_link') }}">
+                            value="{{ isset($header) ? $header->instagram_link : old('instagram_link') }}"
+                            autocomplete="off" autocomplete="off">
                         @error('instagram_link')
                         <div class="invalid-feedback">
                             {{ $message }}

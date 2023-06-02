@@ -15,77 +15,22 @@ class BackgroundImageController extends Controller
     public function index()
     {
         $data = [
-            'title'             => 'List Background Image',
-            'backgroundImage'   => BackgroundImage::get(),
+            'title'             => 'Background',
+            'backgroundImage'   => BackgroundImage::first(),
             'content'           => 'admin/background-image/index'
         ];
-
-        if (request()->ajax()) {
-            $query = BackgroundImage::query();
-
-            return DataTables::of($query)->addColumn('action', function ($item) {
-                return '
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-primary">Aksi</button>
-                        <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
-                            <span class="visually-hidden">Toggle Dropdown</span>
-                        </button>
-                        <ul class="dropdown-menu">
-                                <a class="dropdown-item" href="' . route('backgroundImage.edit', $item->id) . '">
-                                    Edit
-                                </a>
-                                <form action="' . route('backgroundImage.destroy', $item->id) . '" method="POST">
-                                    ' . method_field('delete') . csrf_field() . '
-                                    <button type="submit" class="dropdown-item text-danger">Hapus</button>
-                                </form>
-                        </ul>
-                    </div>
-                ';
-            })->editColumn('photos', function ($item) {
-                return $item->photos ? '<img src="' . Storage::url($item->photos) . '" style="height: 100px; width: 120px; object-fit: cover;" />' : '';
-            })->rawColumns(['action', 'photos'])->make();
-        }
-
-        return view('new-admin.layouts.wrapper', $data);
-    }
-
-    public function create()
-    {
-        $data = [
-            'title' => 'Tambah Background Image',
-            'content' => 'admin/background-image/create'
-        ];
-
         return view('admin.layouts.wrapper', $data);
     }
 
-    public function store(BackgroundImageRequest $request)
+
+    public function update(Request $request)
     {
-        $data = $request->all();
-
-        $data['photos'] = $request->file('photos')->store('assets/backgroundImage', 'public');
-
-        BackgroundImage::create($data);
-        Alert::success('Sukses', 'Background Image Berhasil Ditambahkan');
-        return redirect()->route('backgroundImage.index');
-    }
-
-    public function edit(string $id)
-    {
-        $data = [
-            'title'             => 'Edit Background Image',
-            'backgroundImage'   => BackgroundImage::find($id),
-            'content'           => 'admin/background-image/edit'
-        ];
-        return view('admin.layouts.wrapper', $data);
-    }
-
-    public function update(Request $request, string $id)
-    {
-        $item = BackgroundImage::find($id);
+        $item = BackgroundImage::first();
         $data = $request->validate([
-            'photos'        => 'image',
+            'photos'    =>  'required|mimes:png,jpg,jpeg,svg',
         ]);
+
+        // $data['logo'] = $request->file('logo')->store('assets/header', 'public');
 
         if ($request->hasFile('photos')) {
 
@@ -98,14 +43,19 @@ class BackgroundImageController extends Controller
 
             $photos = $request->file('photos');
             $file_name = time() . '-' . $photos->getClientOriginalName();
-
-            $data['photos'] = $request->file('photos')->store('assets/backgroundImage', 'public');
+            $data['photos'] = $request->file('photos')->store('assets/backgroundImages', 'public');
         } else {
             $data['photos'] = $item->photos;
         }
 
+        // $item->update($data);
+        // Alert::success('Sukses', 'Data Berhasil Diubah');
+        // return redirect('/admin/header');
+
+        // $data['logo'] = $request->file('logo')->store('assets/header', 'public');
+
         $item->update($data);
-        Alert::success('Sukses', 'Background Berhasil Diubah');
-        return redirect()->route('backgroundImage.index');
+        Alert::success('Sukses', 'Data Berhasil Diubah');
+        return redirect('/admin/background_image');
     }
 }

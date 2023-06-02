@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddFieldCategoriesAtProductsTable extends Migration
+class AddFieldNameAtBackgroundImagesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AddFieldCategoriesAtProductsTable extends Migration
      */
     public function up()
     {
-        Schema::table('products', function (Blueprint $table) {
-            $table->integer('categories_id');
+        Schema::table('background_images', function (Blueprint $table) {
+            $table->string('name');
         });
     }
 
@@ -25,8 +25,8 @@ class AddFieldCategoriesAtProductsTable extends Migration
      */
     public function down()
     {
-        Schema::table('products', function (Blueprint $table) {
-            $table->dropColumn('categories_id');
+        Schema::table('background_images', function (Blueprint $table) {
+            //
         });
     }
 }

@@ -52,7 +52,7 @@ Sidomulyo | My Profile Page
                                         <td>
                                             <div class="input-group input-group-static">
                                                 <input type="text" name="email" class="form-control"
-                                                    value="{{ $user->email }}" required>
+                                                    value="{{ $user->email }}" disabled>
                                             </div>
                                         </td>
                                     </tr>

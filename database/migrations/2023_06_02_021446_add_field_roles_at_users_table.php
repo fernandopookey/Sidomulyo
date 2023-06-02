@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class DeleteFieldOtherAtSosmedsTable extends Migration
+class AddFieldRolesAtUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class DeleteFieldOtherAtSosmedsTable extends Migration
      */
     public function up()
     {
-        Schema::table('sosmeds', function (Blueprint $table) {
-            $table->dropColumn('home_title');
+        Schema::table('users', function (Blueprint $table) {
+            $table->string('roles')->default('USER');
         });
     }
 
@@ -25,7 +25,7 @@ class DeleteFieldOtherAtSosmedsTable extends Migration
      */
     public function down()
     {
-        Schema::table('sosmeds', function (Blueprint $table) {
+        Schema::table('users', function (Blueprint $table) {
             //
         });
     }

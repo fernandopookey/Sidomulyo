@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\BackgroundImageController;
 use App\Http\Controllers\Admin\ChangeController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
@@ -26,11 +27,13 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\UserPaymentConfirmationController;
 
 use App\Http\Controllers\Cs\DashboarController as CsDashboardController;
+use App\Http\Controllers\GoogleController;
 use App\Http\Controllers\UserCheckoutController;
 use App\Http\Controllers\UserProductCategoryController;
 use App\Http\Controllers\UserProductController;
 use App\Http\Controllers\UserProfileController;
 use App\Http\Controllers\UserTransactionController;
+use App\Models\BackgroundImage;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Support\Facades\Auth;
 
@@ -46,6 +49,10 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+
+// Route::get('auth/google', );
+Route::get('/auth/google', [GoogleController::class, 'redirectToGoogle'])->name('google.login');
+Route::get('/auth/google/callback', [GoogleController::class, 'handleGoogleCallback'])->name('google.callback');
 
 // Route::get('/cart', [CartController::class, 'index'])->name('cart');
 
@@ -142,11 +149,13 @@ Route::prefix('admin')->namespace('Admin')->middleware(['auth', 'admin'])->group
 
     Route::resource('client', '\App\Http\Controllers\Admin\ClientController');
 
-    Route::resource('backgroundImage', '\App\Http\Controllers\Admin\BackgroundImageController');
+    // Route::resource('backgroundImage', '\App\Http\Controllers\Admin\BackgroundImageController');
+    Route::get('/background_image', [BackgroundImageController::class, 'index']);
+    Route::put('/background_image/update', [BackgroundImageController::class, 'update']);
 
     Route::resource('homecontent', '\App\Http\Controllers\Admin\HomeContentController');
 
-    Route::resource('profile', '\App\Http\Controllers\Admin\ProfileController');
+    // Route::resource('profile', '\App\Http\Controllers\Admin\ProfileController');
     Route::get('/profile', [ProfileController::class, 'index']);
     Route::put('/profile/update', [ProfileController::class, 'update']);
 

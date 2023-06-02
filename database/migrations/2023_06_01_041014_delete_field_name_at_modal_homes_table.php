@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class DeleteFieldDescriptionAtModalHomesTable extends Migration
+class DeleteFieldNameAtModalHomesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,6 +14,7 @@ class DeleteFieldDescriptionAtModalHomesTable extends Migration
     public function up()
     {
         Schema::table('modal_homes', function (Blueprint $table) {
+            $table->dropColumn('name');
             $table->dropColumn('description');
         });
     }

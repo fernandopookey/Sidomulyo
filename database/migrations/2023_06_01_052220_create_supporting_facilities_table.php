@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class DeleteFieldNameAtModalHomesTabel extends Migration
+class CreateSupportingFacilitiesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,11 @@ class DeleteFieldNameAtModalHomesTabel extends Migration
      */
     public function up()
     {
-        Schema::table('modal_homes', function (Blueprint $table) {
-            $table->dropColumn('name');
+        Schema::create('supporting_facilities', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->string('photos');
+            $table->timestamps();
         });
     }
 
@@ -25,8 +28,6 @@ class DeleteFieldNameAtModalHomesTabel extends Migration
      */
     public function down()
     {
-        Schema::table('modal_homes', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('supporting_facilities');
     }
 }

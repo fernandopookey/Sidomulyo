@@ -198,7 +198,7 @@ class HomeController extends Controller
     public function profile()
     {
         $data = [
-            'profile'           => Profile::get(),
+            'profile'           => Profile::first(),
             'sosmed'            => Sosmed::get(),
             'header'            => Header::get(),
             'floating'          => Floating::get(),

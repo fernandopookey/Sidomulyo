@@ -59,6 +59,12 @@
                                     </button>
                                 </div>
                             </form>
+                            {{-- <div class="row-btn">
+                                <button type="submit" class="btn btn-block">LOGIN WITH GOOGLE</button>
+                            </div> --}}
+                            <div class="row-btn">
+                                <a href="{{ route('google.login') }}" class="btn">Login With Google</a>
+                            </div>
                         </div>
                     </div>
                 </div>

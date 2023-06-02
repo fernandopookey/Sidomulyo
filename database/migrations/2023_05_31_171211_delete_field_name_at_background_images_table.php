@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class DeleteFieldNameAtPaymentConfirmationsTable extends Migration
+class DeleteFieldNameAtBackgroundImagesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,8 @@ class DeleteFieldNameAtPaymentConfirmationsTable extends Migration
      */
     public function up()
     {
-        Schema::table('payment_confirmations', function (Blueprint $table) {
+        Schema::table('background_images', function (Blueprint $table) {
             $table->dropColumn('name');
-            $table->dropColumn('total');
         });
     }
 
@@ -26,7 +25,7 @@ class DeleteFieldNameAtPaymentConfirmationsTable extends Migration
      */
     public function down()
     {
-        Schema::table('payment_confirmations', function (Blueprint $table) {
+        Schema::table('background_images', function (Blueprint $table) {
             //
         });
     }

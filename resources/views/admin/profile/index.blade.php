@@ -1,19 +1,27 @@
 <div class="row">
     <div class="col-md-12">
-
+        @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+        @endif
         <form action="/admin/profile/update" method="POST" enctype="multipart/form-data">
             @method('PUT')
             @csrf
 
             {{-- <a href="{{ asset('images/tes.pdf') }}">Open the pdf!</a> --}}
-            <a href="{{ Storage::disk('local')->url($profile->document) }}">Download Dokumen PDF</a>
+            {{-- <a href="{{ Storage::disk('local')->url($profile->document) }}">Download Dokumen PDF</a> --}}
             <div class="row">
                 <div class="col-md-12">
                     <div class="form-group">
                         <label for="">Nama</label>
                         <input type="text" name="name" class="form-control @error('name') is-invalid @enderror"
                             value="{{ isset($profile) ? $profile->name : old('name') }}" autocomplete="off">
-                        @error('home_title')
+                        @error('name')
                         <div class="invalid-feedback">
                             {{ $message }}
                         </div>

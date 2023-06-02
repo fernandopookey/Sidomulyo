@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class DeleteTitleLinksFieldAtHomeContentsTable extends Migration
+class CreateInstallationsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,11 @@ class DeleteTitleLinksFieldAtHomeContentsTable extends Migration
      */
     public function up()
     {
-        Schema::table('home_contents', function (Blueprint $table) {
-            //
+        Schema::create('installations', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->string('photos');
+            $table->timestamps();
         });
     }
 
@@ -25,8 +28,6 @@ class DeleteTitleLinksFieldAtHomeContentsTable extends Migration
      */
     public function down()
     {
-        Schema::table('home_contents', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('installations');
     }
 }

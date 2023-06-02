@@ -48,7 +48,7 @@
                     name: 'action',
                     orderable: false,
                     searchable: false,
-                    width: '20%'
+                    width: '13%'
                 },
             ]
         })
