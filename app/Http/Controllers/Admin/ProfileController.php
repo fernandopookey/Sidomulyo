@@ -42,15 +42,9 @@ class ProfileController extends Controller
             'misi'          => 'required',
             'proper'        => 'required',
             'description'   => 'required',
-            'photos'        => 'image',
-            'document'      => 'required|mimes:pdf,xlxs,xlx,docx,doc,csv,txt,png,gif,jpg,jpeg|max:2048'
+            'photos'        => 'mimes:png,jpg,jpeg',
+            'document'      => 'mimes:pdf,xlxs,xlx,docx,doc,csv,txt'
         ]);
-
-        // $fileName = $request->file('document')->getClientOriginalName();
-        // $filePath = 'uploads/' . $fileName;
-
-        // $path = Storage::disk('public')->put($filePath, file_get_contents($request->file('document')));
-        // $path = Storage::disk('public')->url($path);
 
         if ($request->hasFile('document')) {
 

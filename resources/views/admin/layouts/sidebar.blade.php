@@ -68,15 +68,15 @@
                                 </p>
                             </a>
                         </li>
-                        {{-- <li class="nav-item">
-                            <a href="{{ route('floating.index') }}"
-                                class="nav-link {{ (request()->is('admin/floating')) ? 'active' : '' }}">
+                        <li class="nav-item">
+                            <a href="/admin/background_image"
+                                class="nav-link {{ (request()->is('admin/background_image')) ? 'active' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>
-                                    Floating Button
+                                    Background Image
                                 </p>
                             </a>
-                        </li> --}}
+                        </li>
                         <li class="nav-item">
                             <a href="/admin/modalHome"
                                 class="nav-link {{ (request()->is('admin/modalHome')) ? 'active' : '' }}">

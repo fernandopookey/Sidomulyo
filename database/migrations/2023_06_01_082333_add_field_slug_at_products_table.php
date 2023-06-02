@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddPriceFieldAtProductsTable extends Migration
+class AddFieldSlugAtProductsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class AddPriceFieldAtProductsTable extends Migration
     public function up()
     {
         Schema::table('products', function (Blueprint $table) {
-            $table->integer('price');
+            $table->string('slug')->after('price');
         });
     }
 
@@ -26,7 +26,7 @@ class AddPriceFieldAtProductsTable extends Migration
     public function down()
     {
         Schema::table('products', function (Blueprint $table) {
-            $table->dropColumn('price');
+            //
         });
     }
 }

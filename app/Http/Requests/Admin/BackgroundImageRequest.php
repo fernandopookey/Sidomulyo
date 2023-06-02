@@ -24,7 +24,7 @@ class BackgroundImageRequest extends FormRequest
     public function rules()
     {
         return [
-            'photos'        => 'required|image'
+            'photos'        => 'required|mimes:png,jpg,jpeg'
         ];
     }
 }

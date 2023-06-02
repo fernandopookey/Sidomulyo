@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class DeleteFieldHomeTitleAtSosmedsTable extends Migration
+class AddFieldGoogleIdAtUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class DeleteFieldHomeTitleAtSosmedsTable extends Migration
      */
     public function up()
     {
-        Schema::table('sosmeds', function (Blueprint $table) {
-            $table->dropColumn('other');
+        Schema::table('users', function (Blueprint $table) {
+            $table->string('google_id')->after('email')->nullable();
         });
     }
 
@@ -25,7 +25,7 @@ class DeleteFieldHomeTitleAtSosmedsTable extends Migration
      */
     public function down()
     {
-        Schema::table('sosmeds', function (Blueprint $table) {
+        Schema::table('users', function (Blueprint $table) {
             //
         });
     }

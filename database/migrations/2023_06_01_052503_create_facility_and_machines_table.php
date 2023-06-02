@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddFieldAdditionalInfoAtProductsTable extends Migration
+class CreateFacilityAndMachinesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,11 @@ class AddFieldAdditionalInfoAtProductsTable extends Migration
      */
     public function up()
     {
-        Schema::table('products', function (Blueprint $table) {
-            $table->text('additional_info');
+        Schema::create('facility_and_machines', function (Blueprint $table) {
+            $table->id();
+            $table->text('head');
+            $table->text('description');
+            $table->timestamps();
         });
     }
 
@@ -25,8 +28,6 @@ class AddFieldAdditionalInfoAtProductsTable extends Migration
      */
     public function down()
     {
-        Schema::table('products', function (Blueprint $table) {
-            $table->dropColumn('additional_info');
-        });
+        Schema::dropIfExists('facility_and_machines');
     }
 }

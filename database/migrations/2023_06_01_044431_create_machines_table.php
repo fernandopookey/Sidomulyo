@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class DeleteFieldDescriptionAtSlidersTable extends Migration
+class CreateMachinesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,13 @@ class DeleteFieldDescriptionAtSlidersTable extends Migration
      */
     public function up()
     {
-        Schema::table('sliders', function (Blueprint $table) {
-            $table->dropColumn('description');
+        Schema::create('machines', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->string('slug');
+            $table->text('description');
+            $table->string('photos');
+            $table->timestamps();
         });
     }
 
@@ -25,8 +30,6 @@ class DeleteFieldDescriptionAtSlidersTable extends Migration
      */
     public function down()
     {
-        Schema::table('sliders', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('machines');
     }
 }

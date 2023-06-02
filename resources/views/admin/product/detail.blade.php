@@ -28,8 +28,8 @@
                 <div class="form-group">
                     <label>Kategori</label>
                     <select name="categories_id" class="form-control">
-                        <option value="{{ $product->categories_id }}">Tidak diganti ({{
-                            $product->categories->name }})</option>
+                        <option value="{{ $product->categories_id ?? 'Kategori Tidak Ada' }}">Tidak diganti ({{
+                            $product->categories->name ?? 'Kategori Tidak Ada' }})</option>
                         @foreach ($categories as $item)
                         <option value="{{ $item->id }}">{{ $item->name }}</option>
                         @endforeach

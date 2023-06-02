@@ -16,13 +16,15 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>Nama Produk</label>
-                            <input type="text" name="name" class="form-control" autocomplete="off" required>
+                            <input type="text" name="name" class="form-control" value="{{ old('name') }}"
+                                autocomplete="off" required>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>Harga Produk</label>
-                            <input type="number" name="price" class="form-control" autocomplete="off" required>
+                            <input type="number" name="price" class="form-control" autocomplete="off"
+                                value="{{ old('price') }}" required>
                         </div>
                     </div>
                     <div class="col-md-12">
@@ -40,7 +42,7 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>Deskripsi Produk</label>
-                            <textarea name="description" id="editor"></textarea>
+                            <textarea name="description" id="editor">{{ old('description') }}</textarea>
                         </div>
                     </div>
                     <div class="col-md-6">
