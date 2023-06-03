@@ -128,6 +128,15 @@
                                 </p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="/admin/pengiriman"
+                                class="nav-link {{ (request()->is('admin/pengiriman')) ? 'active' : '' }}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>
+                                    Pengiriman
+                                </p>
+                            </a>
+                        </li>
                     </ul>
                 </li>
 

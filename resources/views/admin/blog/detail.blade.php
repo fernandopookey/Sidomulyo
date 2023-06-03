@@ -21,12 +21,22 @@
             </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-12">
-            <div class="form-group">
-                <label for="inputEmail">Deskripsi</label>
-                <span>{!! $blog->description !!}</span>
-            </div>
+    <div class="col-12">
+        <div class="form-group">
+            <label for="inputMessage">Sumber</label>
+            <input type="text" class="form-control" value="{{ $blog->source }}" disabled>
+        </div>
+    </div>
+    <div class="col-12">
+        <div class="form-group">
+            <label for="inputMessage">Link Sumber</label>
+            <input type="text" class="form-control" value="{{ $blog->source_link }}" disabled>
+        </div>
+    </div>
+    <div class="col-12">
+        <div class="form-group">
+            <label for="inputEmail">Deskripsi</label>
+            <span>{!! $blog->description !!}</span>
         </div>
     </div>
 </section>

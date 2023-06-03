@@ -102,6 +102,8 @@ class BlogController extends Controller
             'name'          => 'required',
             'author'        => 'required',
             'description'   => 'required',
+            'source'        => 'required',
+            'source_link'   => 'required',
             'slug'          => 'string',
             'photos'        => 'mimes:png,jpg,jpeg',
         ]);

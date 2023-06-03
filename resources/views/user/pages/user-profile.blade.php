@@ -82,11 +82,11 @@ Sidomulyo | My Profile Page
                             </table>
                             <button type="submit" class="btn btn-secondary">Ubah Profil</button>
                     </form>
-                    <div class="row-btn mt-4">
+                    {{-- <div class="row-btn mt-4">
                         <a href="{{ route('change-password') }}">
                             <button type="button" class="btn btn-secondary">Ganti Password</button>
                         </a>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>

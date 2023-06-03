@@ -27,6 +27,20 @@
         </div>
         <div class="col-md-12">
             <div class="form-group">
+                <label>Sumber</label>
+                <input type="text" name="source" class="form-control" value="{{ $blog->source }}" autocomplete="off"
+                    required>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                <label>Link Sumber</label>
+                <input type="text" name="source_link" class="form-control" value="{{ $blog->source_link }}"
+                    autocomplete="off" required>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
                 <label>Deskripsi</label>
                 <textarea name="description" id="editor" cols="30" rows="10">{!! $blog->description !!}</textarea>
             </div>

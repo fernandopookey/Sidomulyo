@@ -165,8 +165,10 @@ class HomeController extends Controller
 
     public function blog()
     {
+        $blog = Blog::paginate(2);
+
         $data = [
-            'blog'              => Blog::get(),
+            'blog'              => $blog,
             'sosmed'            => Sosmed::get(),
             'header'            => Header::get(),
             'floating'          => Floating::get(),
