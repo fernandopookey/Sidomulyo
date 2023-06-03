@@ -113,6 +113,9 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::post('/checkout', [UserCheckoutController::class, 'process'])->name('checkout');
 
     Route::get('search', [UserProductController::class, 'search'])->name('search');
+
+    Route::get('/my_profile/change_password', [UserProfileController::class, 'changePassword'])->name('change-password');
+    Route::get('/my_profile/change_password/update_password', [UserProfileController::class, 'updatePassword'])->name('update-password');
 });
 
 

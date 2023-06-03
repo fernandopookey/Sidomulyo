@@ -19,13 +19,13 @@ Sidomulyo | My Profile Page
 <main id="pt-pageContent">
     <div class="container-indent">
         <div class="container">
-            <h1 class="pt-title-subpages noborder">Akun Saya</h1>
+            <h1 class="pt-title-subpages noborder">Ganti Sandi</h1>
             <div class="pt-account-layout">
                 <div class="pt-wrapper">
                     <form action="{{ route('dashboard-settings-redirect', 'dashboard-settings-account') }}"
                         id="locations" method="POST" enctype="multipart/form-data">
                         @csrf
-                        <h3 class="pt-title">Biodata</h3>
+                        {{-- <h3 class="pt-title">Biodata</h3> --}}
                         <div class="pt-table-responsive">
                             <table class="pt-table-shop-02">
                                 <tbody>
@@ -47,46 +47,10 @@ Sidomulyo | My Profile Page
                                             </div>
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <td>Email</td>
-                                        <td>
-                                            <div class="input-group input-group-static">
-                                                <input type="text" name="email" class="form-control"
-                                                    value="{{ $user->email }}" disabled>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Alamat</td>
-                                        <td>
-                                            <div class="input-group input-group-static">
-                                                <input type="text" name="address" class="form-control"
-                                                    value="{{ $user->address }}" required>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Nomor Handphone / Whatsapp</td>
-                                        <td>
-                                            <div class="input-group input-group-static">
-                                                <input type="text" name="phone_number" class="form-control"
-                                                    value="{{ $user->phone_number }}" required>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    {{-- <tr>
-                                        <td>Foto</td>
-                                        <td>3242</td>
-                                    </tr> --}}
                                 </tbody>
                             </table>
                             <button type="submit" class="btn btn-secondary">Ubah Profil</button>
                     </form>
-                    <div class="row-btn mt-4">
-                        <a href="{{ route('change-password') }}">
-                            <button type="button" class="btn btn-secondary">Ganti Password</button>
-                        </a>
-                    </div>
                 </div>
             </div>
         </div>

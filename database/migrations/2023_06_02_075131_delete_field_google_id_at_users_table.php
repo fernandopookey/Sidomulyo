@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddFieldFullnameAtUsersTable extends Migration
+class DeleteFieldGoogleIdAtUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,11 +14,7 @@ class AddFieldFullnameAtUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('fullname')->nullable();
-            $table->string('username')->nullable();
-            $table->integer('google_id')->nullable();
-            $table->text('address')->nullable();
-            $table->string('phone_number')->nullable();
+            $table->dropColumn('google_id');
         });
     }
 
