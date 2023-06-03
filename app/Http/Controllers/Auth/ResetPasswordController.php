@@ -3,8 +3,12 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\ResetsPasswords;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 
 class ResetPasswordController extends Controller
 {
@@ -27,4 +31,29 @@ class ResetPasswordController extends Controller
      * @var string
      */
     protected $redirectTo = RouteServiceProvider::HOME;
+
+    protected function redirectTo()
+    {
+        if (Auth()->user()->roles == 'ADMIN') {
+            return route('admin-dashboard');
+        } elseif (Auth()->user()->roles == "USER") {
+            return route('home');
+        }
+    }
+
+    protected function validator(array $data)
+    {
+        return Validator::make($data, [
+            'password'      => [
+                'required', 'string', 'min:6', 'confirmed'
+            ],
+        ]);
+    }
+
+    protected function create(array $data)
+    {
+        return User::create([
+            'password'      => Hash::make($data['password']),
+        ]);
+    }
 }

@@ -43,4 +43,29 @@ class UserProfileController extends Controller
 
         return redirect()->route('user-profile');
     }
+
+    public function changePassword()
+    {
+        $header             = Header::get();
+        $sosmed             = Sosmed::get();
+        $user               = Auth::user();
+        $floating           = Floating::get();
+        $secondFloating     = SecondFloating::get();
+        $thirdFloating      = ThirdFloating::get();
+        $fourthFloating     = FourthFloating::get();
+
+        return view('user.pages.change-password', [
+            'user'              => $user,
+            'header'            => $header,
+            'sosmed'            => $sosmed,
+            'floating'          => $floating,
+            'secondFloating'    => $secondFloating,
+            'thirdFloating'     => $thirdFloating,
+            'fourthFloating'    => $fourthFloating,
+        ]);
+    }
+
+    public function updatePassword(Request $request)
+    {
+    }
 }

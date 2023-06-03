@@ -49,6 +49,9 @@
                                     </span>
                                     @enderror
                                 </div>
+                                <div class="form-group">
+                                    <a href="{{ route('password.request') }}">Lupa Password ?</a>
+                                </div>
                                 <div class="row-btn">
                                     <button type="submit" class="btn btn-block">LOGIN</button>
                                 </div>
@@ -63,7 +66,14 @@
                                 <button type="submit" class="btn btn-block">LOGIN WITH GOOGLE</button>
                             </div> --}}
                             <div class="row-btn">
-                                <a href="{{ route('google.login') }}" class="btn">Login With Google</a>
+                                {{-- <a href="{{ route('google.login') }}" class="btn"><img src="/images/google.png"
+                                        width="20" alt="">Daftar dengan akun Google
+                                </a> --}}
+                                <button type="button" class="btn btn-dark btn-block btn-top">
+                                    <a href="{{ route('google.login') }}" class="text-white">
+                                        <img src="/images/google.png" width="20" alt="">| Masuk Dengan Akun Google
+                                    </a>
+                                </button>
                             </div>
                         </div>
                     </div>
