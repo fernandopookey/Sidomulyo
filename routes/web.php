@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\ChangeController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
+use App\Http\Controllers\Admin\DeliveryController;
 use App\Http\Controllers\Admin\FacilityAndMachineController;
 use App\Http\Controllers\Admin\FloatingController;
 use App\Http\Controllers\Admin\FourthFloatingController;
@@ -209,6 +210,9 @@ Route::prefix('admin')->namespace('Admin')->middleware(['auth', 'admin'])->group
 
     Route::get('/sosmed_footer', [SosmedController::class, 'index']);
     Route::put('/sosmed_footer/update', [SosmedController::class, 'update']);
+
+    Route::get('/pengiriman', [DeliveryController::class, 'index']);
+    Route::put('/pengiriman/update', [DeliveryController::class, 'update']);
 
     // Route::get('/paymentConfirmation', [PaymentConfirmationController::class, 'index']);
     // Route::delete('/paymentConfirmation/{id}', [PaymentConfirmationController::class, 'delete']);

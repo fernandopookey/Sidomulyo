@@ -13,6 +13,27 @@
 <script src="https://kit.fontawesome.com/5ba479d13b.js" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
+<style>
+    #login-form input[type="password"],
+    #login-form input[type="text"] {
+        width: 100%;
+        padding: 12px 36px 12px 12px;
+        box-sizing: border-box;
+    }
+
+    .password-container {
+        width: 300px;
+        position: relative;
+    }
+
+    .fa-eye {
+        position: absolute;
+        top: 57%;
+        right: 4%;
+        cursor: pointer;
+    }
+</style>
+
 
 <main id="pt-pageContent">
     <div class="container-indent">
@@ -42,7 +63,8 @@
                                     <label for="inputLastName">Password</label>
                                     <input type="password" name="password"
                                         class="form-control @error('password') is-invalid @enderror" id="password"
-                                        placeholder="Masukan Password anda" required autocomplete="current-password">
+                                        placeholder="Masukan Password anda" required autocomplete="current-password"><i
+                                        class="fa-solid fa-eye" id="show-password"></i>
                                     @error('password')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -92,4 +114,14 @@
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
     AOS.init();
+</script>
+
+<script>
+    const showPassword = document.querySelector("#show-password");
+    const passwordField = document.querySelector("#password");
+    showPassword.addEventListener("click", function(){
+        this.classList.toggle("fa-eye-slash");
+        const type = passwordField.getAttribute("type") === "password" ? "text" : "password";
+        passwordField.setAttribute("type", type);
+    })
 </script>

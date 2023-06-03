@@ -129,29 +129,8 @@ Sidomulyo | Product Detail Page
                                                     aria-label="Close"></button>
                                             </div>
                                             <div class="container modal-body">
-                                                Lorem ipsum dolor sit amet consectetur, adipisicing elit. At ex ipsa
-                                                eveniet amet distinctio, obcaecati officiis possimus officia quas
-                                                voluptas illum porro architecto earum excepturi, nemo accusamus.
-                                                Suscipit nisi quod ex voluptates accusantium similique asperiores
-                                                pariatur voluptatum facilis corrupti odio quis cumque veritatis incidunt
-                                                magni est explicabo unde ducimus eos delectus laudantium ratione
-                                                perspiciatis, consectetur non! Necessitatibus est vitae pariatur ut rem
-                                                minus veniam labore unde aspernatur at quisquam, dolores architecto
-                                                exercitationem et aperiam facilis dolore. Laudantium recusandae qui
-                                                debitis! Facilis optio sed illum dignissimos laboriosam dicta, animi
-                                                molestias fugiat. Id officia veritatis at adipisci beatae quaerat dolore
-                                                commodi ipsam ratione asperiores, tempora debitis laboriosam placeat
-                                                omnis, officiis consequatur corporis aperiam similique sed nulla
-                                                blanditiis deleniti alias. Ducimus laborum pariatur quos excepturi
-                                                temporibus vel asperiores? Ipsa perspiciatis recusandae, in, obcaecati
-                                                dolores nemo quas laborum odit perferendis voluptatibus numquam? Maiores
-                                                molestias cum tenetur exercitationem quod mollitia porro nisi ipsam
-                                                voluptas nam impedit dicta, obcaecati quasi architecto veniam modi
-                                                dolores, doloremque neque optio qui aperiam ex? Qui aut reprehenderit
-                                                voluptas eius excepturi quidem voluptatum sint ipsum, sed, dolore
-                                                recusandae, cum consectetur. Dolorem itaque mollitia culpa provident
-                                                deleniti ipsam expedita blanditiis, tempora at voluptate natus ipsa
-                                                cumque libero a perferendis fugiat nobis officia?
+                                                <h5>{{ $delivery->title }}</h5>
+                                                <p>{!! $delivery->description !!}</p>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary"

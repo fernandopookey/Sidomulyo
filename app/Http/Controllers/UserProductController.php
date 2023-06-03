@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Delivery;
 use App\Models\Floating;
 use App\Models\FourthFloating;
 use App\Models\Header;
@@ -38,10 +39,15 @@ class UserProductController extends Controller
         $categories = ProductCategory::all();
 
         return view('user.pages.product-details', [
-            'product'       => $product,
-            'sosmed'        => Sosmed::get(),
-            'header'        => Header::get(),
-            'categories'    => $categories,
+            'product'           => $product,
+            'sosmed'            => Sosmed::get(),
+            'delivery'          => Delivery::first(),
+            'header'            => Header::get(),
+            'floating'          => Floating::get(),
+            'secondFloating'    => SecondFloating::get(),
+            'thirdFloating'     => ThirdFloating::get(),
+            'fourthFloating'    => FourthFloating::get(),
+            'categories'        => $categories,
         ]);
     }
 
@@ -51,7 +57,7 @@ class UserProductController extends Controller
         $data = Product::where('name', 'like', '%' . $request->input('search') . '%')->get();
 
         return view('user.pages.search', [
-            'product'      => $data,
+            'product'       => $data,
             'sosmed'        => Sosmed::get(),
             'header'        => Header::get()
 

@@ -11,6 +11,8 @@ class Blog extends Model
         'name',
         'author',
         'description',
+        'source',
+        'source_link',
         'slug',
         'photos'
     ];
