@@ -10,6 +10,41 @@ Sidomulyo | Blog Page
     .blog-page-list {
         text-align: center;
     }
+
+    .page-item.active .page-link {
+        z-index: 3;
+        color: #fff !important;
+        background-color: #00ACD6 !important;
+        border-color: #00ACD6 !important;
+        border-radius: 50%;
+        padding: 6px 12px;
+    }
+
+    .page-link {
+        z-index: 3;
+        color: #00ACD6 !important;
+        background-color: #fff;
+        border-color: #007bff;
+        border-radius: 50%;
+        padding: 6px 12px !important;
+    }
+
+    .page-item:first-child .page-link {
+        border-radius: 30% !important;
+    }
+
+    .page-item:last-child .page-link {
+        border-radius: 30% !important;
+    }
+
+    .pagination li {
+        padding: 3px;
+    }
+
+    .disabled .page-link {
+        color: #212529 !important;
+        opacity: 0.5 !important;
+    }
 </style>
 
 <div class="pt-breadcrumb">
@@ -57,7 +92,9 @@ Sidomulyo | Blog Page
                         </div>
                     </div>
                     @endforeach
-                    {!! $blog->render() !!}
+                    <div class="mt-4 pagination">
+                        {!! $blog->render() !!}
+                    </div>
                     {{-- <div class="pt-pagination">
                         <ul>
                             {{ $item->links }}

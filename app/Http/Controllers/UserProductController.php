@@ -8,6 +8,7 @@ use App\Models\FourthFloating;
 use App\Models\Header;
 use App\Models\Product;
 use App\Models\ProductCategory;
+use App\Models\Rating;
 use App\Models\SecondFloating;
 use App\Models\Sosmed;
 use App\Models\ThirdFloating;
@@ -20,7 +21,11 @@ class UserProductController extends Controller
     public function index()
     {
         $categories = ProductCategory::take(6)->get();
-        $products = Product::orderBy('name')->with(['galleries', 'categories'])->paginate(12);
+        $products = Product::orderBy('name')->with(['galleries', 'categories'])->paginate(2);
+
+        $rating = Rating::with('product_id');
+
+        // $rating = Rating::where('product_id', $products->id)->get();
         return view('user.pages.product', [
             'product'           => $products,
             'sosmed'            => Sosmed::get(),
@@ -30,6 +35,7 @@ class UserProductController extends Controller
             'thirdFloating'     => ThirdFloating::get(),
             'fourthFloating'    => FourthFloating::get(),
             'categories'        => $categories,
+            'rating'            => $rating
         ]);
     }
 
@@ -37,6 +43,17 @@ class UserProductController extends Controller
     {
         $product    = Product::with((['galleries', 'user', 'categories', 'related_products']))->findOrFail($id);
         $categories = ProductCategory::all();
+        $user       = Auth::user();
+
+        $rating = Rating::where('product_id', $product->id)->get();
+        $rating_sum = Rating::where('product_id', $product->id)->sum('stars_rated');
+        $user_rating = Rating::where('product_id', $product->id)->where('user_id', Auth::id())->first();
+
+        if ($rating->count() > 0) {
+            $rating_value = $rating_sum / $rating->count();
+        } else {
+            $rating_value = 0;
+        }
 
         return view('user.pages.product-details', [
             'product'           => $product,
@@ -48,6 +65,10 @@ class UserProductController extends Controller
             'thirdFloating'     => ThirdFloating::get(),
             'fourthFloating'    => FourthFloating::get(),
             'categories'        => $categories,
+            'rating'            => $rating,
+            'rating_value'      => $rating_value,
+            'userRating'        => $user_rating,
+            'user'              => $user
         ]);
     }
 

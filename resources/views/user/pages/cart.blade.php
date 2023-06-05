@@ -32,19 +32,9 @@ Sidomulyo | Cart Page
     <div class="container mt-4" style="padding-top: 30px;">
         <h1 class="pt-title-subpages noborder">Keranjang Belanja</h1>
         <div class="pt-shopcart-page">
-            {{-- @if (session('status'))
-            <div class="btn btn-success btn-block">
-                {{ session('status') }}
-            </div>
-            @endif --}}
             @foreach ($carts as $item)
             <div class="pt-item">
                 <div class="pt-item-btn mr-2">
-                    {{-- <button class="pt-btn js-remove-item">
-                        <svg width="24" height="24" viewBox="0 0 24 24">
-                            <use xlink:href="#icon-remove"></use>
-                        </svg>
-                    </button> --}}
                     <form action="{{ route('cart-delete', $item->id) }}" method="POST">
                         @method('DELETE')
                         @csrf
@@ -57,8 +47,6 @@ Sidomulyo | Cart Page
                     <a href="#">
                         <img src="{{ Storage::url($item->product->galleries->first()->photos) }}"
                             style="width: 170px; height: 200px; object-fit: cover;" alt="">
-
-                        {{-- <img src="{{ Storage::url($item->product->galleries->first()->photos) }}" alt=""> --}}
                     </a>
                 </div>
                 @php
@@ -69,45 +57,20 @@ Sidomulyo | Cart Page
                         <h6 class="pt-title">
                             <a href="#">{{ $item->product->name }}</a>
                         </h6>
-                        {{-- <ul class="pt-add-info">
-                            <li>Color: <strong>Light Blue</strong></li>
-                            <li>Size: <strong>XL</strong></li>
-                            <li>Material: <strong>Cotton</strong></li>
-                        </ul> --}}
                     </div>
                     <div class="pt-col col-lg-3">
                         <div class="pt-price">Rp. {{ number_format($item->product->price) }}</div>
                     </div>
                     <div class="pt-col col-lg-1">
                         <div class="pt-input-counter style-01">
-                            {{-- <span class="minus-btn decrement-btn">
-                                -
-                            </span>
-                            <input type="number" name="qty" class="qty-input" value="1">
-                            <span class="plus-btn increment-btn">
-                                +
-                            </span> --}}
-                            {{-- <select name="qty" class="quantity" id=""></select> --}}
-                            {{-- @for ($i = 1; $i <= 10; $i++) <input type="number" class="quantity" name="qty"
-                                value="1">
-                                @endfor --}}
-                                {{-- <input type="number" class="quantity" name="qty" value="{{ $item->qty }}"> --}}
-                                {{-- <input type="number" class="quantity" name="qty" value="{{ $item->qty }}"> --}}
-                                <div class="d-flex align-items-center">
-                                    <a href="{{ url('/cart/update-quantity/'.$item->id.'/-1') }}"
-                                        class="btn btn-primary">-</a>
-                                    <input type="text" class="quantity" name="qty" min="0" step="1" class="input-qty"
-                                        value="{{ $item->qty }}">
-                                    <a href="{{ url('/cart/update-quantity/'.$item->id.'/1') }}"
-                                        class="btn btn-primary">+</a>
-                                </div>
-
-                                {{-- <a href="{{ url('/cart/update-quantity/'.$item->id.'/1') }}">
-                                    +
-                                </a>
-                                <input type="number" class="quantity" name="qty" min="0" step="1" class="input-qty"
+                            <div class="d-flex align-items-center">
+                                <a href="{{ url('/cart/update-quantity/'.$item->id.'/-1') }}"
+                                    class="btn btn-primary">-</a>
+                                <input type="text" class="quantity" name="qty" min="0" step="1" class="input-qty"
                                     value="{{ $item->qty }}">
-                                <a href="{{ url('/cart/update-quantity/'.$item->id.'/-1') }}">-</a> --}}
+                                <a href="{{ url('/cart/update-quantity/'.$item->id.'/1') }}"
+                                    class="btn btn-primary">+</a>
+                            </div>
                         </div>
                     </div>
                     <div class="pt-col col-lg-3 text-start">
@@ -130,24 +93,6 @@ Sidomulyo | Cart Page
                         <span class="pt-text">Lanjut Belanja</span>
                     </a>
                 </div>
-                {{-- <div class="pt-col">
-                    <a href="#" class="btn-link btn-lg">
-                        <div class="pt-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24">
-                                <use xlink:href="#icon-remove"></use>
-                            </svg>
-                        </div>
-                        <span class="pt-text">Clear shopping cart</span>
-                    </a>
-                    <a href="#" class="btn-link btn-lg">
-                        <div class="pt-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24">
-                                <use xlink:href="#icon-update"></use>
-                            </svg>
-                        </div>
-                        <span class="pt-text">Update cart</span>
-                    </a>
-                </div> --}}
             </div>
         </div>
         <div class="pt-shopcart-wrapperbox">
@@ -167,6 +112,11 @@ Sidomulyo | Cart Page
                                 <div class="form-group">
                                     <label>Nama Penerima *</label>
                                     <input type="text" name="name" class="form-control" value="{{ $user->fullname }}"
+                                        autocomplete="off" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Email *</label>
+                                    <input type="email" name="email" class="form-control" value="{{ $user->email }}"
                                         autocomplete="off" required>
                                 </div>
                                 <div class="form-group">
@@ -283,29 +233,6 @@ Sidomulyo | Cart Page
         });
     });
 </script>
-
-{{-- <script type="text/javascript">
-    (function(){
-        const className = document.querySelectorAll('.quantity');
-
-        Array.from(className).forEach(function(element){
-            element.addEventListener('change', function(){
-                const id = element.getAttribute('data-item');
-                axios.patch(`/cart/${id}`, {
-                    quantity: this.value,
-                    id: id
-                })
-                .then(function (response) {
-                    //console.log(response);
-                    window.location.href = '/cart'
-                })
-                .catch(function (error) {
-                    console.log(error);
-                });
-            })
-        })
-    })
-</script> --}}
 
 <script>
     @if (Session::has('success'))
