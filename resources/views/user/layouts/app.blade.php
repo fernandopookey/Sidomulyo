@@ -17,17 +17,17 @@
 </head>
 
 <body>
-
-
-    @include('sweetalert::alert')
-    @include('notify::messages')
-    <x:notify-messages />
-    @notifyJs
     {{-- Header --}}
     @include('user.includes.header')
 
     {{-- Floating --}}
     @include('user.includes.floating')
+
+    {{-- Notify --}}
+    @include('sweetalert::alert')
+    @include('notify::messages')
+    <x:notify-messages />
+    @notifyJs
 
     {{-- Page Content --}}
     @yield('content')

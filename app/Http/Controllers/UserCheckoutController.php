@@ -22,14 +22,15 @@ class UserCheckoutController extends Controller
 
         //Transaksi Dibuat
         $transaction = Transaction::create([
-            'users_id'          => Auth::user()->id,
-            'name'              => $request->name,
-            'phone_number'      => $request->phone_number,
-            'address'           => $request->address,
-            'note'              => $request->note,
-            'transaction_status' => 'PENDING',
-            'total_price'       => $request->total_price,
-            'code'              => $code
+            'users_id'              => Auth::user()->id,
+            'name'                  => $request->name,
+            'email'                 => $request->email,
+            'phone_number'          => $request->phone_number,
+            'address'               => $request->address,
+            'note'                  => $request->note,
+            'transaction_status'    => 'PENDING',
+            'total_price'           => $request->total_price,
+            'code'                  => $code
         ]);
 
         foreach ($carts as $cart) {

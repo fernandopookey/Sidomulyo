@@ -28,6 +28,42 @@ Sidomulyo | Product Detail Page
         border: none !important;
         color: white;
     }
+
+
+    /* Rating */
+    .rating-css div {
+        color: #ffe400;
+        font-size: 30px;
+        font-family: sans-serif;
+        font-weight: 800;
+        text-align: center;
+        text-transform: uppercase;
+        padding: 20px 0;
+    }
+
+    .rating-css input {
+        display: none;
+    }
+
+    .rating-css input+label {
+        font-size: 60px;
+        text-shadow: 1px 1px 0 #8f8420;
+        cursor: pointer;
+    }
+
+    .rating-css input:checked+label~label {
+        color: #b4afaf;
+    }
+
+    .rating-css label:active {
+        transform: scale(0.8);
+        transition: 0.3s ease;
+    }
+
+    /* Rating Custom */
+    .checked {
+        color: #ffd900;
+    }
 </style>
 
 <div class="pt-breadcrumb">
@@ -37,6 +73,53 @@ Sidomulyo | Product Detail Page
             <li><a href="{{ route('product') }}">Produk</a></li>
             <li>Detail Produk</li>
         </ul>
+    </div>
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form action="{{ route('add-rating') }}" method="POST" enctype="multipart/form-data">
+                @csrf
+                <input type="hidden" name="product_id" value="{{ $product->id }}">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Rate {{ $product->name }}</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="rating-css">
+                        <div class="star-icon">
+                            @if ($userRating)
+                            @for ($i = 1; $i <= $userRating->stars_rated; $i++) <input type="radio" value="{{ $i }}"
+                                    name="product_rating" checked id="rating{{ $i }}">
+                                <label for="rating{{ $i }}" class="fa fa-star"></label> @endfor
+                                @for ($j= $userRating->stars_rated + 1;
+                                $j <=5; $j++) <input type="radio" value="{{ $j }}" name="product_rating"
+                                    id="rating{{ $j }}">
+                                    <label for="rating{{ $j }}" class="fa fa-star"></label>
+                                    @endfor
+
+                                    @else
+                                    <input type="radio" value="1" name="product_rating" checked id="rating1">
+                                    <label for="rating1" class="fa fa-star"></label>
+                                    <input type="radio" value="2" name="product_rating" id="rating2">
+                                    <label for="rating2" class="fa fa-star"></label>
+                                    <input type="radio" value="3" name="product_rating" id="rating3">
+                                    <label for="rating3" class="fa fa-star"></label>
+                                    <input type="radio" value="4" name="product_rating" id="rating4">
+                                    <label for="rating4" class="fa fa-star"></label>
+                                    <input type="radio" value="5" name="product_rating" id="rating5">
+                                    <label for="rating5" class="fa fa-star"></label>
+                                    @endif
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </form>
+        </div>
     </div>
 </div>
 
@@ -72,6 +155,20 @@ Sidomulyo | Product Detail Page
                             </div>
                         </div>
                     </div>
+                    @php $ratenum = number_format($rating_value) @endphp
+                    <div class="rating">
+                        @for ($i = 1; $i <= $ratenum; $i++) <i class="fa fa-star checked"></i>
+                            @endfor
+                            @for ($j = $ratenum + 1; $j <= 5; $j++) <i class="fa fa-star"></i>
+                                @endfor
+                                <span>
+                                    @if ($rating->count() > 0)
+                                    {{ $rating->count() }} Penilaian
+                                    @else
+                                    Belum ada penilaian
+                                    @endif
+                                </span>
+                    </div>
                     <div class="pt-collapse-block" id="accordionFlushExample">
                         <div class="pt-item">
                             <div class="pt-collapse-title accordion-button collapsed" type="button"
@@ -101,10 +198,11 @@ Sidomulyo | Product Detail Page
                                 aria-expanded="false" aria-controls="flush-collapseOne">
                                 Ulasan
                             </div>
-                            <div id="flush-collapseThree" class="accordion-collapse collapse"
-                                aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
-                                *****
-                            </div>
+
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal">
+                                Rate this product
+                            </button>
                         </div>
                     </div>
                     <div class="pt-wrapper">
@@ -176,7 +274,7 @@ Sidomulyo | Product Detail Page
                             </div>
                         </form>
                     </div>
-                    <div class="pt-wrapper">
+                    {{-- <div class="pt-wrapper">
                         <div class="pt-row-custom-03">
                             <div class="col-item">
                                 <a href="#" class="btn btn-dark">
@@ -186,7 +284,7 @@ Sidomulyo | Product Detail Page
                                 </a>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                     <div class="pt-wrapper">
                         <!-- Go to www.addthis.com/dashboard to customize your tools -->
                         <script type="text/javascript"
@@ -251,34 +349,6 @@ Sidomulyo | Product Detail Page
                         </div>
                         <div class="pt-description">
                             <div class="pt-col">
-                                {{-- <div class="pt-rating">
-                                    <i class="pt-star">
-                                        <svg>
-                                            <use xlink:href="#icon-review"></use>
-                                        </svg>
-                                    </i>
-                                    <i class="pt-star">
-                                        <svg>
-                                            <use xlink:href="#icon-review"></use>
-                                        </svg>
-                                    </i>
-                                    <i class="pt-star">
-                                        <svg>
-                                            <use xlink:href="#icon-review"></use>
-                                        </svg>
-                                    </i>
-                                    <i class="pt-star">
-                                        <svg>
-                                            <use xlink:href="#icon-review"></use>
-                                        </svg>
-                                    </i>
-                                    <i>
-                                        <svg>
-                                            <use xlink:href="#icon-review"></use>
-                                        </svg>
-                                    </i>
-                                    <span class="pt-total">(2)</span>
-                                </div> --}}
                                 <ul class="pt-add-info">
                                     <li><a href="#">Kategori {{ $item->categories->name }}</a></li>
                                 </ul>
@@ -465,4 +535,9 @@ Sidomulyo | Product Detail Page
     });
 </script>
 
+<script>
+    @if (Session::has('success'))
+        toastr.success("{{ Session::get('success') }}")
+    @endif
+</script>
 @endpush

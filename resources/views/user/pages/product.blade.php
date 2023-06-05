@@ -12,6 +12,41 @@ Sidomulyo | Product Page
         border: none !important;
         color: white;
     }
+
+    .page-item.active .page-link {
+        z-index: 3;
+        color: #fff !important;
+        background-color: #00ACD6 !important;
+        border-color: #00ACD6 !important;
+        border-radius: 50%;
+        padding: 6px 12px;
+    }
+
+    .page-link {
+        z-index: 3;
+        color: #00ACD6 !important;
+        background-color: #fff;
+        border-color: #007bff;
+        border-radius: 50%;
+        padding: 6px 12px !important;
+    }
+
+    .page-item:first-child .page-link {
+        border-radius: 30% !important;
+    }
+
+    .page-item:last-child .page-link {
+        border-radius: 30% !important;
+    }
+
+    .pagination li {
+        padding: 3px;
+    }
+
+    .disabled .page-link {
+        color: #212529 !important;
+        opacity: 0.5 !important;
+    }
 </style>
 
 <div class="pt-breadcrumb">
@@ -134,19 +169,27 @@ Sidomulyo | Product Page
                                                     </div>
                                                 </div>
                                             </span>
-                                            {{-- <span class="pt-img-roll-over">
-                                                <img src="images/poster1.jpeg" class="lazyload"
-                                                    style="height: 300px; width:250px;" alt="image">
-                                            </span> --}}
-                                            {{-- <span class="pt-label-location">
-                                                <span class="pt-label-new">NEW</span>
-                                            </span> --}}
                                         </a>
                                     </div>
                                     <div class="pt-description">
                                         <div class="pt-col">
+                                            {{-- {{ $rating->count() }} Penilaian --}}
                                             <!-- rating -->
-                                            {{-- <div class="pt-rating">
+                                            {{-- @php $ratenum = number_format($rating_value) @endphp
+                                            <div class="rating">
+                                                @for ($i = 1; $i <= $ratenum; $i++) <i class="fa fa-star checked"></i>
+                                                    @endfor
+                                                    @for ($j = $ratenum + 1; $j <= 5; $j++) <i class="fa fa-star"></i>
+                                                        @endfor
+                                                        <span>
+                                                            @if ($rating->count() > 0)
+                                                            {{ $rating->count() }} Penilaian
+                                                            @else
+                                                            Belum ada penilaian
+                                                            @endif
+                                                        </span>
+                                            </div> --}}
+                                            <div class="pt-rating">
                                                 <i class="pt-star">
                                                     <svg>
                                                         <use xlink:href="#icon-review"></use>
@@ -173,7 +216,7 @@ Sidomulyo | Product Page
                                                     </svg>
                                                 </i>
                                                 <span class="pt-total">(2)</span>
-                                            </div> --}}
+                                            </div>
                                             <ul class="pt-add-info">
                                                 <li>
                                                     <a href="#">Kategori {{ $item->categories->name }}</a>
@@ -267,22 +310,10 @@ Sidomulyo | Product Page
                                 </div>
                             </div>
                             @endforeach
-                        </div>
-                        {{-- {!! $product->links() !!} --}}
-                        {{-- <div class="pt-pagination text-center">
-                            <ul>
-                                <li class="active"><a href="#">1</a></li>
-                                <li><a href="#" title="">2</a></li>
-                                <li><a href="#" title="">3</a></li>
-                            </ul>
-                            <a href="#" class="btn-pagination btn-next">Next</a>
-                        </div> --}}
-                        {{-- <div class="text-center pt_product_showmore">
-                            <a href="#" class="btn btn-border">LOAD MORE</a>
-                            <div class="pt_item_all_js">
-                                <a href="#" class="btn btn-border01">NO MORE ITEM TO SHOW</a>
+                            <div class="mt-4 pagination">
+                                {!! $product->render() !!}
                             </div>
-                        </div> --}}
+                        </div>
                     </div>
                 </div>
             </div>

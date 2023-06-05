@@ -29,6 +29,7 @@ use App\Http\Controllers\UserPaymentConfirmationController;
 
 use App\Http\Controllers\Cs\DashboarController as CsDashboardController;
 use App\Http\Controllers\GoogleController;
+use App\Http\Controllers\RatingController;
 use App\Http\Controllers\UserCheckoutController;
 use App\Http\Controllers\UserProductCategoryController;
 use App\Http\Controllers\UserProductController;
@@ -91,6 +92,8 @@ Route::get('/categories/{id}', [UserProductCategoryController::class, 'detail'])
 //======================================== USER ========================================
 Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::get('/cart', [CartController::class, 'index'])->name('cart');
+
+    Route::post('/add-rating', [RatingController::class, 'add'])->name('add-rating');
 
     // Route::get('/my_profile', [HomeController::class, 'myprofile'])->name('user-profile');
     Route::get('/my_profile', [UserProfileController::class, 'account'])->name('user-profile');
