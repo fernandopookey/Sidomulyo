@@ -16,8 +16,8 @@ Sidomulyo | Product Page
     .page-item.active .page-link {
         z-index: 3;
         color: #fff !important;
-        background-color: #00ACD6 !important;
-        border-color: #00ACD6 !important;
+        background-color: #48cab2 !important;
+        border-color: #48cab2 !important;
         border-radius: 50%;
         padding: 6px 12px;
     }
@@ -26,7 +26,7 @@ Sidomulyo | Product Page
         z-index: 3;
         color: #00ACD6 !important;
         background-color: #fff;
-        border-color: #007bff;
+        border-color: #48cab2;
         border-radius: 50%;
         padding: 6px 12px !important;
     }
