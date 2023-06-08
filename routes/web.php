@@ -34,6 +34,7 @@ use App\Http\Controllers\UserCheckoutController;
 use App\Http\Controllers\UserProductCategoryController;
 use App\Http\Controllers\UserProductController;
 use App\Http\Controllers\UserProfileController;
+use App\Http\Controllers\UserReviewController;
 use App\Http\Controllers\UserTransactionController;
 use App\Models\BackgroundImage;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
@@ -94,6 +95,11 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::get('/cart', [CartController::class, 'index'])->name('cart');
 
     Route::post('/add-rating', [RatingController::class, 'add'])->name('add-rating');
+
+    Route::get('add-review/{product_slug}/userreview', [UserReviewController::class, 'add']);
+    Route::post('add-review', [UserReviewController::class, 'create']);
+    Route::get('edit-review/{product_slug}/userreview', [UserReviewController::class, 'edit']);
+    Route::put('update-review', [UserReviewController::class, 'update']);
 
     // Route::get('/my_profile', [HomeController::class, 'myprofile'])->name('user-profile');
     Route::get('/my_profile', [UserProfileController::class, 'account'])->name('user-profile');

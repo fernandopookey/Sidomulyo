@@ -9,6 +9,7 @@ use App\Models\Header;
 use App\Models\Product;
 use App\Models\ProductCategory;
 use App\Models\Rating;
+use App\Models\Review;
 use App\Models\SecondFloating;
 use App\Models\Sosmed;
 use App\Models\ThirdFloating;
@@ -23,11 +24,9 @@ class UserProductController extends Controller
         $categories = ProductCategory::take(6)->get();
         $products = Product::orderBy('name')->with(['galleries', 'categories'])->paginate(2);
 
-        $rating = Rating::with('product_id');
+        // $rating = Rating::with('product_id');
 
-        // $rating = Rating::where('product_id', $products->id)->get();
         return view('user.pages.product', [
-            'product'           => $products,
             'sosmed'            => Sosmed::get(),
             'header'            => Header::get(),
             'floating'          => Floating::get(),
@@ -35,7 +34,8 @@ class UserProductController extends Controller
             'thirdFloating'     => ThirdFloating::get(),
             'fourthFloating'    => FourthFloating::get(),
             'categories'        => $categories,
-            'rating'            => $rating
+            // 'rating'            => $rating,
+            'product'           => $products,
         ]);
     }
 
@@ -48,6 +48,7 @@ class UserProductController extends Controller
         $rating = Rating::where('product_id', $product->id)->get();
         $rating_sum = Rating::where('product_id', $product->id)->sum('stars_rated');
         $user_rating = Rating::where('product_id', $product->id)->where('user_id', Auth::id())->first();
+        $reviews = Review::where('product_id', $product->id)->get();
 
         if ($rating->count() > 0) {
             $rating_value = $rating_sum / $rating->count();
@@ -68,7 +69,8 @@ class UserProductController extends Controller
             'rating'            => $rating,
             'rating_value'      => $rating_value,
             'userRating'        => $user_rating,
-            'user'              => $user
+            'user'              => $user,
+            'reviews'           => $reviews
         ]);
     }
 
