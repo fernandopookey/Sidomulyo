@@ -75,45 +75,6 @@ Sidomulyo | Product Page
                                     </select>
                                 </div>
                             </div>
-                            {{-- <div class="pt-quantity">
-                                <a href="#" class="pt-col-one" data-value="pt-col-one">
-                                    <span class="icon-listing-one">
-                                        <span></span>
-                                        <span></span>
-                                    </span>
-                                </a>
-                                <a href="#" class="pt-col-two" data-value="pt-col-two">
-                                    <span class="icon-listing-two">
-                                        <span></span>
-                                        <span></span>
-                                    </span>
-                                </a>
-                                <a href="#" class="pt-col-three" data-value="pt-col-three">
-                                    <span class="icon-listing-three">
-                                        <span></span>
-                                        <span></span>
-                                        <span></span>
-                                    </span>
-                                </a>
-                                <a href="#" class="pt-col-four" data-value="pt-col-four">
-                                    <span class="icon-listing-four">
-                                        <span></span>
-                                        <span></span>
-                                        <span></span>
-                                        <span></span>
-                                    </span>
-                                </a>
-                                <a href="#" class="pt-col-six" data-value="pt-col-six">
-                                    <span class="icon-listing-six">
-                                        <span></span>
-                                        <span></span>
-                                        <span></span>
-                                        <span></span>
-                                        <span></span>
-                                        <span></span>
-                                    </span>
-                                </a>
-                            </div> --}}
                         </div>
                         <div class="pt-product-listing row">
                             @php
@@ -124,33 +85,6 @@ Sidomulyo | Product Page
                                 <div class="pt-product" data-aos="fade-up"
                                     data-aos-delay="{{ $incrementProduct+= 100}}">
                                     <div class="pt-image-box">
-                                        {{-- <div class="pt-app-btn">
-                                            <a href="#" class="pt-btn-wishlist" data-tooltip="Add to Wishlist"
-                                                data-tposition="left">
-                                                <svg>
-                                                    <use xlink:href="#icon-wishlist"></use>
-                                                </svg>
-                                                <svg>
-                                                    <use xlink:href="#icon-wishlist-add"></use>
-                                                </svg>
-                                            </a>
-                                            <a href="#" class="pt-btn-compare" data-tooltip="Add to Compare"
-                                                data-tposition="left">
-                                                <svg>
-                                                    <use xlink:href="#icon-compare"></use>
-                                                </svg>
-                                                <svg>
-                                                    <use xlink:href="#icon-compare-add"></use>
-                                                </svg>
-                                            </a>
-                                            <a href="#" class="pt-btn-quickview" data-toggle="modal"
-                                                data-target="#ModalquickView" data-tooltip="Quick View"
-                                                data-tposition="left">
-                                                <svg>
-                                                    <use xlink:href="#icon-quick_view"></use>
-                                                </svg>
-                                            </a>
-                                        </div> --}}
                                         <a href="{{ route('product-details', $item->id) }}" class="pt-promo-box">
                                             <span class="pt-img">
                                                 <div class="image-box">
@@ -173,67 +107,66 @@ Sidomulyo | Product Page
                                     </div>
                                     <div class="pt-description">
                                         <div class="pt-col">
-                                            {{-- {{ $rating->count() }} Penilaian --}}
-                                            <!-- rating -->
-                                            {{-- @php $ratenum = number_format($rating_value) @endphp
-                                            <div class="rating">
-                                                @for ($i = 1; $i <= $ratenum; $i++) <i class="fa fa-star checked"></i>
+                                            {{-- @php
+                                            $rating =
+                                            App\Models\Rating::where('product_id',
+                                            $product->id)->where('user_id',$item->user->id)->first();
+                                            @endphp
+                                            @if ($rating)
+                                            @php
+                                            $user_rated = $rating->stars_rated
+                                            @endphp
+                                            @for ($i = 1; $i <= $user_rated; $i++) <i class="fa fa-star checked"></i>
+                                                @endfor
+                                                @for ($j = $user_rated + 1; $j <= 5; $j++) <i class="fa fa-star"></i>
                                                     @endfor
-                                                    @for ($j = $ratenum + 1; $j <= 5; $j++) <i class="fa fa-star"></i>
-                                                        @endfor
-                                                        <span>
-                                                            @if ($rating->count() > 0)
-                                                            {{ $rating->count() }} Penilaian
-                                                            @else
-                                                            Belum ada penilaian
-                                                            @endif
-                                                        </span>
-                                            </div> --}}
-                                            <div class="pt-rating">
-                                                <i class="pt-star">
-                                                    <svg>
-                                                        <use xlink:href="#icon-review"></use>
-                                                    </svg>
-                                                </i>
-                                                <i class="pt-star">
-                                                    <svg>
-                                                        <use xlink:href="#icon-review"></use>
-                                                    </svg>
-                                                </i>
-                                                <i class="pt-star">
-                                                    <svg>
-                                                        <use xlink:href="#icon-review"></use>
-                                                    </svg>
-                                                </i>
-                                                <i class="pt-star">
-                                                    <svg>
-                                                        <use xlink:href="#icon-review"></use>
-                                                    </svg>
-                                                </i>
-                                                <i>
-                                                    <svg>
-                                                        <use xlink:href="#icon-review"></use>
-                                                    </svg>
-                                                </i>
-                                                <span class="pt-total">(2)</span>
-                                            </div>
-                                            <ul class="pt-add-info">
-                                                <li>
-                                                    <a href="#">Kategori {{ $item->categories->name }}</a>
-                                                </li>
-                                            </ul>
-                                            <h2 class="pt-title">
-                                                <a href="#">
-                                                    {{ $item->name }}
-                                                </a>
-                                            </h2>
-                                            <div class="pt-price">
-                                                $34.89
-                                            </div>
-                                            <div class="pt-content">
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                                                tempor incididunt ut labore et dolore magna aliqua.
-                                            </div>
+                                                    @endif --}}
+                                                    {{-- <div class="pt-rating">
+                                                        <i class="pt-star">
+                                                            <svg>
+                                                                <use xlink:href="#icon-review"></use>
+                                                            </svg>
+                                                        </i>
+                                                        <i class="pt-star">
+                                                            <svg>
+                                                                <use xlink:href="#icon-review"></use>
+                                                            </svg>
+                                                        </i>
+                                                        <i class="pt-star">
+                                                            <svg>
+                                                                <use xlink:href="#icon-review"></use>
+                                                            </svg>
+                                                        </i>
+                                                        <i class="pt-star">
+                                                            <svg>
+                                                                <use xlink:href="#icon-review"></use>
+                                                            </svg>
+                                                        </i>
+                                                        <i>
+                                                            <svg>
+                                                                <use xlink:href="#icon-review"></use>
+                                                            </svg>
+                                                        </i>
+                                                        <span class="pt-total">(2)</span>
+                                                    </div> --}}
+                                                    <ul class="pt-add-info">
+                                                        <li>
+                                                            <a href="#">Kategori {{ $item->categories->name }}</a>
+                                                        </li>
+                                                    </ul>
+                                                    <h2 class="pt-title">
+                                                        <a href="#">
+                                                            {{ $item->name }}
+                                                        </a>
+                                                    </h2>
+                                                    <div class="pt-price">
+                                                        $34.89
+                                                    </div>
+                                                    <div class="pt-content">
+                                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                                                        eiusmod
+                                                        tempor incididunt ut labore et dolore magna aliqua.
+                                                    </div>
                                         </div>
                                         <div class="pt-col">
                                             <div class="pt-row-hover">
