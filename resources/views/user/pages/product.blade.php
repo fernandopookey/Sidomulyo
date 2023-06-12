@@ -252,7 +252,7 @@ Sidomulyo | Product Page
             </div>
         </div>
     </div>
-    <div class="container-indent">
+    {{-- <div class="container-indent">
         <div class="container-fluid">
             <div class="pt-block-title">
                 <h1 class="pt-title">Produk Lainnya</h1>
@@ -271,8 +271,8 @@ Sidomulyo | Product Page
                                     <div class="pt-title-large" style="color: white;">
                                         <span>Lengkapi Ruangan Anda</span>
                                     </div>
-                                    {{-- <p style="color: white;">The world's most stylish women are buying right now
-                                    </p> --}}
+                                    <p style="color: white;">The world's most stylish women are buying right now
+                                    </p>
                                 </div>
                             </div>
                         </a>
@@ -290,7 +290,7 @@ Sidomulyo | Product Page
                                             <div class="pt-title-large">
                                                 <span style="color: white;">Produk Terbaru</span>
                                             </div>
-                                            {{-- <p style="color: white;">Shoes & Accessories</p> --}}
+                                            <p style="color: white;">Shoes & Accessories</p>
                                         </div>
                                     </div>
                                 </a>
@@ -307,8 +307,8 @@ Sidomulyo | Product Page
                                             <div class="pt-color-white pt-title-large">
                                                 <span style="color: white;">Produk Terlaris</span>
                                             </div>
-                                            {{-- <p class="pt-color-white" style="color: white;">Collections 2019/20</p>
-                                            --}}
+                                            <p class="pt-color-white" style="color: white;">Collections 2019/20</p>
+
                                         </div>
                                     </div>
                                 </a>
@@ -323,7 +323,7 @@ Sidomulyo | Product Page
                                         <div class="pt-description-wrapper">
                                             <div class="pt-title-large"><span style="color: white;">Diskon</span>
                                             </div>
-                                            {{-- <p style="color: white;">Get up to 50% off</p> --}}
+                                            <p style="color: white;">Get up to 50% off</p>
                                         </div>
                                     </div>
                                 </a>
@@ -333,7 +333,7 @@ Sidomulyo | Product Page
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 </div>
 
 @endsection
