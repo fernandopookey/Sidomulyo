@@ -20,4 +20,9 @@ class Blog extends Model
     // protected $guarded;
 
     protected $hidden = [];
+
+    public function comments()
+    {
+        return $this->hasMany(BlogComment::class, 'blog_id', 'id');
+    }
 }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddFieldTotalAtPaymentConfirmationsTable extends Migration
+class AddFieldAccountNumberAtPaymentConfirmationsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class AddFieldTotalAtPaymentConfirmationsTable extends Migration
     public function up()
     {
         Schema::table('payment_confirmations', function (Blueprint $table) {
-            $table->integer('total');
+            $table->string('account_number')->after('account_name');
         });
     }
 

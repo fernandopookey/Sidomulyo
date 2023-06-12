@@ -99,6 +99,9 @@ Sidomulyo | My Profile Page
                         </table>
                     </div>
                 </div>
+                <div class="mt-2">
+                    <a href="{{ route('my-transaction') }}" class="btn btn-primary">Kembali</a>
+                </div>
             </div>
         </div>
     </div>

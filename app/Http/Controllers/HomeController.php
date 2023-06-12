@@ -6,6 +6,7 @@ use App\Models\BackgroundImage;
 use App\Models\Blog;
 use App\Models\Client;
 use App\Models\FacilityAndMachine;
+use App\Models\FAQ;
 use App\Models\Floating;
 use App\Models\FourthFloating;
 use App\Models\Header;
@@ -15,6 +16,7 @@ use App\Models\Installation;
 use App\Models\Machine;
 use App\Models\Modal;
 use App\Models\ModalHome;
+use App\Models\PrivacyPolicy;
 use App\Models\Product;
 use App\Models\ProductCategory;
 use App\Models\Profile;
@@ -22,6 +24,7 @@ use App\Models\SecondFloating;
 use App\Models\Slider;
 use App\Models\Sosmed;
 use App\Models\SupportingFacilities;
+use App\Models\TermsAndConditions;
 use App\Models\ThirdFloating;
 use Illuminate\Http\Request;
 
@@ -165,10 +168,14 @@ class HomeController extends Controller
 
     public function blog()
     {
-        $blog = Blog::paginate(2);
+        $blog           = Blog::paginate(2);
+        $latest_post    = Blog::orderBy('created_at', 'desc')->take(2)->get();
+        $about          = Profile::first();
 
         $data = [
             'blog'              => $blog,
+            'latestPost'        => $latest_post,
+            'about'             => $about,
             'sosmed'            => Sosmed::get(),
             'header'            => Header::get(),
             'floating'          => Floating::get(),
@@ -183,9 +190,13 @@ class HomeController extends Controller
 
     public function blogdetail(Blog $post)
     {
+        $latest_post    = Blog::orderBy('created_at', 'desc')->take(2)->get();
+        $about          = Profile::first();
 
         $data = [
             'blog'              => $post,
+            'latestPost'        => $latest_post,
+            'about'             => $about,
             'sosmed'            => Sosmed::get(),
             'header'            => Header::get(),
             'floating'          => Floating::get(),
@@ -288,5 +299,59 @@ class HomeController extends Controller
         ];
 
         return view('user.includes.floating', $data);
+    }
+
+    public function faqs()
+    {
+        $faqs = FAQ::get();
+
+        $data = [
+            'faqs'              => $faqs,
+            'sosmed'            => Sosmed::get(),
+            'header'            => Header::get(),
+            'floating'          => Floating::get(),
+            'secondFloating'    => SecondFloating::get(),
+            'thirdFloating'     => ThirdFloating::get(),
+            'fourthFloating'    => FourthFloating::get(),
+            'content'           => 'user/pages/faqs',
+        ];
+
+        return view('user.pages.faqs', $data);
+    }
+
+    public function privacyPolicy()
+    {
+        $privacyPolicy = PrivacyPolicy::get();
+
+        $data = [
+            'privacyPolicy'     => $privacyPolicy,
+            'sosmed'            => Sosmed::get(),
+            'header'            => Header::get(),
+            'floating'          => Floating::get(),
+            'secondFloating'    => SecondFloating::get(),
+            'thirdFloating'     => ThirdFloating::get(),
+            'fourthFloating'    => FourthFloating::get(),
+            'content'           => 'user/pages/privacy-policy',
+        ];
+
+        return view('user.pages.privacy-policy', $data);
+    }
+
+    public function termsAndConditions()
+    {
+        $terms = TermsAndConditions::get();
+
+        $data = [
+            'terms'             => $terms,
+            'sosmed'            => Sosmed::get(),
+            'header'            => Header::get(),
+            'floating'          => Floating::get(),
+            'secondFloating'    => SecondFloating::get(),
+            'thirdFloating'     => ThirdFloating::get(),
+            'fourthFloating'    => FourthFloating::get(),
+            'content'           => 'user/pages/terms-and-conditions',
+        ];
+
+        return view('user.pages.terms-and-conditions', $data);
     }
 }

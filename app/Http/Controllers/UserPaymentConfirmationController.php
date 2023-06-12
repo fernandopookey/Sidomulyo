@@ -42,76 +42,40 @@ class UserPaymentConfirmationController extends Controller
 
     public function send(Request $request, string $id)
     {
-        // Simpan Data User
-        // $user = Auth::user();
-        // $user->update($request->except('total_price'));
-
-        // dd($user);
-
-        //Proses Checkout
-        $code = 'SM-' . mt_rand(000000, 999999) . '-PAYMENT';
-        // $transaction = PaymentConfirmation::with(['product', 'user'])->where('user_id', Auth::user()->id)->get();
+        $code           = 'SM-' . mt_rand(000000, 999999) . '-PAYMENT';
         $transactionf   = Transaction::where('id', $id)->where('users_id', Auth::id())->first();
+        // $total = Transaction::where('total_price', $id)->first();
+        $total        = Transaction::where('id', $id)->where('users_id', Auth::id())->first();
 
-        // dd($transactionf);
-        //Transaksi Dibuat
         $transaction = ([
             'user_id'               => Auth::user()->id,
             'transaction_id'        => $transactionf->id,
             'bank'                  => $request->bank,
+            'name'                  => Auth::user()->fullname,
             'account_number'        => $request->account_number,
             'account_name'          => $request->account_name,
             'photos'                => $request->photos,
+            'total'                 => $total,
             'code'                  => $code
         ]);
 
         $transaction['photos'] = $request->file('photos')->store('assets/paymentconfirmation', 'public');
-
-        // foreach ($carts as $cart) {
-        //     $tsm = 'TSM-' . mt_rand(000000, 999999);
-
-        //     TransactionDetail::create([
-        //         'transaction_id'        => $transaction->id,
-        //         'products_id'           => $cart->product->id,
-        //         'price'                 => $cart->product->price,
-        //         'qty'                   => $cart->qty,
-        //         'code'                  => $tsm
-        //     ]);
-        // }
-        // dd($transaction);
         PaymentConfirmation::create($transaction);
-        return redirect('/')->with('success', 'Transaksi Diproses');
+        return view('user.pages.paymentConfirmationSuccess')->with('success', 'Konfirmasi Pembayaran Diproses');
     }
 
-    // public function send(Request $request)
+    // public function success()
     // {
-    //     $data = $request->validate([
-    //         'name'              => 'required',
-    //         'bank'              => 'required',
-    //         'account_number'    => 'required',
-    //         'account_name'      => 'required',
-    //         'photos'            => 'required|image'
-    //     ]);
+    //     $data = [
+    //         'sosmed'            => Sosmed::get(),
+    //         'header'            => Header::get(),
+    //         'floating'          => Floating::get(),
+    //         'secondFloating'    => SecondFloating::get(),
+    //         'thirdFloating'     => ThirdFloating::get(),
+    //         'fourthFloating'    => FourthFloating::get(),
+    //         'content'           => 'user/pages/paymentConfirmationSuccess'
+    //     ];
 
-    //     $data['photos'] = $request->file('photos')->store('assets/userpaymentconfirmation', 'public');
-
-    //     PaymentConfirmation::create($data);
-    //     Alert::success('Sukses', 'Pesan terkirim, tunggu balasan admin melalui email yang anda kirim');
-    //     return redirect('/konfirmasi_pembayaran/success');
+    //     return view('user.pages.paymentConfirmationSuccess', $data);
     // }
-
-    public function success()
-    {
-        $data = [
-            'sosmed'            => Sosmed::get(),
-            'header'            => Header::get(),
-            'floating'          => Floating::get(),
-            'secondFloating'    => SecondFloating::get(),
-            'thirdFloating'     => ThirdFloating::get(),
-            'fourthFloating'    => FourthFloating::get(),
-            'content'           => 'user/pages/paymentConfirmationSuccess'
-        ];
-
-        return view('user.pages.paymentConfirmationSuccess', $data);
-    }
 }

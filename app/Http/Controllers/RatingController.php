@@ -41,4 +41,16 @@ class RatingController extends Controller
             return redirect()->back()->with('success', 'Link rusak');
         }
     }
+
+    public function show($id)
+    {
+        $product = Product::with((['user']))->findOrFail($id);
+
+        $data = [
+            'title'     => 'Detail Blog',
+            'product'   => $product,
+            'content'   => 'admin/product/rating'
+        ];
+        return view('admin.layouts.wrapper', $data);
+    }
 }

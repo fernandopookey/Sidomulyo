@@ -41,7 +41,7 @@ class UserProfileController extends Controller
 
         $item->update($data);
 
-        return redirect()->route('user-profile');
+        return redirect()->route('user-profile')->with('success', 'Profil Berhasil Diubah');
     }
 
     public function changePassword()

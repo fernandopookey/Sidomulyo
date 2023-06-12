@@ -95,3 +95,12 @@ Sidomulyo | My Profile Page
 </main>
 
 @endsection
+
+
+@push('addon-script')
+<script>
+    @if (Session::has('success'))
+        toastr.success("{{ Session::get('success') }}")
+    @endif
+</script>
+@endpush
