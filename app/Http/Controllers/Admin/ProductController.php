@@ -7,7 +7,10 @@ use App\Http\Requests\Admin\ProductRequest;
 use App\Models\Product;
 use App\Models\ProductCategory;
 use App\Models\ProductGallery;
+use App\Models\Rating;
+use App\Models\Review;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Str;
@@ -37,6 +40,9 @@ class ProductController extends Controller
                             ' . method_field('delete') . csrf_field() . '
                             <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i> Hapus</button>
                         </form>
+                        <a class="btn btn-secondary" href="' . route('admin-product-ratings', $item->id) . '">
+                            <i class="fa fa-star"></i> Rating
+                        </a>
                     </div>
                 ';
             })->rawColumns(['action'])->make();
@@ -118,6 +124,34 @@ class ProductController extends Controller
             'product'       => $product,
             'categories'    => $categories,
         ]);
+    }
+
+    public function show($id)
+    {
+        $product = Product::with((['user']))->findOrFail($id);
+
+        $rating = Rating::where('product_id', $product->id)->get();
+        $rating_sum = Rating::where('product_id', $product->id)->sum('stars_rated');
+        $user_rating = Rating::where('product_id', $product->id)->where('user_id', Auth::id())->first();
+        $reviews = Review::where('product_id', $product->id)->get();
+
+        if ($rating->count() > 0) {
+            $rating_value = $rating_sum / $rating->count();
+        } else {
+            $rating_value = 0;
+        }
+
+        $data = [
+            'title'             => 'Rating Produk',
+            'product'           => $product,
+            'rating'            => $rating,
+            'rating_value'      => $rating_value,
+            'userRating'        => $user_rating,
+            // 'user'              => $user,
+            'reviews'           => $reviews,
+            'content'           => 'admin/product/rating'
+        ];
+        return view('admin.layouts.wrapper', $data);
     }
 
 

@@ -54,7 +54,7 @@ Sidomulyo | Payment Confirmation Page
             <div class="row justify-content-center">
                 <div class="col-12 col-lg-10 col-xl-8">
                     <div class="">
-                        <p class="text-center pb-4">Lakukan konfirmasi pembayaran Anda secepatnya, maka kami
+                        <p class="text-center pb-4">Lakukan konfirmasi pembayaran anda secepatnya, dan kami
                             akan segera memproses pesanan Anda
                         </p>
                         <table class="pt-table-shop-02">
@@ -93,12 +93,14 @@ Sidomulyo | Payment Confirmation Page
                             @csrf
                             <div class="pt-post">
                                 <div class="row pt-4">
+                                    {{-- <input type="hidden" name="name" value="{{ $payment->name }}"> --}}
+                                    <input type="hidden" name="total" value="{{ $payment->total }}">
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label>Transfer Bank</label>
                                             <select name="bank" class="form-control">
-                                                <option value="BANK INDONESIA">BNI</option>
-                                                <option value="BANK RAKYAT INDONESIA">BRI</option>
+                                                <option value="BANK NEGARA INDONESIA">BNI</option>
+                                                <option value="BANK RAKYAT INDONESIA" selected="selected">BRI</option>
                                                 <option value="BANK CENTRAL ASIA">BCA</option>
                                                 <option value="MANDIRI">Mandiri</option>
                                                 <option value="BANK INDONESIA">Bank Indonesia</option>
@@ -170,6 +172,12 @@ Sidomulyo | Payment Confirmation Page
 @endsection
 
 @push('addon-script')
+
+<script>
+    @if (Session::has('success'))
+        toastr.success("{{ Session::get('success') }}")
+    @endif
+</script>
 
 <script>
     var loadFile = function(event) {

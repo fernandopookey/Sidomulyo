@@ -30,6 +30,7 @@ use App\Http\Controllers\UserPaymentConfirmationController;
 use App\Http\Controllers\Cs\DashboarController as CsDashboardController;
 use App\Http\Controllers\GoogleController;
 use App\Http\Controllers\RatingController;
+use App\Http\Controllers\UserBlogCommentController;
 use App\Http\Controllers\UserCheckoutController;
 use App\Http\Controllers\UserProductCategoryController;
 use App\Http\Controllers\UserProductController;
@@ -84,6 +85,10 @@ Route::get('/register/success', [RegisterController::class, 'success'])->name('r
 Route::get('/categories', [UserProductCategoryController::class, 'index'])->name('categories');
 Route::get('/categories/{id}', [UserProductCategoryController::class, 'detail'])->name('categories-detail');
 
+Route::get('/faqs', [HomeController::class, 'faqs'])->name('faqs');
+Route::get('/privacy-policy', [HomeController::class, 'privacyPolicy'])->name('privacyPolicy');
+Route::get('/terms-and-conditions', [HomeController::class, 'termsAndConditions'])->name('termsAndConditions');
+
 // Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
 //     $request->fulfill();
 
@@ -101,6 +106,14 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::get('edit-review/{product_slug}/userreview', [UserReviewController::class, 'edit']);
     Route::put('update-review', [UserReviewController::class, 'update']);
 
+    Route::post('comments', [UserBlogCommentController::class, 'store']);
+    Route::delete('/comment/{id}', [UserBlogCommentController::class, 'delete'])->name('comment-delete');
+    // Route::post('delete-comment', [UserBlogCommentController::class, 'destroy']);
+
+    // Route::get('add-comment/{blog_slug}/userreview', [UserBlogCommentController::class, 'add']);
+    // Route::get('add-comment', [UserBlogCommentController::class, 'add']);
+    // Route::post('add-comment', [UserBlogCommentController::class, 'create']);
+
     // Route::get('/my_profile', [HomeController::class, 'myprofile'])->name('user-profile');
     Route::get('/my_profile', [UserProfileController::class, 'account'])->name('user-profile');
 
@@ -112,7 +125,7 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
 
     Route::get('/konfirmasi_pembayaran/{id}', [UserPaymentConfirmationController::class, 'index'])->name('payment-confirmation');
     Route::post('/konfirmasi_pembayaran/{id}/send', [UserPaymentConfirmationController::class, 'send'])->name('send-payment-confirmation');
-    Route::get('/konfirmasi_pembayaran/success', [UserPaymentConfirmationController::class, 'success'])->name('payment-confirmation-success');
+    // Route::get('/konfirmasi_pembayaran/success', [UserPaymentConfirmationController::class, 'success'])->name('payment-confirmation-success');
 
     // Route::get('/details/{id}', [CartController::class, 'index'])->name('detail');
     Route::post('/details/{id}', [CartController::class, 'add'])->name('detail-add');
@@ -149,6 +162,8 @@ Route::prefix('admin')->namespace('Admin')->middleware(['auth', 'admin'])->group
     Route::get('/products/{id}', [ProductController::class, 'details'])->name('admin-product-details');
     Route::post('/products/{id}', [ProductController::class, 'update'])->name('admin-product-update');
     Route::delete('/products/{id}', [ProductController::class, 'destroy'])->name('admin-product-delete');
+
+    Route::get('/product/rating/{id}', [ProductController::class, 'show'])->name('admin-product-ratings');
 
     Route::post('/products/gallery/upload', [ProductController::class, 'uploadGallery'])->name('admin-product-gallery-upload');
     Route::get('/products/gallery/delete/{id}', [ProductController::class, 'deleteGallery'])->name('admin-product-gallery-delete');
@@ -233,6 +248,10 @@ Route::prefix('admin')->namespace('Admin')->middleware(['auth', 'admin'])->group
     Route::get('/transaction/payment/{id}', [TransactionController::class, 'payment'])->name('admin-payment-confirmation');
     Route::get('/paymentConfirmation', [PaymentConfirmationController::class, 'index'])->name('payment-confirmation-admin');
     Route::get('/transaction-status-update/{id}', [ChangeController::class, 'transaction_status']);
+
+    Route::resource('faqs', '\App\Http\Controllers\Admin\FaqController');
+    Route::resource('privacyPolicy', '\App\Http\Controllers\Admin\PrivacyPolicyController');
+    Route::resource('termsAndConditions', '\App\Http\Controllers\Admin\TermsAndConditionsController');
 });
 
 

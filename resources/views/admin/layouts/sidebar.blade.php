@@ -137,6 +137,56 @@
                                 </p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="{{ route('product-category.index') }}"
+                                class="nav-link {{ (request()->is('admin/product-category')) ? 'active' : '' }}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Kategori Produk</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('admin-product') }}"
+                                class="nav-link {{ (request()->is('admin/product')) ? 'active' : '' }}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Produk</p>
+                            </a>
+                        </li>
+                        {{-- <li class="nav-item">
+                            <a href="/admin/rating"
+                                class="nav-link {{ (request()->is('admin/pengiriman')) ? 'active' : '' }}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>
+                                    Rating Produk
+                                </p>
+                            </a>
+                        </li> --}}
+                        <li class="nav-item">
+                            <a href="{{ route('faqs.index') }}"
+                                class="nav-link {{ (request()->is('admin/faqs')) ? 'active' : '' }}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>
+                                    FAQs
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('privacyPolicy.index') }}"
+                                class="nav-link {{ (request()->is('admin/privacyPolicy')) ? 'active' : '' }}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>
+                                    Privacy Policy
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('termsAndConditions.index') }}"
+                                class="nav-link {{ (request()->is('admin/termsAndConditions')) ? 'active' : '' }}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>
+                                    Terms And Conditions
+                                </p>
+                            </a>
+                        </li>
                     </ul>
                 </li>
 
@@ -188,29 +238,15 @@
                     </ul>
                 </li>
 
-                {{-- CV PAGE --}}
+                {{-- COMPANY PROFILE --}}
                 <li class="nav-item">
                     <a href="#" class="nav-link {{ (request()->is('admin')) ? 'active' : '' }}">
                         <p>
-                            CV PAGE
+                            COMPANY PROFILE
                             <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="{{ route('product-category.index') }}"
-                                class="nav-link {{ (request()->is('admin/product-category')) ? 'active' : '' }}">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Kategori Produk</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('admin-product') }}"
-                                class="nav-link {{ (request()->is('admin/product')) ? 'active' : '' }}">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Produk</p>
-                            </a>
-                        </li>
                         <li class="nav-item">
                             <a href="/admin/homecontent"
                                 class="nav-link {{ (request()->is('admin/homecontent')) ? 'active' : '' }}">

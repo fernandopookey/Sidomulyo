@@ -11,10 +11,12 @@ class PaymentConfirmation extends Model
         'transaction_id',
         'user_id',
         'bank',
+        'name',
         'account_number',
         'account_name',
         'code',
         'photos',
+        'total'
     ];
 
     protected $hidden = [];

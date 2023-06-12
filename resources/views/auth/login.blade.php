@@ -2,13 +2,6 @@
 <meta name="format-detection" content="telephone=no">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-{{--
-<link rel="stylesheet" href="user-template/build/css/style.css"> --}}
-
-
-{{--
-<link rel="stylesheet" href="user-template/src/css/style.css"> --}}
-
 <link rel="stylesheet" href="{{ asset('user-template/src/css/style.css') }}">
 <script src="https://kit.fontawesome.com/5ba479d13b.js" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
@@ -48,7 +41,6 @@
                                 @csrf
                                 <div class="form-group">
                                     <label for="inputFitstName">Email</label>
-                                    {{-- <div class="pt-required">* Required Fields</div> --}}
                                     <input type="email" type="email" name="email"
                                         class="form-control @error('email') is-invalid @enderror" id="email"
                                         placeholder="Masukan Email anda" value="{{ old('email') }}" required
@@ -84,14 +76,8 @@
                                     </button>
                                 </div>
                             </form>
-                            {{-- <div class="row-btn">
-                                <button type="submit" class="btn btn-block">LOGIN WITH GOOGLE</button>
-                            </div> --}}
                             <div class="row-btn">
-                                {{-- <a href="{{ route('google.login') }}" class="btn"><img src="/images/google.png"
-                                        width="20" alt="">Daftar dengan akun Google
-                                </a> --}}
-                                <button type="button" class="btn btn-dark btn-block btn-top">
+                                <button type="button" class="btn-primary btn-block btn-top">
                                     <a href="{{ route('google.login') }}" class="text-white">
                                         <img src="/images/google.png" width="20" alt="">| Masuk Dengan Akun Google
                                     </a>
