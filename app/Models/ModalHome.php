@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class ModalHome extends Model
 {
     protected $fillable = [
+        'status',
         'photos'
     ];
 

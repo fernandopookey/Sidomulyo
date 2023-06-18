@@ -19,7 +19,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="row border-top-3 mb-4 mt-4">
+                <div class="row border-top-3">
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="inputEmail">Visi</label>
@@ -35,7 +35,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="row mt-4">
+                <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="inputEmail">Tentang Kami</label>
@@ -51,20 +51,12 @@
                             {{-- <span>{!! $product->description !!}</span> --}}
                         </div>
                     </div>
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <label for="inputEmail">File PDF</label>
-                            {{-- <iFrame src="/assets/profile{{ $profile->document }}" frameborder="0"></iFrame> --}}
-                            <iFrame src="{{ Storage::url($profile->document) }}"></iFrame>
-                            {{-- <img src="{{ Storage::url($profile->photos) }}" alt="" style="max-width: 300px"> --}}
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <div class="row mt-4">
+    <div class="row">
         <div class="col-lg-6">
             <div class="col text-start">
                 <a href="/admin/profile">

@@ -16,21 +16,21 @@ class UserController extends Controller
     {
         $data = [
             'title'     => 'List User',
-            'users'      => User::get(),
-            'content'   => 'admin/user/index'
+            'users'     => User::get(),
+            'content'   => 'new-admin/user/index'
         ];
 
-        return view('admin.layouts.wrapper', $data);
+        return view('new-admin.layouts.wrapper', $data);
     }
 
     public function create()
     {
         $data = [
-            'title' => 'Tambah User',
-            'content' => 'admin/user/create'
+            'title'     => 'Tambah User',
+            'content'   => 'new-admin/user/create'
         ];
 
-        return view('admin.layouts.wrapper', $data);
+        return view('new-admin.layouts.wrapper', $data);
     }
 
     public function store(UserRequest $request)
@@ -49,19 +49,19 @@ class UserController extends Controller
         $data = [
             'title'     => 'Detail User',
             'user'      => User::find($id),
-            'content'   => 'admin/user/detail'
+            'content'   => 'new-admin/user/detail'
         ];
-        return view('admin.layouts.wrapper', $data);
+        return view('new-admin.layouts.wrapper', $data);
     }
 
     public function edit(string $id)
     {
         $data = [
-            'title' => 'Edit User',
-            'user' => User::find($id),
-            'content' => 'admin/user/edit'
+            'title'     => 'Edit User',
+            'user'      => User::find($id),
+            'content'   => 'new-admin/user/edit'
         ];
-        return view('admin.layouts.wrapper', $data);
+        return view('new-admin.layouts.wrapper', $data);
     }
 
     public function update(Request $request, string $id)

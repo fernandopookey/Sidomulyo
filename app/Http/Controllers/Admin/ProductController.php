@@ -24,31 +24,9 @@ class ProductController extends Controller
             'title'         => 'List Product',
             'products'      => Product::get(),
             'categories'    => ProductCategory::all(),
-            'content'       => 'admin/product/index'
+            'content'       => 'new-admin/product/index'
         ];
-
-        if (request()->ajax()) {
-            $query = Product::with(['categories']);
-
-            return DataTables::of($query)->addColumn('action', function ($item) {
-                return '
-                    <div class="d-flex justify-content-between">
-                        <a class="btn btn-warning" href="' . route('admin-product-details', $item->id) . '">
-                            <i class="fas fa-pen"></i> Edit
-                        </a>
-                        <form action="' . route('admin-product-delete', $item->id) . '" method="POST" onclick="return confirm(`Hapus Data ?`)">
-                            ' . method_field('delete') . csrf_field() . '
-                            <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i> Hapus</button>
-                        </form>
-                        <a class="btn btn-secondary" href="' . route('admin-product-ratings', $item->id) . '">
-                            <i class="fa fa-star"></i> Rating
-                        </a>
-                    </div>
-                ';
-            })->rawColumns(['action'])->make();
-        }
-
-        return view('admin.layouts.wrapper', $data);
+        return view('new-admin.layouts.wrapper', $data);
     }
 
     public function uploadGallery(Request $request)
@@ -88,11 +66,11 @@ class ProductController extends Controller
     {
         $data = [
             'title'         => 'Tambah Produk',
-            'content'       => 'admin/product/create',
+            'content'       => 'new-admin/product/create',
             'categories'      => ProductCategory::all()
         ];
 
-        return view('admin.layouts.wrapper', $data);
+        return view('new-admin.layouts.wrapper', $data);
     }
 
     public function store(ProductRequest $request)
@@ -118,9 +96,9 @@ class ProductController extends Controller
         $product = Product::with((['galleries', 'user', 'categories']))->findOrFail($id);
         $categories = ProductCategory::all();
 
-        return view('admin.layouts.wrapper', [
+        return view('new-admin.layouts.wrapper', [
             'title'         => 'Edit Produk',
-            'content'       => 'admin/product/detail',
+            'content'       => 'new-admin/product/detail',
             'product'       => $product,
             'categories'    => $categories,
         ]);
@@ -149,9 +127,9 @@ class ProductController extends Controller
             'userRating'        => $user_rating,
             // 'user'              => $user,
             'reviews'           => $reviews,
-            'content'           => 'admin/product/rating'
+            'content'           => 'new-admin/product/rating'
         ];
-        return view('admin.layouts.wrapper', $data);
+        return view('new-admin.layouts.wrapper', $data);
     }
 
 
@@ -160,8 +138,8 @@ class ProductController extends Controller
         $product = Product::findOrFail($id);
         $categories = ProductCategory::all();
 
-        return view('admin.layouts.wrapper', [
-            'content'   => 'admin/product/edit',
+        return view('new-admin.layouts.wrapper', [
+            'content'   => 'new-admin/product/edit',
             'product'      => $product,
             'categories'  => $categories
         ]);

@@ -18,46 +18,19 @@ class ClientController extends Controller
         $data = [
             'title'     => 'List Client',
             'client'    => Client::get(),
-            'content'   => 'admin/client/index'
+            'content'   => 'new-admin/client/index'
         ];
-
-        if (request()->ajax()) {
-            $query = Client::query();
-
-            return DataTables::of($query)->addColumn('action', function ($item) {
-                return '
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-primary">Aksi</button>
-                        <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
-                            <span class="visually-hidden">Toggle Dropdown</span>
-                        </button>
-                        <ul class="dropdown-menu">
-                                <a class="dropdown-item" href="' . route('client.edit', $item->id) . '">
-                                    Edit
-                                </a>
-                                <form action="' . route('client.destroy', $item->id) . '" method="POST" onclick="return confirm(`Hapus Data ?`)">
-                                    ' . method_field('delete') . csrf_field() . '
-                                    <button type="submit" class="dropdown-item text-danger">Hapus</button>
-                                </form>
-                        </ul>
-                    </div>
-                ';
-            })->editColumn('photos', function ($item) {
-                return $item->photos ? '<img src="' . Storage::url($item->photos) . '" style="height: 150px; width: 300px; object-fit: cover;" />' : '';
-            })->rawColumns(['action', 'photos'])->make();
-        }
-
-        return view('admin.layouts.wrapper', $data);
+        return view('new-admin.layouts.wrapper', $data);
     }
 
     public function create()
     {
         $data = [
             'title' => 'Tambah Client',
-            'content' => 'admin/client/create'
+            'content' => 'new-admin/client/create'
         ];
 
-        return view('admin.layouts.wrapper', $data);
+        return view('new-admin.layouts.wrapper', $data);
     }
 
     public function store(ClientRequest $request)
@@ -76,9 +49,9 @@ class ClientController extends Controller
         $data = [
             'title' => 'Edit Client',
             'client' => Client::find($id),
-            'content' => 'admin/client/edit'
+            'content' => 'new-admin/client/edit'
         ];
-        return view('admin.layouts.wrapper', $data);
+        return view('new-admin.layouts.wrapper', $data);
     }
 
     public function update(Request $request, string $id)

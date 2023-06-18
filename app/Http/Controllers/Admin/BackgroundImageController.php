@@ -17,9 +17,9 @@ class BackgroundImageController extends Controller
         $data = [
             'title'             => 'Background',
             'backgroundImage'   => BackgroundImage::first(),
-            'content'           => 'admin/background-image/index'
+            'content'           => 'new-admin/background-image/index'
         ];
-        return view('admin.layouts.wrapper', $data);
+        return view('new-admin.layouts.wrapper', $data);
     }
 
 

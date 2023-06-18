@@ -1,57 +1,52 @@
-<div class="row">
-    <div class="card">
-        <div class="col-6 text-start mt-4 mb-4">
-            <a class="btn bg-gradient-dark mb-0" href="{{ route('product-category.create') }}">
-                <i class="fa fa-plus"></i> Tambah</a>
-        </div>
-
-        {{-- <a href="{{ route('product-category.create') }}" class="btn btn-primary mb-3 btn-blcok">
-            <i class="fa fa-plus"></i> Tambah
-        </a> --}}
-
-        <div class="table-responsive">
-            <table class="table table-hover scroll-horizontal-vertical w-100" id="crudTable">
-                <thead>
-                    <tr>
-                        <th>Nama Kategori</th>
-                        <th>Gambar Kategori</th>
-                        <th>Aksi</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {{-- @foreach ($product as $item)
-                    <tr>
-                        <td>{{ $loop->iteration }}</td>
-                        <td>{{ $item->name }}</td>
-                        <td><i class="fa fa-eye"></i></td>
-                    </tr>
-                    @endforeach --}}
-                </tbody>
-            </table>
+<div class="card">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-12">
+                <div class="card-header">
+                    <a href="{{ route('product-category.create') }}" class="btn btn-primary"><i
+                            class="fa fa-plus"></i>Add
+                        New</a>
+                </div>
+                <div class="card-body">
+                    <table id="example1" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Nama</th>
+                                <th>Gambar</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($productCategory as $item)
+                            <tr>
+                                <td>{{ $loop->iteration }}</td>
+                                <td>{{ $item->name }}</td>
+                                <td>
+                                    <img src="{{ Storage::url($item->photos) }}" class="img-fluid" width="200" alt="">
+                                </td>
+                                <td>
+                                    <a href="{{ route('product-category.edit', $item->id) }}"
+                                        class="btn btn-block btn-outline-success"><i class="fas fa-edit"></i>
+                                        Edit
+                                    </a>
+                                    <form action="{{ route('product-category.destroy', $item->id) }}"
+                                        onclick="return confirm('Hapus Data ?')" method="POST" class="mt-2">
+                                        @method('delete')
+                                        @csrf
+                                        <button type="submit" class="btn btn-block btn-outline-danger"><i
+                                                class="fas fa-trash"></i>
+                                            Hapus</button>
+                                    </form>
+                                </td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+                <!-- /.card-body -->
+            </div>
         </div>
     </div>
 </div>
-
-@push('addon-script')
-<script>
-    var datatable = $('#crudTable').DataTable({
-            processing: true,
-            serverSide: true,
-            ordering: true,
-            ajax: {
-                url: '{!! url()->current() !!}',
-            },
-            columns: [
-                { data: 'name', name: 'name' },
-                { data: 'photos', name: 'photos' },
-                {
-                    data: 'action',
-                    name: 'action',
-                    orderable: false,
-                    searchable: false,
-                    width: '25%'
-                },
-            ]
-        })
-</script>
-@endpush
+</div>

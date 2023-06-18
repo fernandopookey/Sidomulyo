@@ -16,47 +16,20 @@ class SupportingFacilitiesController extends Controller
     {
         $data = [
             'title'                 => 'List Fasilitas Penunjang',
-            'supporting_facilities' => SupportingFacilities::get(),
-            'content'               => 'admin/supporting-facilities/index'
+            'supportingFacilities'  => SupportingFacilities::get(),
+            'content'               => 'new-admin/supporting-facilities/index'
         ];
-
-        if (request()->ajax()) {
-            $query = SupportingFacilities::query();
-
-            return DataTables::of($query)->addColumn('action', function ($item) {
-                return '
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-primary">Aksi</button>
-                        <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
-                            <span class="visually-hidden">Toggle Dropdown</span>
-                        </button>
-                        <ul class="dropdown-menu">
-                                <a class="dropdown-item" href="' . route('facility.edit', $item->id) . '">
-                                    Edit
-                                </a>
-                                <form action="' . route('facility.destroy', $item->id) . '" method="POST" onclick="return confirm(`Hapus Data ?`)">
-                                    ' . method_field('delete') . csrf_field() . '
-                                    <button type="submit" class="dropdown-item text-danger">Hapus</button>
-                                </form>
-                        </ul>
-                    </div>
-                ';
-            })->editColumn('photos', function ($item) {
-                return $item->photos ? '<img src="' . Storage::url($item->photos) . '" style="height: 100px; width: 120px; object-fit: cover;" />' : '';
-            })->rawColumns(['action', 'photos'])->make();
-        }
-
-        return view('admin.layouts.wrapper', $data);
+        return view('new-admin.layouts.wrapper', $data);
     }
 
     public function create()
     {
         $data = [
             'title' => 'Tambah Fasilitas Penunjang',
-            'content' => 'admin/supporting-facilities/create'
+            'content' => 'new-admin/supporting-facilities/create'
         ];
 
-        return view('admin.layouts.wrapper', $data);
+        return view('new-admin.layouts.wrapper', $data);
     }
 
     public function store(SupportingFacilitiesRequest $request)
@@ -75,9 +48,9 @@ class SupportingFacilitiesController extends Controller
         $data = [
             'title'                     => 'Edit Fasilitas Penunjang',
             'supporting_facilities'     => SupportingFacilities::find($id),
-            'content'                   => 'admin/supporting-facilities/edit'
+            'content'                   => 'new-admin/supporting-facilities/edit'
         ];
-        return view('admin.layouts.wrapper', $data);
+        return view('new-admin.layouts.wrapper', $data);
     }
 
     public function update(Request $request, string $id)

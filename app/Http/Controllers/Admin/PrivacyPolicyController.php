@@ -17,49 +17,19 @@ class PrivacyPolicyController extends Controller
         $data = [
             'title'             => 'List Privacy Policy',
             'privacyPolicy'     => PrivacyPolicy::get(),
-            'content'           => 'admin/privacy-policy/index'
+            'content'           => 'new-admin/privacy-policy/index'
         ];
-
-        if (request()->ajax()) {
-            $query = PrivacyPolicy::query();
-
-            return DataTables::of($query)->addColumn('action', function ($item) {
-                return '
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-primary">Aksi</button>
-                        <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
-                            <span class="visually-hidden">Toggle Dropdown</span>
-                        </button>
-                        <ul class="dropdown-menu">
-                                <a class="dropdown-item text-success" href="' . route('privacyPolicy.show', $item->id) . '">
-                                    Detail
-                                </a>
-                                <a class="dropdown-item" href="' . route('privacyPolicy.edit', $item->id) . '">
-                                    Edit
-                                </a>
-                                <form action="' . route('privacyPolicy.destroy', $item->id) . '" method="POST" onclick="return confirm(`Hapus Data ?`)">
-                                    ' . method_field('delete') . csrf_field() . '
-                                    <button type="submit" class="dropdown-item text-danger">Hapus</button>
-                                </form>
-                        </ul>
-                    </div>
-                ';
-            })->editColumn('photos', function ($item) {
-                return $item->photos ? '<img src="' . Storage::url($item->photos) . '" style="height: 100px; width: 120px; object-fit: cover;" />' : '';
-            })->rawColumns(['action', 'photos'])->make();
-        }
-
-        return view('admin.layouts.wrapper', $data);
+        return view('new-admin.layouts.wrapper', $data);
     }
 
     public function create()
     {
         $data = [
             'title'     => 'Tambah Privacy Policy',
-            'content'   => 'admin/privacy-policy/create'
+            'content'   => 'new-admin/privacy-policy/create'
         ];
 
-        return view('admin.layouts.wrapper', $data);
+        return view('new-admin.layouts.wrapper', $data);
     }
 
     public function store(PrivacyPolicyRequest $request)
@@ -76,9 +46,9 @@ class PrivacyPolicyController extends Controller
         $data = [
             'title'             => 'Detail Privacy Policy',
             'privacyPolicy'     => PrivacyPolicy::find($id),
-            'content'           => 'admin/privacy-policy/detail'
+            'content'           => 'new-admin/privacy-policy/detail'
         ];
-        return view('admin.layouts.wrapper', $data);
+        return view('new-admin.layouts.wrapper', $data);
     }
 
     public function edit(string $id)
@@ -86,9 +56,9 @@ class PrivacyPolicyController extends Controller
         $data = [
             'title'             => 'Edit Privacy Policy',
             'privacyPolicy'     => PrivacyPolicy::find($id),
-            'content'           => 'admin/privacy-policy/edit'
+            'content'           => 'new-admin/privacy-policy/edit'
         ];
-        return view('admin.layouts.wrapper', $data);
+        return view('new-admin.layouts.wrapper', $data);
     }
 
     public function update(Request $request, $id)

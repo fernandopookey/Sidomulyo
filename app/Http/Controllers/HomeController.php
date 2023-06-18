@@ -32,7 +32,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $slider             = Slider::take(3)->get();
+        $slider             = Slider::where('status', 'Enable')->get();
         $product            = Product::take(8)->get();
         $sosmed             = Sosmed::get();
         $header             = Header::get();
@@ -41,7 +41,7 @@ class HomeController extends Controller
         $thirdFloating      = ThirdFloating::get();
         $fourthFloating     = FourthFloating::get();
         $homecontent        = HomeContent::get();
-        $modalHome          = ModalHome::get();
+        $modalHome          = ModalHome::where('status', 'Enable')->get();
         // $categories = Category::take(6)->latest()->get(); Ini untuk mengambil product terakhir
         // $products = Product::with(['galleries'])->take(8)->latest()->get(); ini juga untuk mengambil product terakhir
 

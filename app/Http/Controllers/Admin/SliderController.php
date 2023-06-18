@@ -17,45 +17,19 @@ class SliderController extends Controller
         $data = [
             'title'     => 'List Slider',
             'slider'   => Slider::get(),
-            'content'   => 'admin/slider/index'
+            'content'   => 'new-admin/slider/index'
         ];
 
-        if (request()->ajax()) {
-            $query = Slider::query();
-
-            return DataTables::of($query)->addColumn('action', function ($item) {
-                return '
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-primary">Aksi</button>
-                        <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
-                            <span class="visually-hidden">Toggle Dropdown</span>
-                        </button>
-                        <ul class="dropdown-menu">
-                                <a class="dropdown-item" href="' . route('slider.edit', $item->id) . '">
-                                    Edit
-                                </a>
-                                <form action="' . route('slider.destroy', $item->id) . '" method="POST" onclick="return confirm(`Hapus Data ?`)">
-                                    ' . method_field('delete') . csrf_field() . '
-                                    <button type="submit" class="dropdown-item text-danger">Hapus</button>
-                                </form>
-                        </ul>
-                    </div>
-                ';
-            })->editColumn('photos', function ($item) {
-                return $item->photos ? '<img src="' . Storage::url($item->photos) . '" style="height: 100px; width: 120px; object-fit: cover;" />' : '';
-            })->rawColumns(['action', 'photos'])->make();
-        }
-
-        return view('admin.layouts.wrapper', $data);
+        return view('new-admin.layouts.wrapper', $data);
     }
 
     public function create()
     {
         $data = [
             'title' => 'Tambah Slider',
-            'content' => 'admin/slider/create'
+            'content' => 'new-admin/slider/create'
         ];
-        return view('admin.layouts.wrapper', $data);
+        return view('new-admin.layouts.wrapper', $data);
     }
 
     public function store(SliderRequest $request)
@@ -74,9 +48,9 @@ class SliderController extends Controller
         $data = [
             'title'     => 'Detail Slider',
             'slider'   => Slider::find($id),
-            'content'   => 'admin/slider/detail'
+            'content'   => 'new-admin/slider/detail'
         ];
-        return view('admin.layouts.wrapper', $data);
+        return view('new-admin.layouts.wrapper', $data);
     }
 
     /**
@@ -87,9 +61,9 @@ class SliderController extends Controller
         $data = [
             'title' => 'Edit Slider',
             'slider' => Slider::find($id),
-            'content' => 'admin/slider/edit'
+            'content' => 'new-admin/slider/edit'
         ];
-        return view('admin.layouts.wrapper', $data);
+        return view('new-admin.layouts.wrapper', $data);
     }
 
     /**

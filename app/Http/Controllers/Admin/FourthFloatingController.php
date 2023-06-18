@@ -14,9 +14,9 @@ class FourthFloatingController extends Controller
         $data = [
             'title'         => 'Floating Button Keempat',
             'floating'      => FourthFloating::first(),
-            'content'       => 'admin/floating/fourthFloating'
+            'content'       => 'new-admin/floating/fourthFloating'
         ];
-        return view('admin.layouts.wrapper', $data);
+        return view('new-admin.layouts.wrapper', $data);
     }
 
 

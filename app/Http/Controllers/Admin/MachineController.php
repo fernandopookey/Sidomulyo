@@ -18,49 +18,19 @@ class MachineController extends Controller
         $data = [
             'title'     => 'List Mesin',
             'machine'   => Machine::get(),
-            'content'   => 'admin/machine/index'
+            'content'   => 'new-admin/machine/index'
         ];
-
-        if (request()->ajax()) {
-            $query = Machine::query();
-
-            return DataTables::of($query)->addColumn('action', function ($item) {
-                return '
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-primary">Aksi</button>
-                        <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
-                            <span class="visually-hidden">Toggle Dropdown</span>
-                        </button>
-                        <ul class="dropdown-menu">
-                        <a class="dropdown-item" href="' . route('machine.edit', $item->id) . '">
-                                    Edit
-                                </a>
-                                <a class="dropdown-item text-success" href="' . route('machine.show', $item->id) . '">
-                                    Detail
-                                </a>
-                                <form action="' . route('machine.destroy', $item->id) . '" method="POST" onclick="return confirm(`Hapus Data ?`)">
-                                    ' . method_field('delete') . csrf_field() . '
-                                    <button type="submit" class="dropdown-item text-danger" onclick="return confirm("Yakin Dek ?");">Hapus</button>
-                                </form>
-                        </ul>
-                    </div>
-                ';
-            })->editColumn('photos', function ($item) {
-                return $item->photos ? '<img src="' . Storage::url($item->photos) . '" style="height: 100px; width: 120px; object-fit: cover;" />' : '';
-            })->rawColumns(['action', 'photos'])->make();
-        }
-
-        return view('admin.layouts.wrapper', $data);
+        return view('new-admin.layouts.wrapper', $data);
     }
 
     public function create()
     {
         $data = [
             'title'     => 'Tambah Mesin',
-            'content'   => 'admin/machine/create'
+            'content'   => 'new-admin/machine/create'
         ];
 
-        return view('admin.layouts.wrapper', $data);
+        return view('new-admin.layouts.wrapper', $data);
     }
 
     public function store(MachineRequest $request)
@@ -80,9 +50,9 @@ class MachineController extends Controller
         $data = [
             'title'     => 'Detail Mesin',
             'machine'   => Machine::find($id),
-            'content'   => 'admin/machine/detail'
+            'content'   => 'new-admin/machine/detail'
         ];
-        return view('admin.layouts.wrapper', $data);
+        return view('new-admin.layouts.wrapper', $data);
     }
 
     public function edit(string $id)
@@ -90,9 +60,9 @@ class MachineController extends Controller
         $data = [
             'title' => 'Edit Mesin',
             'machine' => Machine::find($id),
-            'content' => 'admin/machine/edit'
+            'content' => 'new-admin/machine/edit'
         ];
-        return view('admin.layouts.wrapper', $data);
+        return view('new-admin.layouts.wrapper', $data);
     }
 
     public function update(Request $request, string $id)

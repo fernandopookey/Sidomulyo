@@ -89,6 +89,8 @@ Route::get('/faqs', [HomeController::class, 'faqs'])->name('faqs');
 Route::get('/privacy-policy', [HomeController::class, 'privacyPolicy'])->name('privacyPolicy');
 Route::get('/terms-and-conditions', [HomeController::class, 'termsAndConditions'])->name('termsAndConditions');
 
+Route::get('search', [UserProductController::class, 'search'])->name('search');
+
 // Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
 //     $request->fulfill();
 
@@ -134,8 +136,6 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::get('/cart/update-quantity/{id}/{quantity}', [CartController::class, 'update']);
 
     Route::post('/checkout', [UserCheckoutController::class, 'process'])->name('checkout');
-
-    Route::get('search', [UserProductController::class, 'search'])->name('search');
 
     Route::get('/my_profile/change_password', [UserProfileController::class, 'changePassword'])->name('change-password');
     Route::get('/my_profile/change_password/update_password', [UserProfileController::class, 'updatePassword'])->name('update-password');
@@ -211,6 +211,7 @@ Route::prefix('admin')->namespace('Admin')->middleware(['auth', 'admin'])->group
     Route::put('/fourth_floating/update', [FourthFloatingController::class, 'update']);
 
     Route::get('/status-update/{id}', [ChangeController::class, 'status_update']);
+    Route::get('/slider-status-update/{id}', [ChangeController::class, 'slider_status_update']);
 
 
     Route::resource('slider', '\App\Http\Controllers\Admin\SliderController');

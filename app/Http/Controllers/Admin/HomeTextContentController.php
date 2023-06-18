@@ -14,9 +14,9 @@ class HomeTextContentController extends Controller
         $data = [
             'title'     => 'Teks Halaman Utama',
             'item'      => HomeTextContent::first(),
-            'content'   => 'admin/home-text-content/index'
+            'content'   => 'new-admin/home-text-content/index'
         ];
-        return view('admin.layouts.wrapper', $data);
+        return view('new-admin.layouts.wrapper', $data);
     }
 
     public function update(Request $request)
