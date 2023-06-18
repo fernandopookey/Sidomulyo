@@ -14,9 +14,9 @@ class SosmedController extends Controller
         $data = [
             'title' => 'Alamat Dan Link Sosial Media Footer',
             'sosmed' => Sosmed::first(),
-            'content' => 'admin/sosmed/index'
+            'content' => 'new-admin/sosmed/index'
         ];
-        return view('admin.layouts.wrapper', $data);
+        return view('new-admin.layouts.wrapper', $data);
     }
 
 

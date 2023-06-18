@@ -54,61 +54,35 @@
                 </div>
             </div>
         </div>
-        {{-- <div class="row mx-2" id="gallery">
-            <h5 class="pb-2">Gambar Produk {{ $product->name }}</h5>
-
-            <div class="row">
-                @foreach ($product->galleries as $gallery)
-                <div class="d-flex col-lg-3">
-                    <div class="card text-center" style="width: 18rem;">
-                        <img src="{{ Storage::url($gallery->photos ?? '') }}" class="card-img-top" alt="..."
-                            style="height: 200px; object-fit:cover;">
-                    </div>
-                </div>
-                @endforeach
-            </div>
-        </div> --}}
     </div>
     <div class="card mt-4">
         <div class="card-body row">
             <div class="col-12">
                 <h2>Produk Yang Dibeli</h2>
                 <div class="row">
-                    @foreach ($transactionDetail as $item)
-                    <div class="col-lg-6 col-md-6 col-sm-12">
-                        <div class="form-group">
-                            <label for="inputName">Nama</label><br />
-                            <input type="text" value="{{ $transactionDetail->product->name }}" class="form-control"
-                                disabled>
-
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-sm-12">
-                        <div class="form-group">
-                            <label for="inputName">Harga</label><br />
-                            <input type="text" value="{{ $transactionDetail->product->price }}" class="form-control"
-                                disabled>
-
-                        </div>
-                    </div>
-                    @endforeach
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">No</th>
+                                <th scope="col">Nama Produk</th>
+                                <th scope="col">Harga Produk</th>
+                                <th scope="col">Banyak Produk</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($transaction->transactionDetails as $item)
+                            <tr>
+                                <td>{{ $loop->iteration }}</td>
+                                <td>{{ $item->product->name }}</td>
+                                <td>{{ $item->product->price }}</td>
+                                <td>{{ $item->qty }}</td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
-        {{-- <div class="row mx-2" id="gallery">
-            <h5 class="pb-2">Gambar Produk {{ $product->name }}</h5>
-
-            <div class="row">
-                @foreach ($product->galleries as $gallery)
-                <div class="d-flex col-lg-3">
-                    <div class="card text-center" style="width: 18rem;">
-                        <img src="{{ Storage::url($gallery->photos ?? '') }}" class="card-img-top" alt="..."
-                            style="height: 200px; object-fit:cover;">
-                    </div>
-                </div>
-                @endforeach
-            </div>
-        </div> --}}
     </div>
     <div class="card mt-4">
         <div class="card-body row">
@@ -160,16 +134,10 @@
                         <div class="form-group">
                             <label for="inputName">Status</label><br />
                             <?php if ($transaction->user->status == '1'){ ?>
-                            <a href="{{ $transaction->user->status }}" class="btn btn-success" disabled>Active</a>
+                            <a href="#" class="btn btn-success" disabled>Active</a>
                             <?php }else{ ?>
-                            <a href="{{ $transaction->user->status }}" class="btn btn-danger" disabled>Inactive</a>
+                            <a href="#" class="btn btn-danger" disabled>Inactive</a>
                             <?php } ?>
-                        </div>
-                    </div>
-                    <div class="col-lg-8 col-md-8 col-sm-12">
-                        <div class="form-group">
-                            <label for="inputName">Gambar</label><br />
-                            <img src="{{ Storage::url($transaction->user->photos) }}" alt="" style="max-width: 250px">
                         </div>
                     </div>
                 </div>

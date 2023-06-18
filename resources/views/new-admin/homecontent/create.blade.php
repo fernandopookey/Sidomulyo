@@ -1,84 +1,62 @@
-<div class="dashboard-content">
-    <div class="row">
-        <div class="col-md-12">
-            @if ($errors->any())
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-            @endif
-            <div class="card">
-                <div class="card-body">
-                    <form action="{{ route('homecontent.store') }}" method="POST" enctype="multipart/form-data">
-                        @csrf
-                        <div class="row">
-                            <div class="col-md-12 mb-4">
-                                <div class="input-group input-group-static mb-2">
-                                    <label>Nama Tautan</label>
-                                    <input type="text" name="title" class="form-control" autocomplete="off" required>
-                                </div>
-                            </div>
-                            <div class="col-md-12 mb-4">
-                                <div class="input-group input-group-static mb-2">
-                                    <label>Tautan</label>
-                                    <input type="text" name="link" class="form-control" autocomplete="off" required>
-                                </div>
-                            </div>
-                            <div class="col-md-12 mb-4">
-                                <div class="input-group input-group-static mb-2">
-                                    <label>Icon</label>
-                                    <input type="file" name="icon" class="form-control" onchange="loadFile(event)"
-                                        required>
-                                </div>
-                                <img id="output" class="pb-4" style="width: 200px; height: 200px; object-fit: cover;" />
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <div class="col text-start">
-                                    <button type="submit" class="btn btn-success px-5">
-                                        Simpan
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="col text-end">
-                                    <a href="{{ route('homecontent.index') }}">
-                                        <button type="button" class="btn btn-primary px-5">
-                                            Kembali
-                                        </button>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
+<div class="card">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-12">
+                @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
                 </div>
+                @endif
+                <form action="{{ route('homecontent.store') }}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label>Nama Link</label>
+                            <input type="text" name="title" class="form-control" autocomplete="off" required>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label>Link</label>
+                            <input type="text" name="link" class="form-control" autocomplete="off" required>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label>Icon Link</label>
+                            <div class="input-group">
+                                <div class="custom-file">
+                                    <input type="file" name="icon" class="custom-file-input" id="exampleInputFile"
+                                        onchange="loadFile(event)" required>
+                                    <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                </div>
+                                <div class="input-group-append">
+                                    <span class="input-group-text">Upload</span>
+                                </div>
+                            </div>
+                        </div>
+                        <img id="output" class="img-fluid mt-2 mb-4" width="400" />
+                    </div>
+                    <div class="d-flex">
+                        <div class="col-lg-6">
+                            <button type="submit" class="btn btn-success px-5">
+                                Simpan
+                            </button>
+                        </div>
+                        <div class="col-lg-6 text-right">
+                            <a href="{{ route('homecontent.index') }}">
+                                <button type="button" class="btn btn-primary px-5">
+                                    Kembali
+                                </button>
+                            </a>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
 </div>
-
-@push('addon-script')
-
-<script>
-    var loadFile = function(event) {
-        var output = document.getElementById('output');
-        output.src = URL.createObjectURL(event.target.files[0]);
-    };
-</script>
-
-<script src="https://cdn.ckeditor.com/ckeditor5/36.0.1/classic/ckeditor.js"></script>
-<script>
-    ClassicEditor
-              .create(document.querySelector('#editor'))
-              .then(editor => {
-                console.log(editor);
-              })
-              .catch(error => {
-                console.error(error);
-              });
-</script>
-@endpush

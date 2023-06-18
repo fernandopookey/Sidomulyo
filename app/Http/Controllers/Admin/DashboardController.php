@@ -21,8 +21,8 @@ class DashboardController extends Controller
             'paymentConfirmation'   => PaymentConfirmation::count(),
             'user'                  => User::count(),
             'title'                 => 'Dashboard Admin Sidomulyo',
-            'content'               => 'admin/dashboard/index'
+            'content'               => 'new-admin/dashboard/index'
         ];
-        return view('admin.layouts.wrapper', $data);
+        return view('new-admin.layouts.wrapper', $data);
     }
 }

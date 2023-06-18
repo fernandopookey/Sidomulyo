@@ -1,188 +1,275 @@
-<body class="g-sidenav-show  bg-gray-200">
-    <aside
-        class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3   bg-gradient-dark"
-        id="sidenav-main">
-        <div class="sidenav-header">
-            <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none"
-                aria-hidden="true" id="iconSidenav"></i>
-            <a class="navbar-brand m-0" href="{{ route('admin-dashboard') }}">
-                <img src="/images/iconcircle.png" class="navbar-brand-img h-100" alt="main_logo">
-                <span class="ms-1 font-weight-bold text-white">Sidomulyo</span>
-            </a>
+<!-- Main Sidebar Container -->
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+    <a href="{{ route('admin-dashboard') }}" class="brand-link">
+        <img src="/images/logocircle.png" alt="Sidomulyo Logo" class="brand-image img-circle elevation-3"
+            style="opacity: .8">
+        <span class="brand-text font-weight-light">Admin Sidomulyo</span>
+    </a>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <!-- SidebarSearch Form -->
+        <div class="form-inline mt-4">
+            <div class="input-group" data-widget="sidebar-search">
+                <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
+                <div class="input-group-append">
+                    <button class="btn btn-sidebar">
+                        <i class="fas fa-search fa-fw"></i>
+                    </button>
+                </div>
+            </div>
         </div>
-        <hr class="horizontal light mt-0 mb-2">
-        <div class="collapse navbar-collapse w-auto" id="sidenav-collapse-main">
-            <ul class="navbar-nav">
 
-                <li class="nav-item">
-                    <a href="{{ route('admin-dashboard') }}"
-                        class="nav-link text-white {{ (request()->is('/admin/dashboard')) ? 'active bg-gradient-info' : '' }}">
-                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="fas fa-circle opacity-10"></i>
-                        </div>
-                        <span class="nav-link-text ms-1">Dashboard</span>
+        <!-- Sidebar Menu -->
+        <nav class="mt-2">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+                <li class="nav-item menu-open">
+                    <a href="{{ route('admin-dashboard') }}" class="nav-link">
+                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <p>
+                            Dashboard
+                        </p>
                     </a>
                 </li>
-
-                {{-- CV PAGE --}}
-                <li class="nav-item mt-3">
-                    <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">E-COMMERCE</h6>
-                </li>
-
+                <li class="nav-header">COMPONENT CONTENT</li>
                 <li class="nav-item">
-                    <a href="{{ route('product-category.index') }}"
-                        class="nav-link text-white {{ (request()->is('admin/product-category')) ? 'active bg-gradient-info' : '' }}">
-                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="fas fa-circle opacity-10"></i>
-                        </div>
-                        <span class="nav-link-text ms-1">Kategori Produk</span>
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-copy"></i>
+                        <p>
+                            Component Content
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
                     </a>
-                </li>
-
-                <li class="nav-item">
-                    <a href="{{ route('admin-product') }}"
-                        class="nav-link text-white {{ (request()->is('admin/admin-product')) ? 'active bg-gradient-info' : '' }}">
-                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="fas fa-circle opacity-10"></i>
-                        </div>
-                        <span class="nav-link-text ms-1">Produk</span>
-                    </a>
-                </li>
-
-                {{-- CV PAGE --}}
-                <li class="nav-item mt-3">
-                    <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">CV PAGE
-                    </h6>
-                </li>
-
-                <li class="nav-item">
-                    <a href="{{ route('backgroundImage.index') }}"
-                        class="nav-link text-white {{ (request()->is('admin/backgroundImage')) ? 'active bg-gradient-info' : '' }}">
-                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="fas fa-circle opacity-10"></i>
-                        </div>
-                        <span class="nav-link-text ms-1">Background Image</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{ route('blog.index') }}"
-                        class="nav-link text-white {{ (request()->is('admin/blog')) ? 'active bg-gradient-info' : '' }}">
-                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="fas fa-circle opacity-10"></i>
-                        </div>
-                        <span class="nav-link-text ms-1">Blog</span>
-                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="/admin/home_text_content" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Teks Halaman Utama</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/admin/navbar_content" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Kontent Navbar</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/admin/sosmed_footer" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Footer</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/admin/background_image" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Background Image</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/admin/modalHome" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Modal Halaman Utama</p>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('client.index') }}"
-                        class="nav-link text-white {{ (request()->is('admin/client')) ? 'active bg-gradient-info' : '' }}">
-                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="fas fa-circle opacity-10"></i>
-                        </div>
-                        <span class="nav-link-text ms-1">Client</span>
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-copy"></i>
+                        <p>
+                            Floating Button
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
                     </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="/admin/first_floating" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Floating Button 1</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/admin/second_floating" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Floating Button 2</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/admin/third_floating" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Floating Button 3</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/admin/fourth_floating" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Floating Button 4</p>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('facility.index') }}"
-                        class="nav-link text-white {{ (request()->is('admin/facility')) ? 'active bg-gradient-info' : '' }}">
-                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="fas fa-circle opacity-10"></i>
-                        </div>
-                        <span class="nav-link-text ms-1">Fasilitas</span>
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-copy"></i>
+                        <p>
+                            E-Commerce
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
                     </a>
+                    <ul class="nav nav-treeview">
+                        {{-- <li class="nav-item">
+                            <a href="/admin/first_floating" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Kupon</p>
+                            </a>
+                        </li> --}}
+                        <li class="nav-item">
+                            <a href="/admin/pengiriman" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Pengiriman</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('product-category.index') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Kategori Produk</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('admin-product') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Produk</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('faqs.index') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>FAQs</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('privacyPolicy.index') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Privacy Policy</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('termsAndConditions.index') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Terms And Conditions</p>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
+                <li class="nav-header">COMPANY PROFILE</li>
                 <li class="nav-item">
-                    <a href="{{ route('machine.index') }}"
-                        class="nav-link text-white {{ (request()->is('admin/machine')) ? 'active bg-gradient-info' : '' }}">
-                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="fas fa-circle opacity-10"></i>
-                        </div>
-                        <span class="nav-link-text ms-1">Mesin</span>
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-copy"></i>
+                        <p>
+                            Company Profile
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
                     </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="/admin/homecontent" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Link Halaman Utama</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('slider.index') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Slider</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('client.index') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Halaman Client</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('blog.index') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Blog</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/admin/profile" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Profil Perusahaan</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/admin/facilityandmachine" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Fasilitas Dan Mesin</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('facility.index') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Fasilitas</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('machine.index') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Mesin</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('installation.index') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Pemasangan</p>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
+                <li class="nav-header">MANAGEMENT USER</li>
                 <li class="nav-item">
-                    <a href="/admin/facilityandmachine"
-                        class="nav-link text-white {{ (request()->is('admin/facilityandmachine')) ? 'active bg-gradient-info' : '' }}">
-                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="fas fa-circle opacity-10"></i>
-                        </div>
-                        <span class="nav-link-text ms-1">Fasilitas & Mesin</span>
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-copy"></i>
+                        <p>
+                            Management User
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
                     </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('user.index') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>User</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('transaction.index') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Transaksi User</p>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
+                <li class="nav-header">SYSTEM</li>
                 <li class="nav-item">
-                    <a href="{{ route('installation.index') }}"
-                        class="nav-link text-white {{ (request()->is('admin/installation')) ? 'active bg-gradient-info' : '' }}">
-                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="fas fa-circle opacity-10"></i>
-                        </div>
-                        <span class="nav-link-text ms-1">Pemasangan</span>
-                    </a>
-                </li>
                 <li class="nav-item">
-                    <a href="/admin/profile"
-                        class="nav-link text-white {{ (request()->is('admin/profile')) ? 'active bg-gradient-info' : '' }}">
-                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="fas fa-circle opacity-10"></i>
-                        </div>
-                        <span class="nav-link-text ms-1">Profil Perusahan</span>
+                    <a href="{{ route('logout') }}" class="nav-link" onclick="event.preventDefault();
+                        document.getElementById('logout-form').submit();" class="dropdown-item">
+                        <i class="nav-icon fas fa-sign-out-alt"></i>
+                        <p>Logout</p>
                     </a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
                 </li>
-                <li class="nav-item">
-                    <a href="{{ route('slider.index') }}"
-                        class="nav-link text-white {{ (request()->is('admin/slider')) ? 'active bg-gradient-info' : '' }}">
-                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="fas fa-circle opacity-10"></i>
-                        </div>
-                        <span class="nav-link-text ms-1">Slider</span>
-                    </a>
-                </li>
-
-                {{-- COMPONENT PAGE --}}
-                <li class="nav-item mt-3">
-                    <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">LAINNYA</h6>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white " href="/admin/homecontent">
-                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="fas fa-circle opacity-10"></i>
-                        </div>
-                        <span class="nav-link-text ms-1">User Home Page</span>
-                    </a>
-                </li>
-
-                {{-- MANAGEMENT PAGE --}}
-                <li class="nav-item mt-3">
-                    <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">MANAGEMENT USER
-                    </h6>
-                </li>
-
-                <li class="nav-item">
-                    <a href="{{ route('user.index') }}"
-                        class="nav-link text-white {{ (request()->is('admin/user')) ? 'active bg-gradient-info' : '' }}">
-                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="fas fa-circle opacity-10"></i>
-                        </div>
-                        <span class="nav-link-text ms-1">User</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{ route('paymentConfirmation.index') }}"
-                        class="nav-link text-white {{ (request()->is('admin/paymentConfirmation')) ? 'active bg-gradient-info' : '' }}">
-                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="fas fa-circle opacity-10"></i>
-                        </div>
-                        <span class="nav-link-text ms-1">Konfirmasi Pembayaran</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{ route('transaction.index') }}"
-                        class="nav-link text-white {{ (request()->is('admin/transaction')) ? 'active bg-gradient-info' : '' }}">
-                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="fas fa-circle opacity-10"></i>
-                        </div>
-                        <span class="nav-link-text ms-1">Transaksi Customer</span>
-                    </a>
                 </li>
             </ul>
-        </div>
-    </aside>
+        </nav>
+        <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+</aside>

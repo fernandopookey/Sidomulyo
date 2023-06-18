@@ -15,51 +15,21 @@ class FaqController extends Controller
     public function index()
     {
         $data = [
-            'title'     => 'List FAQ',
+            'title'     => 'List FAQs',
             'faq'       => FAQ::get(),
-            'content'   => 'admin/faq/index'
+            'content'   => 'new-admin/faq/index'
         ];
-
-        if (request()->ajax()) {
-            $query = FAQ::query();
-
-            return DataTables::of($query)->addColumn('action', function ($item) {
-                return '
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-primary">Aksi</button>
-                        <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
-                            <span class="visually-hidden">Toggle Dropdown</span>
-                        </button>
-                        <ul class="dropdown-menu">
-                                <a class="dropdown-item text-success" href="' . route('faqs.show', $item->id) . '">
-                                    Detail
-                                </a>
-                                <a class="dropdown-item" href="' . route('faqs.edit', $item->id) . '">
-                                    Edit
-                                </a>
-                                <form action="' . route('faqs.destroy', $item->id) . '" method="POST" onclick="return confirm(`Hapus Data ?`)">
-                                    ' . method_field('delete') . csrf_field() . '
-                                    <button type="submit" class="dropdown-item text-danger">Hapus</button>
-                                </form>
-                        </ul>
-                    </div>
-                ';
-            })->editColumn('photos', function ($item) {
-                return $item->photos ? '<img src="' . Storage::url($item->photos) . '" style="height: 100px; width: 120px; object-fit: cover;" />' : '';
-            })->rawColumns(['action', 'photos'])->make();
-        }
-
-        return view('admin.layouts.wrapper', $data);
+        return view('new-admin.layouts.wrapper', $data);
     }
 
     public function create()
     {
         $data = [
             'title' => 'Tambah FAQS',
-            'content' => 'admin/faq/create'
+            'content' => 'new-admin/faq/create'
         ];
 
-        return view('admin.layouts.wrapper', $data);
+        return view('new-admin.layouts.wrapper', $data);
     }
 
     public function store(FaqRequest $request)
@@ -76,9 +46,9 @@ class FaqController extends Controller
         $data = [
             'title'     => 'Detail FAQs',
             'faq'       => FAQ::find($id),
-            'content'   => 'admin/faq/detail'
+            'content'   => 'new-admin/faq/detail'
         ];
-        return view('admin.layouts.wrapper', $data);
+        return view('new-admin.layouts.wrapper', $data);
     }
 
     public function edit(string $id)
@@ -86,9 +56,9 @@ class FaqController extends Controller
         $data = [
             'title'     => 'Edit FAQs',
             'faq'       => FAQ::find($id),
-            'content'   => 'admin/faq/edit'
+            'content'   => 'new-admin/faq/edit'
         ];
-        return view('admin.layouts.wrapper', $data);
+        return view('new-admin.layouts.wrapper', $data);
     }
 
     public function update(Request $request, $id)

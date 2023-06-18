@@ -14,9 +14,9 @@ class HeaderController extends Controller
         $data = [
             'title'     => 'Teks Dan Link Sosial Media Navigasi Bar Header',
             'header'    => Header::first(),
-            'content'   => 'admin/header/index'
+            'content'   => 'new-admin/header/index'
         ];
-        return view('admin.layouts.wrapper', $data);
+        return view('new-admin.layouts.wrapper', $data);
     }
 
 

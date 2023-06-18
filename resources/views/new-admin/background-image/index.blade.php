@@ -1,42 +1,48 @@
-<div class="row">
-    <div class="card">
-        <div class="col-6 text-start mt-4 mb-4">
-            <a href="{{ route('backgroundImage.create') }}" class="btn bg-gradient-dark mb-0">
-                <i class="fa fa-plus"></i> Tambah
-            </a>
-        </div>
-        <div class="table-responsive">
-            <table class="table table-bordered table-hover scroll-horizontal-vertical w-100" id="crudTable">
-                <thead>
-                    <tr>
-                        <th>Gambar Klien</th>
-                        <th>Aksi</th>
-                    </tr>
-                </thead>
-                <tbody></tbody>
-            </table>
+<div class="card">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-12">
+                @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+                @endif
+                <form action="/admin/background_image/update" method="POST" enctype="multipart/form-data">
+                    @method('PUT')
+                    @csrf
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Gambar</label>
+                                <input type="file" name="photos" class="form-control"
+                                    value="{{ $backgroundImage->photos }}" onchange="loadFile(event)">
+                                <img src="{{ Storage::disk('local')->url($backgroundImage->photos) }}" class="pt-4"
+                                    alt="" style="widows: 200px; height: 150px; object-fit: contain;">
+                            </div>
+                            <img id="output" class="pb-4" style="max-width: 200px" />
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary">Simpan</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
+</div>
 
-    @push('addon-script')
-    <script>
-        var datatable = $('#crudTable').DataTable({
-            processing: true,
-            serverSide: true,
-            ordering: true,
-            ajax: {
-                url: '{!! url()->current() !!}',
-            },
-            columns: [
-                { data: 'photos', name: 'photos' },
-                {
-                    data: 'action',
-                    name: 'action',
-                    orderable: false,
-                    searchable: false,
-                    width: '25%'
-                },
-            ]
-        })
-    </script>
-    @endpush
+@push('addon-script')
+
+<script>
+    var loadFile = function(event) {
+        var output = document.getElementById('output');
+        output.src = URL.createObjectURL(event.target.files[0]);
+    };
+</script>
+@endpush

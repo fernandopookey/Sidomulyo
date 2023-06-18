@@ -16,48 +16,21 @@ class InstallationController extends Controller
     public function index()
     {
         $data = [
-            'title'     => 'List Pemasangan',
-            'installation'   => Installation::get(),
-            'content'   => 'admin/installation/index'
+            'title'         => 'List Pemasangan',
+            'installation'  => Installation::get(),
+            'content'       => 'new-admin/installation/index'
         ];
-
-        if (request()->ajax()) {
-            $query = Installation::query();
-
-            return DataTables::of($query)->addColumn('action', function ($item) {
-                return '
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-primary">Aksi</button>
-                        <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
-                            <span class="visually-hidden">Toggle Dropdown</span>
-                        </button>
-                        <ul class="dropdown-menu">
-                                <a class="dropdown-item" href="' . route('installation.edit', $item->id) . '">
-                                    Edit
-                                </a>
-                                <form action="' . route('installation.destroy', $item->id) . '" method="POST" onclick="return confirm(`Hapus Data ?`)">
-                                    ' . method_field('delete') . csrf_field() . '
-                                    <button type="submit" class="dropdown-item text-danger">Hapus</button>
-                                </form>
-                        </ul>
-                    </div>
-                ';
-            })->editColumn('photos', function ($item) {
-                return $item->photos ? '<img src="' . Storage::url($item->photos) . '" style="height: 100px; width: 120px; object-fit: cover;" />' : '';
-            })->rawColumns(['action', 'photos'])->make();
-        }
-
-        return view('admin.layouts.wrapper', $data);
+        return view('new-admin.layouts.wrapper', $data);
     }
 
     public function create()
     {
         $data = [
             'title' => 'Tambah Pemasangan',
-            'content' => 'admin/installation/create'
+            'content' => 'new-admin/installation/create'
         ];
 
-        return view('admin.layouts.wrapper', $data);
+        return view('new-admin.layouts.wrapper', $data);
     }
 
     public function store(InstallationRequest $request)
@@ -76,9 +49,9 @@ class InstallationController extends Controller
         $data = [
             'title' => 'Edit Pemasangan',
             'installation' => Installation::find($id),
-            'content' => 'admin/installation/edit'
+            'content' => 'new-admin/installation/edit'
         ];
-        return view('admin.layouts.wrapper', $data);
+        return view('new-admin.layouts.wrapper', $data);
     }
 
     public function update(Request $request, string $id)

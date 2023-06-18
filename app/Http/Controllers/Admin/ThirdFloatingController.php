@@ -14,9 +14,9 @@ class ThirdFloatingController extends Controller
         $data = [
             'title'         => 'Floating Button Ketiga',
             'floating'      => ThirdFloating::first(),
-            'content'       => 'admin/floating/thirdFloating'
+            'content'       => 'new-admin/floating/thirdFloating'
         ];
-        return view('admin.layouts.wrapper', $data);
+        return view('new-admin.layouts.wrapper', $data);
     }
 
 

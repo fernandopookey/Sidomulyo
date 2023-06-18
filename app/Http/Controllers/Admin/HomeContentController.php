@@ -15,48 +15,22 @@ class HomeContentController extends Controller
     public function index()
     {
         $data = [
-            'title'         => 'Tautan Halaman Utama',
+            'title'         => 'Tautan Halaman Utamaaa',
             'homecontent'   => HomeContent::get(),
-            'content'       => 'admin/homecontent/index'
+            'content'       => 'new-admin/homecontent/index'
         ];
 
-        if (request()->ajax()) {
-            $query = HomeContent::query();
-
-            return DataTables::of($query)->addColumn('action', function ($item) {
-                return '
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-primary">Aksi</button>
-                        <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
-                            <span class="visually-hidden">Toggle Dropdown</span>
-                        </button>
-                        <ul class="dropdown-menu">
-                                <a class="dropdown-item" href="' . route('homecontent.edit', $item->id) . '">
-                                    Edit
-                                </a>
-                                <form action="' . route('homecontent.destroy', $item->id) . '" method="POST" onclick="return confirm(`Hapus Data ?`)">
-                                    ' . method_field('delete') . csrf_field() . '
-                                    <button type="submit" class="dropdown-item text-danger">Hapus</button>
-                                </form>
-                        </ul>
-                    </div>
-                ';
-            })->editColumn('icon', function ($item) {
-                return $item->icon ? '<img src="' . Storage::url($item->icon) . '" style="height: 100px; width: 120px; object-fit: cover;" />' : '';
-            })->rawColumns(['action', 'icon'])->make();
-        }
-
-        return view('admin.layouts.wrapper', $data);
+        return view('new-admin.layouts.wrapper', $data);
     }
 
     public function create()
     {
         $data = [
             'title' => 'Tambah Tautan',
-            'content' => 'admin/homecontent/create'
+            'content' => 'new-admin/homecontent/create'
         ];
 
-        return view('admin.layouts.wrapper', $data);
+        return view('new-admin.layouts.wrapper', $data);
     }
 
     public function store(Request $request)
@@ -79,9 +53,9 @@ class HomeContentController extends Controller
         $data = [
             'title'         => 'Edit Konten',
             'homecontent'   => HomeContent::find($id),
-            'content'       => 'admin/homecontent/edit'
+            'content'       => 'new-admin/homecontent/edit'
         ];
-        return view('admin.layouts.wrapper', $data);
+        return view('new-admin.layouts.wrapper', $data);
     }
 
     public function update(Request $request, string $id)
@@ -90,7 +64,7 @@ class HomeContentController extends Controller
         $data = $request->validate([
             'title'          => 'required',
             'link'           => 'required',
-            'icon'           => 'required|mimes:png,jpg,jpeg,svg',
+            'icon'           => 'mimes:png,jpg,jpeg,svg',
         ]);
 
         if ($request->hasFile('icon')) {

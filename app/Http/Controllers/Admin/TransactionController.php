@@ -19,10 +19,10 @@ class TransactionController extends Controller
         $data = [
             'title'         => 'Transaksi Customer',
             'transaction'   => Transaction::get(),
-            'content'       => 'admin/transaction/index'
+            'content'       => 'new-admin/transaction/index'
         ];
 
-        return view('admin.layouts.wrapper', $data);
+        return view('new-admin.layouts.wrapper', $data);
     }
 
     public function destroy($id)
@@ -47,16 +47,18 @@ class TransactionController extends Controller
         // $buyProduct = TransactionDetail::where('id', $id)->first();
 
         $transaction        = Transaction::with(['user', 'product'])->findOrFail($id);
+        $transactions       = Transaction::where('id', $id)->where('users_id', Auth::id())->first();
         $transactionDetail = TransactionDetail::with(['product', 'transaction'])->findOrFail($id);
         // $transaction    = Transaction::find($id);
         $data = [
             'title'             => 'Detail Transaksi',
             'transaction'       => $transaction,
             'transactionDetail' => $transactionDetail,
-            'content'           => 'admin/transaction/detail'
+            'transactions'      => $transactions,
+            'content'           => 'new-admin/transaction/detail'
         ];
 
-        return view('admin.layouts.wrapper', $data);
+        return view('new-admin.layouts.wrapper', $data);
     }
 
     public function payment(Request $request, $id)
@@ -68,10 +70,10 @@ class TransactionController extends Controller
         if (!$payment) {
             $data = [
                 'payment'           => $payment,
-                'content'           => 'admin/transaction/paymentnull'
+                'content'           => 'new-admin/transaction/paymentnull'
             ];
             return
-                view('admin.layouts.wrapper', $data);
+                view('new-admin.layouts.wrapper', $data);
         }
 
         $data = [
@@ -79,9 +81,9 @@ class TransactionController extends Controller
             'payment'           => $payment,
             // 'transaction'       => $transaction,
             // 'transactionDetail' => $transactionDetail,
-            'content'           => 'admin/transaction/payment'
+            'content'           => 'new-admin/transaction/payment'
         ];
 
-        return view('admin.layouts.wrapper', $data);
+        return view('new-admin.layouts.wrapper', $data);
     }
 }

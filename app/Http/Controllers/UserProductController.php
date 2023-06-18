@@ -80,9 +80,13 @@ class UserProductController extends Controller
         $data = Product::where('name', 'like', '%' . $request->input('search') . '%')->get();
 
         return view('user.pages.search', [
-            'product'       => $data,
-            'sosmed'        => Sosmed::get(),
-            'header'        => Header::get()
+            'product'           => $data,
+            'sosmed'            => Sosmed::get(),
+            'header'            => Header::get(),
+            'floating'          => Floating::get(),
+            'secondFloating'    => SecondFloating::get(),
+            'thirdFloating'     => ThirdFloating::get(),
+            'fourthFloating'    => FourthFloating::get(),
 
         ]);
     }

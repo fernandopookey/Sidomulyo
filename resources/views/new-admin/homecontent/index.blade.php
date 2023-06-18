@@ -1,51 +1,53 @@
-<div class="row">
-    <div class="card">
-        <div class="col-6 text-start mt-4 mb-4">
-            <a href="{{ route('homecontent.create') }}" class="btn bg-gradient-dark mb-0">
-                <i class="fa fa-plus"></i> Tambah
-            </a>
-        </div>
-        <div class="table-responsive">
-            <table class="table table-hover scroll-horizontal-vertical w-100" id="crudTable">
-                <thead>
-                    <tr>
-                        <th>Nama Tautan</th>
-                        <th>Tautan</th>
-                        <th>Gambar</th>
-                        <th>Aksi</th>
-                    </tr>
-                </thead>
-                <tbody class="text-sm">
-
-                </tbody>
-            </table>
+<div class="card">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-12">
+                <div class="card-header">
+                    <a href="{{ route('homecontent.create') }}" class="btn btn-primary"><i class="fa fa-plus"></i>Add
+                        New</a>
+                </div>
+                <div class="card-body">
+                    <table id="example1" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Title</th>
+                                <th>Link</th>
+                                <th>Icon</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($homecontent as $item)
+                            <tr>
+                                <td>{{ $loop->iteration }}</td>
+                                <td>{{ $item->title }}</td>
+                                <td>{{ $item->link }}</td>
+                                <td>
+                                    <img src="{{ Storage::url($item->icon) }}" class="img-fluid" width="200" alt="">
+                                </td>
+                                <td>
+                                    <a href="{{ route('homecontent.edit', $item->id) }}"
+                                        class="btn btn-block btn-outline-success"><i class="fas fa-edit"></i>
+                                        Edit
+                                    </a>
+                                    <form action="{{ route('homecontent.destroy', $item->id) }}"
+                                        onclick="return confirm('Hapus Data ?')" method="POST" class="mt-2">
+                                        @method('delete')
+                                        @csrf
+                                        <button type="submit" class="btn btn-block btn-outline-danger"><i
+                                                class="fas fa-trash"></i>
+                                            Hapus</button>
+                                    </form>
+                                </td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+                <!-- /.card-body -->
+            </div>
         </div>
     </div>
 </div>
-
-@push('addon-script')
-<script>
-    var datatable = $('#crudTable').DataTable({
-            processing: true,
-            serverSide: true,
-            ordering: true,
-            ajax: {
-                url: '{!! url()->current() !!}',
-            },
-            columns: [
-                // { data: 'id', name: 'id' },
-                { data: 'title', name: 'title' },
-                { data: 'link', name: 'link' },
-                { data: 'icon', name: 'icon' },
-                // { data: 'description', name: 'description'},
-                {
-                    data: 'action',
-                    name: 'action',
-                    orderable: false,
-                    searchable: false,
-                    width: '25%'
-                },
-            ]
-        })
-</script>
-@endpush
+</div>

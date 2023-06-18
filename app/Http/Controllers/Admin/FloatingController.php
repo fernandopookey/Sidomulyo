@@ -17,9 +17,9 @@ class FloatingController extends Controller
         $data = [
             'title'         => 'Floating Button Pertama',
             'floating'      => Floating::first(),
-            'content'       => 'admin/floating/firstFloating'
+            'content'       => 'new-admin/floating/firstFloating'
         ];
-        return view('admin.layouts.wrapper', $data);
+        return view('new-admin.layouts.wrapper', $data);
     }
 
 

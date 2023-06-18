@@ -1,116 +1,74 @@
-<div class="dashboard-content">
-    <div class="row">
-        <div class="col-md-12">
-            @if ($errors->any())
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-            @endif
-            <div class="card">
-                <div class="card-body">
-                    <form action="{{ route('admin-product-store') }}" method="POST" enctype="multipart/form-data">
-                        @csrf
-                        <div class="row">
-                            <div class="col-md-12 mb-3">
-                                <div class="input-group input-group-static mb-4">
-                                    <label>Nama Produk</label>
-                                    <input type="text" name="name" class="form-control" autocomplete="off" required>
-                                </div>
-                            </div>
-
-                            <div class="col-md-12 mb-3">
-                                <div class="input-group input-group-static mb-4">
-                                    <label>Kategori Produk</label>
-                                    <select name="categories_id" class="form-control">
-                                        @foreach ($categories as $category)
-                                        <option value="{{ $category->id }}">{{ $category->name }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="col-md-12 mb-3">
-                                <div class="input-group input-group-static mb-4">
-                                    <label>Harga Produk</label>
-                                    <input type="number" name="price" class="form-control" autocomplete="off" required>
-                                </div>
-                            </div>
-
-                            <div class="col-md-12 mb-3">
-                                <label class="form-label">Deskripsi Produk</label>
-                                <div class="input-group input-group-static">
-                                    <textarea name="description" id="editor" class="form-control" cols="10"
-                                        rows="10"></textarea>
-                                </div>
-                            </div>
-
-                            <div class="col-md-12 mb-3">
-                                <label class="form-label">Informasi Tambahan</label>
-                                <div class="input-group input-group-static">
-                                    <textarea name="additional_info" id="editor2" class="form-control" cols="10"
-                                        rows="10"></textarea>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <div class="col text-start">
-                                    <button type="submit" class="btn btn-success px-5">
-                                        Simpan
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="col text-end">
-                                    <a href="{{ route('admin-product') }}">
-                                        <button type="button" class="btn btn-primary px-5">
-                                            Kembali
-                                        </button>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
+<div class="card">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-12">
+                @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
                 </div>
+                @endif
+                <form action="{{ route('admin-product-store') }}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Nama Produk</label>
+                                <input type="text" name="name" class="form-control" value="{{ old('name') }}"
+                                    autocomplete="off" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Harga Produk</label>
+                                <input type="number" name="price" class="form-control" autocomplete="off"
+                                    value="{{ old('price') }}" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Kategori Produk</label>
+                            <select name="categories_id" class="form-control">
+                                @foreach ($categories as $item)
+                                <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Deskripsi Produk</label>
+                                <textarea name="description" id="editor">{{ old('description') }}</textarea>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Informasi Tambahan</label>
+                                <textarea name="additional_info" id="editor2"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex">
+                        <div class="col-lg-6">
+                            <button type="submit" class="btn btn-success px-5">
+                                Simpan
+                            </button>
+                        </div>
+                        <div class="col-lg-6 text-right">
+                            <a href="{{ route('homecontent.index') }}">
+                                <button type="button" class="btn btn-primary px-5">
+                                    Kembali
+                                </button>
+                            </a>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
 </div>
-
-@push('addon-script')
-
-<script>
-    var loadFile = function(event) {
-        var output = document.getElementById('output');
-        output.src = URL.createObjectURL(event.target.files[0]);
-    };
-</script>
-
-<script src="https://cdn.ckeditor.com/ckeditor5/36.0.1/classic/ckeditor.js"></script>
-<script>
-    ClassicEditor
-              .create(document.querySelector('#editor'))
-              .then(editor => {
-                console.log(editor);
-              })
-              .catch(error => {
-                console.error(error);
-              });
-</script>
-
-<script>
-    ClassicEditor
-              .create(document.querySelector('#editor2'))
-              .then(editor => {
-                console.log(editor);
-              })
-              .catch(error => {
-                console.error(error);
-              });
-</script>
-@endpush

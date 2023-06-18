@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class ChangeController extends Controller
 {
@@ -40,5 +41,21 @@ class ChangeController extends Controller
         DB::table('transactions')->where('id', $id)->update($values);
         session()->flash('msg', 'Sukses');
         return redirect()->route('transaction.index');
+    }
+
+    public function slider_status_update($id)
+    {
+        $user = DB::table('sliders')->select('status')->where('id', '=', $id)->first();
+
+        if ($user->status == 'Enable') {
+            $status = 'Disable';
+        } else {
+            $status = 'Enable';
+        }
+
+        $values = array('status' => $status);
+        DB::table('sliders')->where('id', $id)->update($values);
+        Alert::success('Sukses', 'Status Berhasil Diubah');
+        return redirect()->route('slider.index');
     }
 }

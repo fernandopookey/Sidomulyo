@@ -14,9 +14,9 @@ class ModalHomeController extends Controller
         $data = [
             'title'     => 'Pop Up Halaman Utama',
             'modalHome' => ModalHome::first(),
-            'content'   => 'admin/modalHome/index'
+            'content'   => 'new-admin/modalHome/index'
         ];
-        return view('admin.layouts.wrapper', $data);
+        return view('new-admin.layouts.wrapper', $data);
     }
 
 
@@ -24,10 +24,9 @@ class ModalHomeController extends Controller
     {
         $item = ModalHome::first();
         $data = $request->validate([
-            'photos'        => 'required|mimes:png,jpg,jpeg,'
+            'status'    => '',
+            'photos'    => 'mimes:png,jpg,jpeg,'
         ]);
-
-        // $data['logo'] = $request->file('logo')->store('assets/header', 'public');
 
         if ($request->hasFile('photos')) {
 

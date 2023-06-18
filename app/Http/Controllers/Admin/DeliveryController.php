@@ -14,9 +14,9 @@ class DeliveryController extends Controller
         $data = [
             'title'     => 'Pengiriman',
             'delivery'  => Delivery::first(),
-            'content'   => 'admin/delivery/index'
+            'content'   => 'new-admin/delivery/index'
         ];
-        return view('admin.layouts.wrapper', $data);
+        return view('new-admin.layouts.wrapper', $data);
     }
 
 
