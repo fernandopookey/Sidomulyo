@@ -76,6 +76,27 @@ Sidomulyo | Product Detail Page
     </div>
 </div>
 
+
+{{-- <div class="modal fade" id="deliveryModal" tabindex="1" aria-labelledby="deliveryModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="deliveryModalLabel">Pengiriman</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>{{ $delivery->description }}</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+    </div>
+</div> --}}
+
+
+
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -147,7 +168,7 @@ Sidomulyo | Product Detail Page
                 <div class="pt-product-single-info">
                     <h1 class="pt-title">{{ $product->name }}</h1>
                     <div class="pt-price">
-                        Rp. {{ number_format($product->price) }}
+                        {{ formatRupiah($product->price) }}
                     </div>
                     <div class="pt-swatches-container">
                         <div class="pt-wrapper">
@@ -201,7 +222,7 @@ Sidomulyo | Product Detail Page
 
                             <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                                 data-bs-target="#exampleModal">
-                                Rate this product
+                                Beri Penilaian
                             </button>
 
                             <a href="{{ url('add-review/' . $product->slug . '/userreview') }}" type="button"
@@ -239,7 +260,7 @@ Sidomulyo | Product Detail Page
                             </div>
                         </div>
                     </div>
-                    <div class="pt-wrapper">
+                    {{-- <div class="pt-wrapper">
                         <div class="product-information-buttons">
                             <a data-toggle="modal" data-target="#modalProductInfo-02" href="#">
                                 <span class="pt-icon">
@@ -247,16 +268,16 @@ Sidomulyo | Product Detail Page
                                         <use xlink:href="#icon-services_delivery"></use>
                                     </svg>
                                 </span>
-                                <span class="pt-text" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                <span class="pt-text" data-bs-toggle="modal" data-bs-target="deliveryModal">
                                     Pengiriman
                                 </span>
                                 <!-- Modal -->
-                                <div class="modal fade" id="exampleModal" tabindex="-1"
-                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal fade" id="deliveryModal" tabindex="-1"
+                                    aria-labelledby="deliveryModalLabel" aria-hidden="true">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">Pengiriman</h5>
+                                                <h5 class="modal-title" id="deliveryModalLabel">Pengiriman</h5>
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                     aria-label="Close"></button>
                                             </div>
@@ -283,8 +304,8 @@ Sidomulyo | Product Detail Page
                                 </span>
                             </a>
                         </div>
-                    </div>
-                    <div class="pt-wrapper">
+                    </div> --}}
+                    <div class="pt-item">
                         <form action="{{ route('detail-add', $product->id) }}" method="POST"
                             enctype="multipart/form-data">
                             @csrf
@@ -299,12 +320,26 @@ Sidomulyo | Product Detail Page
                                         <span class="plus-btn increment-btn">
                                             +
                                         </span> --}}
-                                        <input type="number" class="quantity" name="qty" value="1">
+                                        {{-- <input type="number" class="quantity" name="qty" value="1"> --}}
+                                        <div class="pt-col col-lg-1">
+                                            <div class="pt-input-counter style-01">
+                                                <div class="d-flex align-items-center">
+                                                    <button
+                                                        class="input-group-text btn btn-primary decrement-btn">-</button>
+                                                    <input type="text" class="quantity qty-input" name="qty" min="0"
+                                                        step="1" class="input-qty" value="1">
+                                                    <button
+                                                        class="input-group-text btn btn-primary increment-btn">+</button>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                                <button type="submit" class="btn btn-block">
-                                    Tambah Ke Keranjang
-                                </button>
+                                <div class="col-item mt-1 ml-3">
+                                    <button type="submit" class="btn btn-block">
+                                        Tambah Ke Keranjang
+                                    </button>
+                                </div>
                             </div>
                         </form>
                     </div>
@@ -432,7 +467,7 @@ Sidomulyo | Product Detail Page
                                         @endauth
                                     </span>
                                     <div class="pt-price">
-                                        Rp. {{ number_format($item->price) }}
+                                        {{ formatRupiah($item->price) }}
                                     </div>
                                     <div class="pt-wrapper-btn">
                                         <a href="#" class="pt-btn-wishlist">
@@ -511,7 +546,7 @@ Sidomulyo | Product Detail Page
     })
 </script>
 
-<script>
+{{-- <script>
     $(document).ready(function () {
 
         $('.addToCartBtn').click(function (e){
@@ -567,11 +602,41 @@ Sidomulyo | Product Detail Page
             }
         });
     });
-</script>
+</script> --}}
 
 <script>
     @if (Session::has('success'))
         toastr.success("{{ Session::get('success') }}")
     @endif
+</script>
+
+<script>
+    $(document).ready(function (){
+        $('.increment-btn').click(function (e){
+            e.preventDefault();
+
+            var inc_value = $('.qty-input').val();
+            var value = parseInt(inc_value, 10);
+            value = isNaN(value) ? 0 : value;
+            if (value < 10)
+            {
+                value++;
+                $('.qty-input').val(value);
+            }
+        });
+
+        $('.decrement-btn').click(function (e){
+            e.preventDefault();
+
+            var dec_value = $('.qty-input').val();
+            var value = parseInt(dec_value, 10);
+            value = isNaN(value) ? 0 : value;
+            if(value > 1)
+            {
+                value--;
+                $('.qty-input').val(value);
+            }
+        });
+    });
 </script>
 @endpush

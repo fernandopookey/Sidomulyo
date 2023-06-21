@@ -63,7 +63,7 @@ Route::get('/auth/google/callback', [GoogleController::class, 'handleGoogleCallb
 Route::get('/produk', [UserProductController::class, 'index'])->name('product');
 Route::get('/produk/{id}', [UserProductController::class, 'details'])->name('product-details');
 // Route::get('/produk/{post:name}', [UserProductController::class, 'productdetail'])->name('product-detail');
-Route::get('/produk/{id}', [UserProductController::class, 'details'])->name('product-details');
+// Route::get('/produk/{id}', [UserProductController::class, 'details'])->name('product-details');
 
 Route::get('/profil', [HomeController::class, 'profile'])->name('profile');
 Route::get('/client', [HomeController::class, 'client'])->name('client');
@@ -178,10 +178,10 @@ Route::prefix('admin')->namespace('Admin')->middleware(['auth', 'admin'])->group
     Route::resource('client', '\App\Http\Controllers\Admin\ClientController');
 
     // Route::resource('backgroundImage', '\App\Http\Controllers\Admin\BackgroundImageController');
-    Route::get('/background_image', [BackgroundImageController::class, 'index']);
-    Route::put('/background_image/update', [BackgroundImageController::class, 'update']);
+    Route::get('/home-background-image', [BackgroundImageController::class, 'index']);
+    Route::put('/home-background-image/update', [BackgroundImageController::class, 'update']);
 
-    Route::resource('homecontent', '\App\Http\Controllers\Admin\HomeContentController');
+    Route::resource('home-page-links', '\App\Http\Controllers\Admin\HomeContentController');
 
     // Route::resource('profile', '\App\Http\Controllers\Admin\ProfileController');
     Route::get('/profile', [ProfileController::class, 'index']);
@@ -190,25 +190,25 @@ Route::prefix('admin')->namespace('Admin')->middleware(['auth', 'admin'])->group
     Route::resource('facility', '\App\Http\Controllers\Admin\SupportingFacilitiesController');
     Route::resource('machine', '\App\Http\Controllers\Admin\MachineController');
 
-    Route::resource('facilityandmachine', '\App\Http\Controllers\Admin\FacilityAndMachineController');
-    Route::get('/facilityandmachine', [FacilityAndMachineController::class, 'index']);
-    Route::put('/facilityandmachine/update', [FacilityAndMachineController::class, 'update']);
+    // Route::resource('facility-and-machine', '\App\Http\Controllers\Admin\FacilityAndMachineController');
+    Route::get('/facility-and-machine', [FacilityAndMachineController::class, 'index']);
+    Route::put('/facility-and-machine/update', [FacilityAndMachineController::class, 'update']);
 
     Route::resource('machine', '\App\Http\Controllers\Admin\MachineController');
 
     Route::resource('user', '\App\Http\Controllers\Admin\UserController');
 
-    Route::get('/first_floating', [FloatingController::class, 'index']);
-    Route::put('/first_floating/update', [FloatingController::class, 'update']);
+    Route::get('/first-floating', [FloatingController::class, 'index']);
+    Route::put('/first-floating/update', [FloatingController::class, 'update']);
 
-    Route::get('/second_floating', [SecondFloatingController::class, 'index']);
-    Route::put('/second_floating/update', [SecondFloatingController::class, 'update']);
+    Route::get('/second-floating', [SecondFloatingController::class, 'index']);
+    Route::put('/second-floating/update', [SecondFloatingController::class, 'update']);
 
-    Route::get('/third_floating', [ThirdFloatingController::class, 'index']);
-    Route::put('/third_floating/update', [ThirdFloatingController::class, 'update']);
+    Route::get('/third-floating', [ThirdFloatingController::class, 'index']);
+    Route::put('/third-floating/update', [ThirdFloatingController::class, 'update']);
 
-    Route::get('/fourth_floating', [FourthFloatingController::class, 'index']);
-    Route::put('/fourth_floating/update', [FourthFloatingController::class, 'update']);
+    Route::get('/fourth-floating', [FourthFloatingController::class, 'index']);
+    Route::put('/fourth-floating/update', [FourthFloatingController::class, 'update']);
 
     Route::get('/status-update/{id}', [ChangeController::class, 'status_update']);
     Route::get('/slider-status-update/{id}', [ChangeController::class, 'slider_status_update']);
@@ -224,20 +224,20 @@ Route::prefix('admin')->namespace('Admin')->middleware(['auth', 'admin'])->group
 
     Route::resource('installation', '\App\Http\Controllers\Admin\InstallationController');
 
-    Route::get('/navbar_content', [HeaderController::class, 'index']);
-    Route::put('/navbar_content/update', [HeaderController::class, 'update']);
+    Route::get('/navbar-content', [HeaderController::class, 'index']);
+    Route::put('/navbar-content/update', [HeaderController::class, 'update']);
 
-    Route::get('/home_text_content', [HomeTextContentController::class, 'index']);
-    Route::put('/home_text_content/update', [HomeTextContentController::class, 'update']);
+    Route::get('/home-text-content', [HomeTextContentController::class, 'index']);
+    Route::put('/home-text-content/update', [HomeTextContentController::class, 'update']);
 
-    Route::get('/modalHome', [ModalHomeController::class, 'index']);
-    Route::put('/modalHome/update', [ModalHomeController::class, 'update']);
+    Route::get('/popup-home-page', [ModalHomeController::class, 'index']);
+    Route::put('/popup-home-page/update', [ModalHomeController::class, 'update']);
 
-    Route::get('/sosmed_footer', [SosmedController::class, 'index']);
-    Route::put('/sosmed_footer/update', [SosmedController::class, 'update']);
+    Route::get('/footer', [SosmedController::class, 'index']);
+    Route::put('/footer/update', [SosmedController::class, 'update']);
 
-    Route::get('/pengiriman', [DeliveryController::class, 'index']);
-    Route::put('/pengiriman/update', [DeliveryController::class, 'update']);
+    Route::get('/delivery', [DeliveryController::class, 'index']);
+    Route::put('/delivery/update', [DeliveryController::class, 'update']);
 
     // Route::get('/paymentConfirmation', [PaymentConfirmationController::class, 'index']);
     // Route::delete('/paymentConfirmation/{id}', [PaymentConfirmationController::class, 'delete']);
@@ -251,8 +251,8 @@ Route::prefix('admin')->namespace('Admin')->middleware(['auth', 'admin'])->group
     Route::get('/transaction-status-update/{id}', [ChangeController::class, 'transaction_status']);
 
     Route::resource('faqs', '\App\Http\Controllers\Admin\FaqController');
-    Route::resource('privacyPolicy', '\App\Http\Controllers\Admin\PrivacyPolicyController');
-    Route::resource('termsAndConditions', '\App\Http\Controllers\Admin\TermsAndConditionsController');
+    Route::resource('privacy-policy', '\App\Http\Controllers\Admin\PrivacyPolicyController');
+    Route::resource('terms-and-conditions', '\App\Http\Controllers\Admin\TermsAndConditionsController');
 });
 
 

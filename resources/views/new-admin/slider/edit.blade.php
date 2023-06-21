@@ -17,7 +17,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label>Gambar Product</label>
+                                <label>Image</label>
                                 <div class="input-group">
                                     <div class="custom-file">
                                         <input type="file" name="photos" class="custom-file-input"
@@ -36,13 +36,13 @@
                         </div>
                         <div class="col-lg-6">
                             <button type="submit" class="btn btn-success px-5">
-                                Simpan
+                                Save
                             </button>
                         </div>
                         <div class="col-lg-6 text-right">
                             <a href="{{ route('slider.index') }}">
                                 <button type="button" class="btn btn-primary px-5">
-                                    Kembali
+                                    Back
                                 </button>
                             </a>
                         </div>

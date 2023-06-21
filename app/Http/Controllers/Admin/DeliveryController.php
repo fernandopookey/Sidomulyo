@@ -12,7 +12,7 @@ class DeliveryController extends Controller
     public function index()
     {
         $data = [
-            'title'     => 'Pengiriman',
+            'title'     => 'Delivery',
             'delivery'  => Delivery::first(),
             'content'   => 'new-admin/delivery/index'
         ];
@@ -29,7 +29,7 @@ class DeliveryController extends Controller
         ]);
 
         $delivery->update($data);
-        Alert::success('Sukses', 'Data Berhasil Diubah');
-        return redirect('/admin/pengiriman');
+        Alert::success('Sukses', 'Delivery Updated Successfully');
+        return redirect('/admin/delivery');
     }
 }

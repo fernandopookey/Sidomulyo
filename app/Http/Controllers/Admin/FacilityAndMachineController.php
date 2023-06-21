@@ -12,7 +12,7 @@ class FacilityAndMachineController extends Controller
     public function index()
     {
         $data = [
-            'title'                 => 'Fasilitas Dan Mesin',
+            'title'                 => 'Facility And Machine',
             'facilityandmachine'    => FacilityAndMachine::first(),
             'content'               => 'new-admin/facilityandmachine/index'
         ];
@@ -40,7 +40,7 @@ class FacilityAndMachineController extends Controller
         ]);
 
         $facilityandmachine->update($data);
-        Alert::success('Sukses', 'Data Berhasil Diubah');
-        return redirect('/admin/facilityandmachine');
+        Alert::success('Sukses', 'Data Updated Successfully');
+        return redirect('/admin/facility-and-machine');
     }
 }

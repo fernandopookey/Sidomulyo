@@ -12,6 +12,8 @@ class Sosmed extends Model
         'alamat_title',
         'whatsapp',
         'whatsapp_title',
+        'facebook',
+        'facebook_title',
         'tokopedia',
         'tokopedia_title',
         'shopee',
@@ -19,7 +21,8 @@ class Sosmed extends Model
         'instagram',
         'instagram_title',
         'twiter',
-        'twiter_title'
+        'twiter_title',
+        'photos'
     ];
 
     protected $hidden = [];

@@ -28,7 +28,7 @@ class HomeTextContentController extends Controller
         ]);
 
         $item->update($data);
-        Alert::success('Sukses', 'Data Berhasil Diubah');
-        return redirect('/admin/home_text_content');
+        Alert::success('Sukses', 'Data Updated Successfully');
+        return redirect('/admin/home-text-content');
     }
 }

@@ -48,7 +48,6 @@ class UserBlogCommentController extends Controller
         $comment = BlogComment::findOrFail($id);
 
         $comment->delete();
-        // return redirect()->route('cart')->with('success', 'Komentar Berhasil Dihapus');
         return redirect()->back()->with('success', 'Komentar Berhasil Dihapus');
     }
 

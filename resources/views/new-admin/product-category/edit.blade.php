@@ -18,14 +18,14 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label>Nama Produk</label>
+                                <label>Name</label>
                                 <input type="text" name="name" class="form-control"
                                     value="{{ $product_category->name }}" autocomplete="off">
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label>Gambar Product Kategori</label>
+                                <label>Image</label>
                                 <div class="input-group">
                                     <div class="custom-file">
                                         <input type="file" name="icon" class="custom-file-input"
@@ -44,13 +44,13 @@
                         </div>
                         <div class="col-lg-6">
                             <button type="submit" class="btn btn-success px-5">
-                                Simpan
+                                Save
                             </button>
                         </div>
                         <div class="col-lg-6 text-right">
                             <a href="{{ route('product-category.index') }}">
                                 <button type="button" class="btn btn-primary px-5">
-                                    Kembali
+                                    Back
                                 </button>
                             </a>
                         </div>

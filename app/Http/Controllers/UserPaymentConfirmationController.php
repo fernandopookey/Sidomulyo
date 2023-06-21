@@ -63,19 +63,4 @@ class UserPaymentConfirmationController extends Controller
         PaymentConfirmation::create($transaction);
         return view('user.pages.paymentConfirmationSuccess')->with('success', 'Konfirmasi Pembayaran Diproses');
     }
-
-    // public function success()
-    // {
-    //     $data = [
-    //         'sosmed'            => Sosmed::get(),
-    //         'header'            => Header::get(),
-    //         'floating'          => Floating::get(),
-    //         'secondFloating'    => SecondFloating::get(),
-    //         'thirdFloating'     => ThirdFloating::get(),
-    //         'fourthFloating'    => FourthFloating::get(),
-    //         'content'           => 'user/pages/paymentConfirmationSuccess'
-    //     ];
-
-    //     return view('user.pages.paymentConfirmationSuccess', $data);
-    // }
 }

@@ -16,22 +16,22 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label>Nama Produk</label>
+                                <label>Name</label>
                                 <input type="text" name="name" class="form-control" value="{{ old('name') }}"
                                     autocomplete="off" required>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label>Harga Produk</label>
-                                <input type="number" name="price" class="form-control" autocomplete="off"
+                                <label>Price</label>
+                                <input type="text" name="price" class="form-control rupiah" autocomplete="off"
                                     value="{{ old('price') }}" required>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label>Kategori Produk</label>
+                            <label>Product Category</label>
                             <select name="categories_id" class="form-control">
                                 @foreach ($categories as $item)
                                 <option value="{{ $item->id }}">{{ $item->name }}</option>
@@ -42,27 +42,27 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label>Deskripsi Produk</label>
+                                <label>Description</label>
                                 <textarea name="description" id="editor">{{ old('description') }}</textarea>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label>Informasi Tambahan</label>
-                                <textarea name="additional_info" id="editor2"></textarea>
+                                <label>Additional Info</label>
+                                <textarea name="additional_info" id="editor2">{{ old('additional_info') }}</textarea>
                             </div>
                         </div>
                     </div>
                     <div class="d-flex">
                         <div class="col-lg-6">
                             <button type="submit" class="btn btn-success px-5">
-                                Simpan
+                                Save
                             </button>
                         </div>
                         <div class="col-lg-6 text-right">
-                            <a href="{{ route('homecontent.index') }}">
+                            <a href="{{ route('admin-product') }}">
                                 <button type="button" class="btn btn-primary px-5">
-                                    Kembali
+                                    Back
                                 </button>
                             </a>
                         </div>

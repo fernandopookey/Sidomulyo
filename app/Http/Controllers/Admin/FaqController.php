@@ -15,7 +15,7 @@ class FaqController extends Controller
     public function index()
     {
         $data = [
-            'title'     => 'List FAQs',
+            'title'     => 'Question List',
             'faq'       => FAQ::get(),
             'content'   => 'new-admin/faq/index'
         ];
@@ -25,7 +25,7 @@ class FaqController extends Controller
     public function create()
     {
         $data = [
-            'title' => 'Tambah FAQS',
+            'title' => 'Add New Question',
             'content' => 'new-admin/faq/create'
         ];
 
@@ -37,14 +37,14 @@ class FaqController extends Controller
         $data = $request->all();
 
         FAQ::create($data);
-        Alert::success('Sukses', 'FAQS Berhasil Ditambahkan');
+        Alert::success('Sukses', 'Question Added Successfully');
         return redirect()->route('faqs.index');
     }
 
     public function show(string $id)
     {
         $data = [
-            'title'     => 'Detail FAQs',
+            'title'     => 'Question Details',
             'faq'       => FAQ::find($id),
             'content'   => 'new-admin/faq/detail'
         ];
@@ -54,7 +54,7 @@ class FaqController extends Controller
     public function edit(string $id)
     {
         $data = [
-            'title'     => 'Edit FAQs',
+            'title'     => 'Edit Question',
             'faq'       => FAQ::find($id),
             'content'   => 'new-admin/faq/edit'
         ];
@@ -70,14 +70,14 @@ class FaqController extends Controller
         ]);
 
         $item->update($data);
-        Alert::success('Sukses', 'FAQs Berhasil Diubah');
+        Alert::success('Sukses', 'Question Updated Successfully');
         return redirect()->route('faqs.index');
     }
 
     public function destroy(FAQ $faq)
     {
         $faq->delete();
-        Alert::success('Sukses', 'FAQs Berhasil Dihapus');
+        Alert::success('Sukses', 'Question Deleted Successfully');
         return redirect()->route('faqs.index');
     }
 }

@@ -15,9 +15,9 @@ class ProductCategoryController extends Controller
     public function index()
     {
         $data = [
-            'title'              => 'List Kategori Produk',
+            'title'             => 'Product Category List',
             'productCategory'   => ProductCategory::get(),
-            'content'            => 'new-admin/product-category/index'
+            'content'           => 'new-admin/product-category/index'
         ];
         return view('new-admin.layouts.wrapper', $data);
     }
@@ -25,8 +25,8 @@ class ProductCategoryController extends Controller
     public function create()
     {
         $data = [
-            'title' => 'Tambah Kategori Produk',
-            'content' => 'new-admin/product-category/create'
+            'title'     => 'Add New Category Product',
+            'content'   => 'new-admin/product-category/create'
         ];
 
         return view('new-admin.layouts.wrapper', $data);
@@ -44,7 +44,7 @@ class ProductCategoryController extends Controller
         $data['photos'] = $request->file('photos')->store('assets/product-category', 'public');
 
         ProductCategory::create($data);
-        Alert::success('Sukses', 'Kategori Produk Berhasil Ditambahkan');
+        Alert::success('Sukses', 'Category Product Added Successfully');
         return redirect()->route('product-category.index');
     }
 
@@ -52,7 +52,7 @@ class ProductCategoryController extends Controller
     public function edit(string $id)
     {
         $data = [
-            'title'             => 'Edit Kategori Produk',
+            'title'             => 'Edit Product Category',
             'product_category'  => ProductCategory::find($id),
             'content'           => 'new-admin/product-category/edit'
         ];
@@ -87,23 +87,42 @@ class ProductCategoryController extends Controller
         }
 
         $item->update($data);
-        Alert::success('Sukses', 'Kategori Produk Berhasil Diubah');
+        Alert::success('Sukses', 'Product Category Updated Successfully');
         return redirect()->route('product-category.index');
     }
 
 
     public function destroy(ProductCategory $productCategory)
     {
-        if ($productCategory->photos != null) {
-            $realLocation = "storage/" . $productCategory->photos;
-            if (file_exists($realLocation) && !is_dir($realLocation)) {
-                unlink($realLocation);
-            }
-        }
+        // if ($productCategory->photos != null) {
+        //     $realLocation = "storage/" . $productCategory->photos;
+        //     if (file_exists($realLocation) && !is_dir($realLocation)) {
+        //         unlink($realLocation);
+        //     }
+        // }
 
-        Storage::delete($productCategory->photos);
-        $productCategory->delete();
-        Alert::success('Sukses', 'Kategori Produk Berhasil Dihapus');
-        return redirect()->route('product-category.index');
+        // Storage::delete($productCategory->photos);
+        // $productCategory->delete();
+        // Alert::success('Sukses', 'Product Category Deleted Successfully');
+        // return redirect()->route('product-category.index');
+
+
+
+
+        try {
+            if ($productCategory->photos != null) {
+                $realLocation = "storage/" . $productCategory->photos;
+                if (file_exists($realLocation) && !is_dir($realLocation)) {
+                    unlink($realLocation);
+                }
+            }
+
+            Storage::delete($productCategory->photos);
+            $productCategory->delete();
+        } catch (\Throwable $e) {
+            Alert::error('Error', $e->getMessage());
+        } finally {
+            return redirect()->route('product-category.index');
+        }
     }
 }

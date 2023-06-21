@@ -15,8 +15,8 @@ class SliderController extends Controller
     public function index()
     {
         $data = [
-            'title'     => 'List Slider',
-            'slider'   => Slider::get(),
+            'title'     => 'Slider List',
+            'slider'    => Slider::get(),
             'content'   => 'new-admin/slider/index'
         ];
 
@@ -26,8 +26,8 @@ class SliderController extends Controller
     public function create()
     {
         $data = [
-            'title' => 'Tambah Slider',
-            'content' => 'new-admin/slider/create'
+            'title'     => 'Add New Slider',
+            'content'   => 'new-admin/slider/create'
         ];
         return view('new-admin.layouts.wrapper', $data);
     }
@@ -39,15 +39,15 @@ class SliderController extends Controller
         $data['photos'] = $request->file('photos')->store('assets/slider', 'public');
 
         Slider::create($data);
-        Alert::success('Sukses', 'Slider Berhasil Ditambahkan');
+        Alert::success('Sukses', 'Slider Added Successfully');
         return redirect()->route('slider.index');
     }
 
     public function show(string $id)
     {
         $data = [
-            'title'     => 'Detail Slider',
-            'slider'   => Slider::find($id),
+            'title'     => 'Slider Details',
+            'slider'    => Slider::find($id),
             'content'   => 'new-admin/slider/detail'
         ];
         return view('new-admin.layouts.wrapper', $data);
@@ -59,9 +59,9 @@ class SliderController extends Controller
     public function edit(string $id)
     {
         $data = [
-            'title' => 'Edit Slider',
-            'slider' => Slider::find($id),
-            'content' => 'new-admin/slider/edit'
+            'title'     => 'Edit Slider',
+            'slider'    => Slider::find($id),
+            'content'   => 'new-admin/slider/edit'
         ];
         return view('new-admin.layouts.wrapper', $data);
     }
@@ -93,7 +93,7 @@ class SliderController extends Controller
         }
 
         $item->update($data);
-        Alert::success('Sukses', 'Slider Berhasil Diubah');
+        Alert::success('Sukses', 'Slider Updated Successfully');
         return redirect()->route('slider.index');
     }
 
@@ -111,7 +111,7 @@ class SliderController extends Controller
 
         Storage::delete($slider->photos);
         $slider->delete();
-        Alert::success('Sukses', 'Slider Berhasil Dihapus');
+        Alert::success('Sukses', 'Slider Deleted Successfully');
         return redirect()->route('slider.index');
     }
 }

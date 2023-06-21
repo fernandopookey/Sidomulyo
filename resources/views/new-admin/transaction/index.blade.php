@@ -6,10 +6,10 @@
                     <table id="example1" class="table table-bordered table-striped">
                         <thead>
                             <tr>
-                                <th>Nama</th>
-                                <th>Waktu Transaksi</th>
-                                <th>Status Transaksi</th>
-                                <th>Konfirmasi Pembayaran</th>
+                                <th>Customer Name</th>
+                                <th>Transaction Date</th>
+                                <th>Transaction Status</th>
+                                <th>Payment Confirmation</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -17,11 +17,11 @@
                             @foreach ($transaction as $item)
                             <tr>
                                 <td>{{ $item->name }}</td>
-                                <td>{{ $item->created_at->format('d M Y') }}</td>
+                                <td>{{ $item->created_at->format('d M Y', 'h:i') }}</td>
                                 <td>
                                     <?php if ($item->transaction_status == 'SUCCESS'){ ?>
                                     <a href="{{ url('/admin/transaction-status-update', $item->id) }}"
-                                        class="btn btn-success">SUKSES</a>
+                                        class="btn btn-success">SUCCESS</a>
                                     <?php }else{ ?>
                                     <a href="{{ url('/admin/transaction-status-update', $item->id) }}"
                                         class="btn btn-warning">PENDING</a>
@@ -30,7 +30,7 @@
                                 <td>
                                     <a href="{{ route('admin-payment-confirmation', $item->id) }}"
                                         class="btn btn-primary">
-                                        Lihat
+                                        <i class="fas fa-eye"></i>
                                     </a>
                                 </td>
                                 <td>
@@ -39,12 +39,12 @@
                                         Detail
                                     </a>
                                     <form action="{{ route('transaction.destroy', $item->id) }}"
-                                        onclick="return confirm('Hapus Data ?')" method="POST" class="mt-2">
+                                        onclick="return confirm('Delete Data ?')" method="POST" class="mt-2">
                                         @method('delete')
                                         @csrf
                                         <button type="submit" class="btn btn-block btn-outline-danger"><i
                                                 class="fas fa-trash"></i>
-                                            Hapus</button>
+                                            Delete</button>
                                     </form>
                                 </td>
                             </tr>

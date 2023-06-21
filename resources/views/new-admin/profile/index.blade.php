@@ -17,7 +17,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label for="">Nama</label>
+                                <label for="">Name</label>
                                 <input type="text" name="name" class="form-control @error('name') is-invalid @enderror"
                                     value="{{ isset($profile) ? $profile->name : old('name') }}" autocomplete="off">
                                 @error('name')
@@ -29,7 +29,7 @@
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label for="">Profil Perusahaan</label>
+                                <label for="">Company Profile</label>
                                 <textarea name="proper" id="editor"
                                     class="form-control @error('proper') is-invalid @enderror">{!! isset($profile) ? $profile->proper : old('proper') !!}</textarea>
                                 @error('proper')
@@ -41,7 +41,7 @@
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label for="">Visi</label>
+                                <label for="">Vision</label>
                                 <textarea name="visi" id="editor2"
                                     class="form-control @error('visi') is-invalid @enderror">{!! isset($profile) ? $profile->visi : old('visi') !!}</textarea>
                                 @error('visi')
@@ -53,7 +53,7 @@
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label for="">Misi</label>
+                                <label for="">Mission</label>
                                 <textarea name="misi" id="editor3"
                                     class="form-control @error('misi') is-invalid @enderror">{!! isset($profile) ? $profile->misi : old('misi') !!}</textarea>
                                 @error('misi')
@@ -64,7 +64,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="">Deskripsi</label>
+                            <label for="">Description</label>
                             <textarea name="description" id="editor4"
                                 class="form-control @error('description') is-invalid @enderror">{!! isset($profile) ? $profile->description : old('description') !!}</textarea>
                             @error('description')
@@ -91,7 +91,7 @@
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label>Gambar</label>
+                                <label>Image</label>
                                 <div class="input-group">
                                     <div class="custom-file">
                                         <input type="file" name="photos" class="custom-file-input"
@@ -110,7 +110,7 @@
                         </div>
                         <div class="col-lg-6 text-start">
                             <button type="submit" class="btn btn-success px-5">
-                                Simpan
+                                Save
                             </button>
                         </div>
                     </div>

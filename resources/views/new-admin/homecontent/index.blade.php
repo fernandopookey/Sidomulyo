@@ -3,7 +3,8 @@
         <div class="row">
             <div class="col-12">
                 <div class="card-header">
-                    <a href="{{ route('homecontent.create') }}" class="btn btn-primary"><i class="fa fa-plus"></i>Add
+                    <a href="{{ route('home-page-links.create') }}" class="btn btn-primary"><i
+                            class="fa fa-plus"></i>Add
                         New</a>
                 </div>
                 <div class="card-body">
@@ -27,17 +28,17 @@
                                     <img src="{{ Storage::url($item->icon) }}" class="img-fluid" width="200" alt="">
                                 </td>
                                 <td>
-                                    <a href="{{ route('homecontent.edit', $item->id) }}"
+                                    <a href="{{ route('home-page-links.edit', $item->id) }}"
                                         class="btn btn-block btn-outline-success"><i class="fas fa-edit"></i>
                                         Edit
                                     </a>
-                                    <form action="{{ route('homecontent.destroy', $item->id) }}"
-                                        onclick="return confirm('Hapus Data ?')" method="POST" class="mt-2">
+                                    <form action="{{ route('home-page-links.destroy', $item->id) }}"
+                                        onclick="return confirm('Delete Data ?')" method="POST" class="mt-2">
                                         @method('delete')
                                         @csrf
                                         <button type="submit" class="btn btn-block btn-outline-danger"><i
                                                 class="fas fa-trash"></i>
-                                            Hapus</button>
+                                            Delete</button>
                                     </form>
                                 </td>
                             </tr>

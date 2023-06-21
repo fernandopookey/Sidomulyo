@@ -12,7 +12,7 @@ class HeaderController extends Controller
     public function index()
     {
         $data = [
-            'title'     => 'Teks Dan Link Sosial Media Navigasi Bar Header',
+            'title'     => 'Link Text Navigation Bar (Header)',
             'header'    => Header::first(),
             'content'   => 'new-admin/header/index'
         ];
@@ -59,7 +59,7 @@ class HeaderController extends Controller
         // $data['logo'] = $request->file('logo')->store('assets/header', 'public');
 
         $item->update($data);
-        Alert::success('Sukses', 'Data Berhasil Diubah');
-        return redirect('/admin/navbar_content');
+        Alert::success('Sukses', 'Data Updated Successfully');
+        return redirect('/admin/navbar-content');
     }
 }

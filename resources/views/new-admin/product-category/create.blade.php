@@ -15,13 +15,13 @@
                     @csrf
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label>Nama Kategori Produk</label>
+                            <label>Name</label>
                             <input type="text" name="name" class="form-control" autocomplete="off" required>
                         </div>
                     </div>
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label>Gambar Kategori Produk</label>
+                            <label>Image</label>
                             <div class="input-group">
                                 <div class="custom-file">
                                     <input type="file" name="photos" class="custom-file-input" id="exampleInputFile"
@@ -38,13 +38,13 @@
                     <div class="d-flex">
                         <div class="col-lg-6">
                             <button type="submit" class="btn btn-success px-5">
-                                Simpan
+                                Save
                             </button>
                         </div>
                         <div class="col-lg-6 text-right">
                             <a href="{{ route('product-category.index') }}">
                                 <button type="button" class="btn btn-primary px-5">
-                                    Kembali
+                                    Back
                                 </button>
                             </a>
                         </div>

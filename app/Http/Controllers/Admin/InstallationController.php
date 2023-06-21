@@ -16,7 +16,7 @@ class InstallationController extends Controller
     public function index()
     {
         $data = [
-            'title'         => 'List Pemasangan',
+            'title'         => 'Installation List',
             'installation'  => Installation::get(),
             'content'       => 'new-admin/installation/index'
         ];
@@ -26,7 +26,7 @@ class InstallationController extends Controller
     public function create()
     {
         $data = [
-            'title' => 'Tambah Pemasangan',
+            'title' => 'Add New Installation',
             'content' => 'new-admin/installation/create'
         ];
 
@@ -40,14 +40,14 @@ class InstallationController extends Controller
         $data['photos'] = $request->file('photos')->store('assets/installation', 'public');
 
         Installation::create($data);
-        Alert::success('Sukses', 'Pemasangan Berhasil Ditambahkan');
+        Alert::success('Sukses', 'Installation Added Successfully');
         return redirect()->route('installation.index');
     }
 
     public function edit(string $id)
     {
         $data = [
-            'title' => 'Edit Pemasangan',
+            'title' => 'Edit Installation',
             'installation' => Installation::find($id),
             'content' => 'new-admin/installation/edit'
         ];
@@ -80,7 +80,7 @@ class InstallationController extends Controller
         }
 
         $item->update($data);
-        Alert::success('Sukses', 'Pemasangan Berhasil Diubah');
+        Alert::success('Sukses', 'Installation Updated Successfully');
         return redirect()->route('installation.index');
     }
 
@@ -95,7 +95,7 @@ class InstallationController extends Controller
 
         Storage::delete($installation->photos);
         $installation->delete();
-        Alert::success('Sukses', 'Pemasangan Berhasil Dihapus');
+        Alert::success('Sukses', 'Installation Deleted Successfully');
         return redirect()->route('installation.index');
     }
 }

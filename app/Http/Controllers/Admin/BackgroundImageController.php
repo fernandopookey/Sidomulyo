@@ -15,7 +15,7 @@ class BackgroundImageController extends Controller
     public function index()
     {
         $data = [
-            'title'             => 'Background',
+            'title'             => 'Home Background Image',
             'backgroundImage'   => BackgroundImage::first(),
             'content'           => 'new-admin/background-image/index'
         ];
@@ -55,7 +55,7 @@ class BackgroundImageController extends Controller
         // $data['logo'] = $request->file('logo')->store('assets/header', 'public');
 
         $item->update($data);
-        Alert::success('Sukses', 'Data Berhasil Diubah');
-        return redirect('/admin/background_image');
+        Alert::success('Sukses', 'Data Updated SUccessfully');
+        return redirect('/admin/home-background-image');
     }
 }

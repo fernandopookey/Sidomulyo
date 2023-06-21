@@ -15,7 +15,7 @@ class ProfileController extends Controller
     public function index()
     {
         $data = [
-            'title'     => 'Profil Perusahaan',
+            'title'     => 'Company Profile',
             'profile'   => Profile::first(),
             'content'   => 'new-admin/profile/index'
         ];
@@ -25,7 +25,7 @@ class ProfileController extends Controller
     public function show(string $id)
     {
         $data = [
-            'title'     => 'Detail Profil Perusahaan',
+            'title'     => 'Company Profile Details',
             'profile'   => Profile::find($id),
             'content'   => 'new-admin/profile/detail'
         ];
@@ -84,7 +84,7 @@ class ProfileController extends Controller
         // dd($data);
 
         $item->update($data);
-        Alert::success('Sukses', 'Profil Berhasil Diubah');
+        Alert::success('Sukses', 'Profile Updated Successfully');
         return redirect('/admin/profile');
     }
 }

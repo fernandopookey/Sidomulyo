@@ -65,7 +65,7 @@ Sidomulyo | Product Page
             <div class="row">
                 <div class="col-md-12">
                     <div class="content-indent">
-                        <div class="pt-filters-options desctop-no-sidebar">
+                        {{-- <div class="pt-filters-options desctop-no-sidebar">
                             <div class="pt-sort pt-not-detach">
                                 <div class="custom-select-01">
                                     <select>
@@ -75,7 +75,7 @@ Sidomulyo | Product Page
                                     </select>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                         <div class="pt-product-listing row">
                             @php
                             $incrementProduct = 0
@@ -202,7 +202,7 @@ Sidomulyo | Product Page
                                                     @endauth
                                                 </span>
                                                 <div class="pt-price">
-                                                    Rp. {{ number_format($item->price) }}
+                                                    {{ formatRupiah($item->price) }}
                                                 </div>
                                                 <div class="pt-wrapper-btn">
                                                     <a href="#" class="pt-btn-wishlist">
@@ -337,3 +337,11 @@ Sidomulyo | Product Page
 </div>
 
 @endsection
+
+@push('addon-script')
+<script>
+    @if (Session::has('success'))
+        toastr.success("{{ Session::get('success') }}")
+    @endif
+</script>
+@endpush

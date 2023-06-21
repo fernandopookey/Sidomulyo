@@ -34,136 +34,6 @@
                         </p>
                     </a>
                 </li>
-                <li class="nav-header">COMPONENT CONTENT</li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-copy"></i>
-                        <p>
-                            Component Content
-                            <i class="fas fa-angle-left right"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="/admin/home_text_content" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Teks Halaman Utama</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="/admin/navbar_content" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Kontent Navbar</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="/admin/sosmed_footer" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Footer</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="/admin/background_image" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Background Image</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="/admin/modalHome" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Modal Halaman Utama</p>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-copy"></i>
-                        <p>
-                            Floating Button
-                            <i class="fas fa-angle-left right"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="/admin/first_floating" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Floating Button 1</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="/admin/second_floating" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Floating Button 2</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="/admin/third_floating" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Floating Button 3</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="/admin/fourth_floating" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Floating Button 4</p>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-copy"></i>
-                        <p>
-                            E-Commerce
-                            <i class="fas fa-angle-left right"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        {{-- <li class="nav-item">
-                            <a href="/admin/first_floating" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Kupon</p>
-                            </a>
-                        </li> --}}
-                        <li class="nav-item">
-                            <a href="/admin/pengiriman" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Pengiriman</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('product-category.index') }}" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Kategori Produk</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('admin-product') }}" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Produk</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('faqs.index') }}" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>FAQs</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('privacyPolicy.index') }}" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Privacy Policy</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('termsAndConditions.index') }}" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Terms And Conditions</p>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
                 <li class="nav-header">COMPANY PROFILE</li>
                 <li class="nav-item">
                     <a href="#" class="nav-link">
@@ -175,9 +45,98 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="/admin/homecontent" class="nav-link">
+                            <a href="{{ route('blog.index') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Link Halaman Utama</p>
+                                <p>Blog</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('client.index') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Client</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/admin/profile" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Company Profile</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('facility.index') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Facility</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>
+                                    Floating Button
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="/admin/first-floating" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Floating Button 1</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/admin/second-floating" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Floating Button 2</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/admin/third-floating" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Floating Button 3</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/admin/fourth-floating" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Floating Button 4</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('home-page-links.index') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Home Page Links</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('installation.index') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Installation</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('machine.index') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Machine</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/admin/facility-and-machine" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Machine & Facility Desc</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('product-category.index') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Product Category</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('admin-product') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Product</p>
                             </a>
                         </li>
                         <li class="nav-item">
@@ -186,76 +145,91 @@
                                 <p>Slider</p>
                             </a>
                         </li>
+                    </ul>
+                </li>
+                <li class="nav-header">SETTINGS</li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-bars nav-icon"></i>
+                        <p>
+                            Settings
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{ route('client.index') }}" class="nav-link">
+                            <a href="/admin/home-background-image" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Halaman Client</p>
+                                <p>Background Image</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('blog.index') }}" class="nav-link">
+                            <a href="/admin/delivery" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Blog</p>
+                                <p>Delivery</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="/admin/profile" class="nav-link">
+                            <a href="{{ route('faqs.index') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Profil Perusahaan</p>
+                                <p>FAQs</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="/admin/facilityandmachine" class="nav-link">
+                            <a href="/admin/footer" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Fasilitas Dan Mesin</p>
+                                <p>Footer Content</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('facility.index') }}" class="nav-link">
+                            <a href="/admin/home-text-content" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Fasilitas</p>
+                                <p>Home Page Text</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('machine.index') }}" class="nav-link">
+                            <a href="/admin/navbar-content" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Mesin</p>
+                                <p>Navbar Content</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('installation.index') }}" class="nav-link">
+                            <a href="/admin/popup-home-page" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Pemasangan</p>
+                                <p>Pop Up Home Page</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('privacy-policy.index') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Privacy Policy</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('terms-and-conditions.index') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Terms And Conditions</p>
                             </a>
                         </li>
                     </ul>
                 </li>
                 <li class="nav-header">MANAGEMENT USER</li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-copy"></i>
-                        <p>
-                            Management User
-                            <i class="fas fa-angle-left right"></i>
-                        </p>
+                    <a href="{{ route('user.index') }}" class="nav-link">
+                        <i class="far fa-user nav-icon"></i>
+                        <p>User</p>
                     </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="{{ route('user.index') }}" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>User</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('transaction.index') }}" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Transaksi User</p>
-                            </a>
-                        </li>
-                    </ul>
+                </li>
+                <li class="nav-header">TRANSACTIONS</li>
+                <li class="nav-item">
+                <li class="nav-item">
+                    <a href="{{ route('transaction.index') }}" class="nav-link">
+                        <i class="fas fa-file-invoice nav-icon"></i>
+                        <p>Customer Transactions</p>
+                    </a>
+                </li>
                 </li>
                 <li class="nav-header">SYSTEM</li>
-                <li class="nav-item">
                 <li class="nav-item">
                     <a href="{{ route('logout') }}" class="nav-link" onclick="event.preventDefault();
                         document.getElementById('logout-form').submit();" class="dropdown-item">
@@ -265,7 +239,6 @@
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                         @csrf
                     </form>
-                </li>
                 </li>
             </ul>
         </nav>

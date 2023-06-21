@@ -16,7 +16,7 @@ class MachineController extends Controller
     public function index()
     {
         $data = [
-            'title'     => 'List Mesin',
+            'title'     => 'Machine List',
             'machine'   => Machine::get(),
             'content'   => 'new-admin/machine/index'
         ];
@@ -26,7 +26,7 @@ class MachineController extends Controller
     public function create()
     {
         $data = [
-            'title'     => 'Tambah Mesin',
+            'title'     => 'Add New Machine',
             'content'   => 'new-admin/machine/create'
         ];
 
@@ -41,14 +41,14 @@ class MachineController extends Controller
         $data['photos'] = $request->file('photos')->store('assets/machine', 'public');
 
         Machine::create($data);
-        Alert::success('Sukses', 'Mesin Berhasil Ditambahkan');
+        Alert::success('Sukses', 'Machine Added Successfull');
         return redirect()->route('machine.index');
     }
 
     public function show(string $id)
     {
         $data = [
-            'title'     => 'Detail Mesin',
+            'title'     => 'Machine Details',
             'machine'   => Machine::find($id),
             'content'   => 'new-admin/machine/detail'
         ];
@@ -58,7 +58,7 @@ class MachineController extends Controller
     public function edit(string $id)
     {
         $data = [
-            'title' => 'Edit Mesin',
+            'title' => 'Edit Machine',
             'machine' => Machine::find($id),
             'content' => 'new-admin/machine/edit'
         ];
@@ -94,7 +94,7 @@ class MachineController extends Controller
         }
 
         $item->update($data);
-        Alert::success('Sukses', 'Mesin Berhasil Diubah');
+        Alert::success('Sukses', 'Machine Updated Successfully');
         return redirect()->route('machine.index');
     }
 
@@ -109,7 +109,7 @@ class MachineController extends Controller
 
         Storage::delete($machine->photos);
         $machine->delete();
-        Alert::success('Sukses', 'Mesin Berhasil Dihapus');
+        Alert::success('Sukses', 'Machine Deleted Successfull');
         return redirect()->route('machine.index');
     }
 }

@@ -16,7 +16,7 @@ class BlogController extends Controller
     public function index()
     {
         $data = [
-            'title'     => 'List Blog',
+            'title'     => 'Blog List',
             'blog'      => Blog::get(),
             'content'   => 'new-admin/blog/index'
         ];
@@ -27,7 +27,7 @@ class BlogController extends Controller
     public function create()
     {
         $data = [
-            'title' => 'Tambah Blog',
+            'title' => 'Add New Blog',
             'content' => 'new-admin/blog/create'
         ];
 
@@ -42,14 +42,14 @@ class BlogController extends Controller
         $data['photos'] = $request->file('photos')->store('assets/blog', 'public');
 
         Blog::create($data);
-        Alert::success('Sukses', 'Blog Berhasil Ditambahkan');
+        Alert::success('Sukses', 'Blog Added Successfully');
         return redirect()->route('blog.index');
     }
 
     public function show(string $id)
     {
         $data = [
-            'title'     => 'Detail Blog',
+            'title'     => 'Blog Details',
             'blog'      => Blog::find($id),
             'content'   => 'new-admin/blog/detail'
         ];
@@ -98,7 +98,7 @@ class BlogController extends Controller
         }
 
         $item->update($data);
-        Alert::success('Sukses', 'Blog Berhasil Diubah');
+        Alert::success('Sukses', 'Blog Updated Successfully');
         return redirect()->route('blog.index');
     }
 
@@ -113,7 +113,7 @@ class BlogController extends Controller
 
         Storage::delete($blog->photos);
         $blog->delete();
-        Alert::success('Sukses', 'Blog Berhasil Dihapus');
+        Alert::success('Sukses', 'Blog Deleted Successfully');
         return redirect()->route('blog.index');
     }
 }

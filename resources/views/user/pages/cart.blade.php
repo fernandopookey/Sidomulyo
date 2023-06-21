@@ -59,22 +59,32 @@ Sidomulyo | Cart Page
                         </h6>
                     </div>
                     <div class="pt-col col-lg-3">
-                        <div class="pt-price">Rp. {{ number_format($item->product->price) }}</div>
+                        <div class="pt-price">{{ formatRupiah($item->product->price) }}</div>
                     </div>
                     <div class="pt-col col-lg-1">
                         <div class="pt-input-counter style-01">
                             <div class="d-flex align-items-center">
                                 <a href="{{ url('/cart/update-quantity/'.$item->id.'/-1') }}"
                                     class="btn btn-primary">-</a>
-                                <input type="text" class="quantity" name="qty" min="0" step="1" class="input-qty"
+                                <input type="text" class="quantity" name="qty" min="1" step="1" class="input-qty"
                                     value="{{ $item->qty }}">
                                 <a href="{{ url('/cart/update-quantity/'.$item->id.'/1') }}"
                                     class="btn btn-primary">+</a>
                             </div>
                         </div>
                     </div>
+                    {{-- <div class="pt-col col-lg-1">
+                        <div class="pt-input-counter style-01">
+                            <div class="d-flex align-items-center">
+                                <button class="input-group-text decrement-btn">-</button>
+                                <input type="text" class="quantity qty-input" name="qty" min="0" step="1"
+                                    class="input-qty" value="{{ $item->qty }}">
+                                <button class="input-group-text increment-btn">+</button>
+                            </div>
+                        </div>
+                    </div> --}}
                     <div class="pt-col col-lg-3 text-start">
-                        <div class="pt-price">Rp. {{ number_format($item->product->price * $item->qty) }}</div>
+                        <div class="pt-price">Rp. {{ formatRupiah($item->product->price * $item->qty) }}</div>
                     </div>
                 </div>
             </div>
@@ -146,9 +156,9 @@ Sidomulyo | Cart Page
                     </div>
                     <div class="col-12 col-md-8 col-lg-4">
                         <div class="pt-shopcart-total">
-                            <div class="pt-price-01">Total: Rp. {{ number_format($totalPrice ?? 0) }}</div>
+                            <div class="pt-price-01">Total: Rp. {{ formatRupiah($totalPrice ?? 0) }}</div>
                             <div class="pt-price-02">
-                                Total Semua: Rp. {{ number_format($totalPrice ?? 0) }}
+                                Total Semua: {{ formatRupiah($totalPrice) ?? 0 }}
                             </div>
                             {{-- <div class="checkbox-group">
                                 <input type="checkbox" id="checkBox41" name="checkbox" checked="">
@@ -177,6 +187,36 @@ Sidomulyo | Cart Page
 @push('addon-script')
 
 <script>
+    $(document).ready(function (){
+        $('.increment-btn').click(function (e){
+            e.preventDefault();
+
+            var inc_value = $('.qty-input').val();
+            var value = parseInt(inc_value, 10);
+            value = isNaN(value) ? 0 : value;
+            if (value < 10)
+            {
+                value++;
+                $('.qty-input').val(value);
+            }
+        });
+
+        $('.decrement-btn').click(function (e){
+            e.preventDefault();
+
+            var dec_value = $('.qty-input').val();
+            var value = parseInt(dec_value, 10);
+            value = isNaN(value) ? 0 : value;
+            if(value > 1)
+            {
+                value--;
+                $('.qty-input').val(value);
+            }
+        });
+    });
+</script>
+
+{{-- <script>
     $(document).ready(function () {
 
         $('.addToCartBtn').click(function (e){
@@ -232,7 +272,7 @@ Sidomulyo | Cart Page
             }
         });
     });
-</script>
+</script> --}}
 
 <script>
     @if (Session::has('success'))

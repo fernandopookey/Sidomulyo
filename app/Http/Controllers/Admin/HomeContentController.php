@@ -15,7 +15,7 @@ class HomeContentController extends Controller
     public function index()
     {
         $data = [
-            'title'         => 'Tautan Halaman Utamaaa',
+            'title'         => 'Home Page Link',
             'homecontent'   => HomeContent::get(),
             'content'       => 'new-admin/homecontent/index'
         ];
@@ -26,7 +26,7 @@ class HomeContentController extends Controller
     public function create()
     {
         $data = [
-            'title' => 'Tambah Tautan',
+            'title' => 'Add New Link',
             'content' => 'new-admin/homecontent/create'
         ];
 
@@ -44,14 +44,14 @@ class HomeContentController extends Controller
         $data['icon'] = $request->file('icon')->store('assets/homecontent', 'public');
 
         HomeContent::create($data);
-        Alert::success('Sukses', 'Konten Berhasil Ditambahkan');
-        return redirect()->route('homecontent.index');
+        Alert::success('Sukses', 'Link Added Successfully');
+        return redirect()->route('home-page-links.index');
     }
 
     public function edit(string $id)
     {
         $data = [
-            'title'         => 'Edit Konten',
+            'title'         => 'Edit Link',
             'homecontent'   => HomeContent::find($id),
             'content'       => 'new-admin/homecontent/edit'
         ];
@@ -85,8 +85,8 @@ class HomeContentController extends Controller
         }
 
         $homecontent->update($data);
-        Alert::success('Sukses', 'Konten Berhasil Diubah');
-        return redirect()->route('homecontent.index');
+        Alert::success('Sukses', 'Link Updated Successfully');
+        return redirect()->route('home-page-links.index');
     }
 
     public function destroy(HomeContent $homecontent)
@@ -100,7 +100,7 @@ class HomeContentController extends Controller
 
         Storage::delete($homecontent->icon);
         $homecontent->delete();
-        Alert::success('Sukses', 'Konten Berhasil Dihapus');
-        return redirect()->route('homecontent.index');
+        Alert::success('Sukses', 'Link Deleted Successfully');
+        return redirect()->route('home-page-links.index');
     }
 }

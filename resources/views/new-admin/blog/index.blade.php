@@ -10,9 +10,9 @@
                     <table id="example1" class="table table-bordered table-striped">
                         <thead>
                             <tr>
-                                <th>Judul</th>
-                                <th>Penulis</th>
-                                <th>Sumber</th>
+                                <th>Title</th>
+                                <th>Author</th>
+                                <th>Source</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -32,12 +32,12 @@
                                         Detail
                                     </a>
                                     <form action="{{ route('blog.destroy', $item->id) }}"
-                                        onclick="return confirm('Hapus Data ?')" method="POST" class="mt-2">
+                                        onclick="return confirm('Delete Data ?')" method="POST" class="mt-2">
                                         @method('delete')
                                         @csrf
                                         <button type="submit" class="btn btn-block btn-outline-danger"><i
                                                 class="fas fa-trash"></i>
-                                            Hapus</button>
+                                            Delete</button>
                                     </form>
                                 </td>
                             </tr>

@@ -30,7 +30,7 @@
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label>Gambar</label>
+                                <label>Image</label>
                                 <div class="input-group">
                                     <div class="custom-file">
                                         <input type="file" name="photos" class="custom-file-input"
@@ -50,7 +50,7 @@
                     </div>
                     <div class="col-md-12">
                         <div class="form-group">
-                            <button type="submit" class="btn btn-primary">Simpan</button>
+                            <button type="submit" class="btn btn-primary">Save</button>
                         </div>
                     </div>
                 </form>
