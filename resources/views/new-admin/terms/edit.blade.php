@@ -11,34 +11,34 @@
                     </ul>
                 </div>
                 @endif
-                <form action="{{ route('termsAndConditions.update', $terms->id) }}" method="POST"
+                <form action="{{ route('terms-and-conditions.update', $terms->id) }}" method="POST"
                     enctype="multipart/form-data">
                     @method('PUT')
                     @csrf
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label>Judul</label>
+                                <label>Title</label>
                                 <input type="text" name="title" class="form-control"
                                     value="{{ old('title', $terms->title) }}" autocomplete="off">
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label>Deskripsi</label>
+                                <label>Description</label>
                                 <textarea name="description" id="editor" cols="30"
                                     rows="10">{{old('description', $terms->description)}}</textarea>
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <button type="submit" class="btn btn-success px-5">
-                                Simpan
+                                Save
                             </button>
                         </div>
                         <div class="col-lg-6 text-right">
-                            <a href="{{ route('homecontent.index') }}">
+                            <a href="{{ route('terms-and-conditions.index') }}">
                                 <button type="button" class="btn btn-primary px-5">
-                                    Kembali
+                                    Back
                                 </button>
                             </a>
                         </div>

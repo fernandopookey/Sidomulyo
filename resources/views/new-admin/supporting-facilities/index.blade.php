@@ -12,7 +12,7 @@
                             <tr>
                                 <th>No</th>
                                 <th>Name</th>
-                                <th>Photos</th>
+                                <th>Image</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -35,7 +35,7 @@
                                         @csrf
                                         <button type="submit" class="btn btn-block btn-outline-danger"><i
                                                 class="fas fa-trash"></i>
-                                            Hapus</button>
+                                            Delete</button>
                                     </form>
                                 </td>
                             </tr>

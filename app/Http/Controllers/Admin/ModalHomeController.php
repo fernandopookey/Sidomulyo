@@ -46,6 +46,6 @@ class ModalHomeController extends Controller
 
         $item->update($data);
         Alert::success('Sukses', 'Modal Halaman Utama Berhasil Diubah');
-        return redirect('/admin/modalHome');
+        return redirect('/admin/popup-home-page');
     }
 }

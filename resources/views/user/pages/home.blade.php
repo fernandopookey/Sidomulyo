@@ -196,7 +196,7 @@ Sidomulyo Homepage
                                         {{ $item->name }}
                                     </div>
                                     <p>
-                                        Rp. {{ number_format($item->price) }}
+                                        {{ formatRupiah($item->price) }}
                                     </p>
                                     {{-- <div class="btn btn-border">Pesan Sekarang!</div> --}}
                                     <a href="{{ route('product') }}" class="btn btn-border">Pesan Sekarang!</a>

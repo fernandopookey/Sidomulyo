@@ -10,15 +10,15 @@
                 </div>
                 <div class="col-7">
                     <div class="form-group">
-                        <label for="inputName">Judul Blog</label><br />
+                        <label for="inputName">Blog Title</label><br />
                         <input type="text" value="{{ $blog->name }}" class="form-control" disabled>
                     </div>
                     <div class="form-group">
-                        <label for="inputName">Penulis</label><br />
+                        <label for="inputName">Author</label><br />
                         <input type="text" value="{{ $blog->author }}" class="form-control" disabled>
                     </div>
                     <div class="form-group">
-                        <label for="inputMessage">Tanggal Input</label>
+                        <label for="inputMessage">Input Date</label>
                         <input type="text" class="form-control" value="{{ $blog->created_at->format('d M Y') }}"
                             disabled>
                     </div>
@@ -26,19 +26,19 @@
             </div>
             <div class="col-12">
                 <div class="form-group">
-                    <label for="inputMessage">Sumber</label>
+                    <label for="inputMessage">Source</label>
                     <input type="text" class="form-control" value="{{ $blog->source }}" disabled>
                 </div>
             </div>
             <div class="col-12">
                 <div class="form-group">
-                    <label for="inputMessage">Link Sumber</label>
+                    <label for="inputMessage">Source Link</label>
                     <input type="text" class="form-control" value="{{ $blog->source_link }}" disabled>
                 </div>
             </div>
             <div class="col-12 mb-4">
                 <div class="form-group">
-                    <label for="inputEmail">Deskripsi</label>
+                    <label for="inputEmail">Description</label>
                     <span>{!! $blog->description !!}</span>
                 </div>
             </div>
@@ -46,7 +46,7 @@
                 <div class="card-body">
                     <div class="col-12 mt-4">
                         <div class="form-group">
-                            <h3>Semua Komentar</h3>
+                            <h3>Comments</h3>
                             <div class="pt-aside-content">
                                 @forelse ($blog->comments as $item)
                                 <div class="pt-aside-info">
@@ -55,23 +55,28 @@
                                     @endif
                                     <small>{{ $item->created_at->format('d M Y') }}</small>
                                 </div>
-                                <div class="pt-aside-info">
+                                <div class="pt-aside-info mb-2">
                                     <p>{!! $item->user_comment !!}</p>
                                 </div>
-                                @if (Auth::check() && Auth::id() == $item->user_id)
                                 <div class="pt-aside-info">
                                     {{-- <button type="button" value="{{ $item->id }}"
                                         class="deleteComment btn btn-info">Hapus</button> --}}
-                                    <form action="{{ route('comment-delete', $item->id) }}" method="POST">
+                                    {{-- <form action="{{ route('comment-delete', $item->id) }}" method="POST">
                                         @method('DELETE')
                                         @csrf
                                         <button type="submit" onclick="return confirm('Hapus Komentar ?')"
-                                            class="btn-danger">Hapus</button>
+                                            class="btn-danger">Delete</button>
+                                    </form> --}}
+                                    <form action="{{ route('comment-delete', $item->id) }}"
+                                        onclick="return confirm('Delete ?')" method="POST" class="mt-2">
+                                        @method('delete')
+                                        @csrf
+                                        <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i>
+                                            Delete</button>
                                     </form>
                                 </div>
-                                @endif
                                 @empty
-                                <h6 class="pt-aside-title">Belum ada komentar</h6>
+                                <h6 class="pt-aside-title">No comments yet</h6>
                                 @endforelse
                             </div>
                         </div>
@@ -80,7 +85,7 @@
             </div>
         </section>
     </div>
-    <div class="col-lg-6 text-start">
+    <div class="col-lg-6 text-start mb-4">
         <a href="{{ route('blog.index') }}">
             <button type="button" class="btn btn-primary px-5">
                 Kembali

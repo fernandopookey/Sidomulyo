@@ -15,7 +15,7 @@ class TermsAndConditionsController extends Controller
     public function index()
     {
         $data = [
-            'title'         => 'Syarat Dan Ketentuan',
+            'title'         => 'Terms And Conditions List',
             'terms'         => TermsAndConditions::get(),
             'content'       => 'new-admin/terms/index'
         ];
@@ -25,7 +25,7 @@ class TermsAndConditionsController extends Controller
     public function create()
     {
         $data = [
-            'title' => 'Tambah Syarat Dan Ketentuan',
+            'title' => 'Add New Terms And Conditions',
             'content' => 'new-admin/terms/create'
         ];
 
@@ -37,14 +37,14 @@ class TermsAndConditionsController extends Controller
         $data = $request->all();
 
         TermsAndConditions::create($data);
-        Alert::success('Sukses', 'Syarat dan Ketentuan Berhasil Ditambahkan');
-        return redirect()->route('termsAndConditions.index');
+        Alert::success('Sukses', 'Terms And Conditions Added Successfully');
+        return redirect()->route('terms-and-conditions.index');
     }
 
     public function show(string $id)
     {
         $data = [
-            'title'         => 'Detail Syarat Dan Ketentuan',
+            'title'         => 'Terms And Conditions Details',
             'terms'         => TermsAndConditions::find($id),
             'content'       => 'new-admin/terms/detail'
         ];
@@ -54,7 +54,7 @@ class TermsAndConditionsController extends Controller
     public function edit(string $id)
     {
         $data = [
-            'title'     => 'Edit Syarat Dan Ketentuan',
+            'title'     => 'Edit Terms And Conditions',
             'terms'     => TermsAndConditions::find($id),
             'content'   => 'new-admin/terms/edit'
         ];
@@ -70,14 +70,14 @@ class TermsAndConditionsController extends Controller
         ]);
 
         $item->update($data);
-        Alert::success('Sukses', 'Syarat Dan Ketentuan Berhasil Diubah');
-        return redirect()->route('termsAndConditions.index');
+        Alert::success('Sukses', 'Terms And Conditions Updated Successfully');
+        return redirect()->route('terms-and-conditions.index');
     }
     public function destroy($id)
     {
         $terms = TermsAndConditions::find($id);
         $terms->delete();
-        Alert::success('Sukses', 'Syarat Dan Ketentuan Berhasil Dihapus');
-        return redirect()->route('termsAndConditions.index');
+        Alert::success('Sukses', 'Terms And Conditions Deleted Successfully');
+        return redirect()->route('terms-and-conditions.index');
     }
 }

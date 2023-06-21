@@ -54,10 +54,8 @@ class CartController extends Controller
 
 
         Cart::create($data);
-        // toast('Produk Berhasil Ditambahkan', 'success');
-        // toast('Success Toast', 'success');
-
-        return redirect()->route('cart')->with('success', 'Produk Berhasil Ditambahkan');
+        // return redirect()->route('cart')->with('success', 'Produk Berhasil Ditambahkan');
+        return redirect()->back()->with('success', 'Produk Berhasil Ditambahkan');
     }
 
     public function update($id = null, $quantity = null)

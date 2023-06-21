@@ -12,7 +12,7 @@ class SosmedController extends Controller
     public function index()
     {
         $data = [
-            'title' => 'Alamat Dan Link Sosial Media Footer',
+            'title' => 'Footer Content',
             'sosmed' => Sosmed::first(),
             'content' => 'new-admin/sosmed/index'
         ];
@@ -22,7 +22,7 @@ class SosmedController extends Controller
 
     public function update(Request $request)
     {
-        $about = Sosmed::first();
+        $item = Sosmed::first();
         $data = $request->validate([
             'alamat'             => 'required',
             'whatsapp'           => 'required',
@@ -37,10 +37,28 @@ class SosmedController extends Controller
             'twiter_title'       => 'required',
             'facebook'           => 'required',
             'facebook_title'     => 'required',
+            'photos'             => 'required|mimes:png,jpg,jpeg'
         ]);
 
-        $about->update($data);
-        Alert::success('Sukses', 'Data Berhasil Diubah');
-        return redirect('/admin/sosmed_footer');
+        if ($request->hasFile('photos')) {
+
+            if ($item->photos != null) {
+                $realLocation = "storage/" . $item->photos;
+                if (file_exists($realLocation) && !is_dir($realLocation)) {
+                    unlink($realLocation);
+                }
+            }
+
+            $photos = $request->file('photos');
+            $file_name = time() . '-' . $photos->getClientOriginalName();
+
+            $data['photos'] = $request->file('photos')->store('assets/footer', 'public');
+        } else {
+            $data['photos'] = $item->photos;
+        }
+
+        $item->update($data);
+        Alert::success('Sukses', 'Footer Updated Successfully');
+        return redirect('/admin/footer');
     }
 }

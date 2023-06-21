@@ -15,7 +15,7 @@ class FloatingController extends Controller
     public function index()
     {
         $data = [
-            'title'         => 'Floating Button Pertama',
+            'title'         => 'Floating Button 1',
             'floating'      => Floating::first(),
             'content'       => 'new-admin/floating/firstFloating'
         ];
@@ -50,6 +50,6 @@ class FloatingController extends Controller
 
         $item->update($data);
         Alert::success('Sukses', 'Data Berhasil Diubah');
-        return redirect('/admin/first_floating');
+        return redirect('/admin/first-floating');
     }
 }

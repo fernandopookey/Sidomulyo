@@ -11,14 +11,14 @@
                     </ul>
                 </div>
                 @endif
-                <form action="{{ route('homecontent.update', $homecontent->id) }}" method="POST"
+                <form action="{{ route('home-page-links.update', $homecontent->id) }}" method="POST"
                     enctype="multipart/form-data">
                     @method('PUT')
                     @csrf
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label>Nama Link</label>
+                                <label>Name</label>
                                 <input type="text" name="title" class="form-control" value="{{ $homecontent->title }}">
                             </div>
                         </div>
@@ -30,7 +30,7 @@
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label>Icon Link</label>
+                                <label>Link Icon</label>
                                 <div class="input-group">
                                     <div class="custom-file">
                                         <input type="file" name="icon" class="custom-file-input"
@@ -49,13 +49,13 @@
                         </div>
                         <div class="col-lg-6">
                             <button type="submit" class="btn btn-success px-5">
-                                Simpan
+                                Save
                             </button>
                         </div>
                         <div class="col-lg-6 text-right">
-                            <a href="{{ route('homecontent.index') }}">
+                            <a href="{{ route('home-page-links.index') }}">
                                 <button type="button" class="btn btn-primary px-5">
-                                    Kembali
+                                    Back
                                 </button>
                             </a>
                         </div>

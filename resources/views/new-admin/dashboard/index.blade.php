@@ -7,7 +7,7 @@
                     <div class="inner">
                         <h3>{{ $product }}</h3>
 
-                        <p>Produk</p>
+                        <p>Product</p>
                     </div>
                     <div class="icon">
                         <i class="ion ion-bag"></i>
@@ -23,7 +23,7 @@
                     <div class="inner">
                         <h3>{{ $transaction }}</h3>
 
-                        <p>Transaksi Customer</p>
+                        <p>Customer Transactions</p>
                     </div>
                     <div class="icon">
                         <i class="ion ion-bag"></i>

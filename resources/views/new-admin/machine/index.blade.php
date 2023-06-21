@@ -21,7 +21,6 @@
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $item->name }}</td>
-                                <td>{{ $item->photos }}</td>
                                 <td>
                                     <img src="{{ Storage::url($item->photos) }}" class="img-fluid" width="200" alt="">
                                 </td>
@@ -30,13 +29,17 @@
                                         class="btn btn-block btn-outline-success"><i class="fas fa-edit"></i>
                                         Edit
                                     </a>
+                                    <a href="{{ route('machine.show', $item->id) }}"
+                                        class="btn btn-block btn-outline-secondary"><i class="fas fa-edit"></i>
+                                        Detail
+                                    </a>
                                     <form action="{{ route('machine.destroy', $item->id) }}"
-                                        onclick="return confirm('Hapus Data ?')" method="POST" class="mt-2">
+                                        onclick="return confirm('Delete Data ?')" method="POST" class="mt-2">
                                         @method('delete')
                                         @csrf
                                         <button type="submit" class="btn btn-block btn-outline-danger"><i
                                                 class="fas fa-trash"></i>
-                                            Hapus</button>
+                                            Delete</button>
                                     </form>
                                 </td>
                             </tr>

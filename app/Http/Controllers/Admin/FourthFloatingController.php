@@ -12,7 +12,7 @@ class FourthFloatingController extends Controller
     public function index()
     {
         $data = [
-            'title'         => 'Floating Button Keempat',
+            'title'         => 'Floating Button 4',
             'floating'      => FourthFloating::first(),
             'content'       => 'new-admin/floating/fourthFloating'
         ];
@@ -47,6 +47,6 @@ class FourthFloatingController extends Controller
 
         $item->update($data);
         Alert::success('Sukses', 'Data Berhasil Diubah');
-        return redirect('/admin/fourth_floating');
+        return redirect('/admin/fourth-floating');
     }
 }

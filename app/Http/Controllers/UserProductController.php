@@ -22,7 +22,7 @@ class UserProductController extends Controller
     public function index()
     {
         $categories = ProductCategory::take(6)->get();
-        $products = Product::orderBy('name')->with(['galleries', 'categories'])->paginate(2);
+        $products = Product::orderBy('name')->with(['galleries', 'categories'])->paginate(12);
 
         // $rating = Rating::with('product_id');
 
@@ -87,7 +87,6 @@ class UserProductController extends Controller
             'secondFloating'    => SecondFloating::get(),
             'thirdFloating'     => ThirdFloating::get(),
             'fourthFloating'    => FourthFloating::get(),
-
         ]);
     }
 }

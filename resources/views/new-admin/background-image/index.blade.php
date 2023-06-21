@@ -17,9 +17,18 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label>Gambar</label>
-                                <input type="file" name="photos" class="form-control"
-                                    value="{{ $backgroundImage->photos }}" onchange="loadFile(event)">
+                                <label>Image</label>
+                                <div class="input-group">
+                                    <div class="custom-file">
+                                        <input type="file" name="photos" class="custom-file-input"
+                                            value="{{ $backgroundImage->photos }}" id="exampleInputFile"
+                                            onchange="loadFile(event)">
+                                        <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                    </div>
+                                    <div class="input-group-append">
+                                        <span class="input-group-text">Upload</span>
+                                    </div>
+                                </div>
                                 <img src="{{ Storage::disk('local')->url($backgroundImage->photos) }}" class="pt-4"
                                     alt="" style="widows: 200px; height: 150px; object-fit: contain;">
                             </div>
@@ -28,7 +37,7 @@
                     </div>
                     <div class="col-md-12">
                         <div class="form-group">
-                            <button type="submit" class="btn btn-primary">Simpan</button>
+                            <button type="submit" class="btn btn-primary">Save</button>
                         </div>
                     </div>
                 </form>

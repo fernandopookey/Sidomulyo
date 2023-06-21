@@ -11,13 +11,13 @@
                     </ul>
                 </div>
                 @endif
-                <form action="/admin/first_floating/update" method="POST" enctype="multipart/form-data">
+                <form action="/admin/first-floating/update" method="POST" enctype="multipart/form-data">
                     @method('PUT')
                     @csrf
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label for="">Nama</label>
+                                <label for="">Name</label>
                                 <input type="text" name="name" class="form-control @error('name') is-invalid @enderror"
                                     value="{{ isset($floating) ? $floating->name : old('name') }}" autocomplete="off">
                                 @error('name')
@@ -45,7 +45,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label>Gambar</label>
+                                <label>Image</label>
                                 <div class="input-group">
                                     <div class="custom-file">
                                         <input type="file" name="photos" class="custom-file-input"
@@ -63,7 +63,7 @@
                             <img id="output" class="img-fluid mt-4 mb-4" width="400" alt="" />
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-primary">Simpan</button>
+                    <button type="submit" class="btn btn-primary">Save</button>
                 </form>
             </div>
         </div>

@@ -25,10 +25,17 @@ class ProductRequest extends FormRequest
     {
         return [
             'name'              => 'required|string',
-            'price'             => 'required|integer',
+            'price'             => 'required|numeric',
             'description'       => 'required',
             'additional_info'   => 'required',
             'categories_id'     => 'required|exists:product_categories,id'
         ];
+    }
+
+    protected function prepareForValidation()
+    {
+        $this->merge([
+            'price' => str_replace('.', '', $this->price),
+        ]);
     }
 }

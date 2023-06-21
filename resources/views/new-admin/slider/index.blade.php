@@ -11,7 +11,7 @@
                         <thead>
                             <tr>
                                 <th style="width: 5%">No</th>
-                                <th>Gambar</th>
+                                <th>Image</th>
                                 <th>Status</th>
                                 <th style="width: 15%">Action</th>
                             </tr>
@@ -38,12 +38,12 @@
                                         Edit
                                     </a>
                                     <form action="{{ route('slider.destroy', $item->id) }}"
-                                        onclick="return confirm('Hapus Data ?')" method="POST" class="mt-2">
+                                        onclick="return confirm('Delete Data ?')" method="POST" class="mt-2">
                                         @method('delete')
                                         @csrf
                                         <button type="submit" class="btn btn-block btn-outline-danger"><i
                                                 class="fas fa-trash"></i>
-                                            Hapus</button>
+                                            Delete</button>
                                     </form>
                                 </td>
                             </tr>

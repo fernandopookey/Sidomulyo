@@ -16,7 +16,7 @@ class ClientController extends Controller
     public function index()
     {
         $data = [
-            'title'     => 'List Client',
+            'title'     => 'Client List',
             'client'    => Client::get(),
             'content'   => 'new-admin/client/index'
         ];
@@ -26,8 +26,8 @@ class ClientController extends Controller
     public function create()
     {
         $data = [
-            'title' => 'Tambah Client',
-            'content' => 'new-admin/client/create'
+            'title'     => 'Add New Client',
+            'content'   => 'new-admin/client/create'
         ];
 
         return view('new-admin.layouts.wrapper', $data);
@@ -40,7 +40,7 @@ class ClientController extends Controller
         $data['photos'] = $request->file('photos')->store('assets/client', 'public');
 
         Client::create($data);
-        Alert::success('Sukses', 'Client Berhasil Ditambahkan');
+        Alert::success('Sukses', 'Client Added Successfully');
         return redirect()->route('client.index');
     }
 
@@ -80,7 +80,7 @@ class ClientController extends Controller
         }
 
         $item->update($data);
-        Alert::success('Sukses', 'Client Berhasil Diubah');
+        Alert::success('Sukses', 'Client Updated Successfully');
         return redirect()->route('client.index');
     }
 
@@ -95,7 +95,7 @@ class ClientController extends Controller
 
         Storage::delete($client->photos);
         $client->delete();
-        Alert::success('Sukses', 'Client Berhasil Dihapus');
+        Alert::success('Sukses', 'Client Deleted Successfully');
         return redirect()->route('client.index');
     }
 }

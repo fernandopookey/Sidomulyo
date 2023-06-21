@@ -15,7 +15,7 @@ class SupportingFacilitiesController extends Controller
     public function index()
     {
         $data = [
-            'title'                 => 'List Fasilitas Penunjang',
+            'title'                 => 'Supporting Facilities List',
             'supportingFacilities'  => SupportingFacilities::get(),
             'content'               => 'new-admin/supporting-facilities/index'
         ];
@@ -25,7 +25,7 @@ class SupportingFacilitiesController extends Controller
     public function create()
     {
         $data = [
-            'title' => 'Tambah Fasilitas Penunjang',
+            'title' => 'Add New Facilities',
             'content' => 'new-admin/supporting-facilities/create'
         ];
 
@@ -39,14 +39,14 @@ class SupportingFacilitiesController extends Controller
         $data['photos'] = $request->file('photos')->store('assets/facilities', 'public');
 
         SupportingFacilities::create($data);
-        Alert::success('Sukses', 'Fasilitas Penunjang Berhasil Ditambahkan');
+        Alert::success('Sukses', 'Data Added Successfully');
         return redirect()->route('facility.index');
     }
 
     public function edit(string $id)
     {
         $data = [
-            'title'                     => 'Edit Fasilitas Penunjang',
+            'title'                     => 'Edit Facilities',
             'supporting_facilities'     => SupportingFacilities::find($id),
             'content'                   => 'new-admin/supporting-facilities/edit'
         ];
@@ -79,7 +79,7 @@ class SupportingFacilitiesController extends Controller
         }
 
         $item->update($data);
-        Alert::success('Sukses', 'Fasilitas Penunjang Berhasil Diubah');
+        Alert::success('Sukses', 'Data Updated Successfully');
         return redirect()->route('facility.index');
     }
 
@@ -94,7 +94,7 @@ class SupportingFacilitiesController extends Controller
 
         Storage::delete($facility->photos);
         $facility->delete();
-        Alert::success('Sukses', 'Fasilitas Penunjang Berhasil Dihapus');
+        Alert::success('Sukses', 'Data Deleted Successfully');
         return redirect()->route('facility.index');
     }
 }

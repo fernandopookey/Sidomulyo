@@ -36,12 +36,12 @@
                                         Detail
                                     </a>
                                     <form action="{{ route('user.destroy', $item->id) }}"
-                                        onclick="return confirm('Hapus Data ?')" method="POST" class="mt-2">
+                                        onclick="return confirm('Delete Data ?')" method="POST" class="mt-2">
                                         @method('delete')
                                         @csrf
                                         <button type="submit" class="btn btn-block btn-outline-danger"><i
                                                 class="fas fa-trash"></i>
-                                            Hapus</button>
+                                            Delete</button>
                                     </form>
                                 </td>
                             </tr>

@@ -35,8 +35,8 @@
                             @foreach ($sosmed as $item)
                             <ul class="pt-list">
                                 <li class="mb-2">
-                                    <img src="/images/logonav.png" class="footer-image"
-                                        style="width: 250px; height: 80px; object-fit: contain;" alt="">
+                                    <img src="{{ Storage::url($item->photos) }}" class="footer-image" width="100"
+                                        alt="">
                                 </li>
                                 <li>
                                     <a href="https://www.google.com/maps/place/SIDOMULYO+ADVERTISING+%26+PRINTING/@-7.3252615,110.4989932,17.69z/data=!4m6!3m5!1s0x2e7a792dcfede13f:0x4e769037bd843457!8m2!3d-7.3250743!4d110.4994406!16s%2Fg%2F11tj05ylc8?hl=id"
@@ -63,13 +63,14 @@
                         <div class="pt-collapse-content">
                             <ul class="pt-list">
                                 <li>
-                                    <a href="#" style="color: white;">Tentang Kami</a>
+                                    <a href="{{ route('profile') }}" style="color: white;">Tentang Kami</a>
                                 </li>
                                 <li>
-                                    <a href="#" style="color: white;">Pemesanan Online</a>
+                                    <a href="{{ route('product') }}" style="color: white;">Produk Kami</a>
                                 </li>
                                 <li>
-                                    <a href="#" style="color: white;">Hubungi Kami</a>
+                                    <a href="{{ route('blog') }}" style="color: white;">Blog Kami</a>
+                                </li>
                             </ul>
                         </div>
                     </div>

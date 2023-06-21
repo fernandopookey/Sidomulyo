@@ -15,7 +15,7 @@ class PrivacyPolicyController extends Controller
     public function index()
     {
         $data = [
-            'title'             => 'List Privacy Policy',
+            'title'             => 'Privacy Policy List',
             'privacyPolicy'     => PrivacyPolicy::get(),
             'content'           => 'new-admin/privacy-policy/index'
         ];
@@ -25,7 +25,7 @@ class PrivacyPolicyController extends Controller
     public function create()
     {
         $data = [
-            'title'     => 'Tambah Privacy Policy',
+            'title'     => 'Add New Privacy Policy',
             'content'   => 'new-admin/privacy-policy/create'
         ];
 
@@ -37,14 +37,14 @@ class PrivacyPolicyController extends Controller
         $data = $request->all();
 
         PrivacyPolicy::create($data);
-        Alert::success('Sukses', 'Privacy Policy Berhasil Ditambahkan');
-        return redirect()->route('privacyPolicy.index');
+        Alert::success('Sukses', 'Privacy Policy Added Successfully');
+        return redirect()->route('privacy-policy.index');
     }
 
     public function show(string $id)
     {
         $data = [
-            'title'             => 'Detail Privacy Policy',
+            'title'             => 'Privacy Policy Details',
             'privacyPolicy'     => PrivacyPolicy::find($id),
             'content'           => 'new-admin/privacy-policy/detail'
         ];
@@ -70,14 +70,14 @@ class PrivacyPolicyController extends Controller
         ]);
 
         $item->update($data);
-        Alert::success('Sukses', 'Privacy Policy Berhasil Diubah');
-        return redirect()->route('privacyPolicy.index');
+        Alert::success('Sukses', 'Privacy Policy Updated Successfully');
+        return redirect()->route('privacy-policy.index');
     }
 
     public function destroy(PrivacyPolicy $privacyPolicy)
     {
         $privacyPolicy->delete();
-        Alert::success('Sukses', 'Privacy Policy Berhasil Dihapus');
-        return redirect()->route('privacyPolicy.index');
+        Alert::success('Sukses', 'Privacy Policy Deleted Successfully');
+        return redirect()->route('privacy-policy.index');
     }
 }

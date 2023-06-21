@@ -36,7 +36,7 @@
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label>Nomor HP</label>
+                                <label>Phone Number</label>
                                 <input type="text" name="phone_number" class="form-control" autocomplete="off" required>
                             </div>
                         </div>
@@ -54,7 +54,7 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label>Alamat</label>
+                                <label>Address</label>
                                 <textarea name="address" id="editor" cols="30" rows="10"></textarea>
                             </div>
                         </div>
@@ -68,13 +68,13 @@
                     <div class="d-flex justify-content-around">
                         <div class="col-md-6">
                             <button type="submit" class="btn btn-success px-5">
-                                Simpan
+                                Save
                             </button>
                         </div>
                         <div class="col-md-6 text-right">
                             <a href="{{ route('user.index') }}">
                                 <button type="button" class="btn btn-primary px-5">
-                                    Kembali
+                                    Back
                                 </button>
                             </a>
                         </div>

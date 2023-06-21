@@ -11,13 +11,13 @@
                     </ul>
                 </div>
                 @endif
-                <form action="/admin/pengiriman/update" method="POST" enctype="multipart/form-data">
+                <form action="/admin/delivery/update" method="POST" enctype="multipart/form-data">
                     @method('PUT')
                     @csrf
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label>Judul</label>
+                                <label>Title</label>
                                 <input type="text" name="title"
                                     class="form-control @error('title') is-invalid @enderror"
                                     value="{{ isset($delivery) ? $delivery->title : old('title') }}" autocomplete="off">
@@ -28,7 +28,7 @@
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label for="">Deskripsi</label>
+                                <label for="">Description</label>
                                 <textarea name="description" id="editor"
                                     class="form-control @error('description') is-invalid @enderror"
                                     placeholder="Deskripsi">{!! isset($delivery) ? $delivery->description : old('description') !!}</textarea>
@@ -40,7 +40,7 @@
                             </div>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-primary">Simpan</button>
+                    <button type="submit" class="btn btn-primary">Save</button>
                 </form>
             </div>
         </div>

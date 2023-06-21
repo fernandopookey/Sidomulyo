@@ -8,7 +8,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label>Hubungi Kami</label>
+                                <label>Phone Number / Call Us</label>
                                 <input type="text" name="phone_number"
                                     class="form-control @error('phone_number') is-invalid @enderror"
                                     value="{{ isset($header) ? $header->phone_number : old('phone_number') }}"
@@ -24,7 +24,7 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="">Teks Navigasi Bar 1</label>
+                                <label for="">Navigation Text 1</label>
                                 <input type="text" name="facebook_title"
                                     class="form-control @error('facebook_title') is-invalid @enderror"
                                     value="{{ isset($header) ? $header->facebook_title : old('facebook_title') }}"
@@ -38,7 +38,7 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="">Link Navigasi Bar 1</label>
+                                <label for="">Navigation Link Text 1</label>
                                 <input type="text" name="facebook_link"
                                     class="form-control @error('facebook_link') is-invalid @enderror"
                                     value="{{ isset($header) ? $header->facebook_link : old('facebook_link') }}"
@@ -54,7 +54,7 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="">Teks Navigasi Bar 2</label>
+                                <label for="">Navigation Text 2</label>
                                 <input type="text" name="twiter_title"
                                     class="form-control @error('twiter_title') is-invalid @enderror"
                                     value="{{ isset($header) ? $header->twiter_title : old('twiter_title') }}"
@@ -68,7 +68,7 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="">Link Navigasi Bar 2</label>
+                                <label for="">Navigation Link Text 2</label>
                                 <input type="text" name="twiter_link"
                                     class="form-control @error('twiter_link') is-invalid @enderror"
                                     value="{{ isset($header) ? $header->twiter_link : old('twiter_link') }}"
@@ -84,7 +84,7 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="">Teks Navigasi Bar 3</label>
+                                <label for="">Navigation Text 3</label>
                                 <input type="text" name="instagram_title"
                                     class="form-control @error('instagram_title') is-invalid @enderror"
                                     value="{{ isset($header) ? $header->instagram_title : old('instagram_title') }}"
@@ -98,7 +98,7 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="">Link Navigasi Bar 3</label>
+                                <label for="">Navigation Link Text 3</label>
                                 <input type="text" name="instagram_link"
                                     class="form-control @error('instagram_link') is-invalid @enderror"
                                     value="{{ isset($header) ? $header->instagram_link : old('instagram_link') }}"
@@ -114,18 +114,27 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label>Logo Navigasi Bar</label>
-                                <input type="file" name="logo" class="form-control" value="{{ $header->logo }}"
-                                    onchange="loadFile(event)">
-                                <img src="{{ Storage::disk('local')->url($header->logo) }}" class="pt-4" alt=""
-                                    style="widows: 200px; height: 150px; object-fit: contain;">
+                                <label>Logo</label>
+                                <div class="input-group">
+                                    <div class="custom-file">
+                                        <input type="file" name="logo" class="custom-file-input"
+                                            value="{{ $header->logo }}" id="exampleInputFile"
+                                            onchange="loadFile(event)">
+                                        <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                    </div>
+                                    <div class="input-group-append">
+                                        <span class="input-group-text">Upload</span>
+                                    </div>
+                                </div>
+                                <img src="{{ Storage::disk('local')->url($header->logo) }}" class="img-fluid mt-2 mb-2"
+                                    width="300">
                             </div>
-                            <img id="output" class="pb-4" style="max-width: 200px" />
+                            <img id="output" class="img-fluid mb-3" width="200" />
                         </div>
                     </div>
                     <div class="col-md-12">
                         <div class="form-group">
-                            <button type="submit" class="btn btn-primary">Simpan</button>
+                            <button type="submit" class="btn btn-primary">Save</button>
                         </div>
                     </div>
                 </form>
@@ -133,13 +142,3 @@
         </div>
     </div>
 </div>
-
-@push('addon-script')
-
-<script>
-    var loadFile = function(event) {
-        var output = document.getElementById('output');
-        output.src = URL.createObjectURL(event.target.files[0]);
-    };
-</script>
-@endpush

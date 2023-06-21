@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\ProductRequest;
+use App\Http\Requests\Admin\UpdateProductRequest;
 use App\Models\Product;
 use App\Models\ProductCategory;
 use App\Models\ProductGallery;
@@ -21,8 +22,8 @@ class ProductController extends Controller
     public function index()
     {
         $data = [
-            'title'         => 'List Product',
-            'products'      => Product::get(),
+            'title'         => 'Product List',
+            'products'      => Product::withCount('galleries')->get(),
             'categories'    => ProductCategory::all(),
             'content'       => 'new-admin/product/index'
         ];
@@ -58,14 +59,14 @@ class ProductController extends Controller
 
         Storage::delete($productgallery->photos);
         $productgallery->delete();
-        Alert::success('Sukses', 'Gambar Produk Berhasil Dihapus');
+        Alert::success('Sukses', 'Product Image Deleted Successfully');
         return redirect()->route('admin-product-details', $productgallery->product_id);
     }
 
     public function create()
     {
         $data = [
-            'title'         => 'Tambah Produk',
+            'title'         => 'Add New Product',
             'content'       => 'new-admin/product/create',
             'categories'      => ProductCategory::all()
         ];
@@ -73,21 +74,22 @@ class ProductController extends Controller
         return view('new-admin.layouts.wrapper', $data);
     }
 
+
     public function store(ProductRequest $request)
     {
-        // $data = $request->all();
-        $data = $request->validate([
-            'name'              => 'required|string|max:200',
-            'price'             => 'required|integer',
-            'description'       => 'required',
-            'additional_info'   => 'required',
-            'categories_id'     => 'required|exists:product_categories,id'
-        ]);
+        $data = $request->all();
+        // $data = $request->validate([
+        //     'name'              => 'required|string|max:200',
+        //     'price'             => 'required',
+        //     'description'       => 'required',
+        //     'additional_info'   => 'required',
+        //     'categories_id'     => 'required|exists:product_categories,id'
+        // ]);
 
         $data['slug'] = Str::slug($request->name);
 
         Product::create($data);
-        Alert::success('Sukses', 'Produk Berhasil Ditambahkan');
+        Alert::success('Sukses', 'Product Added Successfully');
         return redirect()->route('admin-product');
     }
 
@@ -97,7 +99,7 @@ class ProductController extends Controller
         $categories = ProductCategory::all();
 
         return view('new-admin.layouts.wrapper', [
-            'title'         => 'Edit Produk',
+            'title'         => 'Edit Product',
             'content'       => 'new-admin/product/detail',
             'product'       => $product,
             'categories'    => $categories,
@@ -120,7 +122,7 @@ class ProductController extends Controller
         }
 
         $data = [
-            'title'             => 'Rating Produk',
+            'title'             => 'Product Ratings',
             'product'           => $product,
             'rating'            => $rating,
             'rating_value'      => $rating_value,
@@ -145,41 +147,35 @@ class ProductController extends Controller
         ]);
     }
 
-    public function update(Request $request, string $id)
+    public function update(UpdateProductRequest $request, string $id)
     {
         $item = Product::find($id);
-        $data = $request->validate([
-            'name'              => 'required|string|max:200',
-            'price'             => 'required|integer',
-            'description'       => 'required',
-            'additional_info'   => 'required',
-            'categories_id'     => 'required|exists:product_categories,id'
-        ]);
+        $data = $request->all();
+        // $data = $request->validate([
+        //     'name'              => 'required|string|max:200',
+        //     'price'             => 'required',
+        //     'description'       => 'required',
+        //     'additional_info'   => 'required',
+        //     'categories_id'     => 'required|exists:product_categories,id'
+        // ]);
 
         $data['slug'] = Str::slug($request->name);
 
         $item->update($data);
-        Alert::success('Sukses', 'Produk Berhasil Diubah');
+        Alert::success('Sukses', 'Product Updated Successfull');
         return redirect()->route('admin-product');
     }
 
 
     public function destroy($id)
     {
-        // $product = Product::findOrFail($product);
-        // $product = Product::with((['galleries']))->findOrFail($id);
-        $product = Product::findOrFail($id);
-        // if ($productGallery->photos != null) {
-        //     $realLocation = "storage/" . $productGallery->photos;
-        //     if (file_exists($realLocation) && !is_dir($realLocation)) {
-        //         unlink($realLocation);
-        //     }
-        // }
-
-        // Storage::delete($productGallery->photos);
-        // $productGallery->delete();
+        $product = Product::withCount('galleries')->findOrFail($id);
+        if ($product->galleries_count > 0) {
+            Alert::error('Failed', 'Delete product image first');
+            return redirect()->route('admin-product');
+        }
         $product->delete();
-        Alert::success('Sukses', 'Produk Berhasil Dihapus');
+        Alert::success('Sukses', 'Product Deleted Successfully');
         return redirect()->route('admin-product');
     }
 }

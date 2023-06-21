@@ -7,8 +7,8 @@
     </div>
     <div class="mb-3">
         <label>Harga Produk</label>
-        <input type="number" name="price" class="form-control" value="{{ $product->price }}" autocomplete="off"
-            required>
+        <input type="text" name="price" class="form-control rupiah" value="{{old('price', $product->price) }}"
+            autocomplete="off">
     </div>
     <div class="mb-3">
         <label>Kategori Produk</label>
@@ -44,18 +44,3 @@
         </div>
     </div>
 </form>
-
-@push('addon-script')
-
-<script src="https://cdn.ckeditor.com/ckeditor5/36.0.1/classic/ckeditor.js"></script>
-<script>
-    ClassicEditor
-              .create(document.querySelector('#editor'))
-              .then(editor => {
-                console.log(editor);
-              })
-              .catch(error => {
-                console.error(error);
-              });
-</script>
-@endpush

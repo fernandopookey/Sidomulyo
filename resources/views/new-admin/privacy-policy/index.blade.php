@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="card-header">
-                    <a href="{{ route('privacyPolicy.create') }}" class="btn btn-primary"><i class="fa fa-plus"></i>Add
+                    <a href="{{ route('privacy-policy.create') }}" class="btn btn-primary"><i class="fa fa-plus"></i>Add
                         New</a>
                 </div>
                 <div class="card-body">
@@ -11,8 +11,8 @@
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th>Judul</th>
-                                <th>Deskripsi</th>
+                                <th>Title</th>
+                                <th>Description</th>
                                 <th width="12%">Action</th>
                             </tr>
                         </thead>
@@ -23,21 +23,21 @@
                                 <td>{{ $item->title }}</td>
                                 <td>{!! $item->description !!}</td>
                                 <td>
-                                    <a href="{{ route('privacyPolicy.edit', $item->id) }}"
+                                    <a href="{{ route('privacy-policy.edit', $item->id) }}"
                                         class="btn btn-block btn-outline-success"><i class="fas fa-edit"></i>
                                         Edit
                                     </a>
-                                    <a href="{{ route('privacyPolicy.show', $item->id) }}"
+                                    <a href="{{ route('privacy-policy.show', $item->id) }}"
                                         class="btn btn-block btn-outline-secondary"><i class="fas fa-edit"></i>
                                         Detail
                                     </a>
-                                    <form action="{{ route('privacyPolicy.destroy', $item->id) }}"
-                                        onclick="return confirm('Hapus Data ?')" method="POST" class="mt-2">
+                                    <form action="{{ route('privacy-policy.destroy', $item->id) }}"
+                                        onclick="return confirm('Delete Data ?')" method="POST" class="mt-2">
                                         @method('delete')
                                         @csrf
                                         <button type="submit" class="btn btn-block btn-outline-danger"><i
                                                 class="fas fa-trash"></i>
-                                            Hapus</button>
+                                            Delete</button>
                                     </form>
                                 </td>
                             </tr>

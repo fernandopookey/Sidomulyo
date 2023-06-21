@@ -63,6 +63,20 @@
 <script src="{{ asset('new-admin/plugins/datatables-buttons/js/buttons.html5.min.js') }}"></script>
 <script src="{{ asset('new-admin/plugins/datatables-buttons/js/buttons.print.min.js') }}"></script>
 <script src="{{ asset('new-admin/plugins/datatables-buttons/js/buttons.colVis.min.js') }}"></script>
+<script src="{{ asset('/custom/js/jquery.mask.min.js') }}" type="text/javascript"></script>
+
+
+<script>
+  $(document).ready(function(){
+    // $('.money').mask('000.000.000.000.000,00', {reverse: false});
+    $('.rupiah').mask("#.##0", {reverse: true});
+    $('#editRupiah').mask("#.##0", {reverse: true});
+    $('.rupiah3').mask("#.##0", {reverse: true});
+    $('.rupiah4').mask("#.##0", {reverse: true});
+    $('.rupiah5').mask("#.##0", {reverse: true});
+    // $('.rupiah').mask("Rp. #.##0.#00", {reverse: false});
+  });
+</script>
 
 <script>
   $(function () {
