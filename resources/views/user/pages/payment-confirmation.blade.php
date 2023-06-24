@@ -96,7 +96,7 @@
                                             <input type="hidden" name="total" value="{{ $payment->total }}">
                                             <div class="col-md-12">
                                                 <div class="form-group">
-                                                    <label>Product Category</label>
+                                                    <label>Bank</label>
                                                     <select name="bank_id" class="form-control">
                                                         @foreach ($bank as $item)
                                                             <option value="{{ $item->id }}">{{ $item->name }}</option>

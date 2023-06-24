@@ -230,13 +230,17 @@
                 </li>
                 <li class="nav-header">TRANSACTIONS</li>
                 <li class="nav-item">
-                <li class="nav-item">
                     <a href="{{ route('transaction.index') }}" class="nav-link">
                         <i class="fas fa-file-invoice nav-icon"></i>
                         <p>Customer Transactions</p>
                     </a>
                 </li>
-                </li>
+                {{-- <li class="nav-item">
+                    <a href="{{ route('income.index') }}" class="nav-link">
+                        <i class="fas fa-inbox nav-icon"></i>
+                        <p>Income</p>
+                    </a>
+                </li> --}}
                 <li class="nav-header">SYSTEM</li>
                 <li class="nav-item">
                     <a href="{{ route('logout') }}" class="nav-link"
