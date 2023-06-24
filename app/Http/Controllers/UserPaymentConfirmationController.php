@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Bank;
 use App\Models\Floating;
 use App\Models\FourthFloating;
 use App\Models\Header;
@@ -24,6 +25,7 @@ class UserPaymentConfirmationController extends Controller
         $secondFloating     = SecondFloating::get();
         $thirdFloating      = ThirdFloating::get();
         $fourthFloating     = FourthFloating::get();
+        $bank               = Bank::get();
         $payment            = Transaction::where('id', $id)->where('users_id', Auth::id())->first();
 
         $data = [
@@ -33,6 +35,7 @@ class UserPaymentConfirmationController extends Controller
             'secondFloating'    => $secondFloating,
             'thirdFloating'     => $thirdFloating,
             'fourthFloating'    => $fourthFloating,
+            'bank'              => $bank,
             'content'           => 'user/pages/payment-confirmation',
             'payment'           => $payment
         ];
@@ -50,7 +53,7 @@ class UserPaymentConfirmationController extends Controller
         $transaction = ([
             'user_id'               => Auth::user()->id,
             'transaction_id'        => $transactionf->id,
-            'bank'                  => $request->bank,
+            'bank_id'               => $request->bank_id,
             'name'                  => Auth::user()->fullname,
             'account_number'        => $request->account_number,
             'account_name'          => $request->account_name,

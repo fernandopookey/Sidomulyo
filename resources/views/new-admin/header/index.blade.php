@@ -2,7 +2,7 @@
     <div class="card-body">
         <div class="row">
             <div class="col-lg-12">
-                <form action="/admin/navbar_content/update" method="POST" enctype="multipart/form-data">
+                <form action="/admin/navbar-content/update" method="POST" enctype="multipart/form-data">
                     @method('PUT')
                     @csrf
                     <div class="row">
@@ -14,9 +14,9 @@
                                     value="{{ isset($header) ? $header->phone_number : old('phone_number') }}"
                                     autocomplete="off">
                                 @error('phone_number')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
                                 @enderror
                             </div>
                         </div>
@@ -30,9 +30,9 @@
                                     value="{{ isset($header) ? $header->facebook_title : old('facebook_title') }}"
                                     autocomplete="off">
                                 @error('facebook_title')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
                                 @enderror
                             </div>
                         </div>
@@ -44,9 +44,9 @@
                                     value="{{ isset($header) ? $header->facebook_link : old('facebook_link') }}"
                                     autocomplete="off">
                                 @error('facebook_link')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
                                 @enderror
                             </div>
                         </div>
@@ -60,9 +60,9 @@
                                     value="{{ isset($header) ? $header->twiter_title : old('twiter_title') }}"
                                     autocomplete="off">
                                 @error('twiter_title')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
                                 @enderror
                             </div>
                         </div>
@@ -74,9 +74,9 @@
                                     value="{{ isset($header) ? $header->twiter_link : old('twiter_link') }}"
                                     autocomplete="off">
                                 @error('twiter_link')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
                                 @enderror
                             </div>
                         </div>
@@ -90,9 +90,9 @@
                                     value="{{ isset($header) ? $header->instagram_title : old('instagram_title') }}"
                                     autocomplete="off">
                                 @error('instagram_title')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
                                 @enderror
                             </div>
                         </div>
@@ -104,9 +104,9 @@
                                     value="{{ isset($header) ? $header->instagram_link : old('instagram_link') }}"
                                     autocomplete="off" autocomplete="off">
                                 @error('instagram_link')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
                                 @enderror
                             </div>
                         </div>

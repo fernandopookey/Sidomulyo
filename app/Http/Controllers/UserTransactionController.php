@@ -10,7 +10,6 @@ use App\Models\Sosmed;
 use App\Models\ThirdFloating;
 use App\Models\Transaction;
 use App\Models\TransactionDetail;
-// use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class UserTransactionController extends Controller
@@ -23,6 +22,7 @@ class UserTransactionController extends Controller
         $secondFloating     = SecondFloating::get();
         $thirdFloating      = ThirdFloating::get();
         $fourthFloating     = FourthFloating::get();
+        $transactionDetails = TransactionDetail::all();
         $transactions       = Transaction::where('users_id', Auth::id())->get();
 
         return view('user.pages.transactions', [
@@ -32,7 +32,8 @@ class UserTransactionController extends Controller
             'secondFloating'    => $secondFloating,
             'thirdFloating'     => $thirdFloating,
             'fourthFloating'    => $fourthFloating,
-            'transactions'      => $transactions
+            'transactions'      => $transactions,
+            'transactionDetails' => $transactionDetails
         ]);
     }
 
@@ -47,11 +48,5 @@ class UserTransactionController extends Controller
         $transactions       = Transaction::where('id', $id)->where('users_id', Auth::id())->first();
 
         return view('user.pages.transaction-details', compact('transactions', 'header', 'sosmed', 'floating', 'secondFloating', 'thirdFloating', 'fourthFloating'));
-
-        // return view('user.pages.transaction-details', [
-        //     'sosmed'        => $sosmed,
-        //     'header'        => $header,
-        //     'transactions'  => $transactions
-        // ]);
     }
 }

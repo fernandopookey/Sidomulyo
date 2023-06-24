@@ -1,7 +1,7 @@
 @extends('user.layouts.app')
 
 @section('title')
-Sidomulyo Homepage
+    Sidomulyo Homepage
 @endsection
 
 <style>
@@ -86,142 +86,140 @@ Sidomulyo Homepage
 </style>
 
 @section('content')
-
-<main id="pt-pageContent">
-    <div class="container-indent nomargin">
-        <div class="mainSlider-layout">
-            <div class="mainSliderSlick mainSliderSlick-js arrow-slick-main">
-                @foreach ($slider as $item)
-                <div class="slide">
-                    <div class="img--holder">
-                        <picture>
-                            {{--
+    <main id="pt-pageContent">
+        <div class="container-indent nomargin">
+            <div class="mainSlider-layout">
+                <div class="mainSliderSlick mainSliderSlick-js arrow-slick-main">
+                    @foreach ($slider as $item)
+                        <div class="slide">
+                            <div class="img--holder">
+                                <picture>
+                                    {{--
                             <source srcset="user-template/images/slides-02/company1.jpg" type="image/webp"> --}}
-                            <img src="{{ Storage::url($item->photos ?? 'Error') }}" alt="">
-                        </picture>
-                    </div>
-                    <div class="slide-content text-center btn-slider-home">
-                        <div class="pt-container">
-                            {{-- <div class="tp-caption1-wd-2 pt-white-color">{{ $item->name }}</div>
+                                    <img src="{{ Storage::url($item->photos ?? 'Error') }}" alt="">
+                                </picture>
+                            </div>
+                            <div class="slide-content text-center btn-slider-home">
+                                <div class="pt-container">
+                                    {{-- <div class="tp-caption1-wd-2 pt-white-color">{{ $item->name }}</div>
                             <div class="tp-caption1-wd-3 pt-white-color">{!! $item->description !!}</div> --}}
-                            <div class="tp-caption1-wd-4 button-pesan-home">
-                                <a href="{{ route('product') }}" class="btn" data-text="DISCOVER NOW!">PESAN
-                                    SEKARANG!
+                                    <div class="tp-caption1-wd-4 button-pesan-home">
+                                        <a href="{{ route('product') }}" class="btn" data-text="DISCOVER NOW!">PESAN
+                                            SEKARANG!
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        </div>
+
+        <div class="backgroundImageHome" style="background-image: url('{{ Storage::url($backgroundImage[0]->photos) }}')">
+            <div class="container-indent homealone">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-3 col-sm-6 col-md-6">
+                            <div class="opening-card pt-3 pb-3 mb-4" data-aos="fade-up" data-aos-delay="100">
+                                <div class="justify-content-center align-items-center text-center opening-body-card">
+                                    <i class="fa-solid fa-thumbs-up fa-5x"></i>
+                                    <div class="card-title pt-1">KUALITAS TERJAMIN</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-4 col-md-6">
+                            <div class="opening-card pt-3 pb-3 mb-4" data-aos="fade-up" data-aos-delay="200">
+                                <div class="justify-content-center align-items-center text-center opening-body-card">
+                                    <i class="fa-solid fa-clock fa-5x"></i>
+                                    <div class="card-title pt-1">PENGERJAAN CEPAT</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-4 col-md-6">
+                            <div class="opening-card pt-3 pb-3 mb-4" data-aos="fade-up" data-aos-delay="300">
+                                <div class="justify-content-center align-items-center text-center opening-body-card">
+                                    <i class="fa-solid fa-money-bill fa-5x"></i>
+                                    <div class="card-title pt-1">HARGA BERSAING</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-4 col-md-6">
+                            <div class="opening-card pt-3 pb-3 mb-4" data-aos="fade-up" data-aos-delay="400">
+                                <div class="justify-content-center align-items-center text-center opening-body-card">
+                                    <i class="fa-solid fa-computer fa-5x"></i>
+                                    <div class="card-title pt-1">DESAIN BERKUALITAS</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr />
+        <div class="container-indent mb-4 pb-4">
+            <div class="container">
+                <div class="row justify-content-center" style="text-align: center" data-aos="fade-up">
+                    @foreach ($homeTextContent as $item)
+                        <div class="col-12" style="max-width: 550px;">
+                            <h2><b>{{ $item->title }}</b></h2>
+                            <h5>{!! $item->description !!}</h5>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        </div>
+        <div class="backgroundImageHome pt-4"
+            style="background-image: url('{{ Storage::url($backgroundImage[0]->photos) }}')">
+            <div class="container-indent">
+                <div class="container">
+                    <div class="pt-block-title" data-aos="fade-down">
+                        <h4 class="pt-title">Produk</h4>
+                        <div class="pt-description">Sesuaikan Kebutuhan Anda</div>
+                    </div>
+                    <div class="pt-layout-promo-card-02">
+                        <div class="row d-flex justify-content-center mb-4 pb-4">
+                            @php
+                                $incrementProduct = 0;
+                            @endphp
+                            @forelse ($product as $item)
+                                <div class="col-md-3" data-aos="fade-up" data-aos-delay="{{ $incrementProduct += 100 }}">
+                                    <div class="pt-promo-card-02">
+                                        <div class="image-box">
+                                            <img src="{{ Storage::url($item->galleries->first()->photos ?? '') }}"
+                                                class="lazyload" style="width: 300px; height: 300px; object-fit:cover;"
+                                                alt="NEW COLLETION">
+                                        </div>
+                                        <div class="pt-description">
+                                            <div class="pt-title">
+                                                {{ $item->name }}
+                                            </div>
+                                            <p>
+                                                {{ formatRupiah($item->price) }}
+                                            </p>
+                                            <a href="{{ route('product') }}" class="btn btn-border">Pesan Sekarang!</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            @empty
+                                <div class="col-12 text-center py-5" data-aos="fade-up" data-aos-delay="100">
+                                    No Products Found
+                                </div>
+                            @endforelse
+                        </div>
+                        <div class="col-lg-12 pb-4">
+                            <div class="text-center mt-4 pt-4">
+                                <a href="{{ route('product') }}" class="btn" data-text="DISCOVER NOW!">LIHAT
+                                    PRODUK LAINNYA!
                                 </a>
                             </div>
                         </div>
                     </div>
                 </div>
-                @endforeach
             </div>
         </div>
-    </div>
-
-    <div class="backgroundImageHome" style="background-image: url('{{ Storage::url($backgroundImage[0]->photos) }}')">
-        <div class="container-indent homealone">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-3 col-sm-6 col-md-6">
-                        <div class="opening-card pt-3 pb-3 mb-4" data-aos="fade-up" data-aos-delay="100">
-                            <div class="justify-content-center align-items-center text-center opening-body-card">
-                                <i class="fa-solid fa-thumbs-up fa-5x"></i>
-                                <div class="card-title pt-1">KUALITAS TERJAMIN</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-sm-4 col-md-6">
-                        <div class="opening-card pt-3 pb-3 mb-4" data-aos="fade-up" data-aos-delay="200">
-                            <div class="justify-content-center align-items-center text-center opening-body-card">
-                                <i class="fa-solid fa-clock fa-5x"></i>
-                                <div class="card-title pt-1">PENGERJAAN CEPAT</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-sm-4 col-md-6">
-                        <div class="opening-card pt-3 pb-3 mb-4" data-aos="fade-up" data-aos-delay="300">
-                            <div class="justify-content-center align-items-center text-center opening-body-card">
-                                <i class="fa-solid fa-money-bill fa-5x"></i>
-                                <div class="card-title pt-1">HARGA BERSAING</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-sm-4 col-md-6">
-                        <div class="opening-card pt-3 pb-3 mb-4" data-aos="fade-up" data-aos-delay="400">
-                            <div class="justify-content-center align-items-center text-center opening-body-card">
-                                <i class="fa-solid fa-computer fa-5x"></i>
-                                <div class="card-title pt-1">DESAIN BERKUALITAS</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <hr />
-    <div class="container-indent mb-4 pb-4">
-        <div class="container">
-            <div class="row justify-content-center" style="text-align: center" data-aos="fade-up">
-                @foreach ($homeTextContent as $item)
-                <div class="col-12" style="max-width: 550px;">
-                    <h2><b>{{ $item->title }}</b></h2>
-                    <h5>{!! $item->description !!}</h5>
-                </div>
-                @endforeach
-            </div>
-        </div>
-    </div>
-    <div class="backgroundImageHome pt-4"
-        style="background-image: url('{{ Storage::url($backgroundImage[0]->photos) }}')">
-        <div class="container-indent">
-            <div class="container">
-                <div class="pt-block-title" data-aos="fade-down">
-                    <h4 class="pt-title">Produk</h4>
-                    <div class="pt-description">Sesuaikan Kebutuhan Anda</div>
-                </div>
-                <div class="pt-layout-promo-card-02">
-                    <div class="row d-flex justify-content-center mb-4 pb-4">
-                        @php
-                        $incrementProduct = 0
-                        @endphp
-                        @forelse ($product as $item)
-                        <div class="col-md-3" data-aos="fade-up" data-aos-delay="{{ $incrementProduct+= 100}}">
-                            <a href="#" class="pt-promo-card-02">
-                                <div class="image-box">
-                                    <img src="{{ Storage::url($item->galleries->first()->photos ?? '') }}"
-                                        class="lazyload" style="width: 300px; height: 300px; object-fit:cover;"
-                                        alt="NEW COLLETION">
-                                </div>
-                                <div class="pt-description">
-                                    <div class="pt-title">
-                                        {{ $item->name }}
-                                    </div>
-                                    <p>
-                                        {{ formatRupiah($item->price) }}
-                                    </p>
-                                    {{-- <div class="btn btn-border">Pesan Sekarang!</div> --}}
-                                    <a href="{{ route('product') }}" class="btn btn-border">Pesan Sekarang!</a>
-                                </div>
-                            </a>
-                        </div>
-                        @empty
-                        <div class="col-12 text-center py-5" data-aos="fade-up" data-aos-delay="100">
-                            No Products Found
-                        </div>
-                        @endforelse
-                    </div>
-                    <div class="col-lg-12 pb-4">
-                        <div class="text-center mt-4 pt-4">
-                            <a href="{{ route('product') }}" class="btn" data-text="DISCOVER NOW!">LIHAT
-                                PRODUK LAINNYA!
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <hr>
-    {{-- <div class="container-indent">
+        <hr>
+        {{-- <div class="container-indent">
         <div class="container container-fluid-custom-mobile-padding">
             <hr />
             <div class="pt-block-title">
@@ -937,32 +935,32 @@ Sidomulyo Homepage
             </div>
         </div>
     </div> --}}
-    {{-- <div class="cobacoba2"> --}}
-        <div class="backgroundImageHome"
-            style="background-image: url('{{ Storage::url($backgroundImage[0]->photos) }}')">
+        {{-- <div class="cobacoba2"> --}}
+        <div class="backgroundImageHome" style="background-image: url('{{ Storage::url($backgroundImage[0]->photos) }}')">
             <div class="container-indent">
                 <div class="container pb-4">
                     <div class="row pt-services-listing text-center">
                         @php
-                        $incrementLink = 0
+                            $incrementLink = 0;
                         @endphp
                         @foreach ($homecontent as $item)
-                        <div class="col-xs-12 col-md-6 col-lg-4" data-aos="zoom-in"
-                            data-aos-delay="{{ $incrementLink+= 200 }}">
-                            <a href="{{ $item->link }}" class="pt-services-block" target="_blank">
-                                <h4 class="pt-title">
-                                    <span class="pt-icon">
-                                        <img src="{{ Storage::url($item->icon ?? '') }}" style="max-width: 50px" alt="">
-                                        <a href="{{ $item->link }}">{{ $item->title }}</a>
-                                        {{-- <svg>
+                            <div class="col-xs-12 col-md-6 col-lg-4" data-aos="zoom-in"
+                                data-aos-delay="{{ $incrementLink += 200 }}">
+                                <a href="{{ $item->link }}" class="pt-services-block" target="_blank">
+                                    <h4 class="pt-title">
+                                        <span class="pt-icon">
+                                            <img src="{{ Storage::url($item->icon ?? '') }}" style="max-width: 50px"
+                                                alt="">
+                                            <a href="{{ $item->link }}">{{ $item->title }}</a>
+                                            {{-- <svg>
                                             <use xlink:href="{{ route('installation.index') }}"></use>
                                         </svg> --}}
-                                    </span>
-                                    {{-- <span class="pt-text">Fasilitas Pendukung</span> --}}
-                                </h4>
-                                {{-- <p>Free shipping on orders over $99.</p> --}}
-                            </a>
-                        </div>
+                                        </span>
+                                        {{-- <span class="pt-text">Fasilitas Pendukung</span> --}}
+                                    </h4>
+                                    {{-- <p>Free shipping on orders over $99.</p> --}}
+                                </a>
+                            </div>
                         @endforeach
                         {{-- <div class="col-xs-12 col-md-6 col-lg-4">
                             <a href="page-faq.html" class="pt-services-block" target="_blank">
@@ -970,15 +968,15 @@ Sidomulyo Homepage
                                     <span class="pt-icon">
                                         <i class="fa fa-computer fa-3x"></i>
                                         <a href="{{ route('machine.index') }}">Finishing Machine</a> --}}
-                                        {{-- <svg>
+                        {{-- <svg>
                                             <use xlink:href="{{ route('installation.index') }}"></use>
                                         </svg> --}}
-                                        {{-- </span> --}}
-                                    {{-- <span class="pt-text">Fasilitas Pendukung</span> --}}
-                                    {{--
+                        {{-- </span> --}}
+                        {{-- <span class="pt-text">Fasilitas Pendukung</span> --}}
+                        {{--
                                 </h4> --}}
-                                {{-- <p>Free shipping on orders over $99.</p> --}}
-                                {{--
+                        {{-- <p>Free shipping on orders over $99.</p> --}}
+                        {{--
                             </a>
                         </div> --}}
                         {{-- <div class="col-xs-12 col-md-6 col-lg-4">
@@ -987,17 +985,17 @@ Sidomulyo Homepage
                                     <span class="pt-icon">
                                         <i class="fa fa-blog fa-3x"></i>
                                         <a href="{{ route('blog.index') }}">Our Blog</a> --}}
-                                        {{-- <svg>
+                        {{-- <svg>
                                             <use xlink:href="{{ route('installation.index') }}"></use>
                                         </svg> --}}
-                                        {{-- </span> --}}
-                                    {{-- <span class="pt-text">Fasilitas Pendukung</span> --}}
-                                    {{--
+                        {{-- </span> --}}
+                        {{-- <span class="pt-text">Fasilitas Pendukung</span> --}}
+                        {{--
                                 </h4> --}}
-                                {{-- <p>Free shipping on orders over $99.</p> --}}
-                                {{--
+                        {{-- <p>Free shipping on orders over $99.</p> --}}
+                        {{--
                             </a> --}}
-                            {{--
+                        {{--
                         </div> --}}
                         {{-- <div class="col-xs-12 col-md-6 col-lg-4">
                             <a href="page-faq.html" class="pt-services-block" target="_blank">
@@ -1031,32 +1029,31 @@ Sidomulyo Homepage
         </div>
         {{--
     </div> --}}
-</main>
+    </main>
 
-<div class="popup" id="close">
-    @foreach ($modalHome as $item)
-    <button id="close">&times;</button>
-    <img src="{{ Storage::url($item->photos ?? '') }}" style="width: 600px; height:300px; object-fit:cover;" alt="">
-    @endforeach
-</div>
+    <div class="popup" id="close">
+        @foreach ($modalHome as $item)
+            <button id="close">&times;</button>
+            <img src="{{ Storage::url($item->photos ?? '') }}" style="width: 600px; height:300px; object-fit:cover;"
+                alt="">
+        @endforeach
+    </div>
 
-@push('addon-script')
+    @push('addon-script')
+        <script>
+            window.addEventListener("load", function() {
+                setTimeout(function open(event) {
+                    document.querySelector(".popup").style.display = "block";
+                }, 1000);
+            });
 
-<script>
-    window.addEventListener("load", function () {
-        setTimeout(function open(event) {
-        document.querySelector(".popup").style.display = "block";
-        }, 1000);
-        });
-        
-        document.querySelector("#close").addEventListener("click", function () {
-        document.querySelector(".popup").style.display = "none";
-        });
-</script>
+            document.querySelector("#close").addEventListener("click", function() {
+                document.querySelector(".popup").style.display = "none";
+            });
+        </script>
+    @endpush
 
-@endpush
-
-{{-- <div class="popup" id="close">
+    {{-- <div class="popup" id="close">
     @foreach ($modalHome as $item)
     <button id="close">&times;</button>
     <img src="{{ Storage::url($item->photos ?? '') }}" style="width: 600px; height:300px; object-fit:cover;" alt="">
@@ -1078,5 +1075,4 @@ Sidomulyo Homepage
 </script>
 
 @endpush --}}
-
 @endsection
