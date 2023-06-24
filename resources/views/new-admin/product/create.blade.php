@@ -3,13 +3,13 @@
         <div class="row">
             <div class="col-md-12">
                 @if ($errors->any())
-                <div class="alert alert-danger">
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
                 @endif
                 <form action="{{ route('admin-product-store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
@@ -34,7 +34,7 @@
                             <label>Product Category</label>
                             <select name="categories_id" class="form-control">
                                 @foreach ($categories as $item)
-                                <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                    <option value="{{ $item->id }}">{{ $item->name }}</option>
                                 @endforeach
                             </select>
                         </div>

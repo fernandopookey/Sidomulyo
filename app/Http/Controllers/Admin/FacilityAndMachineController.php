@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\FacilityAndMachine;
+use App\Models\Header;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 
@@ -14,6 +15,7 @@ class FacilityAndMachineController extends Controller
         $data = [
             'title'                 => 'Facility And Machine',
             'facilityandmachine'    => FacilityAndMachine::first(),
+            'header'                => Header::get(),
             'content'               => 'new-admin/facilityandmachine/index'
         ];
 

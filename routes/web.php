@@ -253,6 +253,8 @@ Route::prefix('admin')->namespace('Admin')->middleware(['auth', 'admin'])->group
     Route::resource('faqs', '\App\Http\Controllers\Admin\FaqController');
     Route::resource('privacy-policy', '\App\Http\Controllers\Admin\PrivacyPolicyController');
     Route::resource('terms-and-conditions', '\App\Http\Controllers\Admin\TermsAndConditionsController');
+
+    Route::resource('bank', '\App\Http\Controllers\Admin\BankController');
 });
 
 

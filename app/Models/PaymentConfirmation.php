@@ -10,7 +10,7 @@ class PaymentConfirmation extends Model
     protected $fillable = [
         'transaction_id',
         'user_id',
-        'bank',
+        'bank_id',
         'name',
         'account_number',
         'account_name',
@@ -26,8 +26,8 @@ class PaymentConfirmation extends Model
         return $this->belongsTo(Transaction::class, 'transaction_id', 'id');
     }
 
-    // public function users()
-    // {
-    //     return $this->belongsTo(User::class, 'user_id', 'id');
-    // }
+    public function bank()
+    {
+        return $this->belongsTo(Bank::class, 'bank_id', 'id');
+    }
 }
