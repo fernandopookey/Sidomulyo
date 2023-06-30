@@ -42,8 +42,9 @@
                                             {{-- {{ $item->transactionDetails->id }} --}}
                                         </td>
                                         <td>
-                                            <a href="{{ route('payment-confirmation', $item->id) }}">Konfirmasi pembayaran
-                                                anda</a>
+                                            <a href="{{ route('payment-confirmation', $item->id) }}"
+                                                class="btn btn-success text-white">Konfirmasi
+                                                pembayaran</a>
                                         </td>
                                         <td>
                                             <a href="{{ route('transaction-details', $item->id) }}">Detail</a>

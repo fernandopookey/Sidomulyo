@@ -63,21 +63,15 @@
                             <div class="pt-col col-lg-1">
                                 <div class="pt-input-counter style-01">
                                     <div class="d-flex align-items-center">
-                                        {{-- <a href="{{ url('/cart/update-quantity/' . $item->id . '/-1') }}"
-                                            class="btn btn-primary">-</a>
-                                        <input type="text" class="quantity" name="qty" min="1" step="1"
-                                            class="input-qty" value="{{ $item->qty }}">
-                                        <a href="{{ url('/cart/update-quantity/' . $item->id . '/1') }}"
-                                            class="btn btn-primary">+</a> --}}
-                                        <button class="btn btn-primary"
-                                            onclick="increaseQty({{ $item->id }}, {{ $item->product->price }}, {{ $item->qty }})">+</button>
-                                        <div class="qty valorant" id="cartQtyValue-{{ $item->id }}"
+                                        <button class="btn btn-primary ml-2" id="btnMinus-{{ $item->id }}"
+                                            onclick="decreaseQty({{ $item->id }}, {{ $item->product->price }}, {{ $item->qty }})"
+                                            @if ($item->qty == 1) disabled @endif>-</button>
+                                        <div class="qty valorant mx-2" id="cartQtyValue-{{ $item->id }}"
                                             data-itemprice="{{ $item->product->price }}">
                                             {{ $item->qty }}
                                         </div>
-                                        <button class="btn btn-primary" id="btnMinus-{{ $item->id }}"
-                                            onclick="decreaseQty({{ $item->id }}, {{ $item->product->price }}, {{ $item->qty }})"
-                                            @if ($item->qty == 1) disabled @endif>-</button>
+                                        <button class="btn btn-primary mr-2"
+                                            onclick="increaseQty({{ $item->id }}, {{ $item->product->price }}, {{ $item->qty }})">+</button>
                                     </div>
                                 </div>
                             </div>

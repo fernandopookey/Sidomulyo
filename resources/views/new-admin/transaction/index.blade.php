@@ -29,9 +29,11 @@
                                     <td>
                                         <?php if ($item->transaction_status == 'SUCCESS'){ ?>
                                         <a href="{{ url('/admin/transaction-status-update', $item->id) }}"
+                                            onclick="return confirm('Change Status to PENDING ?')"
                                             class="btn btn-success">SUCCESS</a>
                                         <?php }else{ ?>
                                         <a href="{{ url('/admin/transaction-status-update', $item->id) }}"
+                                            onclick="return confirm('Change Status to SUCCESS ?')"
                                             class="btn btn-warning">PENDING</a>
                                         <?php } ?>
                                     </td>

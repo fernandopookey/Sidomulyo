@@ -64,6 +64,8 @@ class UserPaymentConfirmationController extends Controller
 
         $transaction['photos'] = $request->file('photos')->store('assets/paymentconfirmation', 'public');
         PaymentConfirmation::create($transaction);
-        return view('user.pages.paymentConfirmationSuccess')->with('success', 'Konfirmasi Pembayaran Diproses');
+        // return view('user.pages.paymentConfirmationSuccess')->with('success', 'Konfirmasi Pembayaran Diproses');
+        // return redirect('cart')->with('success', 'Transaksi Diproses');
+        return redirect()->back()->with('success', 'Konfirmasi Pembayaran Berhasil Dilakukan');
     }
 }

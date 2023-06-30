@@ -39,7 +39,7 @@
 <!--End of Tawk.to Script-->
 
 
-<script>
+{{-- <script>
     $(document).ready(function() {
         //     cartload();
 
@@ -66,10 +66,10 @@
         });
 
     });
-</script>
+</script> --}}
 
 
-<script>
+{{-- <script>
     function reserve(id, iteration) {
         const linkId = 'link_' + id + '_' + iteration;
         const linkElement = document.getElementById(linkId);
@@ -117,7 +117,7 @@
         }
         bookingContentElement.style.display = "block";
     };
-</script>
+</script> --}}
 
 <script>
     const firstTotalPrice = document.getElementById('firstTotalPrice')

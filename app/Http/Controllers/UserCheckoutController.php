@@ -7,6 +7,7 @@ use App\Models\Transaction;
 use App\Models\TransactionDetail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class UserCheckoutController extends Controller
 {
@@ -47,6 +48,9 @@ class UserCheckoutController extends Controller
 
         //Hapus Data Keranjang
         Cart::where('users_id', Auth::user()->id)->delete();
-        return redirect('cart')->with('success', 'Transaksi Diproses');
+        Alert::success('Sukses', 'Pembelian Berhasil, Silahkan Lakukan Pembayaran');
+        return redirect()->route('my-transaction');
+        // return redirect('transaksi')->with('success', 'Pembelian berhasil, silahkan lakukan pembayaran');
+        // return redirect('cart')->with('success', 'Transaksi Diproses');
     }
 }
