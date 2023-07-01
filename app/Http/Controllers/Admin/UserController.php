@@ -95,4 +95,21 @@ class UserController extends Controller
         Alert::success('Sukses', 'User Berhasil Dihapus');
         return redirect()->route('user.index');
     }
+
+    public function filter(Request $request)
+    {
+        $start_date = $request->start_date;
+        $end_date = $request->end_date;
+
+        $users = User::whereDate('created_at', '>=', $start_date)
+            ->whereDate('created_at', '<=', $end_date)->get();
+
+        // $data = [
+        //     'users'     => $users,
+        //     'content'   => 'new-admin/user/index'
+        // ];
+
+        // return view('new-admin.layouts.wrapper', $data);
+        return view('new-admin.user.index', compact('users'));
+    }
 }

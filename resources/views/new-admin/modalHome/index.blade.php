@@ -3,15 +3,15 @@
         <div class="row">
             <div class="col-md-12">
                 @if ($errors->any())
-                <div class="alert alert-danger">
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
                 @endif
-                <form action="/admin/modalHome/update" method="POST" enctype="multipart/form-data">
+                <form action="/admin/popup-home-page/update" method="POST" enctype="multipart/form-data">
                     @method('PUT')
                     @csrf
 
@@ -60,12 +60,10 @@
 </div>
 
 @push('addon-script')
-
-<script>
-    var loadFile = function(event) {
-        var output = document.getElementById('output');
-        output.src = URL.createObjectURL(event.target.files[0]);
-    };
-</script>
-
+    <script>
+        var loadFile = function(event) {
+            var output = document.getElementById('output');
+            output.src = URL.createObjectURL(event.target.files[0]);
+        };
+    </script>
 @endpush
