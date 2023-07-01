@@ -107,11 +107,11 @@
 <script>
     $(function() {
         $("#example1").DataTable({
-            "responsive": false,
+            "responsive": true,
             "lengthChange": false,
             "autoWidth": false,
-            "buttons": ["copy", "excel", "pdf", "print"]
-        }).buttons().container().appendTo('#example1_wrapper .col-md-12:eq(0)');
+            "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+        }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
         $('#example2').DataTable({
             "paging": true,
             "lengthChange": false,

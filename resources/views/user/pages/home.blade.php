@@ -1031,13 +1031,13 @@
     </div> --}}
     </main>
 
-    <div class="popup" id="close">
-        @foreach ($modalHome as $item)
+    @foreach ($modalHome as $item)
+        <div class="popup" id="close">
             <button id="close">&times;</button>
             <img src="{{ Storage::url($item->photos ?? '') }}" style="width: 600px; height:300px; object-fit:cover;"
                 alt="">
-        @endforeach
-    </div>
+        </div>
+    @endforeach
 
     @push('addon-script')
         <script>

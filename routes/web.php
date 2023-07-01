@@ -23,6 +23,7 @@ use App\Http\Controllers\Admin\SecondFloatingController;
 use App\Http\Controllers\Admin\SosmedController;
 use App\Http\Controllers\Admin\ThirdFloatingController;
 use App\Http\Controllers\Admin\TransactionController;
+use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\UserPaymentConfirmationController;
@@ -257,6 +258,8 @@ Route::prefix('admin')->namespace('Admin')->middleware(['auth', 'admin'])->group
     Route::resource('bank', '\App\Http\Controllers\Admin\BankController');
 
     Route::resource('income', '\App\Http\Controllers\Admin\IncomeController');
+
+    Route::get('/filter', [UserController::class, 'filter']);
 });
 
 
