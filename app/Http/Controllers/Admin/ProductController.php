@@ -16,6 +16,8 @@ use Illuminate\Support\Facades\Storage;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Str;
 use RealRashid\SweetAlert\Facades\Alert;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
@@ -177,5 +179,30 @@ class ProductController extends Controller
         $product->delete();
         Alert::success('Sukses', 'Product Deleted Successfully');
         return redirect()->route('admin-product');
+    }
+
+    public function filter(Request $request)
+    {
+        $product = Product::orderBy('id', 'desc')
+            ->when(
+                $request->fromDate && $request->toDate,
+                function (Builder $builder) use ($request) {
+                    $builder->whereBetween(
+                        DB::raw('DATE(created_at)'),
+                        [
+                            $request->fromDate,
+                            $request->toDate
+                        ]
+                    );
+                }
+            )->paginate(10);
+
+        $data = [
+            'products'  => $product,
+            'request'   => $request,
+            'content'   => 'new-admin/product/index'
+        ];
+
+        return view('new-admin.layouts.wrapper', $data);
     }
 }

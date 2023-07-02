@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\BackgroundImageController;
+use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\ChangeController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
@@ -259,7 +260,10 @@ Route::prefix('admin')->namespace('Admin')->middleware(['auth', 'admin'])->group
 
     Route::resource('income', '\App\Http\Controllers\Admin\IncomeController');
 
-    Route::post('search_date', [UserController::class, 'filter'])->name('search_date');
+    Route::get('user-filter', [UserController::class, 'filter'])->name('user-filter');
+    Route::get('transaction-filter', [TransactionController::class, 'filter'])->name('transaction-filter');
+    Route::get('product-filter', [ProductController::class, 'filter'])->name('product-filter');
+    Route::get('blog-filter', [BlogController::class, 'filter'])->name('blog-filter');
 });
 
 

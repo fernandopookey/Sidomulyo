@@ -2,6 +2,24 @@
     <div class="card-body">
         <div class="row">
             <div class="col-12">
+                <div class="col-md-6">
+                    <form action="transaction-filter" class="text-right" method="GET">
+                        @csrf
+                        <div class="d-flex">
+                            <div class="col-md-5 d-flex">
+                                <label class="mt-1 mr-1">Start: </label>
+                                <input type="date" class="form-control input-sm" name="fromDate" id="fromDate"
+                                    required>
+                            </div>
+                            <div class="col-md-5 d-flex">
+                                <label class="mt-1 mr-1">End: </label>
+                                <input type="date" class="form-control input-sm" name="toDate" id="toDate"
+                                    required>
+                            </div>
+                            <button type="submit" name="search" class="btn btn-primary">Filter</button>
+                        </div>
+                    </form>
+                </div>
                 <div class="card-body">
                     <table id="example1" class="table table-bordered table-striped">
                         <thead>
