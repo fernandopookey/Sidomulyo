@@ -2,9 +2,29 @@
     <div class="card-body">
         <div class="row">
             <div class="col-12">
-                <div class="card-header">
-                    <a href="{{ route('admin-product-create') }}" class="btn btn-primary"><i class="fa fa-plus"></i>Add
-                        New</a>
+                <div class="card-header justify-content-between d-flex">
+                    <div class="col-md-6">
+                        <a href="{{ route('admin-product-create') }}" class="btn btn-primary"><i class="fa fa-plus"></i>Add
+                            New</a>
+                    </div>
+                    <div class="col-md-6 text-right">
+                        <form action="product-filter" class="text-right" method="GET">
+                            @csrf
+                            <div class="d-flex">
+                                <div class="col-md-5 d-flex">
+                                    <label class="mt-1 mr-1">Start: </label>
+                                    <input type="date" class="form-control input-sm" name="fromDate" id="fromDate"
+                                        required>
+                                </div>
+                                <div class="col-md-5 d-flex">
+                                    <label class="mt-1 mr-1">End: </label>
+                                    <input type="date" class="form-control input-sm" name="toDate" id="toDate"
+                                        required>
+                                </div>
+                                <button type="submit" name="search" class="btn btn-primary">Filter</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
                 <div class="card-body">
                     <table id="example1" class="table table-bordered table-striped">
@@ -14,6 +34,7 @@
                                 <th>Price</th>
                                 <th>Product Category</th>
                                 <th>Description</th>
+                                <th>Additional Info</th>
                                 <th>Action</th>
                             </tr>
                         </thead>

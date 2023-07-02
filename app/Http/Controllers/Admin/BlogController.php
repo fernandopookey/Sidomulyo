@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Storage;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Str;
 use RealRashid\SweetAlert\Facades\Alert;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Facades\DB;
 
 class BlogController extends Controller
 {
@@ -115,5 +117,30 @@ class BlogController extends Controller
         $blog->delete();
         Alert::success('Sukses', 'Blog Deleted Successfully');
         return redirect()->route('blog.index');
+    }
+
+    public function filter(Request $request)
+    {
+        $blog = Blog::orderBy('id', 'desc')
+            ->when(
+                $request->fromDate && $request->toDate,
+                function (Builder $builder) use ($request) {
+                    $builder->whereBetween(
+                        DB::raw('DATE(created_at)'),
+                        [
+                            $request->fromDate,
+                            $request->toDate
+                        ]
+                    );
+                }
+            )->paginate(10);
+
+        $data = [
+            'blog'          => $blog,
+            'request'       => $request,
+            'content'       => 'new-admin/blog/index'
+        ];
+
+        return view('new-admin.layouts.wrapper', $data);
     }
 }

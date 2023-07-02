@@ -11,6 +11,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use RealRashid\SweetAlert\Facades\Alert;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Facades\DB;
 
 class TransactionController extends Controller
 {
@@ -82,6 +84,31 @@ class TransactionController extends Controller
             // 'transaction'       => $transaction,
             // 'transactionDetail' => $transactionDetail,
             'content'           => 'new-admin/transaction/payment'
+        ];
+
+        return view('new-admin.layouts.wrapper', $data);
+    }
+
+    public function filter(Request $request)
+    {
+        $transaction = Transaction::orderBy('id', 'desc')
+            ->when(
+                $request->fromDate && $request->toDate,
+                function (Builder $builder) use ($request) {
+                    $builder->whereBetween(
+                        DB::raw('DATE(created_at)'),
+                        [
+                            $request->fromDate,
+                            $request->toDate
+                        ]
+                    );
+                }
+            )->paginate(10);
+
+        $data = [
+            'transaction'   => $transaction,
+            'request'       => $request,
+            'content'       => 'new-admin/transaction/index'
         ];
 
         return view('new-admin.layouts.wrapper', $data);

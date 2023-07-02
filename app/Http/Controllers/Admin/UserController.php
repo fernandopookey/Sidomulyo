@@ -121,49 +121,5 @@ class UserController extends Controller
         ];
 
         return view('new-admin.layouts.wrapper', $data);
-
-        // return view('employee.index', compact('employees', 'request'));
-
-
-
-
-        // $fromDate = $request->startDate;
-        // $toDate = $request->toDate;
-
-        // $users = User::where('created_at', [$fromDate, $toDate])
-        //     ->get();
-
-        // dd($users);
-
-        // // $users = User::where('created_at', '>=', $fromDate)
-        // //     ->where('created_at', '<=', $toDate)
-        // //     ->get();
-
-        // $data = [
-        //     'users'     => $users,
-        //     'content'   => 'new-admin/user/index'
-        // ];
-
-        // return view('new-admin.layouts.wrapper', $data);
-        // $formDate = $request->input('fromDate');
-        // $toDate = $request->input('toDate');
-
-        // $query = DB::table('users')->select()
-        //     ->where('created_at', '>=', $formDate)
-        //     ->where('created_at', '<=', $toDate)
-        //     ->get();
-        // // dd($query);
-
-        // // $role = DB::table('users')
-        // //     ->select('users.role_id_user', 'role_name.role_id', 'role_name.promission')
-        // //     ->join('role_name', 'users.role_id_user', '=', 'role_name.role_id')
-        // //     ->get();
-        // $data = [
-        //     'query'          => $query,
-        //     // 'users'     => User::get(),
-        //     'content'   => 'new-admin/user/index'
-        // ];
-
-        // return view('new-admin.layouts.wrapper', $data);
     }
 }

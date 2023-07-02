@@ -8,22 +8,18 @@
                             New</a>
                     </div>
                     <div class="col-6 text-right">
-                        <form action="search_date" class="text-right" method="POST">
+                        <form action="user-filter" class="text-right" method="GET">
                             @csrf
                             <div class="d-flex">
                                 <div class="col-md-5 d-flex">
-                                    <label for="">Start: </label>
+                                    <label class="mt-1 mr-1">Start: </label>
                                     <input type="date" class="form-control input-sm" name="fromDate" id="fromDate"
                                         required>
-                                    {{-- <input type="date" class="form-control input-sm" name="fromDate" id="fromDate"
-                                        value="{{ $request->fromDate }}" required> --}}
                                 </div>
                                 <div class="col-md-5 d-flex">
-                                    <label for="">End: </label>
+                                    <label class="mt-1 mr-1">End: </label>
                                     <input type="date" class="form-control input-sm" name="toDate" id="toDate"
                                         required>
-                                    {{-- <input type="date" class="form-control input-sm" name="toDate" id="toDate"
-                                        value="{{ $request->toDate }}" required> --}}
                                 </div>
                                 <button type="submit" name="search" class="btn btn-primary">Filter</button>
                             </div>
