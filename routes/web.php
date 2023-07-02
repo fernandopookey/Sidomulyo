@@ -259,7 +259,7 @@ Route::prefix('admin')->namespace('Admin')->middleware(['auth', 'admin'])->group
 
     Route::resource('income', '\App\Http\Controllers\Admin\IncomeController');
 
-    Route::get('/filter', [UserController::class, 'filter']);
+    Route::post('search_date', [UserController::class, 'filter'])->name('search_date');
 });
 
 

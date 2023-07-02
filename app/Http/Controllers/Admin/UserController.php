@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\UserRequest;
 use App\Models\User;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use RealRashid\SweetAlert\Facades\Alert;
 use Yajra\DataTables\Facades\DataTables;
@@ -98,11 +100,44 @@ class UserController extends Controller
 
     public function filter(Request $request)
     {
-        $start_date = $request->start_date;
-        $end_date = $request->end_date;
+        $user = User::orderBy('id', 'desc')
+            ->when(
+                $request->fromDate && $request->toDate,
+                function (Builder $builder) use ($request) {
+                    $builder->whereBetween(
+                        DB::raw('DATE(created_at)'),
+                        [
+                            $request->fromDate,
+                            $request->toDate
+                        ]
+                    );
+                }
+            )->paginate(5);
 
-        $users = User::whereDate('created_at', '>=', $start_date)
-            ->whereDate('created_at', '<=', $end_date)->get();
+        $data = [
+            'users'     => $user,
+            'request'   => $request,
+            'content'   => 'new-admin/user/index'
+        ];
+
+        return view('new-admin.layouts.wrapper', $data);
+
+        // return view('employee.index', compact('employees', 'request'));
+
+
+
+
+        // $fromDate = $request->startDate;
+        // $toDate = $request->toDate;
+
+        // $users = User::where('created_at', [$fromDate, $toDate])
+        //     ->get();
+
+        // dd($users);
+
+        // // $users = User::where('created_at', '>=', $fromDate)
+        // //     ->where('created_at', '<=', $toDate)
+        // //     ->get();
 
         // $data = [
         //     'users'     => $users,
@@ -110,6 +145,25 @@ class UserController extends Controller
         // ];
 
         // return view('new-admin.layouts.wrapper', $data);
-        return view('new-admin.user.index', compact('users'));
+        // $formDate = $request->input('fromDate');
+        // $toDate = $request->input('toDate');
+
+        // $query = DB::table('users')->select()
+        //     ->where('created_at', '>=', $formDate)
+        //     ->where('created_at', '<=', $toDate)
+        //     ->get();
+        // // dd($query);
+
+        // // $role = DB::table('users')
+        // //     ->select('users.role_id_user', 'role_name.role_id', 'role_name.promission')
+        // //     ->join('role_name', 'users.role_id_user', '=', 'role_name.role_id')
+        // //     ->get();
+        // $data = [
+        //     'query'          => $query,
+        //     // 'users'     => User::get(),
+        //     'content'   => 'new-admin/user/index'
+        // ];
+
+        // return view('new-admin.layouts.wrapper', $data);
     }
 }

@@ -2,26 +2,33 @@
     <div class="card-body">
         <div class="row">
             <div class="col-12">
-                <div class="card-header">
-                    <a href="{{ route('user.create') }}" class="btn btn-primary"><i class="fa fa-plus"></i>Add
-                        New</a>
-                    {{-- <div class="text-end">
-                        <form method="GET" action="/filter">
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <label for="">Start Date: </label>
-                                    <input type="date" class="form-control" name="start_date" id="">
+                <div class="card-header justify-content-between d-flex">
+                    <div class="col-md-6">
+                        <a href="{{ route('user.create') }}" class="btn btn-primary"><i class="fa fa-plus"></i> Add
+                            New</a>
+                    </div>
+                    <div class="col-6 text-right">
+                        <form action="search_date" class="text-right" method="POST">
+                            @csrf
+                            <div class="d-flex">
+                                <div class="col-md-5 d-flex">
+                                    <label for="">Start: </label>
+                                    <input type="date" class="form-control input-sm" name="fromDate" id="fromDate"
+                                        required>
+                                    {{-- <input type="date" class="form-control input-sm" name="fromDate" id="fromDate"
+                                        value="{{ $request->fromDate }}" required> --}}
                                 </div>
-                                <div class="col-md-3">
-                                    <label for="">End Date: </label>
-                                    <input type="date" class="form-control" name="end_date" id="">
+                                <div class="col-md-5 d-flex">
+                                    <label for="">End: </label>
+                                    <input type="date" class="form-control input-sm" name="toDate" id="toDate"
+                                        required>
+                                    {{-- <input type="date" class="form-control input-sm" name="toDate" id="toDate"
+                                        value="{{ $request->toDate }}" required> --}}
                                 </div>
-                                <div class="col-md-3">
-                                    <button type="submit" class="btn btn-primary">Filter</button>
-                                </div>
+                                <button type="submit" name="search" class="btn btn-primary">Filter</button>
                             </div>
                         </form>
-                    </div> --}}
+                    </div>
                 </div>
 
                 <div class="card-body">
