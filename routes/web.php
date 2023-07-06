@@ -258,7 +258,7 @@ Route::prefix('admin')->namespace('Admin')->middleware(['auth', 'admin'])->group
 
     Route::resource('bank', '\App\Http\Controllers\Admin\BankController');
 
-    Route::resource('income', '\App\Http\Controllers\Admin\IncomeController');
+    Route::resource('report', '\App\Http\Controllers\Admin\ReportController');
 
     Route::get('user-filter', [UserController::class, 'filter'])->name('user-filter');
     Route::get('transaction-filter', [TransactionController::class, 'filter'])->name('transaction-filter');
