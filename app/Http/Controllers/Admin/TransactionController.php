@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Bank;
 use App\Models\PaymentConfirmation;
 use App\Models\Transaction;
 use App\Models\TransactionDetail;
@@ -66,13 +67,12 @@ class TransactionController extends Controller
     public function payment(Request $request, $id)
     {
         $payment = PaymentConfirmation::where('transaction_id', $id)->first();
-        // $transaction        = Transaction::with(['user', 'product'])->findOrFail($id);
-        // $transactionDetail = TransactionDetail::with(['product', 'transaction'])->find($id);
 
         if (!$payment) {
             $data = [
-                'payment'           => $payment,
-                'content'           => 'new-admin/transaction/paymentnull'
+                'payment'   => $payment,
+                'bank'      => Bank::get(),
+                'content'   => 'new-admin/transaction/paymentnull'
             ];
             return
                 view('new-admin.layouts.wrapper', $data);

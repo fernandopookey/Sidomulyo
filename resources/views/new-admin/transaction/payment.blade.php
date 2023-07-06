@@ -11,7 +11,10 @@
                 <td>Bank</td>
                 <td>
                     <div class="input-group input-group-static">
-                        <input type="text" name="fullname" class="form-control" value="{{ $payment->bank }}" disabled>
+                        {{-- <input type="text" name="bank" class="form-control" value="{{ $payment->bank }}" disabled> --}}
+                        <input type="text" name="bank" class="form-control"
+                            value="{{ !empty($payment->bank->name) ? $payment->bank->name : 'Bank name has  been deleted' }}"
+                            disabled>
                     </div>
                 </td>
             </tr>
@@ -19,8 +22,8 @@
                 <td>Nomor Rekening</td>
                 <td>
                     <div class="input-group input-group-static">
-                        <input type="text" name="fullname" class="form-control" value="{{ $payment->account_number }}"
-                            disabled>
+                        <input type="text" name="account_number" class="form-control"
+                            value="{{ $payment->account_number }}" disabled>
                     </div>
                 </td>
             </tr>
@@ -28,8 +31,8 @@
                 <td>Atas nama bank</td>
                 <td>
                     <div class="input-group input-group-static">
-                        <input type="text" name="fullname" class="form-control" value="{{ $payment->account_name }}"
-                            disabled>
+                        <input type="text" name="account_name" class="form-control"
+                            value="{{ $payment->account_name }}" disabled>
                     </div>
                 </td>
             </tr>
@@ -37,7 +40,7 @@
                 <td>Kode Pembayaran</td>
                 <td>
                     <div class="input-group input-group-static">
-                        <input type="text" name="fullname" class="form-control" value="{{ $payment->code }}" disabled>
+                        <input type="text" name="code" class="form-control" value="{{ $payment->code }}" disabled>
                     </div>
                 </td>
             </tr>
@@ -45,7 +48,7 @@
                 <td>Tanggal Pembayaran</td>
                 <td>
                     <div class="input-group input-group-static">
-                        <input type="text" name="fullname" class="form-control" value="{{ $payment->created_at }}"
+                        <input type="text" name="created_at" class="form-control" value="{{ $payment->created_at }}"
                             disabled>
                     </div>
                 </td>

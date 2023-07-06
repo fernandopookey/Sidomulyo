@@ -236,9 +236,9 @@
                     </a>
                 </li>
                 {{-- <li class="nav-item">
-                    <a href="{{ route('income.index') }}" class="nav-link">
-                        <i class="fas fa-inbox nav-icon"></i>
-                        <p>Income</p>
+                    <a href="{{ route('report.index') }}" class="nav-link">
+                        <i class="fas fa-file-invoice nav-icon"></i>
+                        <p>Report</p>
                     </a>
                 </li> --}}
                 <li class="nav-header">SYSTEM</li>
