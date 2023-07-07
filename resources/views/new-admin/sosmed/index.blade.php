@@ -2,6 +2,15 @@
     <div class="card-body">
         <div class="row">
             <div class="col-lg-12">
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
                 <form action="/admin/footer/update" method="POST" enctype="multipart/form-data">
                     @method('PUT')
                     @csrf
@@ -14,9 +23,9 @@
                                     value="{{ isset($sosmed) ? $sosmed->instagram_title : old('instagram_title') }}"
                                     autocomplete="off">
                                 @error('instagram_title')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
                                 @enderror
                             </div>
                         </div>
@@ -28,9 +37,9 @@
                                     value="{{ isset($sosmed) ? $sosmed->instagram : old('instagram') }}"
                                     autocomplete="off">
                                 @error('instagram')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
                                 @enderror
                             </div>
                         </div>
@@ -42,9 +51,9 @@
                                     value="{{ isset($sosmed) ? $sosmed->whatsapp_title : old('whatsapp_title') }}"
                                     autocomplete="off">
                                 @error('whatsapp_title')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
                                 @enderror
                             </div>
                         </div>
@@ -56,9 +65,9 @@
                                     value="{{ isset($sosmed) ? $sosmed->whatsapp : old('whatsapp') }}"
                                     autocomplete="off">
                                 @error('whatsapp')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
                                 @enderror
                             </div>
                         </div>
@@ -70,9 +79,9 @@
                                     value="{{ isset($sosmed) ? $sosmed->facebook_title : old('facebook_title') }}"
                                     autocomplete="off">
                                 @error('facebook_title')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
                                 @enderror
                             </div>
                         </div>
@@ -84,9 +93,9 @@
                                     value="{{ isset($sosmed) ? $sosmed->facebook : old('facebook') }}"
                                     autocomplete="off">
                                 @error('facebook')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
                                 @enderror
                             </div>
                         </div>
@@ -98,9 +107,9 @@
                                     value="{{ isset($sosmed) ? $sosmed->tokopedia_title : old('tokopedia_title') }}"
                                     autocomplete="off">
                                 @error('tokopedia_title')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
                                 @enderror
                             </div>
                         </div>
@@ -112,9 +121,9 @@
                                     value="{{ isset($sosmed) ? $sosmed->tokopedia : old('tokopedia') }}"
                                     autocomplete="off">
                                 @error('tokopedia')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
                                 @enderror
                             </div>
                         </div>
@@ -126,9 +135,9 @@
                                     value="{{ isset($sosmed) ? $sosmed->shopee_title : old('shopee_title') }}"
                                     autocomplete="off">
                                 @error('shopee_title')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
                                 @enderror
                             </div>
                         </div>
@@ -139,9 +148,9 @@
                                     class="form-control @error('shopee') is-invalid @enderror"
                                     value="{{ isset($sosmed) ? $sosmed->shopee : old('shopee') }}" autocomplete="off">
                                 @error('shopee')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
                                 @enderror
                             </div>
                         </div>
@@ -153,9 +162,9 @@
                                     value="{{ isset($sosmed) ? $sosmed->twiter_title : old('twiter_title') }}"
                                     autocomplete="off">
                                 @error('twiter_title')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
                                 @enderror
                             </div>
                         </div>
@@ -164,24 +173,24 @@
                                 <label>Twiter Link</label>
                                 <input type="text" name="twiter"
                                     class="form-control @error('twiter') is-invalid @enderror"
-                                    value="{{ isset($sosmed) ? $sosmed->twiter : old('twiter') }}" autocomplete="off">
+                                    value="{{ isset($sosmed) ? $sosmed->twiter : old('twiter') }}"
+                                    autocomplete="off">
                                 @error('twiter')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
                                 @enderror
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="">Address</label>
-                                <textarea name="alamat" id="editor"
-                                    class="form-control @error('alamat') is-invalid @enderror"
+                                <textarea name="alamat" id="editor" class="form-control @error('alamat') is-invalid @enderror"
                                     placeholder="Alamat Perusahaan">{!! isset($sosmed) ? $sosmed->alamat : old('alamat') !!}</textarea>
                                 @error('alamat')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
                                 @enderror
                             </div>
                         </div>

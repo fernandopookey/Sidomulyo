@@ -37,7 +37,7 @@ class SosmedController extends Controller
             'twiter_title'       => 'required',
             'facebook'           => 'required',
             'facebook_title'     => 'required',
-            'photos'             => 'required|mimes:png,jpg,jpeg'
+            'photos'             => 'mimes:png,jpg,jpeg'
         ]);
 
         if ($request->hasFile('photos')) {
