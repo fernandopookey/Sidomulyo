@@ -168,7 +168,7 @@ class HomeController extends Controller
 
     public function blog()
     {
-        $blog           = Blog::paginate(2);
+        $blog           = Blog::paginate(4);
         $latest_post    = Blog::orderBy('created_at', 'desc')->take(2)->get();
         $about          = Profile::first();
 
