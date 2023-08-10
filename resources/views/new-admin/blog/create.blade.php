@@ -3,13 +3,13 @@
         <div class="row">
             <div class="col-md-12">
                 @if ($errors->any())
-                <div class="alert alert-danger">
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
                 @endif
                 <form action="{{ route('blog.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
@@ -49,7 +49,7 @@
                             <div class="input-group">
                                 <div class="custom-file">
                                     <input type="file" name="photos" class="custom-file-input" id="exampleInputFile"
-                                        onchange="loadFile(event)" required>
+                                        onchange="loadFile(event)">
                                     <label class="custom-file-label" for="exampleInputFile">Choose file</label>
                                 </div>
                                 <div class="input-group-append">

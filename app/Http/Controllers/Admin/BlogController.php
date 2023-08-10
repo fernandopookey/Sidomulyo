@@ -41,7 +41,25 @@ class BlogController extends Controller
         $data = $request->all();
 
         $data['slug'] = Str::slug($request->name);
-        $data['photos'] = $request->file('photos')->store('assets/blog', 'public');
+
+        if ($request->hasFile('photos')) {
+
+            if ($request->photos != null) {
+                $realLocation = "storage/" . $request->photos;
+                if (file_exists($realLocation) && !is_dir($realLocation)) {
+                    unlink($realLocation);
+                }
+            }
+
+            $photos = $request->file('photos');
+            $file_name = time() . '-' . $photos->getClientOriginalName();
+
+            $data['photos'] = $request->file('photos')->store('assets/blog', 'public');
+        } else {
+            $data['photos'] = $request->photos;
+        }
+
+        // $data['photos'] = $request->file('photos')->store('assets/blog', 'public');
 
         Blog::create($data);
         Alert::success('Sukses', 'Blog Added Successfully');
